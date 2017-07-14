@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="ObracunPlace.BeneficiraniUc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d"
+             d:DesignHeight="780" d:DesignWidth="830" Loaded="BeneficiraniUc_OnLoaded">
+    <DockPanel LastChildFill="False" HorizontalAlignment="Center">
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,30,0,0" FontSize="14" FontWeight="Bold">
+            <Run Text="IZRAČUNAJTE IZNOSE ZA DOPLATU DOPRINOSA BENFICIRANOG STAŽA OBZIROM NA BROJ MJESECI PRODUŽENJA" FontFamily="Comic Sans MS" FontSize="12" />
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" Height="68" Width="670" DockPanel.Dock="Top" Margin="25,20,10,0">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0,5,5,0" FontFamily="Roboto Light">
+                        <Run Text="Prezime i ime :" />
+                    </TextBlock>
+                    <TextBox x:Name="ImePrezime" Margin="10,0,30,0" Height="12" Width="180"
+                             HorizontalContentAlignment="Center" ToolTip="Upišite prezime i ime"
+                             controls:TextBoxHelper.IsWaitingForData="True"
+                             controls:TextBoxHelper.ClearTextButton="True" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,5,0">
+                    <TextBlock Text="Od datuma :" Margin="0,5,0,0" />
+                    <DatePicker x:Name="OdDatuma" Width="100" Height="26"
+                                Margin="10,0,0,0"
+                                ToolTip="Odaberite početni dan" />
+                    <TextBlock Text="Do datuma :" Margin="10,5,5,0" />
+                    <DatePicker x:Name="DoDatuma" Width="100"
+                                ToolTip="Odaberite zadnji dan" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Right" Margin="0,4">
+                    <Run Text="Upišite bruto iznos:" />
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Right" Margin="0,18,0,10">
+                    <Run Text="Odaberite vrstu beneficiranog :" />
+                </TextBlock>
+            </StackPanel>
+            <StackPanel MaxWidth="150">
+                <controls:NumericUpDown x:Name="TxtBruto" Value="0.00" Minimum="0.00" Maximum="500000.00"
+                                        Interval="0.01"
+                                        Margin="5,0,0,0" Width="120" Focusable="True"
+                                        ToolTip="Upišite bruto " Culture="hr" TrackMouseWheelWhenMouseOver="True" />
+                <ComboBox x:Name="CmbVrstaBene" HorizontalContentAlignment="Center"
+                          SelectionChanged="CmbVrstaBene_SelectionChanged" Margin="5,12,0,0"
+                          ToolTip="2,3 ili 4 mjeseca produženja" />
+            </StackPanel>
+        </StackPanel>
+        <Border Height="260" Width="650" DockPanel.Dock="Top" Margin="15,10" >
+            <GroupBox Header="Izračuni doprinosa" Margin="0">
+                <StackPanel Background="#FFF3FAFA">
+                    <StackPanel Orientation="Horizontal" Height="26" Width="600" Margin="0,10,0,0">
+                        <Label Content="Doprinos 15%" Margin="65,0,0,0" />
+                        <Label Content="Doprinos 5%" Margin="50,0,0,0" />
+                        <Label x:Name="LblBene1" Margin="15,0,0,0" />
+                        <Label x:Name="LblBene2" Margin="10,0,0,0" />
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                        <TextBox x:Name="TxtDop15" Width="100" IsReadOnly="True" Margin="80,0,0,0" Focusable="False"
+                            IsEnabled="False" HorizontalContentAlignment="Center" />
+                        <TextBox x:Name="TxtDop5" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
+                            IsEnabled="False" HorizontalContentAlignment="Center" />
+                        <TextBox x:Name="TxtBene1" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
+                            IsEnabled="False" HorizontalContentAlignment="Center" />
+                        <TextBox x:Name="TxtBene2" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
+                            IsEnabled="False" HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <Label Content="Doprinos 20%" Margin="30,0,0,0" />
+                        <Label x:Name="LblBene1I2" Margin="100,0,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBox x:Name="Txt20" IsReadOnly="True" Width="100" TextAlignment="Center" Focusable="False"
+                            IsEnabled="False" HorizontalContentAlignment="Center" />
+                        <TextBox x:Name="TxtUkBene1I2" IsReadOnly="True" Width="100" Margin="120,0,0,0"
+                            TextAlignment="Center" Focusable="False" IsEnabled="False"
+                            HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center"
+                        Margin="0,10,0,0">
+                        <Label x:Name="LblUkupnoBene" Content="Sveukupno doprinosa" />
+                        <TextBox x:Name="TxtUkupno" IsReadOnly="True" Width="100" TextAlignment="Center"
+                            Focusable="False" IsEnabled="False" HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" MinHeight="50"
+                    DockPanel.Dock="Top">
+            <Button x:Name="BtnOcisti" IsCancel="True" Click="BtnOcisti_Click" Width="100"
+                    ToolTip="Kao da pritisnete 'Esc'">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/cleaning.png" Stretch="None" />
+                    <TextBlock Text="OČISTI" VerticalAlignment="Center" Margin="3" FontWeight="Normal" FontFamily="Roboto Light" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnIspis" Click="BtnIspis_Click" Width="110" Margin="50,0,0,0"
+                    ToolTip="Ispisuje listu u .pdf">
+                <StackPanel Orientation="Horizontal">
+                    <Image Stretch="None" Source="Resources/filequickprint.png" />
+                    <TextBlock Text="ISPIŠI IZRAČUN" VerticalAlignment="Center" Margin="2" FontWeight="Normal" FontFamily="Roboto Light" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnIzracun" IsDefault="True" Click="BtnIzracun_Click" Margin="50,0,0,0"
+                    Width="100" ToolTip="Računa doprinose i stavlja u listu">
+                <StackPanel Orientation="Horizontal">
+                    <Image Stretch="None" Source="Resources/Calculator.png" />
+                    <TextBlock Text="IZRAČUNAJ" VerticalAlignment="Center" Margin="3"
+                               ToolTip="Izračunjte iznose" FontWeight="Normal" FontFamily="Roboto Light" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,25,0,5">
+            <DataGrid x:Name="DataGridBene" Height="150" AutoGenerateColumns="False"
+                      GridLinesVisibility="All" FontFamily="Roboto Light">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header=" Prezime i ime" Binding="{Binding Ime}" />
+                    <DataGridTextColumn Header=" Od dat. " Binding="{Binding OdDatuma}" />
+                    <DataGridTextColumn Header=" Do dat. " Binding="{Binding DoDatuma}" />
+                    <DataGridTextColumn Header=" Vrsta" Binding="{Binding Vrsta}" />
+                    <DataGridTextColumn Header=" Bruto "
+                                        Binding="{Binding Bruto, StringFormat=c, ConverterCulture= hr}" />
+                    <DataGridTextColumn Header=" Dop. 15%"
+                                        Binding="{Binding Doprinos15, StringFormat=c, ConverterCulture= hr}" />
+                    <DataGridTextColumn Header=" Dop. 5%"
+                                        Binding="{Binding Doprinos5, StringFormat=c, ConverterCulture= hr}" />
+                    <DataGridTextColumn Header=" Benef. 1"
+                                        Binding="{Binding Beneficirani1, StringFormat=c, ConverterCulture= hr}" />
+                    <DataGridTextColumn Header=" Benef. 2"
+                                        Binding="{Binding Beneficirani2, StringFormat=c, ConverterCulture= hr}" />
+                    <DataGridTextColumn Header=" Ukupno"
+                                        Binding="{Binding Ukupno, StringFormat=c, ConverterCulture= hr}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button x:Name="OcistiListu" Width="100" Content="Očisti listu" Margin="0"
+                        Click="OcistiListu_Click" ToolTip="Briše sve iz liste" FontWeight="Normal" FontFamily="Roboto Light" />
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" Margin="0,20,0,0" FontStyle="Italic">
+                <Run
+                    Text="Ovdje možete izračunati iznos doplate doprinosa za radnike koji imaju pravo na produljenje staža za: 2,3 ili 4 mjeseca. Ti iznosi se razlikuju u odnosu na vrstu produljenja staža. Pojedini red iz liste brišite tako da ga označite, a potom tipka 'Delete'." />
+            </TextBlock>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

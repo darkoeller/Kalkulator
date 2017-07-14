@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8257D7D0-CFCA-471E-9DCA-DDDA0A6C7E44}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BiznisSloj</RootNamespace>
+    <AssemblyName>BiznisSloj</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DodatakNaPlacu.cs" />
+    <Compile Include="Doprinosi\BeneficiraniDvaNulaJedan.cs" />
+    <Compile Include="Doprinosi\BeneficiraniDvaOsamdesetDevet.cs" />
+    <Compile Include="Doprinosi\BeneficiraniJedanDvadesetPet.cs" />
+    <Compile Include="Doprinosi\BeneficiraniOsamTridesetDevet.cs" />
+    <Compile Include="Doprinosi\BeneficiraniPetOsamdesetTri.cs" />
+    <Compile Include="Doprinosi\BeneficiraniTriSedesetJedan.cs" />
+    <Compile Include="Doprinosi\Doprinos.cs" />
+    <Compile Include="Doprinosi\DoprinosPetnaestPosto.cs" />
+    <Compile Include="Doprinosi\DoprinosPetPosto.cs" />
+    <Compile Include="Doprinosi\OdabireVrstuBeneficirano.cs" />
+    <Compile Include="Doprinosi\RacunajBeneficiraniCetiriMjeseca.cs" />
+    <Compile Include="Doprinosi\RacunajBeneficiraniDvaMjeseca.cs" />
+    <Compile Include="Doprinosi\RacunajBeneficiraniTriMjeseca.cs" />
+    <Compile Include="IzracunGodinaStaza.cs" />
+    <Compile Include="KoefSati\IzracunajKoeficijentSate.cs" />
+    <Compile Include="KoefSati\Koeficijenti.cs" />
+    <Compile Include="KoefSati\KoeficSat.cs" />
+    <Compile Include="Doprinosi\RacunajDoprinoseIzPlace.cs" />
+    <Compile Include="Doprinosi\RacunajDoprinoseNaPlacu.cs" />
+    <Compile Include="Doprinosi\Zaposljavanje.cs" />
+    <Compile Include="Doprinosi\ZastitaNaRadu.cs" />
+    <Compile Include="Doprinosi\Zdravstveno.cs" />
+    <Compile Include="KoefSati\KoeficijentSatSmjene.cs" />
+    <Compile Include="KoefSati\KoefSatSamoPrva.cs" />
+    <Compile Include="MinuliRad.cs" />
+    <Compile Include="Olaksice\IzracunOlaksice.cs" />
+    <Compile Include="Ovrha.cs" />
+    <Compile Include="Porezi\IzracunajPoreze.cs" />
+    <Compile Include="Porezi\Porez24.cs" />
+    <Compile Include="Porezi\Porez36.cs" />
+    <Compile Include="Porezi\Porezi.cs" />
+    <Compile Include="Porezi\PorezniKoeficijenti.cs" />
+    <Compile Include="Prijevoz.cs" />
+    <Compile Include="ProcesuirajNeto.cs" />
+    <Compile Include="ProcesuirajPlacu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

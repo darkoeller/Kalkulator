@@ -1,0 +1,32 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:koefSati="clr-namespace:BiznisSloj.KoefSati;assembly=BiznisSloj"
+    x:Class="ObracunPlace.MrezaKoeficijenata"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="420" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="KoeficijentiViewSource"
+                              d:DesignSource="{d:DesignInstance {x:Type koefSati:Koeficijenti}, CreateList=True}" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource KoeficijentiViewSource}">
+        <DataGrid x:Name="KoeficijentiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"
+                  ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Sifra}" Header="Šifra" Width="SizeToHeader" />
+                <DataGridTextColumn Binding="{Binding Naziv}" Header="Naziv vrste rada" Width="250" />
+                <DataGridTextColumn Binding="{Binding Koeficijent}" Header="Koeficijent" Width="SizeToHeader">
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
