@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="780" d:DesignWidth="830" Loaded="BeneficiraniUc_OnLoaded">
     <DockPanel LastChildFill="False" HorizontalAlignment="Center">
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,30,0,0" FontSize="14" FontWeight="Bold">
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,15,0,0" FontSize="14" FontWeight="Bold">
             <Run Text="IZRAČUNAJTE IZNOSE ZA DOPLATU DOPRINOSA BENFICIRANOG STAŽA OBZIROM NA BROJ MJESECI PRODUŽENJA" FontFamily="Comic Sans MS" FontSize="12" />
         </TextBlock>
         <StackPanel Orientation="Horizontal" Height="68" Width="670" DockPanel.Dock="Top" Margin="25,20,10,0">
@@ -114,7 +114,7 @@
             </Button>
         </StackPanel>
         <StackPanel Margin="0,25,0,5">
-            <DataGrid x:Name="DataGridBene" Height="150" AutoGenerateColumns="False"
+            <DataGrid x:Name="DataGridBene" Height="170" AutoGenerateColumns="False"
                       GridLinesVisibility="All" FontFamily="Roboto Light">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header=" Prezime i ime" Binding="{Binding Ime}" />

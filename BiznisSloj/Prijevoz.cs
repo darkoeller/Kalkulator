@@ -120,14 +120,14 @@ namespace BiznisSloj
         public static IEnumerable<string> ListaStanica()
         {
             var stanice = from l in ListaRelacija
-            select l.Key;
+                          select l.Key;
             return stanice;
         }
 
         public static decimal VratiIznosPrijevoza(string mjesto)
         {
             var iznos = from i in ListaRelacija
-                where i.Key == mjesto
+                where i.Key.Equals(mjesto)
                 select i.Value;
             var pronadjeno = iznos.First();
             return pronadjeno;
