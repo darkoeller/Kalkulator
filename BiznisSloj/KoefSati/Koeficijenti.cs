@@ -12,9 +12,8 @@ namespace BiznisSloj.KoefSati
 
         public static decimal VratiIznos(string naziv)
         {
-            var rezultat = VratiSifre();
-            var iznos = rezultat.Where(r => r.Naziv.Equals(naziv)).Select(r => r.Koeficijent);
-            return iznos.First();
+            var rezultat = VratiSifre().Where(r => string.Equals(r.Naziv, naziv)).Select(r => r.Koeficijent).First();
+            return rezultat;
         }
 
         public static IEnumerable<Koeficijenti> VratiSifre()

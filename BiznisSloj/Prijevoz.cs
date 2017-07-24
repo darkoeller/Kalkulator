@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BiznisSloj
@@ -119,18 +118,14 @@ namespace BiznisSloj
 
         public static IEnumerable<string> ListaStanica()
         {
-            var stanice = from l in ListaRelacija
-                          select l.Key;
+            var stanice = ListaRelacija.Select(st => st.Key);
             return stanice;
         }
 
         public static decimal VratiIznosPrijevoza(string mjesto)
         {
-            var iznos = from i in ListaRelacija
-                where i.Key.Equals(mjesto)
-                select i.Value;
-            var pronadjeno = iznos.First();
-            return pronadjeno;
+            var iznos = ListaRelacija.Where(rel => string.Equals(rel.Key, mjesto)).Select(st => st.Value).First();
+            return iznos;
         }
 
     }
