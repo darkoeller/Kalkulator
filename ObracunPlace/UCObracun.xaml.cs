@@ -13,7 +13,7 @@ namespace ObracunPlace
     /// <summary>
     ///     Interaction logic for UCObracun.xaml
     /// </summary>
-    public partial class UcObracun : INotifyPropertyChanged
+    public sealed partial class UcObracun : INotifyPropertyChanged
     {
         // Using a DependencyProperty as the backing store for Bruto.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BrutoProperty =
@@ -34,7 +34,7 @@ namespace ObracunPlace
 
         public decimal Bruto
         {
-            get { return (decimal) GetValue(BrutoProperty); }
+            private get { return (decimal) GetValue(BrutoProperty); }
             set { SetValue(BrutoProperty, value); }
         }
 
@@ -125,7 +125,7 @@ namespace ObracunPlace
             OnPropertyChanged(Bruto);
         }
 
-        protected virtual void OnPropertyChanged(decimal propertyName)
+        private void OnPropertyChanged(decimal propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.ToString(new CultureInfo("HR-hr"))));
         }

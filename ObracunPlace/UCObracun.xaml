@@ -6,12 +6,12 @@
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
              d:DesignHeight="585" d:DesignWidth="790">
-    <GroupBox Width="700" Height="520" Margin="10,10,2,0"  Header="Izračunajte svoj bruto iznos plaće" VerticalAlignment="Top">
-        <Grid Width="690" Height="490" HorizontalAlignment="Left" Margin="0" Background="#FFF3FAFA">
+    <GroupBox Width="730" Height="520" Margin="10,10,2,0"  Header="Izračunajte svoj bruto iznos plaće" VerticalAlignment="Top">
+        <Grid Width="720" Height="490" HorizontalAlignment="Left" Margin="0" Background="#FFF3FAFA">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80*" />
-                <ColumnDefinition Width="100*" />
-                <ColumnDefinition Width="60*" />
+                <ColumnDefinition Width="120*" />
+                <ColumnDefinition Width="70*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition MinHeight="140" />
@@ -84,7 +84,7 @@
                             Culture="hr" TrackMouseWheelWhenMouseOver="True" />
                     </StackPanel>
                     <StackPanel Margin="510,0,0,-0.2">
-                        <Button x:Name="BtnRacunaMinuli" Content="Izračunaj minuli" Margin="5,20,5,0"
+                        <Button x:Name="BtnRacunaMinuli" Content="Izračunaj minuli" Margin="30,20,10,0"
                             Click="BtnRacunaMinuli_Click"
                             ToolTip="Provjerite upisane bodove" Height="30" FontFamily="Roboto Light" />
                         <Label x:Name="LblMinuli" VerticalAlignment="Center" />
