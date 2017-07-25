@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Data;
 using BiznisSloj.KoefSati;
 
 namespace ObracunPlace
@@ -15,7 +16,11 @@ namespace ObracunPlace
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            KoeficijentiDataGrid.ItemsSource = Koeficijenti.VratiSifre();
+            var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti.VratiSifre());
+            collectionView.GroupDescriptions.Add(new PropertyGroupDescription("Sifra"));
+
+            // Set the view as the DataContext for the DataGrid
+            KoeficijentiDataGrid.DataContext = collectionView;
         }
     }
 }

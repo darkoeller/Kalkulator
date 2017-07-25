@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace BiznisSloj.KoefSati
@@ -18,7 +19,7 @@ namespace BiznisSloj.KoefSati
 
         public static IEnumerable<Koeficijenti> VratiSifre()
         {
-            var sifreRada = new List<Koeficijenti>
+            var sifreRada = new ObservableCollection<Koeficijenti>()
             {
                 new Koeficijenti {Id = 1, Sifra = "01", Naziv = @"Redovni rad 1.smjena", Koeficijent = 1.00m},
                 new Koeficijenti {Id = 2, Sifra = "02", Naziv = @"Redovni rad 2.smjena", Koeficijent = 1.15m},
