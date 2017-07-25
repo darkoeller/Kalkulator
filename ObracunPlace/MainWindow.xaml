@@ -140,7 +140,7 @@
                             </Button>
                             <TextBlock Text="Aplikaciju izradio: Darko Eller" Margin="20,20,0,0"
                                        FontSize="10.667"
-                                       VerticalAlignment="Bottom" FontFamily="Roboto-Italic" />
+                                       VerticalAlignment="Bottom" FontFamily="Roboto-Italic" FontStyle="Italic" IsEnabled="False" />
                         </StackPanel>
                         <GroupBox Header="Opisi stavki" Height="500">
                             <StackPanel x:Name="PanelLeft" MinWidth="520" Margin="0,10,0,0">
