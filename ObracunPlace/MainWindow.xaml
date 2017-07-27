@@ -97,10 +97,10 @@
                                                  Margin="5,0,0,0"
                                                  ToolTip="Odaberite ako niste u 2.stupu, vaš doprinos je 20%" FontFamily="Roboto Light" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0">
-                                    <TextBlock TextWrapping="Wrap" Margin="5,0,0,5" Width="110"
-                                               Text="Upišite bruto iznos :" />
-                                    <TextBox x:Name="TxtBruto" Width="100"
+                                <StackPanel Grid.Column="5" VerticalAlignment="Center"  Margin="0" Width="150">
+                                    <TextBlock TextWrapping="Wrap"  Width="110"
+                                               Text="Upišite bruto iznos :" HorizontalAlignment="Center" />
+                                    <TextBox x:Name="TxtBruto" Width="100" Margin="0,5,0,0" HorizontalAlignment="Right"
                                              BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                                              Background="#FFFBFAE9"
                                              TextAlignment="Right" Foreground="OrangeRed"
