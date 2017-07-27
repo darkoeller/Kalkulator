@@ -76,6 +76,7 @@ namespace ObracunPlace
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
+            CmbPrijevoz_SelectionChanged(this, null);
         }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
@@ -156,15 +157,16 @@ namespace ObracunPlace
         private void RbBruto_Checked(object sender, RoutedEventArgs e)
         {
             OcistiLabele();
+            CmbPrijevoz.IsEnabled = true;
             TxtBruto.IsEnabled = true;
-            TxtBruto.Text = string.Empty;
             TxtBruto.Focus();
             TxtNeto.IsEnabled = false;
             TxtNeto.Text = "0,00";
         }
         private void RbNeto_Checked(object sender, RoutedEventArgs e)
         {
-            OcistiLabele();
+            BtnOcisti_Clic(this,null);
+            CmbPrijevoz.IsEnabled = false;
             TxtBruto.IsEnabled = false;
             TxtNeto.IsEnabled = true;
             TxtNeto.Text = string.Empty;
