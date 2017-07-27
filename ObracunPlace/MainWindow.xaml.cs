@@ -76,6 +76,7 @@ namespace ObracunPlace
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
+            CmbPrijevoz_SelectionChanged(this, null);
         }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
