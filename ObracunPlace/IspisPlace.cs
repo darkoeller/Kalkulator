@@ -68,13 +68,13 @@ namespace ObracunPlace
                     headertablica.AddCell(celijakutina);
                     headertablica.AddCell(celijadatum);
                     doc.Add(headertablica);
-                    doc.Add(new Paragraph(NaslovniText.Text.ToUpper(), desetka) { SpacingBefore = 20f, Alignment = 1 });
+                    doc.Add(new Paragraph(NaslovniText.Text.ToUpper(), desetka) { SpacingBefore = 50f, Alignment = 1 });
                     doc.Add(new Paragraph(" "));
                     //ovdje dođe tijelo platne liste
                     var listaIznosa = new PdfPTable(2);
                     float[] sirina = { 20f, 8f };
-                    listaIznosa.SpacingBefore = 20f;
-                    listaIznosa.SpacingAfter = 20f;
+                    listaIznosa.SpacingBefore = 10f;
+                    listaIznosa.SpacingAfter = 70f;
                     listaIznosa.SetWidths(sirina);
                     listaIznosa.WidthPercentage = 50;
                     listaIznosa.AddCell(new Phrase(" OPISI STAVKI ", times));

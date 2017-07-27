@@ -15,7 +15,7 @@ namespace ObracunPlace
                 new Paragraph(
                     "Petrokemija, d.d. tvornica gnojiva, Aleja Vukovar 4, 44320 Kutina; predsjednik Nadzornog odbora: Mijo Šepak;",
                     maliFont)
-                {SpacingBefore = 20f, Alignment = 1});
+                {SpacingBefore = 80f, Alignment = 1});
             doc.Add(
                 new Paragraph(
                     "Uprava: Đuro Popijač – predsjednik, Nenad Zečević – član, Davor Žmegač - član;",
