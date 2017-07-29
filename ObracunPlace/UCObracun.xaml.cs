@@ -17,7 +17,7 @@ namespace ObracunPlace
     {
         // Using a DependencyProperty as the backing store for Bruto.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BrutoProperty =
-            DependencyProperty.Register("Bruto", typeof (decimal), typeof (UcObracun));
+            DependencyProperty.Register("Bruto", typeof(decimal), typeof(UcObracun));
 
         private decimal _koeficijent;
 
@@ -127,7 +127,8 @@ namespace ObracunPlace
 
         private void OnPropertyChanged(decimal propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName.ToString(new CultureInfo("HR-hr"))));
+            PropertyChanged?.Invoke(this,
+                new PropertyChangedEventArgs(propertyName.ToString(new CultureInfo("HR-hr"))));
         }
 
         private static decimal PronadjiDecimalniBroj(string razlika)

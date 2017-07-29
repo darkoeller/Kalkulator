@@ -5,18 +5,18 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
-
         private const decimal ProsjecnoNeto = 5664.00m;
 
         private const decimal MinimalniNeto = 3276.00m;
-        public decimal ZaOvrsiti { get; private set; }
-
-        private decimal Neto { get; }
 
         public Ovrha(decimal neto)
         {
             Neto = neto;
         }
+
+        public decimal ZaOvrsiti { get; private set; }
+
+        private decimal Neto { get; }
 
         public decimal IzracunajOvrhu()
         {
@@ -26,7 +26,6 @@ namespace BiznisSloj
             {
                 MessageBox.Show("Ovrha nije moguća zbog minimalnog neta");
                 return Neto;
-
             }
             if (Neto >= ProsjecnoNeto)
             {

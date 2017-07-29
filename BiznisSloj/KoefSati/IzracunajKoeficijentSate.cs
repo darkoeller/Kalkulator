@@ -10,10 +10,10 @@
             Koeficijent = koeficijent;
         }
 
-        private decimal BrojSati { get; set; }
-        private decimal Minuli { get; set; }
-        private decimal Bodovi { get; set; }
-        private decimal Koeficijent { get; set; }
+        private decimal BrojSati { get; }
+        private decimal Minuli { get; }
+        private decimal Bodovi { get; }
+        private decimal Koeficijent { get; }
 
         public decimal Izracun()
         {

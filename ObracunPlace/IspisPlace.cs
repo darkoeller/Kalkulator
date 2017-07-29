@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Windows;
 using iTextSharp.text;
@@ -25,7 +24,6 @@ namespace ObracunPlace
                 {
                     var pdwri = PdfWriter.GetInstance(doc,
                         new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
-
                     var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
                     // var times2 = FontFactory.GetFont(FontFactory.TIMES, 9,new CMYKColor(100, 70, 29,25));
                     var times = new Font(bfTimes, 9);
@@ -44,7 +42,7 @@ namespace ObracunPlace
                     doc.Add(new Paragraph("Tel.: +385 44 647 270", times));
                     doc.Add(new Paragraph("Fax: +385 44 680 882", times));
                     doc.Add(new Paragraph("E-mail: ", times));
-                    var anchor = new Anchor("www.petrokemija.hr", times) { Reference = "http://www.petrokemija.hr" };
+                    var anchor = new Anchor("www.petrokemija.hr", times) {Reference = "http://www.petrokemija.hr"};
                     doc.Add(anchor);
                     doc.Add(new Paragraph(" "));
                     var headertablica = new PdfPTable(2)
@@ -68,11 +66,11 @@ namespace ObracunPlace
                     headertablica.AddCell(celijakutina);
                     headertablica.AddCell(celijadatum);
                     doc.Add(headertablica);
-                    doc.Add(new Paragraph(NaslovniText.Text.ToUpper(), desetka) { SpacingBefore = 50f, Alignment = 1 });
+                    doc.Add(new Paragraph(NaslovniText.Text.ToUpper(), desetka) {SpacingBefore = 50f, Alignment = 1});
                     doc.Add(new Paragraph(" "));
                     //ovdje dođe tijelo platne liste
                     var listaIznosa = new PdfPTable(2);
-                    float[] sirina = { 20f, 8f };
+                    float[] sirina = {20f, 8f};
                     listaIznosa.SpacingBefore = 10f;
                     listaIznosa.SpacingAfter = 70f;
                     listaIznosa.SetWidths(sirina);
@@ -103,18 +101,22 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase(Listica.Prirez.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Ukupno porezi + prirez : ", times));
                     listaIznosa.AddCell(new Phrase(Listica.UkupniPorez.ToString("c"), times));
-                    var netocelija = new PdfPCell(new Phrase("Neto plaća : ", times))
-                    {
-                        BackgroundColor = new BaseColor(0, 255, 255)
-                    };
-                    listaIznosa.AddCell(netocelija);
-                    var netoiznos = new PdfPCell(new Phrase(Listica.Neto.ToString("c"), times))
-                    {
-                        BackgroundColor = new BaseColor(0, 255, 255)
-                    };
-                    listaIznosa.AddCell(netoiznos);
+                    listaIznosa.AddCell(new Phrase("Neto plaća : ", times));
+                    listaIznosa.AddCell(new Phrase(Listica.Neto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz : ", times));
                     listaIznosa.AddCell(new Phrase(LblPrijevoz.Content.ToString(), times));
+                    var labOdbici =
+                        new PdfPCell(new Phrase("Neto iznos - osobni odbici (za isplatu) : ", times))
+                        {
+                            BackgroundColor = new BaseColor(0, 255, 255)
+                        };
+                    listaIznosa.AddCell(labOdbici);
+                    var totalOdbici =
+                        new PdfPCell(new Phrase(LblOdbici.Content.ToString(), times))
+                        {
+                            BackgroundColor = new BaseColor(0, 255, 255)
+                        };
+                    listaIznosa.AddCell(totalOdbici);
                     listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
                     listaIznosa.AddCell(new Phrase(Listica.DoprinosZaZdravstveno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));

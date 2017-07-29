@@ -11,7 +11,7 @@ namespace BiznisSloj.KoefSati
 
         public override decimal RacunajKoefSat()
         {
-            var izracun = Bodovi*BrojSati*Vrijednostboda*Koeficijent;
+            var izracun = Bodovi * BrojSati * Vrijednostboda * Koeficijent;
             return Math.Round(izracun, 2);
         }
     }

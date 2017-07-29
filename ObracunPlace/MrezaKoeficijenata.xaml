@@ -32,10 +32,13 @@
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal" Background="#E7FCF5">
-                                                <TextBlock  Margin="100,2,0,2"  FontFamily="Comic Sans MS">Grupa :</TextBlock>
-                                                <TextBlock FontFamily="Comic Sans MS" Margin="10,2,0,2" Text="{Binding Path=Name}" />
+                                                <TextBlock Margin="100,2,0,2" FontFamily="Comic Sans MS">Grupa :</TextBlock>
+                                                <TextBlock FontFamily="Comic Sans MS" Margin="10,2,0,2"
+                                                           Text="{Binding Path=Name}" />
                                                 <TextBlock Text="; " FontFamily="Comic Sans MS" />
-                                                <TextBlock Text="{Binding  ItemCount, StringFormat=ukupno koeficijenata : {0}}" Margin="10,2,0,2" Width="230" FontFamily="Comic Sans MS" />
+                                                <TextBlock
+                                                    Text="{Binding  ItemCount, StringFormat=ukupno koeficijenata : {0}}"
+                                                    Margin="10,2,0,2" Width="230" FontFamily="Comic Sans MS" />
                                             </StackPanel>
                                             <ItemsPresenter />
                                         </StackPanel>

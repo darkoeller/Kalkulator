@@ -12,7 +12,8 @@
                       Title="Kalkulator plaće v. 2017 : neto / bruto" Height="835" Width="850"
                       WindowStartupLocation="CenterScreen"
                       Loaded="MainWindow_OnLoaded" Icon="Resources/11438.ico"
-                      ResizeMode="CanResizeWithGrip" ShowInTaskbar="True" WindowStyle="SingleBorderWindow" FontFamily="Roboto Light">
+                      ResizeMode="CanResizeWithGrip" ShowInTaskbar="True" WindowStyle="SingleBorderWindow"
+                      FontFamily="Roboto Light">
     <Window.Resources>
         <Style x:Key="UvucenText" TargetType="TextBlock">
             <Setter Property="Padding" Value="10,2,2,2" />
@@ -22,13 +23,14 @@
         <Grid x:Name="CjelaMreza" Height="800" Width="800">
             <controls:MetroAnimatedTabControl x:Name="TabKontrola"
                                               controls:ControlsHelper.HeaderFontSize="12"
-                                              controls:ControlsHelper.ContentCharacterCasing="Lower" 
+                                              controls:ControlsHelper.ContentCharacterCasing="Lower"
                                               controls:TabControlHelper.Underlined="SelectedTabItem">
                 <TabItem x:Name="IzracunTabItem" Header="izračun bruto/neto |"
                          controls:ControlsHelper.HeaderFontSize="14">
                     <DockPanel x:Name="DckPanel" Margin="8,10,8,0" HorizontalAlignment="Center"
                                VerticalAlignment="Top" MinWidth="770" Height="750">
-                        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,0,0,5" FontSize="14" FontWeight="Bold">
+                        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,0,0,5" FontSize="14"
+                                   FontWeight="Bold">
                             <Run Text="VAŠA BRUTO ILI NETO PLAĆA" FontFamily="Comic Sans MS" FontSize="12" />
                         </TextBlock>
                         <TextBox x:Name="NaslovniText" DockPanel.Dock="Top" Margin="5,2,5,5"
@@ -52,7 +54,7 @@
                                     <RowDefinition Height="80" />
                                 </Grid.RowDefinitions>
                                 <StackPanel Margin="3,0,3,0">
-                 <RadioButton GroupName="BrutoNeto" x:Name="RbBruto" Content="Iz bruta u neto"
+                                    <RadioButton GroupName="BrutoNeto" x:Name="RbBruto" Content="Iz bruta u neto"
                                                  HorizontalAlignment="Center"
                                                  Margin="2,15,2,5"
                                                  ToolTip="Označite ako želite izračunati neto plaću, iz bruta u neto"
@@ -74,18 +76,22 @@
                                 </StackPanel>
                                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center"
                                             HorizontalAlignment="Left">
-                                    <TextBlock TextWrapping="Wrap" Margin="5,0,5,0" Text="Prirez :" 
-                                               ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6" VerticalAlignment="Center" />
+                                    <TextBlock TextWrapping="Wrap" Margin="5,0,5,0" Text="Prirez :"
+                                               ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6"
+                                               VerticalAlignment="Center" />
                                     <controls:NumericUpDown x:Name="PrirezUpDown" Value="0" Width="80"
                                                             Height="30" Minimum="0" Margin="0,0,7,0"
                                                             Maximum="18"
-                                                            ToolTip="Iznos prireza za općine i gradove: Kutina 12%, Lipovljani 6% itd. " Culture="hr"
+                                                            ToolTip="Iznos prireza za općine i gradove: Kutina 12%, Lipovljani 6% itd. "
+                                                            Culture="hr"
                                                             TrackMouseWheelWhenMouseOver="True" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center"
                                             Margin="0" MaxWidth="150">
                                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="80">
-                                        <CheckBox x:Name="CheckBoxDoprinosi"  Margin="2,30,0,0"  ToolTip="Ako računate sa ograničenjem označite kvadratić."  Width="20" d:IsHidden="True"/>
+                                        <CheckBox x:Name="CheckBoxDoprinosi" Margin="2,30,0,0"
+                                                  ToolTip="Ako računate sa ograničenjem označite kvadratić." Width="20"
+                                                  d:IsHidden="True" />
                                     </StackPanel>
                                     <TextBlock Margin="3" MaxWidth="100" TextWrapping="Wrap">Sa ograničenjem za doprinose mirovinskog osig. od 9.286,80 kn</TextBlock>
                                 </StackPanel>
@@ -95,16 +101,18 @@
                                                  Margin="5,0,5,10" FontFamily="Roboto Light" />
                                     <RadioButton GroupName="StupOsig" x:Name="Rb1Stup" Content="samo 1. stup"
                                                  Margin="5,0,0,0"
-                                                 ToolTip="Odaberite ako niste u 2.stupu, vaš doprinos je 20%" FontFamily="Roboto Light" />
+                                                 ToolTip="Odaberite ako niste u 2.stupu, vaš doprinos je 20%"
+                                                 FontFamily="Roboto Light" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="5" VerticalAlignment="Center"  Margin="0" Width="150">
-                                    <TextBlock TextWrapping="Wrap"  Width="110"
+                                <StackPanel Grid.Column="5" VerticalAlignment="Center" Margin="0" Width="150">
+                                    <TextBlock TextWrapping="Wrap" Width="110"
                                                Text="Upišite bruto iznos :" HorizontalAlignment="Center" />
                                     <TextBox x:Name="TxtBruto" Width="100" Margin="0,5,0,0" HorizontalAlignment="Right"
                                              BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                                              Background="#FFFBFAE9"
                                              TextAlignment="Right" Foreground="OrangeRed"
-                                             ToolTip="Ovdje unesite bruto, obavezno koristite zarez za decimalni broj" FontFamily="Roboto"  />
+                                             ToolTip="Ovdje unesite bruto, obavezno koristite zarez za decimalni broj"
+                                             FontFamily="Roboto" />
                                 </StackPanel>
                                 <GridSplitter Grid.Column="0" Width="2" Background="{DynamicResource AccentColorBrush}" />
                                 <GridSplitter Grid.Column="1" Width="2" Background="{DynamicResource AccentColorBrush}" />
@@ -115,34 +123,38 @@
                         </Border>
                         <StackPanel x:Name="StckBottom" DockPanel.Dock="Bottom" MinHeight="50"
                                     HorizontalAlignment="Center"
-                                    Orientation="Horizontal" Margin="50,10,0,30" MinWidth="250">
+                                    Orientation="Horizontal" Margin="50,10,0,0" MinWidth="250">
                             <Button x:Name="BtnOcisti" Width="100" Click="BtnOcisti_Clic"
                                     ToolTip="Očistite kontrole na 0,00"
-                                    IsCancel="True" FontFamily="Roboto" >
+                                    IsCancel="True" FontFamily="Roboto">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="Resources/cleaning.png" Stretch="None" />
-                                    <TextBlock Text="OČISTI" VerticalAlignment="Center" Margin="3" FontFamily="Roboto Light" />
+                                    <TextBlock Text="OČISTI" VerticalAlignment="Center" Margin="3"
+                                               FontFamily="Roboto Light" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ispis" Width="110" Margin="60,0,0,0" Click="Ispis_Click"
                                     ToolTip="Ispisuje  iznose u .pdf">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Stretch="None" Source="Resources/filequickprint.png" />
-                                    <TextBlock Text="ISPIŠI IZRAČUN" VerticalAlignment="Center" Margin="2" FontFamily="Roboto-Light" FontWeight="Normal" />
+                                    <TextBlock Text="ISPIŠI IZRAČUN" VerticalAlignment="Center" Margin="2"
+                                               FontFamily="Roboto-Light" FontWeight="Normal" />
                                 </StackPanel>
                             </Button>
                             <Button x:Name="BtnIzracun" Width="100" Click="BtnIzracun_Click" Margin="60,0,0,0"
                                     ToolTip="Izračunajte neto ili bruto" IsDefault="True">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Stretch="None" Source="Resources/Calculator.png" />
-                                    <TextBlock Text="IZRAČUNAJ" VerticalAlignment="Center" Margin="3" FontFamily="Roboto-Light" FontWeight="Normal" />
+                                    <TextBlock Text="IZRAČUNAJ" VerticalAlignment="Center" Margin="3"
+                                               FontFamily="Roboto-Light" FontWeight="Normal" />
                                 </StackPanel>
                             </Button>
                             <TextBlock Text="Aplikaciju izradio: Darko Eller" Margin="20,20,0,0"
                                        FontSize="10.667"
-                                       VerticalAlignment="Bottom" FontFamily="Roboto-Italic" FontStyle="Italic" IsEnabled="False" />
+                                       VerticalAlignment="Bottom" FontFamily="Roboto-Italic" FontStyle="Italic"
+                                       IsEnabled="False" />
                         </StackPanel>
-                        <GroupBox Header="Opisi stavki" Height="500">
+                        <GroupBox Header="Opisi stavki" Height="520">
                             <StackPanel x:Name="PanelLeft" MinWidth="520" Margin="0,10,0,0">
                                 <TextBlock x:Name="TextBlockOsnovica" TextWrapping="Wrap"
                                            Text="OSNOVICA ZA UTVRĐIVANJE DOPRINOSA PREMA OPOREZIVIM NAKNADAMA"
@@ -163,7 +175,8 @@
                                            Margin="0,4,0,0" />
                                 <TextBlock x:Name="TextBlocOdbitak" Text="NEOPOREZIVI ODBITAK :" Margin="0,8,0,0" />
                                 <TextBlock x:Name="TextBlocOsnovica" Text="POREZNA OSNOVICA :" Margin="0,10,0,0" />
-                                <TextBlock x:Name="TextBlocPorUkupno" Text="POREZ + PRIREZ, SVEUKUPNO:" Margin="0,10,0,0" />
+                                <TextBlock x:Name="TextBlocPorUkupno" Text="POREZ + PRIREZ, SVEUKUPNO:"
+                                           Margin="0,10,0,0" />
                                 <TextBlock x:Name="TextBlocOsnovica25" Style="{StaticResource UvucenText}"
                                            Text="1. porez po stopi - 24% :"
                                            Margin="0,7,0,0" />
@@ -177,9 +190,24 @@
                                            FontWeight="Bold" />
                                 <StackPanel Orientation="Horizontal" Margin="5,10,5,0" Background="#FFF3FAFA">
                                     <TextBlock Margin="5" HorizontalAlignment="Left">Ovdje odaberite relaciju putovanja za naknadu prijevoza :</TextBlock>
-                                     <ComboBox x:Name="CmbPrijevoz" Width="240" Margin="5,0,0,0" HorizontalAlignment="Right" SelectionChanged="CmbPrijevoz_SelectionChanged" IsReadOnly="True" HorizontalContentAlignment="Center"></ComboBox>
+                                    <ComboBox x:Name="CmbPrijevoz" Width="240" Margin="5,0,0,0"
+                                              HorizontalAlignment="Right"
+                                              SelectionChanged="CmbPrijevoz_SelectionChanged" IsReadOnly="True"
+                                              HorizontalContentAlignment="Center" />
                                 </StackPanel>
-                                <TextBlock x:Name="TextBlocNaPlacu" Text="DOPRINOSI NA PLAĆU :" Margin="0,7,0,0" />
+                                <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource UvucenText}" VerticalAlignment="Center">Upišite iznos svojih odbitaka (sindikat, krediti, dopunsko, itd.) :</TextBlock>
+                                        <controls:NumericUpDown x:Name="TxtBoxOdbici" Margin="121,2,0,2" Width="100"
+                                                                HorizontalContentAlignment="Right"
+                                                                Value="0.00" Minimum="0.00" Maximum="5000.00"
+                                                                Interval="0.01" Culture="hr-HR"
+                                                                TrackMouseWheelWhenMouseOver="True"
+                                                                TextAlignment="Right"
+                                                                controls:TextBoxHelper.UseFloatingWatermark="True" />
+                                    </StackPanel>
+                                </Border>
+                                <TextBlock x:Name="TextBlocNaPlacu" Text="DOPRINOSI NA PLAĆU :" Margin="0,2,0,0" />
                                 <TextBlock x:Name="TextBlocZdravstvo" Style="{StaticResource UvucenText}"
                                            Text="1. doprinos za zdravstveno - 15% :" Margin="0,5,0,0" />
                                 <TextBlock x:Name="TextBlocZdravlje" Style="{StaticResource UvucenText}"
@@ -194,12 +222,12 @@
                                            FontWeight="Bold" />
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Header="Iznosi u kunama" Height="500">
+                        <GroupBox Header="Iznosi u kunama" Height="520">
                             <StackPanel x:Name="StPanel2" MinWidth="160" Margin="0" Background="#FFF3FAFA">
                                 <StackPanel.Resources>
                                     <Style TargetType="Label">
-                                        <Setter Property="Margin" Value="0"/>
-                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                        <Setter Property="Margin" Value="0" />
+                                        <Setter Property="HorizontalAlignment" Value="Right" />
                                     </Style>
                                 </StackPanel.Resources>
                                 <Label x:Name="LblBruto" ToolTip="Upisani bruto" />
@@ -218,13 +246,18 @@
                                          BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                                          Margin="0,0,5,0"
                                          TextAlignment="Right" Foreground="OrangeRed" FontFamily="Roboto"
-                                         ToolTip="Neto plaća, kod upisa koristite zarez" FontWeight="Bold"/>
-                                <Label x:Name="LblPrijevoz" Margin="0,5,0,5" ToolTip="Neto + naknada za prijevoz" Background="White"></Label>
-                                <Label x:Name="LblZdravstveno" ToolTip="Doprinos na plaću za zdravstveno" Margin="0,5,0,0" />
+                                         ToolTip="Neto plaća, kod upisa koristite zarez" FontWeight="Bold" />
+                                <Label x:Name="LblPrijevoz" Margin="0,5,0,4" ToolTip="Neto + naknada za prijevoz"
+                                       Background="White" />
+                                <Label x:Name="LblOdbici" ToolTip="Neto plaća - vaši ukupni odbici" />
+                                <Border Height="1" BorderThickness="0,0,0,1" BorderBrush="Black" Background="White" />
+                                <Label x:Name="LblZdravstveno" ToolTip="Doprinos na plaću za zdravstveno"
+                                       Margin="0,5,0,0" />
                                 <Label x:Name="LblZnr" ToolTip="Doprinos na plaću za ZNR" />
                                 <Label x:Name="LblZaposljavanje" ToolTip="Doprinos za zapošljavanje" />
                                 <Label x:Name="LblDoprinosiUkupno" ToolTip="Ukupan iznos doprinosa na plaću" />
-                                <Label x:Name="LblTrosakPlace" ToolTip="Ukupan trošak plaće za poslodavca" FontWeight="Bold" />
+                                <Label x:Name="LblTrosakPlace" ToolTip="Ukupan trošak plaće za poslodavca"
+                                       FontWeight="Bold" />
                             </StackPanel>
                         </GroupBox>
                     </DockPanel>
@@ -232,30 +265,33 @@
                 <TabItem x:Name="OstaliIzracun" Header="izračuni: samo 1 ; smjenski rad i ostalo ...|"
                          controls:ControlsHelper.HeaderFontSize="14">
                     <DockPanel LastChildFill="False" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,10,0,5" FontSize="14" FontWeight="Bold">
-                            <Run Text="RADITE LI U SMJENAMA, SATE RADA UPISUJTE IZ '*mpsr-a (preporučeno)' ILI IZ ŠIHTERICE " FontFamily="Comic Sans MS" FontSize="12" />
+                        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" Margin="0,10,0,5" FontSize="14"
+                                   FontWeight="Bold">
+                            <Run
+                                Text="RADITE LI U SMJENAMA, SATE RADA UPISUJTE IZ '*mpsr-a (preporučeno)' ILI IZ ŠIHTERICE "
+                                FontFamily="Comic Sans MS" FontSize="12" />
                         </TextBlock>
                         <Expander DockPanel.Dock="Top" Margin="0,10,0,0" Width="750" HorizontalAlignment="Center"
                                   Header="Kliknite ovdje, tu su sakrivene šifre u upotrebi za izračun plaće te njihove vrijednosti">
                             <local:MrezaKoeficijenata />
                         </Expander>
-                        <TextBlock DockPanel.Dock="Top" 
+                        <TextBlock DockPanel.Dock="Top"
                                    Text=" Unesite potrebne parametre za izračun iznosa radnih sati kako je navedeno. Kod smjenskog rada odaberite smjenu ili vrstu rada koju trebate. Nakon toga klik na gumb 'IZRAČUNAJ'. Kada završite sa izračunom radnih sati, provjerite da su upisani ukupni mjesečni sati rada pa kliknite na 'DODAJ DODATAK NAPLAĆU ' i 'DODAJ MINULI RAD'."
                                    Margin="25,10,0,0" TextWrapping="Wrap" Width="720" />
-                        <TextBlock Margin="25,0,0,0" TextWrapping="Wrap"  DockPanel.Dock="Top" Width="720"> Unose iz liste možete micati pojedinačno tako da označite red, pa 'BRIŠI OZNAČENO' ili klik na 'OČISTI LISTU' koji miče sve stavke.</TextBlock>
+                        <TextBlock Margin="25,0,0,0" TextWrapping="Wrap" DockPanel.Dock="Top" Width="720"> Unose iz liste možete micati pojedinačno tako da označite red, pa 'BRIŠI OZNAČENO' ili klik na 'OČISTI LISTU' koji miče sve stavke.</TextBlock>
                         <local:UcObracun x:Name="UcObracun" Margin="0,10,0,0"
                                          Bruto="{Binding Text, ConverterCulture=hr-HR, ElementName=TxtBruto, Mode=OneWayToSource}"
                                          Focusable="True" DockPanel.Dock="Top" />
                         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
                             <StackPanel Orientation="Vertical">
-                            <TextBlock Margin="30,10,0,10"> * MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju.</TextBlock>
+                                <TextBlock Margin="30,10,0,10"> * MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju.</TextBlock>
                                 <TextBlock Margin="30,0,0,0"> Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'.</TextBlock>
                             </StackPanel>
                             <Image Source="Resources/lovalovac.ico" Height="90"
-                               HorizontalAlignment="Right" Margin="10,0,10,0" >
-                            <Image.Effect>
-                                <DropShadowEffect/>
-                            </Image.Effect>
+                                   HorizontalAlignment="Right" Margin="10,0,10,0">
+                                <Image.Effect>
+                                    <DropShadowEffect />
+                                </Image.Effect>
                             </Image>
                         </StackPanel>
                     </DockPanel>
@@ -267,7 +303,10 @@
                 <TabItem Header="ovrha |" x:Name="TabOvrha"
                          controls:ControlsHelper.HeaderFontSize="14">
                     <StackPanel Margin="0,20,0,30" VerticalAlignment="Top">
-                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" Width="510" FontFamily="Comic Sans MS" FontSize="14" Margin="155,0,115,0"> IZRAČUNAJTE IZNOS KOJI TREBA UPLATITI NA ZAŠTIĆENI RAČUN</TextBlock>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" Width="510"
+                                   FontFamily="Comic Sans MS" FontSize="14" Margin="155,0,115,0">
+                            IZRAČUNAJTE IZNOS KOJI TREBA UPLATITI NA ZAŠTIĆENI RAČUN
+                        </TextBlock>
                         <local:UCOvrha Margin="0,30,0,0" Width="420" Height="400" />
                         <TextBlock HorizontalAlignment="Center" Margin="50,25,0,0">'Enter' na tipkovinici pokreće izračun, 'Esc' čisti tekst iz kontrola.</TextBlock>
                         <TextBlock HorizontalAlignment="Left" Margin="50,10,0,0">Prosječna mjesečna neto plaća u RH je 5.664,00 kune. Ovaj iznos je relevantan za provedbu ovrhe na plaći u 2017.godini.</TextBlock>
@@ -281,7 +320,7 @@
                     <StackPanel MaxWidth="650" Margin="10,25,10,0">
                         <FlowDocumentReader ViewingMode="Scroll" Zoom="5"
                                             MaxZoom="110" ZoomIncrement="5">
-                            <FlowDocument FontSize="12"  IsOptimalParagraphEnabled="True" FontFamily="Roboto Light">
+                            <FlowDocument FontSize="12" IsOptimalParagraphEnabled="True" FontFamily="Roboto Light">
                                 <Paragraph>
                                     <Run Text="Još nekoliko kratkih uputstava." />
                                 </Paragraph>
@@ -299,7 +338,7 @@
                                 </Paragraph>
                                 <Paragraph>
                                     <Run
-                                        Text="Za obračune viših svota bitno je obratiti pažnju koliko će recimo 'menadžer' platiti doprinosa. Koja su ograničenja za to plaćanje navedeno je dolje niže u promjenama. "/>
+                                        Text="Za obračune viših svota bitno je obratiti pažnju koliko će recimo 'menadžer' platiti doprinosa. Koja su ograničenja za to plaćanje navedeno je dolje niže u promjenama. " />
                                 </Paragraph>
                                 <Paragraph>
                                     <Bold>
@@ -313,11 +352,12 @@
                                         Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani 6%)." />
                                 </Paragraph>
                                 <Paragraph>
-                                    <Run Text="Prijevoz na posao se plaća bez obzira na broj sati rada u mjesecu, osnovica je 22 dana. Znači ukoliko ste bili na bolovanju ili godišnjem, iznos relacije podijelite sa 22, da bi dobili iznos po danu. Nakon toga pomnožite iznos po danu sa brojem dana G.O. ili B.O. i oduzmite od ukupnog iznosa za prijevoz. Npr. za radnike iz Kutine naknada za prijevoz je 369,6kn odnosno 16,8kn po danu. Pet dana G.O. je 16,8*5=84kn. Vaš prijevoz je 369,9-84 = 285,6kn."/>
+                                    <Run
+                                        Text="Prijevoz na posao se plaća bez obzira na broj sati rada u mjesecu, osnovica je 22 dana. Znači ukoliko ste bili na bolovanju ili godišnjem, iznos relacije podijelite sa 22, da bi dobili iznos po danu. Nakon toga pomnožite iznos po danu sa brojem dana G.O. ili B.O. i oduzmite od ukupnog iznosa za prijevoz. Npr. za radnike iz Kutine naknada za prijevoz je 369,6kn odnosno 16,8kn po danu. Pet dana G.O. je 16,8*5=84kn. Vaš prijevoz je 369,9-84 = 285,6kn." />
                                 </Paragraph>
                                 <Paragraph>
-                                    <Run 
-                                        Text="Promjene u 2017. godini : "/>
+                                    <Run
+                                        Text="Promjene u 2017. godini : " />
                                 </Paragraph>
                                 <List>
                                     <ListItem>

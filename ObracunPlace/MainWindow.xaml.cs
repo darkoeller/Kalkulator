@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Navigation;
 using BiznisSloj;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Label = System.Windows.Controls.Label;
 
 namespace ObracunPlace
 {
@@ -18,8 +18,30 @@ namespace ObracunPlace
     public partial class MainWindow
     {
         public static ProcesuirajPlacu Listica;
-        private static readonly IEnumerable<decimal> Popisprireza = new List<decimal>{0, 1m, 2m, 3m, 4m, 5m, 6m, 6.25m, 6.5m, 7m, 7.5m, 8m, 9m, 10m, 11m, 12m, 13m, 14m, 15m, 18m};
 
+        private static readonly IEnumerable<decimal> Popisprireza = new List<decimal>
+        {
+            0,
+            1m,
+            2m,
+            3m,
+            4m,
+            5m,
+            6m,
+            6.25m,
+            6.5m,
+            7m,
+            7.5m,
+            8m,
+            9m,
+            10m,
+            11m,
+            12m,
+            13m,
+            14m,
+            15m,
+            18m
+        };
 
         public MainWindow()
         {
@@ -33,26 +55,29 @@ namespace ObracunPlace
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private bool CheckDoprinosi => bool.Parse(CheckBoxDoprinosi.IsChecked.ToString());
 
-
         private bool ProvjeriPrirez()
         {
             var prirez = from p in Popisprireza
-                         where p.Equals(Prirez)
-                         select p;
+                where p.Equals(Prirez)
+                select p;
             var postoji = prirez.Any();
             return postoji;
         }
+
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
             if (!ProvjeriPrirez() || string.IsNullOrEmpty(TxtBruto.Text))
             {
-                var metro = (MetroWindow)Application.Current.MainWindow;
+                var metro = (MetroWindow) Application.Current.MainWindow;
                 metro.ShowMessageAsync("Upisali ste prirez koji nije na listi ili nema iznosa u brutu.", "Provjerite!");
                 return;
             }
             var odabranbruto = ProvjeriRadioGumb();
 
-            if (odabranbruto) ProcesuirajBruto();
+            if (odabranbruto)
+            {
+                ProcesuirajBruto();
+            }
             else
             {
                 TxtBruto.Text = "";
@@ -63,20 +88,49 @@ namespace ObracunPlace
                 ProcesuirajBruto();
             }
         }
+
+        private void OduzmiOdbitke()
+        {
+            if (TxtBoxOdbici.Value.Equals(null)) return;
+            var neto = Neto;
+            var odbici = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            var stringPrijevoz = LblPrijevoz.Content.ToString();
+            stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
+            var prijevoz = decimal.Parse(stringPrijevoz);
+
+            if (CmbPrijevoz.SelectedIndex == 0)
+            {
+                neto -= odbici;
+                LblOdbici.Content = neto.ToString("C");
+            }
+            else if (CmbPrijevoz.SelectedIndex > 0)
+            {
+                VratiTotal(prijevoz, odbici);
+            }
+        }
+
+        private void VratiTotal(decimal prijevoz, decimal odbici)
+        {
+            prijevoz -= odbici;
+            LblOdbici.Content = prijevoz.ToString("C");
+        }
+
         private bool ProvjeriRadioGumb()
         {
             return RbBruto.IsChecked != false;
         }
+
         private void ProcesuirajBruto()
         {
             var upisanineto = Neto;
             var bruto = Bruto;
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            var placa = new ProcesuirajPlacu(Bruto, Prirez, Stup1I2,CheckDoprinosi, Olaksica);
+            var placa = new ProcesuirajPlacu(Bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
             CmbPrijevoz_SelectionChanged(this, null);
+            OduzmiOdbitke();
         }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
@@ -109,7 +163,7 @@ namespace ObracunPlace
                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
                 return true;
             }
-            else if (placa.Neto > upisanineto)
+            if (placa.Neto > upisanineto)
             {
                 bruto -= 0.01m;
                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
@@ -118,12 +172,13 @@ namespace ObracunPlace
             return false;
         }
 
-        private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, bool checkDoprinosi, decimal olaksica)
+        private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, bool checkDoprinosi,
+            decimal olaksica)
         {
             TxtBruto.Text = upisanineto.ToString(new CultureInfo("hr-HR"));
-            var placu = new ProcesuirajPlacu(upisanineto,prirez,stup1I2,checkDoprinosi,olaksica);
+            var placu = new ProcesuirajPlacu(upisanineto, prirez, stup1I2, checkDoprinosi, olaksica);
             placu.Izracun();
-             PopuniVrijednosti(placu);
+            PopuniVrijednosti(placu);
         }
 
 
@@ -132,16 +187,16 @@ namespace ObracunPlace
             TxtBruto.Text = "0,00";
             TxtNeto.Text = "0,00";
             OcistiLabele();
+            TxtBoxOdbici.Value = 0.00;
             CmbPrijevoz.SelectedIndex = 0;
         }
 
         private void OcistiLabele()
         {
             foreach (var labela in StPanel2.Children.OfType<Label>())
-            {
                 labela.Content = $"{0.00:C2}";
-            }
         }
+
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             UkljuciGumb();
@@ -150,22 +205,27 @@ namespace ObracunPlace
             CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
             CmbPrijevoz.SelectedIndex = 0;
         }
+
         private void UkljuciGumb()
         {
             RbBruto.IsChecked = true;
         }
+
         private void RbBruto_Checked(object sender, RoutedEventArgs e)
         {
             OcistiLabele();
+            TxtBoxOdbici.IsEnabled = true;
             CmbPrijevoz.IsEnabled = true;
             TxtBruto.IsEnabled = true;
             TxtBruto.Focus();
             TxtNeto.IsEnabled = false;
             TxtNeto.Text = "0,00";
         }
+
         private void RbNeto_Checked(object sender, RoutedEventArgs e)
         {
-            BtnOcisti_Clic(this,null);
+            BtnOcisti_Clic(this, null);
+            TxtBoxOdbici.IsEnabled = false;
             CmbPrijevoz.IsEnabled = false;
             TxtBruto.IsEnabled = false;
             TxtNeto.IsEnabled = true;
@@ -173,16 +233,19 @@ namespace ObracunPlace
             TxtNeto.Focus();
             TxtBruto.Text = "0,00";
         }
+
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(e.Uri.AbsoluteUri);
         }
 
-        private void CmbPrijevoz_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var iznos = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
             iznos += Neto;
             LblPrijevoz.Content = iznos.ToString("C", new CultureInfo("hr-HR"));
+            var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            VratiTotal(iznos, odbitak);
         }
     }
 }

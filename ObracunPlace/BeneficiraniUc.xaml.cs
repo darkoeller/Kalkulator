@@ -201,7 +201,8 @@ namespace ObracunPlace
                     headertablica.AddCell(celijakutina);
                     headertablica.AddCell(celijadatum);
                     doc.Add(headertablica);
-                    doc.Add(new Paragraph("IZNOSI DOPRINOSA ZA BENEFICIRANI STAŽ") {SpacingBefore = 10f, Alignment = 1});
+                    doc.Add(
+                        new Paragraph("IZNOSI DOPRINOSA ZA BENEFICIRANI STAŽ") {SpacingBefore = 10f, Alignment = 1});
                     var centar = new PdfPTable(DataGridBene.Columns.Count)
                     {
                         SpacingBefore = 10f
@@ -214,7 +215,6 @@ namespace ObracunPlace
                     centar.SetWidths(sirina);
                     var izvor = DataGridBene.ItemsSource;
                     if (izvor != null)
-                    {
                         foreach (var item in izvor)
                         {
                             var red = DataGridBene.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
@@ -226,12 +226,9 @@ namespace ObracunPlace
                                     (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(i);
                                 var txt = cell.Content as TextBlock;
                                 if (txt != null)
-                                {
                                     centar.AddCell(new Phrase(txt.Text, desetka));
-                                }
                             }
                         }
-                    }
                     centar.HorizontalAlignment = 1;
                     doc.Add(centar);
                     pdwri.PageEvent = new Footer();
