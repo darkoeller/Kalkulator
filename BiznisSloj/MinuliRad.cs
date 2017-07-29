@@ -16,7 +16,7 @@ namespace BiznisSloj
 
         public decimal Izracun()
         {
-            return Math.Round(_brojSati*_minuli*VrijednostBoda, 2);
+            return Math.Round(_brojSati * _minuli * VrijednostBoda, 2);
         }
     }
 }

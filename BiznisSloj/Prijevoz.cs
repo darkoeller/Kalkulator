@@ -5,7 +5,7 @@ namespace BiznisSloj
 {
     public static class Prijevoz
     {
-        private static readonly Dictionary<string, decimal> ListaRelacija = new Dictionary<string, decimal>()
+        private static readonly Dictionary<string, decimal> ListaRelacija = new Dictionary<string, decimal>
         {
             {"BEZ PRIJEVOZA", 0},
             {"Antunovac - Kutina", 985.60m},
@@ -32,8 +32,8 @@ namespace BiznisSloj
             {"Gornja Jelenska - Kutina", 985.6m},
             {"Gornja Vlahinička - Kutina", 800.8m},
             {"Grabričina - Kutina", 800.8m},
-            {"Grabrov Potok - Kutina", 657.8m },
-            {"Hrastovac - Kutina", 1047.20m },
+            {"Grabrov Potok - Kutina", 657.8m},
+            {"Hrastovac - Kutina", 1047.20m},
             {"Husain - Kutina", 369.6m},
             {"Husain - Banova Jaruga", 616m},
             {"Husain - Gojlo", 554.4m},
@@ -127,6 +127,5 @@ namespace BiznisSloj
             var iznos = ListaRelacija.Where(rel => string.Equals(rel.Key, mjesto)).Select(st => st.Value).First();
             return iznos;
         }
-
     }
 }

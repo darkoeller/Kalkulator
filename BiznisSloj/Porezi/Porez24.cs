@@ -8,7 +8,7 @@
 
         public override decimal Izracunaj()
         {
-            return Bruto*0.24m;
+            return Bruto * 0.24m;
         }
     }
 }

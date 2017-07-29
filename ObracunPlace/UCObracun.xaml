@@ -6,7 +6,8 @@
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
              d:DesignHeight="585" d:DesignWidth="790">
-    <GroupBox Width="730" Height="520" Margin="10,10,2,0"  Header="Izračunajte svoj bruto iznos plaće" VerticalAlignment="Top">
+    <GroupBox Width="730" Height="520" Margin="10,10,2,0" Header="Izračunajte svoj bruto iznos plaće"
+              VerticalAlignment="Top">
         <Grid Width="720" Height="490" HorizontalAlignment="Left" Margin="0" Background="#FFF3FAFA">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80*" />
@@ -39,7 +40,7 @@
                 <ComboBox Name="ChComboBoxVrsteRada" Margin="5" SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
                           IsReadOnly="True" ToolTip="Odaberite vrstu rada" Focusable="True" />
             </StackPanel>
-            <StackPanel  Grid.Column="2" Margin="5" VerticalAlignment="Bottom">
+            <StackPanel Grid.Column="2" Margin="5" VerticalAlignment="Bottom">
                 <Button Name="BtnIzracun" Margin="10,0,5,10" Content="Izračunaj" Click="BtnIzracun_Click"
                         IsDefault="True"
                         ToolTip="Računa iznose" FontFamily="Roboto Light" />
@@ -49,17 +50,19 @@
             </StackPanel>
             <Border Grid.Column="1" Grid.Row="1" Margin="10,0,10,30">
                 <ListBox x:Name="ListBoxBruto"
-                    HorizontalContentAlignment="Right"
-                    Padding="5,3"
-                    Background="#FFE7FAFF"
-                    BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="3" ToolTip="Lista izračuna" Margin="0,0,0.2,0" FontFamily="Roboto Light" />
+                         HorizontalContentAlignment="Right"
+                         Padding="5,3"
+                         Background="#FFE7FAFF"
+                         BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="3" ToolTip="Lista izračuna"
+                         Margin="0,0,0.2,0" FontFamily="Roboto Light" />
             </Border>
             <Label x:Name="LblBruto" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
                    HorizontalAlignment="Right"
                    Margin="5,5,0,5" FontWeight="Bold" />
             <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,30">
-                <Button x:Name="BtnDodatak" FontFamily="Roboto-Light" Margin="5,0,5,5" Content="Dodaj dodatak na plaću" Click="BtnDodatak_Click"
-                        ToolTip="Dodatak za topli obrok" FontWeight="Normal"  />
+                <Button x:Name="BtnDodatak" FontFamily="Roboto-Light" Margin="5,0,5,5" Content="Dodaj dodatak na plaću"
+                        Click="BtnDodatak_Click"
+                        ToolTip="Dodatak za topli obrok" FontWeight="Normal" />
                 <Button x:Name="BtnMinuli" Margin="5,5,5,5" Content="Dodaj minuli rad" Click="BtnMinuli_Click"
                         ToolTip="U listu i bruto dodaje minuli" FontFamily="Roboto-Light" FontWeight="Normal" />
                 <Button x:Name="BtnOcistiOdabrano" Margin="5,5,5,0" Content="Obriši označeno"
@@ -74,23 +77,28 @@
                         Text=" Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
                 </TextBlock>
             </WrapPanel>
-            <Border Grid.ColumnSpan="3" Margin="0,235,0,0" Background="#FFF2FFF9" Grid.Row="1" Grid.RowSpan="2" BorderThickness="0,3,0,0" BorderBrush="Black" >
+            <Border Grid.ColumnSpan="3" Margin="0,235,0,0" Background="#FFF2FFF9" Grid.Row="1" Grid.RowSpan="2"
+                    BorderThickness="0,3,0,0" BorderBrush="Black">
                 <Grid>
                     <StackPanel Orientation="Horizontal" Margin="227,0,170,0">
                         <TextBlock Text="Upišite godine staža : " VerticalAlignment="Top" Margin="25,25,5,0" />
                         <controls:NumericUpDown x:Name="GodineUpDown" Value="1" Minimum="1" Maximum="65" Height="20"
-                            Width="100"
-                            Margin="5,20,0,0" ToolTip="Dodajte ili smanjite godine" VerticalAlignment="Top"
-                            Culture="hr" TrackMouseWheelWhenMouseOver="True" />
+                                                Width="100"
+                                                Margin="5,20,0,0" ToolTip="Dodajte ili smanjite godine"
+                                                VerticalAlignment="Top"
+                                                Culture="hr" TrackMouseWheelWhenMouseOver="True" />
                     </StackPanel>
                     <StackPanel Margin="510,0,0,-0.2">
                         <Button x:Name="BtnRacunaMinuli" Content="Izračunaj minuli" Margin="30,20,10,0"
-                            Click="BtnRacunaMinuli_Click"
-                            ToolTip="Provjerite upisane bodove" Height="30" FontFamily="Roboto Light" />
+                                Click="BtnRacunaMinuli_Click"
+                                ToolTip="Provjerite upisane bodove" Height="30" FontFamily="Roboto Light" />
                         <Label x:Name="LblMinuli" VerticalAlignment="Center" />
                     </StackPanel>
                     <TextBlock Grid.Column="0" Foreground="LightSlateGray" TextWrapping="Wrap" Padding="5"
-                        FontStyle="Italic" Margin="0,5,453,4.8"><Run Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen."/></TextBlock>
+                               FontStyle="Italic" Margin="0,5,453,4.8">
+                        <Run
+                            Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
+                    </TextBlock>
                 </Grid>
             </Border>
         </Grid>

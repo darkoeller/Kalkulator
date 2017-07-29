@@ -3,13 +3,8 @@ using System.Linq;
 
 namespace BiznisSloj.Porezi
 {
-    public  class PorezniKoeficijenti
+    public class PorezniKoeficijenti
     {
-        private decimal Stopa { get; set; }
-        public decimal KoefPrireza { get; private set; }
-        public decimal KoefPorezaPrireza24 { get; private set; }
-        public decimal KoefPorezaPrireza36 { get; private set; }
-
         public PorezniKoeficijenti(decimal prirez)
         {
             Stopa = prirez;
@@ -20,14 +15,23 @@ namespace BiznisSloj.Porezi
         {
         }
 
+        private decimal Stopa { get; set; }
+        public decimal KoefPrireza { get; private set; }
+        public decimal KoefPorezaPrireza24 { get; private set; }
+        public decimal KoefPorezaPrireza36 { get; private set; }
+
         private void OdrediKoeficijente(decimal stopa)
         {
             var rezultat = PoreznoPrirezniKoef();
 
             var porezniKoeficijentis = rezultat as IList<PorezniKoeficijenti> ?? rezultat.ToList();
             KoefPrireza = porezniKoeficijentis.Where(r => r.Stopa == stopa).Select(r => r.KoefPrireza).FirstOrDefault();
-            KoefPorezaPrireza24 = porezniKoeficijentis.Where(r => r.Stopa == stopa).Select(r => r.KoefPorezaPrireza24).FirstOrDefault();
-            KoefPorezaPrireza36 = porezniKoeficijentis.Where(r => r.Stopa == stopa).Select(r => r.KoefPorezaPrireza36).FirstOrDefault();
+            KoefPorezaPrireza24 = porezniKoeficijentis.Where(r => r.Stopa == stopa)
+                .Select(r => r.KoefPorezaPrireza24)
+                .FirstOrDefault();
+            KoefPorezaPrireza36 = porezniKoeficijentis.Where(r => r.Stopa == stopa)
+                .Select(r => r.KoefPorezaPrireza36)
+                .FirstOrDefault();
         }
 
         private static IEnumerable<PorezniKoeficijenti> PoreznoPrirezniKoef()
