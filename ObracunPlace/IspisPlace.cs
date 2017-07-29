@@ -103,18 +103,14 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase(Listica.Prirez.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Ukupno porezi + prirez : ", times));
                     listaIznosa.AddCell(new Phrase(Listica.UkupniPorez.ToString("c"), times));
-                    var netocelija = new PdfPCell(new Phrase("Neto plaća : ", times))
-                    {
-                        BackgroundColor = new BaseColor(0, 255, 255)
-                    };
-                    listaIznosa.AddCell(netocelija);
-                    var netoiznos = new PdfPCell(new Phrase(Listica.Neto.ToString("c"), times))
-                    {
-                        BackgroundColor = new BaseColor(0, 255, 255)
-                    };
-                    listaIznosa.AddCell(netoiznos);
+                    listaIznosa.AddCell(new Phrase("Neto plaća : ", times));
+                    listaIznosa.AddCell(new Phrase(Listica.Neto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz : ", times));
                     listaIznosa.AddCell(new Phrase(LblPrijevoz.Content.ToString(), times));
+                    var labOdbici = new PdfPCell(new Phrase("Neto iznos - osobni odbici (za isplatu) : ", times)) { BackgroundColor = new BaseColor(0, 255, 255) };
+                    listaIznosa.AddCell(labOdbici);
+                    var totalOdbici = new PdfPCell(new Phrase(LblOdbici.Content.ToString(), times)){ BackgroundColor = new BaseColor(0, 255, 255) };
+                    listaIznosa.AddCell(totalOdbici);
                     listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
                     listaIznosa.AddCell(new Phrase(Listica.DoprinosZaZdravstveno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));

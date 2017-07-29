@@ -20,7 +20,6 @@ namespace ObracunPlace
         public static ProcesuirajPlacu Listica;
         private static readonly IEnumerable<decimal> Popisprireza = new List<decimal>{0, 1m, 2m, 3m, 4m, 5m, 6m, 6.25m, 6.5m, 7m, 7.5m, 8m, 9m, 10m, 11m, 12m, 13m, 14m, 15m, 18m};
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace ObracunPlace
         private decimal Neto => decimal.Parse(TxtNeto.Text);
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private bool CheckDoprinosi => bool.Parse(CheckBoxDoprinosi.IsChecked.ToString());
-
 
         private bool ProvjeriPrirez()
         {
@@ -63,6 +61,33 @@ namespace ObracunPlace
                 ProcesuirajBruto();
             }
         }
+
+        private void OduzmiOdbitke()
+        {
+            if (TxtBoxOdbici.Value.Equals(null)) return;
+            var neto = Neto;
+            var odbici = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            var stringPrijevoz = LblPrijevoz.Content.ToString();
+            stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length -2);
+            var prijevoz = decimal.Parse(stringPrijevoz);
+
+            if (CmbPrijevoz.SelectedIndex == 0)
+            {
+                neto -= odbici;
+                LblOdbici.Content = neto.ToString("C");
+            }
+            else if(CmbPrijevoz.SelectedIndex > 0)
+            {
+                VratiTotal(prijevoz, odbici);
+            }
+        }
+
+        private void VratiTotal(decimal prijevoz, decimal odbici)
+        {
+            prijevoz -= odbici;
+            LblOdbici.Content = prijevoz.ToString("C");
+        }
+
         private bool ProvjeriRadioGumb()
         {
             return RbBruto.IsChecked != false;
@@ -77,6 +102,7 @@ namespace ObracunPlace
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
             CmbPrijevoz_SelectionChanged(this, null);
+            OduzmiOdbitke();
         }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
@@ -132,6 +158,7 @@ namespace ObracunPlace
             TxtBruto.Text = "0,00";
             TxtNeto.Text = "0,00";
             OcistiLabele();
+            TxtBoxOdbici.Value = 0.00;
             CmbPrijevoz.SelectedIndex = 0;
         }
 
@@ -157,6 +184,7 @@ namespace ObracunPlace
         private void RbBruto_Checked(object sender, RoutedEventArgs e)
         {
             OcistiLabele();
+            TxtBoxOdbici.IsEnabled = true;
             CmbPrijevoz.IsEnabled = true;
             TxtBruto.IsEnabled = true;
             TxtBruto.Focus();
@@ -166,6 +194,7 @@ namespace ObracunPlace
         private void RbNeto_Checked(object sender, RoutedEventArgs e)
         {
             BtnOcisti_Clic(this,null);
+            TxtBoxOdbici.IsEnabled = false;
             CmbPrijevoz.IsEnabled = false;
             TxtBruto.IsEnabled = false;
             TxtNeto.IsEnabled = true;
@@ -183,6 +212,8 @@ namespace ObracunPlace
             var iznos = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
             iznos += Neto;
             LblPrijevoz.Content = iznos.ToString("C", new CultureInfo("hr-HR"));
+            var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            VratiTotal(iznos, odbitak);
         }
     }
 }
