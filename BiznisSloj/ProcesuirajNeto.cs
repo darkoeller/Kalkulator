@@ -17,7 +17,7 @@ namespace BiznisSloj
             CheckDoprinosi = chekdoprinosi;
         }
 
-        public decimal Bruto { get; set; }
+        public decimal Bruto { get; private set; }
         private decimal Faktor { get; }
         private decimal Neto { get; }
         private decimal Prirez { get; }

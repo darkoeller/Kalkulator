@@ -13,8 +13,8 @@ namespace BiznisSloj.Doprinosi
             _vrsta = vrsta;
         }
 
-        public decimal Beneficirani1 { get; set; }
-        public decimal Beneficirani2 { get; set; }
+        public decimal Beneficirani1 { get; private set; }
+        public decimal Beneficirani2 { get; private set; }
 
         public decimal VratiBeneficirani()
         {

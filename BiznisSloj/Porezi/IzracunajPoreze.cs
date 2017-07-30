@@ -9,9 +9,9 @@
             _bruto = bruto;
         }
 
-        public decimal Porez24Posto { get; set; }
+        public decimal Porez24Posto { get; private set; }
 
-        public decimal Porez36Posto { get; set; }
+        public decimal Porez36Posto { get; private set; }
 
         //ako je bruto veći od 17500 
         public void RacunajPoreze()
