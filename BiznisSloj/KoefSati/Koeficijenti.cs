@@ -6,10 +6,10 @@ namespace BiznisSloj.KoefSati
 {
     public class Koeficijenti
     {
-        public byte Id { get; set; }
-        public string Sifra { get; set; }
+        private byte Id { get; set; }
+        private string Sifra { get; set; }
         public string Naziv { get; set; }
-        public decimal Koeficijent { get; set; }
+        private decimal Koeficijent { get; set; }
 
         public static decimal VratiIznos(string naziv)
         {
