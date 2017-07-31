@@ -2,7 +2,7 @@
 {
     public abstract class Doprinos
     {
-        public decimal Bruto;
+        protected readonly decimal Bruto;
 
         protected Doprinos(decimal bruto)
         {

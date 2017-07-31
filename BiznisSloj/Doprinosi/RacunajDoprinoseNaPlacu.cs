@@ -9,9 +9,9 @@
             _bruto = bruto;
         }
 
-        public decimal DoprinosZdravstveno { get; set; }
-        public decimal DoprinosZaposljavanje { get; set; }
-        public decimal DoprinosZastitaNaRadu { get; set; }
+        public decimal DoprinosZdravstveno { get; private set; }
+        public decimal DoprinosZaposljavanje { get; private set; }
+        public decimal DoprinosZastitaNaRadu { get; private set; }
 
         public void Izracun()
         {

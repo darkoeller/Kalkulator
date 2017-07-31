@@ -11,8 +11,8 @@ namespace BiznisSloj.Doprinosi
             _bruto = bruto;
         }
 
-        public decimal PetOsamdesetTri { get; set; }
-        public decimal DvaNulaJedan { get; set; }
+        private decimal PetOsamdesetTri { get; set; }
+        private decimal DvaNulaJedan { get; set; }
 
         public void Izracun()
         {
