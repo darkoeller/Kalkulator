@@ -14,7 +14,7 @@ namespace BiznisSloj
 
         public decimal Izracun()
         {
-            return Math.Round(_brojSati*Koeficijent, 2);
+            return Math.Round(_brojSati * Koeficijent, 2);
         }
     }
 }

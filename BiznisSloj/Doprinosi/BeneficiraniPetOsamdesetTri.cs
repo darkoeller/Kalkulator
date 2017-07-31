@@ -8,7 +8,7 @@
 
         public override decimal RacunajDoprinos()
         {
-            return Bruto*0.0583m;
+            return Bruto * 0.0583m;
         }
     }
 }

@@ -10,7 +10,9 @@
         }
 
         public decimal Porez24Posto { get; set; }
+
         public decimal Porez36Posto { get; set; }
+
         //ako je bruto veći od 17500 
         public void RacunajPoreze()
         {
@@ -21,7 +23,10 @@
                 Porez36Posto = Izracunaj(new Porez36(bruto));
                 OsnovicaPorez24(17500m);
             }
-            else OsnovicaPorez24(bruto);
+            else
+            {
+                OsnovicaPorez24(bruto);
+            }
         }
 
         private void OsnovicaPorez24(decimal bruto)
@@ -30,7 +35,8 @@
         }
 
         public decimal UkupniPorez()
-        {return  Porez24Posto + Porez36Posto;
+        {
+            return Porez24Posto + Porez36Posto;
         }
 
         private static decimal Izracunaj(Porezi porez)

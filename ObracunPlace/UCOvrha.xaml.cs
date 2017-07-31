@@ -13,7 +13,7 @@ namespace ObracunPlace
         public UCOvrha()
         {
             InitializeComponent();
-            
+
             TextBoxNeto.Focus();
         }
 

@@ -1,4 +1,5 @@
-﻿using System;using BiznisSloj.Olaksice;
+﻿using System;
+using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
 
 namespace BiznisSloj
@@ -31,7 +32,7 @@ namespace BiznisSloj
             var umanjenje = olaksica.VratiOlaksicu();
             return umanjenje;
         }
-        
+
         public void Izracunaj()
         {
             var odbitak = IzracunOlaksiceClanova();
@@ -45,35 +46,33 @@ namespace BiznisSloj
         //odabir izračuna poreza
         private void NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
-            if (neto > 37147.60m - (PorKoef24 * KoefPrireza + (19647.0m - odbitak) * 0.36m * KoefPrireza) && CheckDoprinosi)
-            {
+            if (neto > 37147.60m - (PorKoef24 * KoefPrireza + (19647.0m - odbitak) * 0.36m * KoefPrireza) &&
+                CheckDoprinosi)
                 Bruto = Math.Round(CetvrtaMetoda(neto, odbitak), 2);
-            }
             else if (neto <= odbitak)
-            {
-                Bruto = neto*1.25m;
-            }
-            else if (neto < (PorezMax - PorKoef24 * KoefPrireza + odbitak))
-            {
+                Bruto = neto * 1.25m;
+            else if (neto < PorezMax - PorKoef24 * KoefPrireza + odbitak)
                 Bruto = Math.Round(DrugaMetoda(neto, odbitak), 2);
-            }
-            else if (neto > (PorezMax - PorKoef24 * KoefPrireza + odbitak))
-            {
+            else if (neto > PorezMax - PorKoef24 * KoefPrireza + odbitak)
                 Bruto = Math.Round(TrecaMetoda(neto, odbitak), 2);
-            }
         }
+
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
         {
-            return PorezMax + odbitak + ((neto - (PorezMax - (PorKoef24 * KoefPrireza) + odbitak)) * KoefPorezaPrireza36)+ 9286.80m;
+            return PorezMax + odbitak + (neto - (PorezMax - PorKoef24 * KoefPrireza + odbitak)) * KoefPorezaPrireza36 +
+                   9286.80m;
         }
+
         private decimal TrecaMetoda(decimal neto, decimal odbitak)
         {
-            return ((PorezMax + odbitak + (neto - (PorezMax - (PorKoef24 * KoefPrireza) + odbitak)) * KoefPorezaPrireza36))/0.8m;
+            return (PorezMax + odbitak + (neto - (PorezMax - PorKoef24 * KoefPrireza + odbitak)) *
+                    KoefPorezaPrireza36) / 0.8m;
         }
 
         //računa neto bez poreza
         private decimal DrugaMetoda(decimal neto, decimal odbitak)
         {
-            return ((((neto - odbitak) * KoefPorezaPrireza24) + odbitak))/0.8m;}
+            return ((neto - odbitak) * KoefPorezaPrireza24 + odbitak) / 0.8m;
+        }
     }
 }
