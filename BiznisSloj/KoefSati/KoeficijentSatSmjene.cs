@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace BiznisSloj.KoefSati
 {
@@ -13,9 +14,13 @@ namespace BiznisSloj.KoefSati
         public override decimal RacunajKoefSat()
         {
             Koeficijent = Koeficijent - 1.0m;
-            var izracun = Bodovi * BrojSati * Vrijednostboda;
-            var dodatak = (Bodovi + Minuli) * Vrijednostboda * BrojSati * Koeficijent;
-            return Math.Round(izracun + dodatak, 2);
+            //var izracun = Bodovi * BrojSati * Vrijednostboda;
+            var izracun = Task.Factory.StartNew(() => Bodovi * BrojSati * Vrijednostboda);
+            var dodatak = Task.Factory.StartNew(() => (Bodovi + Minuli) * Vrijednostboda * BrojSati * Koeficijent);
+            Task[] complet = {izracun, dodatak};
+            Task.WaitAll(complet);
+            //var dodatak = (Bodovi + Minuli) * Vrijednostboda * BrojSati * Koeficijent;
+            return Math.Round(izracun.Result + dodatak.Result, 2);
         }
     }
 }

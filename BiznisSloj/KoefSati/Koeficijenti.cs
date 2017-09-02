@@ -21,8 +21,20 @@ namespace BiznisSloj.KoefSati
         {
             var sifreRada = new ObservableCollection<Koeficijenti>
             {
-                new Koeficijenti {Id = 1, Sifra = "01", Naziv = @"Redovni rad 1.smjena", Koeficijent = 1.00m},
-                new Koeficijenti {Id = 2, Sifra = "02", Naziv = @"Redovni rad 2.smjena", Koeficijent = 1.15m},
+                new Koeficijenti
+                {
+                    Id = 1,
+                    Sifra = "01",
+                    Naziv = @"Redovni rad 1.smjena",
+                    Koeficijent = 1.00m
+                },
+                new Koeficijenti
+                {
+                    Id = 2,
+                    Sifra = "02",
+                    Naziv = @"Redovni rad 2.smjena",
+                    Koeficijent = 1.15m
+                },
                 new Koeficijenti {Id = 3, Sifra = "03", Naziv = @"Redovni rad noću", Koeficijent = 1.50m},
                 new Koeficijenti {Id = 4, Sifra = "04", Naziv = @"Rad nedjeljom 1.smjena", Koeficijent = 1.35m},
                 new Koeficijenti {Id = 5, Sifra = "04", Naziv = @"Rad nedjeljom 2.smjena", Koeficijent = 1.50m},
@@ -87,8 +99,19 @@ namespace BiznisSloj.KoefSati
                     Naziv = @"Prekovremeni rad blagdan ned. noću",
                     Koeficijent = 2.85m
                 },
-                new Koeficijenti {Id = 19, Sifra = "06", Naziv = @"Rad na blagdan 1.smjena", Koeficijent = 1.50m},
-                new Koeficijenti {Id = 20, Sifra = "06", Naziv = @"Rad na blagdan 2.smjena", Koeficijent = 1.65m},
+                new Koeficijenti
+                {
+                    Id = 19, Sifra = "06",
+                    Naziv = @"Rad na blagdan 1.smjena",
+                    Koeficijent = 1.50m
+                },
+                new Koeficijenti
+                {
+                    Id = 20,
+                    Sifra = "06",
+                    Naziv = @"Rad na blagdan 2.smjena",
+                    Koeficijent = 1.65m
+                },
                 new Koeficijenti {Id = 21, Sifra = "06", Naziv = @"Rad na blagdan noću", Koeficijent = 2.00m},
                 new Koeficijenti {Id = 22, Sifra = "07", Naziv = @"Rad pod uvjetima", Koeficijent = 1.00m},
                 new Koeficijenti {Id = 23, Sifra = "09", Naziv = @"Naknada za G.O. 1.smjena", Koeficijent = 1.00m},
