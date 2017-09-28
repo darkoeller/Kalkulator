@@ -40,11 +40,8 @@ namespace BiznisSloj
         public decimal PoreznaOsnovica { get; private set; }
         public decimal Neto { get; private set; }
         public decimal UkupniTrosakPlace { get; private set; }
-<<<<<<< HEAD
         public decimal DvadesetPostoDoprinos { get; private set; }
-=======
-        public decimal DvadesetPostoDoprinos { get;  set; }
->>>>>>> bb96eb67e478eb726e1df92c5883adadd252be71
+
         private bool CheckDoprinosi { get; }
 
         private void VratiUkupniPorez()
