@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -17,7 +19,7 @@ namespace ObracunPlace
     /// </summary>
     public partial class MainWindow
     {
-        public static ProcesuirajPlacu Listica;
+        private static ProcesuirajPlacu _listica;
 
         private static readonly IEnumerable<decimal> Popisprireza = new List<decimal>
         {
@@ -152,7 +154,7 @@ namespace ObracunPlace
             LblZaposljavanje.Content = placa.DoprinosZaZaposljavanje.ToString("C");
             LblDoprinosiUkupno.Content = placa.DoprinosNaPlacUkupno.ToString("C");
             LblTrosakPlace.Content = placa.UkupniTrosakPlace.ToString("C");
-            Listica = placa;
+            _listica = placa;
         }
 
         private bool VratiNeto(ProcesuirajPlacu placa, decimal upisanineto, decimal bruto)
@@ -163,13 +165,10 @@ namespace ObracunPlace
                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
                 return true;
             }
-            if (placa.Neto > upisanineto)
-            {
-                bruto -= 0.01m;
-                PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
-                return true;
-            }
-            return false;
+          if (placa.Neto <= upisanineto) return false;
+          bruto -= 0.01m;
+          PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
+          return true;
         }
 
         private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, bool checkDoprinosi,
@@ -203,7 +202,7 @@ namespace ObracunPlace
             TxtBruto.Focus();
             TabKontrola.SelectedIndex += 1;
             CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
-            CmbPrijevoz.SelectedIndex = 0;
+            CmbPrijevoz.SelectedIndex = 0; 
         }
 
         private void UkljuciGumb()
@@ -214,25 +213,33 @@ namespace ObracunPlace
         private void RbBruto_Checked(object sender, RoutedEventArgs e)
         {
             OcistiLabele();
-            TxtBoxOdbici.IsEnabled = true;
-            CmbPrijevoz.IsEnabled = true;
-            TxtBruto.IsEnabled = true;
+             var kontrole = new List<Control>{TxtBoxOdbici, TxtBruto, CmbPrijevoz}; 
+            OmoguciKontrole(kontrole, true);
             TxtBruto.Focus();
             TxtNeto.IsEnabled = false;
             TxtNeto.Text = "0,00";
         }
 
-        private void RbNeto_Checked(object sender, RoutedEventArgs e)
+
+      private static void OmoguciKontrole(IEnumerable<Control> kontrole, bool omoguci)
+      {
+        foreach (var kontrolu in kontrole)
         {
+          kontrolu.IsEnabled = omoguci;
+        }
+      }
+
+
+      private void RbNeto_Checked(object sender, RoutedEventArgs e)
+      {
             BtnOcisti_Clic(this, null);
-            TxtBoxOdbici.IsEnabled = false;
-            CmbPrijevoz.IsEnabled = false;
-            TxtBruto.IsEnabled = false;
+            var kontrole = new List<Control> { TxtBoxOdbici, TxtBruto, CmbPrijevoz };
+            OmoguciKontrole(kontrole, false);
             TxtNeto.IsEnabled = true;
             TxtNeto.Text = string.Empty;
             TxtNeto.Focus();
             TxtBruto.Text = "0,00";
-        }
+      }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {

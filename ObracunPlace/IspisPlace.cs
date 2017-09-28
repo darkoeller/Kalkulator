@@ -12,7 +12,7 @@ namespace ObracunPlace
         //delegate void PokreniIspis();
         private void Ispis_Click(object sender, RoutedEventArgs e)
         {
-            if (Listica == null)
+            if (_listica == null)
             {
                 MessageBox.Show("Provjerite da li ste izračunali iznose", "Pozor", MessageBoxButton.OK,
                     MessageBoxImage.Information);
@@ -80,29 +80,29 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase("Bruto iznos : ", times));
                     listaIznosa.AddCell(new Phrase(Bruto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 15% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.PetnaestPostoDoprinos.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 5% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.PetPostoDoprinos.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.PetPostoDoprinos.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 20% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DvadesetPostoDoprinos.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DvadesetPostoDoprinos.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinosi iz plaće ukupno : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DoprinosiIzPlaceUkupno.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DoprinosiIzPlaceUkupno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Dohodak (bruto - doprinosi) : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.Dohodak.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.Dohodak.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Iznos olakšice (vaš neoporezivi iznos) : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.Olaksica.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.Olaksica.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Porezna osnovica (dohodak - olakšica) : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.PoreznaOsnovica.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.PoreznaOsnovica.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 24% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.PorezDvadesetCetiriPosto.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.PorezDvadesetCetiriPosto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 36% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.PorezTridesetSestPosto.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.PorezTridesetSestPosto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Prirez (u vašem gradu ili općini) : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.Prirez.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.Prirez.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Ukupno porezi + prirez : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.UkupniPorez.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.UkupniPorez.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Neto plaća : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.Neto.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.Neto.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz : ", times));
                     listaIznosa.AddCell(new Phrase(LblPrijevoz.Content.ToString(), times));
                     var labOdbici =
@@ -118,15 +118,15 @@ namespace ObracunPlace
                         };
                     listaIznosa.AddCell(totalOdbici);
                     listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DoprinosZaZdravstveno.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZdravstveno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DoprinosZaZnr.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZnr.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos za zapošljavanje 1,7% : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DoprinosZaZaposljavanje.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinosi na plaću ukupno (15% + 0,5% + 1,7%) : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.DoprinosNaPlacUkupno.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.DoprinosNaPlacUkupno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Ukupan trošak plaće za poslodavca : ", times));
-                    listaIznosa.AddCell(new Phrase(Listica.UkupniTrosakPlace.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(_listica.UkupniTrosakPlace.ToString("c"), times));
                     doc.Add(listaIznosa);
                     //Footer
                     pdwri.PageEvent = new Footer();

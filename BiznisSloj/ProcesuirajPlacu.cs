@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
@@ -22,24 +23,24 @@ namespace BiznisSloj
 
         public decimal Bruto { get; }
         private decimal Odbitak { get; }
-        public decimal Prirez { get; set; }
-        public bool DrugiStup { get; set; }
-        public decimal DoprinosNaPlacUkupno { get; set; }
-        public decimal DoprinosZaZaposljavanje { get; set; }
-        public decimal DoprinosZaZdravstveno { get; set; }
-        public decimal DoprinosiIzPlaceUkupno { get; set; }
-        public decimal PetPostoDoprinos { get; set; }
-        public decimal PetnaestPostoDoprinos { get; set; }
-        public decimal DoprinosZaZnr { get; set; }
-        public decimal Olaksica { get; set; }
-        public decimal UkupniPorez { get; set; }
-        public decimal PorezDvadesetCetiriPosto { get; set; }
-        public decimal PorezTridesetSestPosto { get; set; }
-        public decimal Dohodak { get; set; }
-        public decimal PoreznaOsnovica { get; set; }
-        public decimal Neto { get; set; }
-        public decimal UkupniTrosakPlace { get; set; }
-        public decimal DvadesetPostoDoprinos { get; set; }
+        public decimal Prirez { get; private set; }
+        private bool DrugiStup { get; set; }
+        public decimal DoprinosNaPlacUkupno { get; private set; }
+        public decimal DoprinosZaZaposljavanje { get; private set; }
+        public decimal DoprinosZaZdravstveno { get; private set; }
+        public decimal DoprinosiIzPlaceUkupno { get; private set; }
+        public decimal PetPostoDoprinos { get; private set; }
+        public decimal PetnaestPostoDoprinos { get; private set; }
+        public decimal DoprinosZaZnr { get; private set; }
+        public decimal Olaksica { get; private set; }
+        public decimal UkupniPorez { get; private set; }
+        public decimal PorezDvadesetCetiriPosto { get; private set; }
+        public decimal PorezTridesetSestPosto { get; private set; }
+        public decimal Dohodak { get; private set; }
+        public decimal PoreznaOsnovica { get; private set; }
+        public decimal Neto { get; private set; }
+        public decimal UkupniTrosakPlace { get; private set; }
+        public decimal DvadesetPostoDoprinos { get; private set; }
         private bool CheckDoprinosi { get; }
 
         private void VratiUkupniPorez()
@@ -118,7 +119,7 @@ namespace BiznisSloj
 
         public void Izracun()
         {
-            VratiDoprinoseNaPlacu();
+            Task.Factory.StartNew(VratiDoprinoseNaPlacu);
             VratiDoprinoseIzPlace();
             VratiOlaksicu();
             VratiUkupniPorez();
