@@ -380,7 +380,8 @@
                           Margin="0"
                           Background="#FFF3FAFA">
                 <StackPanel.Resources>
-                  <Style TargetType="Label">
+                  <Style x:Key="LblStil"
+                         TargetType="Label">
                     <Setter Property="Margin"
                             Value="0" />
                     <Setter Property="HorizontalAlignment"
@@ -534,7 +535,6 @@
         </TabItem>
         <TabItem x:Name="PomocTabItem"
                  Header="pomoć |"
-                 VerticalAlignment="Center"
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel MaxWidth="650"
                       Margin="10,25,10,0">
@@ -619,6 +619,31 @@
             <TextBlock Text="Za rad sa kalkulatorom možete koristiti tipkovnicu : Enter=računa, Esc=briše itd."
                        Margin="0,10,0,0" />
           </StackPanel>
+        </TabItem>
+        <TabItem x:Name="ZatvoriTabItem">
+          <TabItem.Header>
+            <Label x:Name="LblZatvori"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   FontFamily="Segoe UI Black"
+                   FontSize="12"
+                   MouseUp="LblZatvori_MouseUp">zatvori</Label>
+          </TabItem.Header>
+          <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="48"
+                     FontFamily="Ruach LET Plain"
+                     Foreground="Red"
+                     FontWeight="Bold"
+                     RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+              <TransformGroup>
+                <ScaleTransform ScaleX="2" />
+                <SkewTransform />
+                <RotateTransform Angle="-18" />
+                <TranslateTransform />
+              </TransformGroup>
+            </TextBlock.RenderTransform>AJDE BOK !</TextBlock>
         </TabItem>
       </controls:MetroAnimatedTabControl>
     </Grid>
