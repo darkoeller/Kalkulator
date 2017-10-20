@@ -9,8 +9,7 @@ namespace ObracunPlace
 {
     public partial class MainWindow
     {
-        //delegate void PokreniIspis();
-        private void Ispis_Click(object sender, RoutedEventArgs e)
+    private void Ispis_Click(object sender, RoutedEventArgs e)
         {
             if (_listica == null)
             {

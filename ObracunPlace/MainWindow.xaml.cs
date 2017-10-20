@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -254,5 +252,10 @@ namespace ObracunPlace
             var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
             VratiTotal(iznos, odbitak);
         }
+
+    private void LblZatvori_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+      Close();
     }
+  }
 }
