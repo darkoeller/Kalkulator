@@ -71,7 +71,7 @@ namespace ObracunPlace
             if (!ProvjeriPrirez() || string.IsNullOrEmpty(TxtBruto.Text))
             {
                 var metro = (MetroWindow) Application.Current.MainWindow;
-                metro.ShowMessageAsync("Upisali ste prirez koji nije na listi ili nema iznosa u brutu.", "Provjerite!");
+                metro.ShowMessageAsync("Upisali ste prirez koji nije na listi ili nema iznosa u brutu/netu.", "Provjerite!");
                 return;
             }
             var odabranbruto = ProvjeriRadioGumb();
