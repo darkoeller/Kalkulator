@@ -7,13 +7,16 @@ using BiznisSloj;
 using BiznisSloj.KoefSati;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using PostSharp.Patterns.Model;
 
 namespace ObracunPlace
 {
-    /// <summary>
-    ///     Interaction logic for UCObracun.xaml
-    /// </summary>
-    public sealed partial class UcObracun : INotifyPropertyChanged
+  /// <summary>
+  ///     Interaction logic for UCObracun.xaml
+  /// </summary>
+
+  [NotifyPropertyChanged]
+  public sealed partial class UcObracun 
     {
         // Using a DependencyProperty as the backing store for Bruto.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BrutoProperty =
@@ -44,7 +47,6 @@ namespace ObracunPlace
         private decimal BrojSati => decimal.Parse(SatiRadaUpDown.Value.ToString());
         private decimal GodineStaza => decimal.Parse(GodineUpDown.Value.ToString());
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -59,7 +61,6 @@ namespace ObracunPlace
             var izracun = new IzracunajKoeficijentSate(BrojSati, Minuli, Bodovi, _koeficijent);
             var rezultat = izracun.Izracun();
             Bruto += rezultat;
-            OnPropertyChanged(Bruto);
             ListBoxBruto.Items.Add($"{text}: {rezultat}");
             PozoviLabelu();
         }
@@ -73,7 +74,6 @@ namespace ObracunPlace
         {
             ListBoxBruto.Items.Clear();
             Bruto = 0.0m;
-            OnPropertyChanged(Bruto);
             PozoviLabelu();
         }
 
@@ -82,7 +82,6 @@ namespace ObracunPlace
             var minuli = new MinuliRad(BrojSati, Minuli);
             var izracun = minuli.Izracun();
             Bruto += izracun;
-            OnPropertyChanged(Bruto);
             ListBoxBruto.Items.Add("Minuli rad: " + izracun.ToString(new CultureInfo("hr-HR")));
             PozoviLabelu();
         }
@@ -93,7 +92,6 @@ namespace ObracunPlace
             var dodatak = new DodatakNaPlacu(BrojSati);
             var izracun = dodatak.Izracun();
             Bruto += izracun;
-            OnPropertyChanged(Bruto);
             ListBoxBruto.Items.Add("Dodatak na plaću: " + izracun.ToString(new CultureInfo("hr-HR")));
             PozoviLabelu();
         }
@@ -110,7 +108,6 @@ namespace ObracunPlace
                 var razlika = ListBoxBruto.SelectedItem.ToString();
                 var broj = PronadjiDecimalniBroj(razlika);
                 Bruto -= broj;
-                OnPropertyChanged(Bruto);
                 ListBoxBruto.Items.RemoveAt(ListBoxBruto.SelectedIndex);
                 PozoviLabelu();
             }
@@ -122,13 +119,6 @@ namespace ObracunPlace
             var rezultat = minuli.Izracun();
             LblMinuli.Content = "Vaš minuli iznosi : " + rezultat.ToString(new CultureInfo("hr-HR"));
             Bruto += rezultat;
-            OnPropertyChanged(Bruto);
-        }
-
-        private void OnPropertyChanged(decimal propertyName)
-        {
-            PropertyChanged?.Invoke(this,
-                new PropertyChangedEventArgs(propertyName.ToString(new CultureInfo("HR-hr"))));
         }
 
         private static decimal PronadjiDecimalniBroj(string razlika)

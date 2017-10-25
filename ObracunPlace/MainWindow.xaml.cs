@@ -178,8 +178,7 @@ namespace ObracunPlace
             PopuniVrijednosti(placu);
         }
 
-
-        private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
+    private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
         {
             TxtBruto.Text = "0,00";
             TxtNeto.Text = "0,00";
@@ -187,7 +186,6 @@ namespace ObracunPlace
             TxtBoxOdbici.Value = 0.00;
             CmbPrijevoz.SelectedIndex = 0;
         }
-
         private void OcistiLabele()
         {
             foreach (var labela in StPanel2.Children.OfType<Label>())

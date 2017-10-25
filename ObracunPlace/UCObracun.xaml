@@ -85,23 +85,11 @@
       </StackPanel>
       <StackPanel Grid.Column="2"
                   Grid.Row="0"
-                  Margin="5"
                   VerticalAlignment="Bottom">
-        <Button Name="BtnIzracun"
-                Margin="10,0,5,10"
-                Content="Izračunaj"
-                Click="BtnIzracun_Click"
-                IsDefault="True"
-                ToolTip="Računa iznose"
-                FontFamily="Roboto Light" />
-        <Button Name="BtnOcisti"
-                Margin="10,0,5,0"
-                Content="Očisti listu"
-                Click="BtnOcisti_Click"
-                IsCancel="True"
-                ToolTip="Briše stavke iz liste"
-                FontFamily="Roboto Light" />
-      </StackPanel>
+                <Image Source="Resources/skrinja.png"
+                       MaxHeight="130"  Margin="5"
+               Stretch="Fill" />
+            </StackPanel>
       <Border Grid.Column="1"
               Grid.Row="1"
               Margin="10,0,10,30">
@@ -121,20 +109,27 @@
              VerticalAlignment="Bottom"
              HorizontalAlignment="Right"
              Margin="5,5,0,5"
-             FontWeight="Bold" />
+             Foreground="Red" />
       <StackPanel Grid.Column="2"
                   Grid.Row="1"
                   VerticalAlignment="Bottom"
                   Margin="0,0,0,30">
+        <Button x:Name="BtnIzracun"
+                Margin="5"
+                Content="Izračunaj"
+                Click="BtnIzracun_Click"
+                IsDefault="True"
+                ToolTip="Računa iznose"
+                FontFamily="Roboto Light" />
         <Button x:Name="BtnDodatak"
                 FontFamily="Roboto-Light"
-                Margin="5,0,5,5"
+                Margin="5"
                 Content="Dodaj dodatak na plaću"
                 Click="BtnDodatak_Click"
                 ToolTip="Dodatak za topli obrok"
                 FontWeight="Normal" />
         <Button x:Name="BtnMinuli"
-                Margin="5,5,5,5"
+                Margin="5"
                 Content="Dodaj minuli rad"
                 Click="BtnMinuli_Click"
                 ToolTip="U listu i bruto dodaje minuli"
@@ -147,6 +142,13 @@
                 ToolTip="Odaberite što želite obrisati iz liste"
                 FontFamily="Roboto-Light"
                 FontWeight="Normal" />
+        <Button x:Name="BtnOcisti"
+                Margin="5"
+                Content="Očisti listu"
+                Click="BtnOcisti_Click"
+                IsCancel="True"
+                ToolTip="Briše stavke iz liste"
+                FontFamily="Roboto Light" />
       </StackPanel>
       <WrapPanel Grid.Row="1" 
                  Grid.Column="0">
