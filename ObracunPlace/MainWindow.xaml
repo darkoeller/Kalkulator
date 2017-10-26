@@ -376,16 +376,13 @@
             <GroupBox Header="Iznosi u kunama"
                       Height="520">
               <StackPanel x:Name="StPanel2"
-                          MinWidth="160"
+                          MinWidth="180"
                           Margin="0"
-                          Background="#FFF3FAFA">
+                          Background="#FFF3FAFA"
+                          HorizontalAlignment="Right">
                 <StackPanel.Resources>
-                  <Style x:Key="LblStil"
-                         TargetType="Label">
-                    <Setter Property="Margin"
-                            Value="0" />
-                    <Setter Property="HorizontalAlignment"
-                            Value="Right" />
+                  <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
                   </Style>
                 </StackPanel.Resources>
                 <Label x:Name="LblBruto"
@@ -395,7 +392,7 @@
                 <Label x:Name="Lbl2Stup"
                        ToolTip="Doprinos iz plaće 2.stup" />
                 <Label x:Name="LblDopUkupno"
-                       ToolTip="Ukupni doprinosi, samo 1.stup" />
+                       ToolTip="Ukupni doprinosi, samo 1.stup"/>
                 <Label x:Name="LblDohodak"
                        ToolTip="Dohodak nakon oduzetih doprinosa" />
                 <Label x:Name="LblOdbitak"
@@ -537,7 +534,7 @@
                  Header="pomoć |"
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel MaxWidth="650"
-                      Margin="10,25,10,0">
+                      Margin="10,15,10,0">
             <FlowDocumentReader ViewingMode="Scroll"
                                 Zoom="5"
                                 MaxZoom="110"
@@ -615,7 +612,7 @@
                 </Paragraph>
               </FlowDocument>
             </FlowDocumentReader>
-            <xctk:Calculator Margin="10,20,10,0" />
+            <xctk:Calculator Margin="10,0,10,0" />
             <TextBlock Text="Za rad sa kalkulatorom možete koristiti tipkovnicu : Enter=računa, Esc=briše itd."
                        Margin="0,10,0,0" />
           </StackPanel>
@@ -629,13 +626,21 @@
                    FontSize="12"
                    MouseUp="LblZatvori_MouseUp">zatvori</Label>
           </TabItem.Header>
+          <StackPanel Orientation="Vertical" Margin="0,100,0,0">
           <TextBlock HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      FontSize="48"
+<<<<<<< HEAD
                      Foreground="Red"
                      FontWeight="Bold"
                      RenderTransformOrigin="0.5,0.5"
                      FontFamily="Pristina">
+=======
+                     FontFamily="Brush Script MT"
+                     Foreground="Red"
+                     FontWeight="Bold"
+                     RenderTransformOrigin="0.5,0.5">
+>>>>>>> 813c3bda8da768c2d360be1766c08cf4bbcc2a02
             <TextBlock.Effect>
               <DropShadowEffect />
             </TextBlock.Effect>
@@ -647,6 +652,9 @@
                 <TranslateTransform />
               </TransformGroup>
             </TextBlock.RenderTransform>AJDE BOK !</TextBlock>
+          <Image Margin="0,100,0,0" Source="Resources/penzic.png"
+                   Stretch="None"></Image>
+          </StackPanel>
         </TabItem>
       </controls:MetroAnimatedTabControl>
     </Grid>
