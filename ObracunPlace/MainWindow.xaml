@@ -626,6 +626,7 @@
                    FontSize="12"
                    MouseUp="LblZatvori_MouseUp">zatvori</Label>
           </TabItem.Header>
+          <StackPanel Orientation="Vertical" Margin="0,100,0,0">
           <TextBlock HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      FontSize="48"
@@ -633,6 +634,9 @@
                      Foreground="Red"
                      FontWeight="Bold"
                      RenderTransformOrigin="0.5,0.5">
+            <TextBlock.Effect>
+              <DropShadowEffect />
+            </TextBlock.Effect>
             <TextBlock.RenderTransform>
               <TransformGroup>
                 <ScaleTransform ScaleX="2" />
@@ -641,6 +645,9 @@
                 <TranslateTransform />
               </TransformGroup>
             </TextBlock.RenderTransform>AJDE BOK !</TextBlock>
+          <Image Margin="0,100,0,0" Source="Resources/penzic.png"
+                   Stretch="None"></Image>
+          </StackPanel>
         </TabItem>
       </controls:MetroAnimatedTabControl>
     </Grid>

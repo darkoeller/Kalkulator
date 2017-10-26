@@ -54,7 +54,9 @@
                                 Height="26"
                                 ToolTip="Upišite svoje bodove"
                                 Culture="hr"
-                                TrackMouseWheelWhenMouseOver="True" />
+                                TrackMouseWheelWhenMouseOver="True"
+                                ValueDecremented="BodoviUpDown_ValueDecremented"
+                                ValueIncremented="BodoviUpDown_ValueIncremented" />
         <controls:NumericUpDown x:Name="MinuliUpDown"
                                 Minimum="0.01"
                                 Maximum="4.00"
@@ -64,7 +66,9 @@
                                 Height="26"
                                 ToolTip="Upišite bodove minulog rada"
                                 Culture="hr"
-                                TrackMouseWheelWhenMouseOver="True" />
+                                TrackMouseWheelWhenMouseOver="True"
+                                ValueDecremented="MinuliUpDown_ValueDecremented"
+                                ValueIncremented="MinuliUpDown_ValueIncremented" />
         <controls:NumericUpDown x:Name="SatiRadaUpDown"
                                 Minimum="0.50"
                                 Maximum="350.00"
@@ -75,7 +79,9 @@
                                 ToolTip="Upišite sate rada"
                                 Culture="hr"
                                 Focusable="True"
-                                TrackMouseWheelWhenMouseOver="True" />
+                                TrackMouseWheelWhenMouseOver="True"
+                                ValueDecremented="SatiRadaUpDown_ValueDecremented"
+                                ValueIncremented="SatiRadaUpDown_ValueIncremented" />
         <ComboBox Name="ChComboBoxVrsteRada"
                   Margin="5"
                   SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
@@ -157,9 +163,21 @@
                    Padding="5"
                    FontStyle="Italic"
                    Margin="0,25,0,0"
-                   Width="170">
-                    <Run Text=" Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
-        </TextBlock>
+                   Width="200"
+                   Height="196"><Run Text=" Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
+          <InlineUIContainer>
+            <StatusBar x:Name="Status"
+                       Height="35"
+                       Width="195" 
+                       Margin="0,20,0,0" >
+              <StackPanel Orientation="Horizontal" >
+                <Label Foreground="WhiteSmoke" Content="Status: "
+                       HorizontalAlignment="Left" />
+              <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
+                     HorizontalAlignment="Center" />
+              </StackPanel>
+            </StatusBar>
+          </InlineUIContainer></TextBlock>
       </WrapPanel>
       <Border Grid.ColumnSpan="3"
               Grid.Column="0"
