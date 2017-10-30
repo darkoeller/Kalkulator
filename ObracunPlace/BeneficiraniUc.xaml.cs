@@ -224,10 +224,9 @@ namespace ObracunPlace
                             {
                                 var cell =
                                     (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(i);
-                                var txt = cell.Content as TextBlock;
-                                if (txt != null)
-                                    centar.AddCell(new Phrase(txt.Text, desetka));
-                            }
+                if (cell.Content is TextBlock txt)
+                  centar.AddCell(new Phrase(txt.Text, desetka));
+              }
                         }
                     centar.HorizontalAlignment = 1;
                     doc.Add(centar);
@@ -248,10 +247,9 @@ namespace ObracunPlace
             for (var i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
             {
                 var child = VisualTreeHelper.GetChild(obj, i);
-                var visualChild = child as T;
-                if (visualChild != null)
-                    return visualChild;
-                var childOfChild = FindVisualChild<T>(child);
+        if (child is T visualChild)
+          return visualChild;
+        var childOfChild = FindVisualChild<T>(child);
                 if (childOfChild != null)
                     return childOfChild;
             }
