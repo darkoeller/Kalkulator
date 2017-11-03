@@ -635,10 +635,10 @@
           <TextBlock HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      FontSize="48"
-                     FontFamily="Brush Script MT"
                      Foreground="Red"
                      FontWeight="Bold"
-                     RenderTransformOrigin="0.5,0.5">
+                     RenderTransformOrigin="0.5,0.5"
+                     FontFamily="Pristina">
             <TextBlock.Effect>
               <DropShadowEffect />
             </TextBlock.Effect>
