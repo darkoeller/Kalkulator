@@ -35,7 +35,7 @@
                                         controls:ControlsHelper.ContentCharacterCasing="Lower"
                                         controls:TabControlHelper.Underlined="SelectedTabItem">
         <TabItem x:Name="IzracunTabItem"
-                 Header="izračun bruto/neto |"
+                 Header=" bruto/neto |"
                  controls:ControlsHelper.HeaderFontSize="14">
           <DockPanel x:Name="DckPanel"
                      Margin="8,10,8,0"
@@ -445,7 +445,7 @@
           </DockPanel>
         </TabItem>
         <TabItem x:Name="OstaliIzracun"
-                 Header="izračuni: samo 1 ; smjenski rad i ostalo ...|"
+                 Header="izračun bruto dohotka |"
                  controls:ControlsHelper.HeaderFontSize="14">
           <DockPanel LastChildFill="False"
                      HorizontalAlignment="Center"
@@ -498,10 +498,15 @@
           </DockPanel>
         </TabItem>
         <TabItem x:Name="BeneficiraniTabItem"
-                 Header="izračun doprinosa za benef. staž |"
+                 Header="izračun dopr. za benef. staž |"
                  controls:ControlsHelper.HeaderFontSize="14">
           <local:BeneficiraniUc VerticalAlignment="Top"
                                 Margin="10,0,10,0" />
+        </TabItem>
+        <TabItem Header="tečajevi banaka |"
+                 x:Name ="TabTecaj"
+                 controls:ControlsHelper.HeaderFontSize="14">
+          <local:TecajEura></local:TecajEura>
         </TabItem>
         <TabItem Header="ovrha |"
                  x:Name="TabOvrha"

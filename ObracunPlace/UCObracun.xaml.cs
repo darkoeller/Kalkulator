@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,7 +7,6 @@ using BiznisSloj.KoefSati;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using PostSharp.Patterns.Model;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -134,27 +132,22 @@ namespace ObracunPlace
             var broj = decimal.Parse(zadnje);
             return broj;
         }
-
     private void BodoviUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
     {
       StatusLbl.Content = "smanjujem bodove";
     }
-
     private void MinuliUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
     {
       StatusLbl.Content = "smanjujem minuli";
     }
-
     private void BodoviUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
     {
       StatusLbl.Content = "povećavam bodove";
     }
-
     private void MinuliUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
     {
       StatusLbl.Content = "povećavam minuli";
     }
-
     private void SatiRadaUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
     {
       StatusLbl.Content = "smanjujem sate rada";
