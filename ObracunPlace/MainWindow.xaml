@@ -35,7 +35,7 @@
                                         controls:ControlsHelper.ContentCharacterCasing="Lower"
                                         controls:TabControlHelper.Underlined="SelectedTabItem">
         <TabItem x:Name="IzracunTabItem"
-                 Header=" bruto/neto |"
+                 Header=" bruto/neto | "
                  controls:ControlsHelper.HeaderFontSize="14">
           <DockPanel x:Name="DckPanel"
                      Margin="8,10,8,0"
@@ -445,7 +445,7 @@
           </DockPanel>
         </TabItem>
         <TabItem x:Name="OstaliIzracun"
-                 Header="izračun bruto dohotka |"
+                 Header=" izračun bruto dohotka | " 
                  controls:ControlsHelper.HeaderFontSize="14">
           <DockPanel LastChildFill="False"
                      HorizontalAlignment="Center"
@@ -498,17 +498,37 @@
           </DockPanel>
         </TabItem>
         <TabItem x:Name="BeneficiraniTabItem"
-                 Header="izračun dopr. za benef. staž |"
+                 Header=" izračun dopr. za benef. staž | "
                  controls:ControlsHelper.HeaderFontSize="14">
           <local:BeneficiraniUc VerticalAlignment="Top"
                                 Margin="10,0,10,0" />
         </TabItem>
-        <TabItem Header="tečajevi banaka |"
+        <TabItem Header=" tečajevi banaka | "
                  x:Name ="TabTecaj"
                  controls:ControlsHelper.HeaderFontSize="14">
-          <local:TecajEura></local:TecajEura>
+          <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+              <Image Source="Resources/cashMoney.png"
+                     Width="100"
+                     Height="100"
+                     Margin="150,5,20,10">
+                <Image.Effect>
+                  <DropShadowEffect />
+                </Image.Effect>
+              </Image>
+              <TextBlock FontSize="14"
+                         Margin="30,50,0,0"
+                         VerticalAlignment="Top"
+                         HorizontalAlignment="Center"
+                         FontFamily="Comic Sans MS"
+                         FontWeight="Bold">VALUTNI PRETVARAČ</TextBlock>
+            </StackPanel>
+            
+          <local:TecajEura Margin="0" VerticalAlignment="Top" Width="550" Height="350"/>
+            
+          </StackPanel>
         </TabItem>
-        <TabItem Header="ovrha |"
+        <TabItem Header=" ovrha | "
                  x:Name="TabOvrha"
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel Margin="0,20,0,30"
@@ -536,7 +556,7 @@
           </StackPanel>
         </TabItem>
         <TabItem x:Name="PomocTabItem"
-                 Header="pomoć |"
+                 Header=" pomoć | "
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel MaxWidth="650"
                       Margin="10,15,10,0">

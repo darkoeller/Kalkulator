@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace BiznisSloj.BankarskiTecaj
 {
-  public class TecajHNBa 
+  public class TecajHNBa
   {
     public decimal VratiEuro()
     {
@@ -19,7 +19,8 @@ namespace BiznisSloj.BankarskiTecaj
 
       catch (Exception)
       {
-        MessageBox.Show("Došlo je do pogreške prilikom prezimanja podataka", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+        MessageBox.Show("Došlo je do pogreške prilikom prezimanja podataka,\n provjerite da li imate pristup internetu."
+          , "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
         return 0.0m;
       }
     }
