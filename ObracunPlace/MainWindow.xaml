@@ -510,30 +510,10 @@
                  x:Name="TabTecaj"
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-              <Image x:Name="Coin"
-                     Source="Resources/cashMoney.png"
-                     Width="100"
-                     Height="100"
-                     Margin="150,5,20,10">
-                <Image.Effect>
-                  <DropShadowEffect />
-                </Image.Effect>
-              </Image>
-              <TextBlock FontSize="14"
-                         Margin="30,50,0,0"
-                         VerticalAlignment="Top"
-                         HorizontalAlignment="Center"
-                         FontFamily="Comic Sans MS"
-                         TextDecorations="Underline"
-                         FontWeight="Bold">VALUTNI PRETVARAČ</TextBlock>
-            </StackPanel>
-
-            <local:TecajEura Margin="0"
+            <local:TecajEura Margin="0,35,0,0"
                              VerticalAlignment="Top"
                              Width="550"
-                             Height="350" />
-
+                             Height="600" />
           </StackPanel>
         </TabItem>
         <TabItem Header=" ovrha | "

@@ -41,6 +41,7 @@ namespace ObracunPlace
           TxtNazivBanke.Text = " Privrednoj banci Zagreb, (PBZ-u) je : ";
           break;
       }
+      TxtEuro.Focus();
     }
 
     private void BtnIzracun_Click(object sender, System.Windows.RoutedEventArgs e)
