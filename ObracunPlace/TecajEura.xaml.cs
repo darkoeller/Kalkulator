@@ -1,5 +1,6 @@
 ﻿using BiznisSloj.BankarskiTecaj;
 using System;
+using System.Globalization;
 using System.Windows.Controls;
 using PostSharp.Patterns.Threading;
 
@@ -44,7 +45,10 @@ namespace ObracunPlace
 
     private void BtnIzracun_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-
+      if (string.IsNullOrEmpty(TxtEuro.Text)) return;
+      var prolaz = decimal.TryParse(TxtEuro.Text, out decimal rata);
+      rata = Math.Round(d: _euro * rata, decimals: 2);
+      LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);
     }
   }
 }

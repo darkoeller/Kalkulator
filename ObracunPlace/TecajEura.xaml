@@ -3,74 +3,115 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:ObracunPlace"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             d:DesignWidth="500">
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="86*" />
-      <RowDefinition Height="72*" />
-      <RowDefinition Height="143*" />
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="378*" />
-      <ColumnDefinition Width="221*" />
-    </Grid.ColumnDefinitions>
-    <WrapPanel
-               Orientation="Horizontal"
-               Grid.Row="1"
-               Grid.RowSpan="2">
- 
-        <TextBlock VerticalAlignment="Center" Text=" Na današni dan:  "/>
-        <TextBlock VerticalAlignment="Center" Margin="5,0" x:Name="TxtDatum"
-                 FontWeight="Bold" />
-      <TextBlock VerticalAlignment="Center" Text=" srednji tečaj eura u "/>
-      <TextBlock x:Name="TxtNazivBanke"
-                 VerticalAlignment="Center" Text="" />
-      <Label x:Name="LblTecaj"
+             d:DesignWidth="600">
+  <Border CornerRadius="5"
+          BorderThickness="2"
+          BorderBrush="CornflowerBlue"
+          Background="#FFF3FAFA">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="84*" />
+        <RowDefinition Height="70*" />
+        <RowDefinition Height="85*" />
+        <RowDefinition Height="55*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="340*" />
+        <ColumnDefinition Width="220*" />
+      </Grid.ColumnDefinitions>
+      
+      <WrapPanel Orientation="Horizontal"
+                 Grid.Row="1"
+                 Grid.RowSpan="3"
+                 Margin="0,-0.4,0,0">
+
+        <TextBlock VerticalAlignment="Center"
+                   Text=" Na današni dan:  " />
+        <TextBlock VerticalAlignment="Center"
+                   Margin="5,0"
+                   x:Name="TxtDatum"
+                   FontWeight="Bold" />
+        <TextBlock VerticalAlignment="Center"
+                   Text=" srednji tečaj eura u " />
+        <TextBlock x:Name="TxtNazivBanke"
+                   VerticalAlignment="Center"
+                   Text="" />
+        <Label x:Name="LblTecaj"
                Margin="10,0"
                Content=""
-             FontWeight="Bold"
-             Foreground="Red" />
-      <TextBlock VerticalAlignment="Center" Text=" kuna." />
-      
-    </WrapPanel>
-    <TextBox Grid.Row="2" Height="23"
-               TextWrapping="Wrap"
-               Text="TextBox"
-               Width="120" />
-    <ComboBox x:Name="CmbBanke"
-              Grid.Row="1"
+               FontWeight="Bold"
+               Foreground="Red" />
+        <TextBlock VerticalAlignment="Center"
+                   Text=" kuna." />
+      </WrapPanel>
+      <TextBox Language="hr"
+               controls:TextBoxHelper.IsWaitingForData="True"
+               controls:TextBoxHelper.ClearTextButton="True"
+               VerticalContentAlignment="Center"
+               Grid.Column="0"
+               Grid.Row="2"
+                     x:Name="TxtEuro"
+                     Margin="10"
+               Width="120"
+               Height="40"
+               HorizontalContentAlignment="Center"
+               KeyboardNavigation.TabIndex="1"/>
+      <ComboBox x:Name="CmbBanke"
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                Margin="10,9.6,0,0"
+                
+                VerticalAlignment="Top"
+                Width="150"
+                Height="26"
+                SelectionChanged="CmbBanke_SelectionChanged"
+                KeyboardNavigation.TabIndex="0">
+        <ComboBoxItem Content="Banka nije odabrana" />
+        <ComboBoxItem Content="Tečaj HNB-a" />
+        <ComboBoxItem Content="Tečaj PBZ-a" />
+      </ComboBox>
+      <Button x:Name="BtnIzracun"
+              Grid.Row="2"
               Grid.Column="1"
-              HorizontalAlignment="Left"
-              Margin="0"
-              VerticalAlignment="Top"
-              Width="150"
-              Height="26"
-              SelectionChanged="CmbBanke_SelectionChanged">
-      <ComboBoxItem Content="Banka nije odabrana" />
-      <ComboBoxItem Content="Tečaj HNB-a" />
-      <ComboBoxItem Content="Tečaj PBZ-a" />
-    </ComboBox>
-    <Button x:Name="BtnIzracun"
-            Grid.Row="2" 
-            Grid.Column="1"
-            Width="100"
-            Height="35"
-            Click="BtnIzracun_Click"
-            Margin="0"
-            ToolTip="Izračunajte tečaj eura."
-            IsDefault="True">
-      <StackPanel Orientation="Horizontal">
-        <Image Stretch="None"
-               Source="Resources/Calculator.png" />
-        <TextBlock Text="IZRAČUNAJ"
-                   VerticalAlignment="Center"
-                   Margin="3"
-                   FontFamily="Roboto-Light"
-                   FontWeight="Normal" />
+              Width="100"
+              Height="40"
+              Click="BtnIzracun_Click"
+              Margin="10,0,100,0"
+              ToolTip="Izračunajte tečaj eura."
+              VerticalAlignment="Center"
+              IsDefault="True"
+              KeyboardNavigation.TabIndex="2">
+        <StackPanel Orientation="Horizontal">
+          <Image Stretch="None"
+                 Source="Resources/Calculator.png" />
+          <TextBlock Text="IZRAČUNAJ"
+                     VerticalAlignment="Center"
+                     Margin="3"
+                     FontFamily="Roboto-Light"
+                     FontWeight="Normal" />
+        </StackPanel>
+      </Button>
+      <TextBlock Grid.ColumnSpan="2"
+                 Grid.Column="0"
+                 Grid.Row="0"
+                 Margin="0,26,5,20"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 TextWrapping="Wrap"
+                 Text=" Izračunajte ratu kredita, ako vam je rata u eurima. Dakle, prvo odaberite izvor iz koje banke će aplikacija povući srednji tečaj. Nakon toga unesite iznos rate i klik na gumb 'IZRAČUNAJ'" />
+      <StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="2">
+        <TextBlock VerticalAlignment="Top" Margin="5,5,0,0" Text=" Izračunata rata vašeg kredita u kunama je :" />
+        <Label x:Name="LblEuri" Margin="5,0" VerticalAlignment="Top"
+               Foreground="Red"
+               FontWeight="Bold" />
+        <TextBlock VerticalAlignment="Top"
+                   Margin="5,5,0,0"
+                   Text="kuna." />
       </StackPanel>
-    </Button>
-  </Grid>
+    </Grid>
+  </Border>
 </UserControl>

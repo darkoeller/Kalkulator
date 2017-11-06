@@ -77,7 +77,7 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase(" OPISI STAVKI ", times));
                     listaIznosa.AddCell(new Phrase(" IZNOSI", times));
                     listaIznosa.AddCell(new Phrase("Bruto iznos : ", times));
-                    listaIznosa.AddCell(new Phrase(Bruto.ToString("c"), times));
+                    listaIznosa.AddCell(new Phrase(GetBruto().ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 15% : ", times));
                     listaIznosa.AddCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 5% : ", times));

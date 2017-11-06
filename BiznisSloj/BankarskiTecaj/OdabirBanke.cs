@@ -8,6 +8,7 @@
     {
       _odabir = odabir;
     }
+
     public decimal VratiIznos()
     {
       decimal euro;
@@ -15,12 +16,12 @@
       {
         case "HNB":
           var hnb = new TecajHNBa();
-          euro=hnb.VratiEuro();
+          euro = hnb.VratiEuro();
           return euro;
         case "PBZ":
           var pbz = new TecajPBZa();
-          euro= pbz.VratiEuro();
-         return euro;
+          euro = pbz.VratiEuro();
+          return euro;
       }
       return 0.0m;
     }

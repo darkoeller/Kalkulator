@@ -10,23 +10,21 @@ namespace ObracunPlace
     /// </summary>
     public partial class UCOvrha : UserControl
     {
+      private decimal _neto;
         public UCOvrha()
         {
             InitializeComponent();
-
             TextBoxNeto.Focus();
         }
 
-        private decimal Neto => decimal.Parse(TextBoxNeto.Text);
 
         private void IzracunajNeto_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBoxNeto.Text)) return;
-
-            var ovrha = new Ovrha(Neto);
-
-            TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString(CultureInfo.InvariantCulture);
-            TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString(CultureInfo.InvariantCulture);
+          if (string.IsNullOrEmpty(TextBoxNeto.Text)) return;
+          var neto = decimal.TryParse(TextBoxNeto.Text, out _neto);
+          var ovrha = new Ovrha(_neto);
+          TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString(CultureInfo.InvariantCulture);
+          TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString(CultureInfo.InvariantCulture);
         }
 
         private void BtnCisti_Click(object sender, RoutedEventArgs e)

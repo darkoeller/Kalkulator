@@ -48,11 +48,22 @@ namespace ObracunPlace
             InitializeComponent();
         }
 
-        private decimal Bruto => decimal.Parse(TxtBruto.Text);
+       private decimal GetBruto()
+       {
+         var prolaz = decimal.TryParse(TxtBruto.Text, out decimal bruto);
+         return bruto;
+       }
+
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
         private decimal Prirez => decimal.Parse(PrirezUpDown.Value.ToString());
-        private decimal Neto => decimal.Parse(TxtNeto.Text);
-        private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
+
+       private decimal GetNeto()
+       {
+         var prolaz = decimal.TryParse(TxtNeto.Text, out decimal neto);
+         return neto;
+       }
+
+    private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private bool CheckDoprinosi => bool.Parse(CheckBoxDoprinosi.IsChecked.ToString());
 
         private bool ProvjeriPrirez()
@@ -82,7 +93,7 @@ namespace ObracunPlace
             {
                 TxtBruto.Text = "";
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
-                var neto = new ProcesuirajNeto(Neto, Olaksica, Prirez, CheckDoprinosi);
+                var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez, CheckDoprinosi);
                 neto.Izracunaj();
                 TxtBruto.Text = neto.Bruto.ToString(new CultureInfo("hr-HR"));
                 ProcesuirajBruto();
@@ -92,7 +103,7 @@ namespace ObracunPlace
         private void OduzmiOdbitke()
         {
             if (TxtBoxOdbici.Value.Equals(null)) return;
-            var neto = Neto;
+            var neto = GetNeto();
             var odbici = decimal.Parse(TxtBoxOdbici.Value.ToString());
             var stringPrijevoz = LblPrijevoz.Content.ToString();
             stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
@@ -122,10 +133,10 @@ namespace ObracunPlace
 
         private void ProcesuirajBruto()
         {
-            var upisanineto = Neto;
-            var bruto = Bruto;
+            var upisanineto = GetNeto();
+            var bruto = GetBruto();
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            var placa = new ProcesuirajPlacu(Bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
+            var placa = new ProcesuirajPlacu(GetBruto(), Prirez, Stup1I2, CheckDoprinosi, Olaksica);
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
@@ -178,7 +189,7 @@ namespace ObracunPlace
             PopuniVrijednosti(placu);
         }
 
-    private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
+        private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
         {
             TxtBruto.Text = "0,00";
             TxtNeto.Text = "0,00";
@@ -245,15 +256,15 @@ namespace ObracunPlace
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var iznos = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
-            iznos += Neto;
+            iznos += GetNeto();
             LblPrijevoz.Content = iznos.ToString("C", new CultureInfo("hr-HR"));
             var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
             VratiTotal(iznos, odbitak);
         }
 
-    private void LblZatvori_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-    {
-      Close();
+       private void LblZatvori_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+       {
+         Close();
+       }
     }
-  }
 }
