@@ -510,10 +510,10 @@
                  x:Name="TabTecaj"
                  controls:ControlsHelper.HeaderFontSize="14">
           <StackPanel Orientation="Vertical">
-            <local:TecajEura Margin="0,35,0,0"
+            <local:TecajEura Margin="0,55,0,0"
                              VerticalAlignment="Top"
                              Width="550"
-                             Height="600" />
+                             Height="500" />
           </StackPanel>
         </TabItem>
         <TabItem Header=" ovrha | "

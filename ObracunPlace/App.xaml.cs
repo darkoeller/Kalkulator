@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using DevExpress.Xpf.Core;
+
 
 namespace ObracunPlace
 {
@@ -8,9 +8,5 @@ namespace ObracunPlace
     /// </summary>
     public partial class App
     {
-        private void OnAppStartup_UpdateThemeName(object sender, StartupEventArgs e)
-        {
-            ApplicationThemeHelper.UpdateApplicationThemeName();
-        }
     }
 }
