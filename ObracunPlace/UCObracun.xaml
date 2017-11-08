@@ -92,10 +92,10 @@
       <StackPanel Grid.Column="2"
                   Grid.Row="0"
                   VerticalAlignment="Bottom">
-                <Image Source="Resources/skrinja.png"
-                       MaxHeight="130"  Margin="5"
+        <Image Source="Resources/skrinja.png"
+               MaxHeight="130" Margin="5"
                Stretch="Fill" />
-            </StackPanel>
+      </StackPanel>
       <Border Grid.Column="1"
               Grid.Row="1"
               Margin="10,0,10,30">
@@ -156,36 +156,53 @@
                 ToolTip="Briše stavke iz liste"
                 FontFamily="Roboto Light" />
       </StackPanel>
-      <StackPanel Orientation="Vertical" Grid.Row="1" 
-                 Grid.Column="0">
-      <Expander >
-        <Expander.Header>
+      <StackPanel Orientation="Vertical" Grid.Row="1"
+                  Grid.Column="0">
+        <Expander>
+          <Expander.Header>
             <TextBlock Text=" KLIKNITE ZA POMOĆ"
-                       Foreground="WhiteSmoke"></TextBlock>
+                       Foreground="WhiteSmoke" />
           </Expander.Header>
-        <Expander.Content>
-          <ScrollViewer VerticalScrollBarVisibility="Auto" Height="120">
-              <TextBlock Foreground="LightSlateGray"
-                         TextWrapping="Wrap"
-                         Padding="0,2,15,0"
-                         FontStyle="Italic"
-                         Width="200">
-                   Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu."</TextBlock>
-          </ScrollViewer>
-        </Expander.Content>
-          </Expander>
-            <StatusBar x:Name="Status"
-                       Height="35"
-                       Width="210" 
-                       Margin="0,20,0,0" >
-              <StackPanel Orientation="Horizontal" >
-                <Label Foreground="WhiteSmoke" Content="Status: "
-                       HorizontalAlignment="Left" />
-              <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
-                     HorizontalAlignment="Center" />
-              </StackPanel>
-            </StatusBar>
-
+          <Expander.Content>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="160">
+              <WrapPanel>
+                <TextBlock Foreground="LightSlateGray"
+                           TextWrapping="Wrap"
+                           Padding="0,2,15,0"
+                           FontStyle="Italic"
+                           Width="200">
+                  <Run
+                    Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
+                </TextBlock>
+                <TextBlock Text="--------------------------------------------" />
+                <TextBlock Foreground="LightSlateGray"
+                           TextWrapping="Wrap"
+                           Padding="5"
+                           FontStyle="Italic">
+                  <Run
+                    Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
+                </TextBlock>
+                <TextBlock Text="--------------------------------------------" />
+                <TextBlock Foreground="LightSlateGray"
+                           TextWrapping="Wrap"
+                           Padding="5"
+                           FontStyle="Italic"
+                           Text="Kod unosa decimalnog broja obavezno koristite zarez, a ne točku!" />
+              </WrapPanel>
+            </ScrollViewer>
+          </Expander.Content>
+        </Expander>
+        <StatusBar x:Name="Status"
+                   Height="35"
+                   Width="210"
+                   Margin="0,130,0,0">
+          <StackPanel Orientation="Horizontal">
+            <Label Foreground="WhiteSmoke" Content="Status: "
+                   HorizontalAlignment="Left" />
+            <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
+                   HorizontalAlignment="Center" />
+          </StackPanel>
+        </StatusBar>
       </StackPanel>
       <Border Grid.ColumnSpan="3"
               Grid.Column="0"
@@ -195,7 +212,19 @@
               Grid.RowSpan="2"
               BorderThickness="0,3,0,0"
               BorderBrush="Black">
+
         <Grid>
+          <Image Grid.Column="0"
+                 Grid.Row="0"
+                 Source="Resources/lovalovac.ico"
+                 Height="70"
+                 Margin="10,0,0,10"
+                 HorizontalAlignment="Left">
+            <Image.Effect>
+              <DropShadowEffect />
+            </Image.Effect>
+          </Image>
+
           <StackPanel Orientation="Horizontal"
                       Margin="227,0,170,0">
             <TextBlock Text="Upišite godine staža : "
@@ -213,7 +242,7 @@
                                     Culture="hr"
                                     TrackMouseWheelWhenMouseOver="True" />
           </StackPanel>
-          <StackPanel Margin="510,0,0,-0.2">
+          <StackPanel Margin="510,0,0,0">
             <Button x:Name="BtnRacunaMinuli"
                     Content="Izračunaj minuli"
                     Margin="30,20,10,0"
@@ -224,14 +253,7 @@
             <Label x:Name="LblMinuli"
                    VerticalAlignment="Center" />
           </StackPanel>
-          <TextBlock Grid.Column="0"
-                     Foreground="LightSlateGray"
-                     TextWrapping="Wrap"
-                     Padding="5"
-                     FontStyle="Italic"
-                     Margin="0,5,453,4.8">
-                        <Run Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
-          </TextBlock>
+
         </Grid>
       </Border>
     </Grid>
