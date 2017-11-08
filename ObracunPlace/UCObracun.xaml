@@ -156,19 +156,27 @@
                 ToolTip="Briše stavke iz liste"
                 FontFamily="Roboto Light" />
       </StackPanel>
-      <WrapPanel Grid.Row="1" 
+      <StackPanel Orientation="Vertical" Grid.Row="1" 
                  Grid.Column="0">
-        <TextBlock Foreground="LightSlateGray"
-                   TextWrapping="Wrap"
-                   Padding="5"
-                   FontStyle="Italic"
-                   Margin="0,25,0,0"
-                   Width="200"
-                   Height="196"><Run Text=" Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
-          <InlineUIContainer>
+      <Expander >
+        <Expander.Header>
+            <TextBlock Text=" KLIKNITE ZA POMOĆ"
+                       Foreground="WhiteSmoke"></TextBlock>
+          </Expander.Header>
+        <Expander.Content>
+          <ScrollViewer VerticalScrollBarVisibility="Auto" Height="120">
+              <TextBlock Foreground="LightSlateGray"
+                         TextWrapping="Wrap"
+                         Padding="0,2,15,0"
+                         FontStyle="Italic"
+                         Width="200">
+                   Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec rada mogu biti: 168, 176, 184 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu."</TextBlock>
+          </ScrollViewer>
+        </Expander.Content>
+          </Expander>
             <StatusBar x:Name="Status"
                        Height="35"
-                       Width="195" 
+                       Width="210" 
                        Margin="0,20,0,0" >
               <StackPanel Orientation="Horizontal" >
                 <Label Foreground="WhiteSmoke" Content="Status: "
@@ -177,8 +185,8 @@
                      HorizontalAlignment="Center" />
               </StackPanel>
             </StatusBar>
-          </InlineUIContainer></TextBlock>
-      </WrapPanel>
+
+      </StackPanel>
       <Border Grid.ColumnSpan="3"
               Grid.Column="0"
               Margin="0,235,0,0"
