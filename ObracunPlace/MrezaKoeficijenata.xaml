@@ -49,7 +49,9 @@
                       <StackPanel Orientation="Horizontal"
                                   Background="#E7FCF5">
                         <TextBlock Margin="100,2,0,2"
-                                   FontFamily="Comic Sans MS">Grupa :</TextBlock>
+                                   FontFamily="Comic Sans MS">
+                          Grupa :
+                        </TextBlock>
                         <TextBlock FontFamily="Comic Sans MS"
                                    Margin="10,2,0,2"
                                    Text="{Binding Path=Name}" />

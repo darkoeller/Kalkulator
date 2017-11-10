@@ -63,7 +63,7 @@
                     Orientation="Vertical"
                     HorizontalAlignment="Center">
           <TextBlock Margin="0,15,0,0">
-                        <Run Text="Iznos koji ostaje za isplatu" />
+            <Run Text="Iznos koji ostaje za isplatu" />
           </TextBlock>
           <TextBox x:Name="TxtNetoOstaje"
                    IsReadOnly="True"
@@ -79,7 +79,7 @@
                     Orientation="Vertical"
                     HorizontalAlignment="Center">
           <TextBlock Margin="0,15,0,0">
-                        <Run Text="Iznos koji će se ovršiti" />
+            <Run Text="Iznos koji će se ovršiti" />
           </TextBlock>
           <TextBox x:Name="TxtNetoOvrha"
                    IsReadOnly="True"

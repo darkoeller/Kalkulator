@@ -172,7 +172,6 @@ namespace BiznisSloj.Porezi
           , KoefPorezaPrireza36 = 1.738526m
         }
       };
-
       return porezniKoef;
     }
   }
