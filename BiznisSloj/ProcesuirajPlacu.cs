@@ -71,8 +71,8 @@ namespace BiznisSloj
 
       if (doprinosizplace.VratiDoprinose() <= 9286.80m)
       {
-        PetPostoDoprinos = Math.Round(doprinosizplace.PetPosto, 2);
-        PetnaestPostoDoprinos = Math.Round(doprinosizplace.PetnaestPosto, 2);
+        PetPostoDoprinos = doprinosizplace.PetPosto;
+        PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
         DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
         Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
       }
@@ -85,8 +85,8 @@ namespace BiznisSloj
       }
       else if (CheckDoprinosi != true && doprinosizplace.VratiDoprinose() > 9286.80m)
       {
-        PetPostoDoprinos = Math.Round(doprinosizplace.PetPosto, 2);
-        PetnaestPostoDoprinos = Math.Round(doprinosizplace.PetnaestPosto, 2);
+        PetPostoDoprinos = doprinosizplace.PetPosto;
+        PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
         DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
         Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
       }

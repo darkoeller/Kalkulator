@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BiznisSloj.Doprinosi
+﻿namespace BiznisSloj.Doprinosi
 {
   public class RacunajDoprinoseIzPlace
   {
@@ -22,7 +20,7 @@ namespace BiznisSloj.Doprinosi
 
     public decimal VratiDoprinose()
     {
-      return Math.Round(PetPosto + PetnaestPosto, 2);
+      return PetPosto + PetnaestPosto;
     }
 
     private static decimal Racunaj(Doprinos doprinosi)
