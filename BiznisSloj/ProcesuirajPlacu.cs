@@ -120,7 +120,7 @@ namespace BiznisSloj
 
     public void Izracun()
     {
-      Task.Factory.StartNew(VratiDoprinoseNaPlacu);
+      VratiDoprinoseNaPlacu();
       VratiDoprinoseIzPlace();
       VratiOlaksicu();
       VratiUkupniPorez();
