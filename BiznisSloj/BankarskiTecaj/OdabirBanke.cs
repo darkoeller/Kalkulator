@@ -16,13 +16,12 @@
             switch (_odabir)
             {
                 case "HNB":
-                    var hnb = new TecajHNBa();
-                    euro = hnb.VratiEuro();
-                    return euro;
+                    var hnb = new TecajHNBa().VratiEuro();
+                    return hnb;
                 case "PBZ":
-                    var pbz = new TecajPBZa();
-                    euro = pbz.VratiEuro();
-                    return euro;
+                    var pbz = new TecajPBZa().VratiEuro();
+                    return pbz;
+                    
             }
             return 0.0m;
         }
