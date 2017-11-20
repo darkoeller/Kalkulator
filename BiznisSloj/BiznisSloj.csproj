@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankarskiTecaj\ITecaj.cs" />
     <Compile Include="BankarskiTecaj\OdabirBanke.cs" />
     <Compile Include="BankarskiTecaj\TecajHNBa.cs" />
     <Compile Include="BankarskiTecaj\TecajPBZa.cs" />
