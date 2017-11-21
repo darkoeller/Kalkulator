@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kalkulator plaće</ProductName>
     <PublisherName>Kalkulator plaće</PublisherName>
-    <ApplicationRevision>80</ApplicationRevision>
+    <ApplicationRevision>81</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -135,9 +135,6 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mvvm.v16.1">
-      <HintPath>..\..\..\..\..\AppData\Local\Apps\2.0\Z6V3O3PB.EYX\JA535L5B.AOB\obra..tion_0000000000000000_0001.0000_3cca2572b0c3fca7\DevExpress.Mvvm.v16.1.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
     </Reference>

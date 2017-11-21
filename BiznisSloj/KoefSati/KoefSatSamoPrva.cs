@@ -2,17 +2,17 @@
 
 namespace BiznisSloj.KoefSati
 {
-  public class KoefSatSamoPrva : KoeficSat
-  {
-    public KoefSatSamoPrva(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent) : base(brojSati
-      , minuli, bodovi, koeficijent)
+    public class KoefSatSamoPrva : KoeficSat
     {
-    }
+        public KoefSatSamoPrva(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent) : base(brojSati
+            , minuli, bodovi, koeficijent)
+        {
+        }
 
-    public override decimal RacunajKoefSat()
-    {
-      var izracun = Bodovi * BrojSati * Vrijednostboda * Koeficijent;
-      return Math.Round(izracun, 2);
+        public override decimal RacunajKoefSat()
+        {
+            var izracun = Bodovi * BrojSati * Vrijednostboda * Koeficijent;
+            return Math.Round(izracun, 2);
+        }
     }
-  }
 }

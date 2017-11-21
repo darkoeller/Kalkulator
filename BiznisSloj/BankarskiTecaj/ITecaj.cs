@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BiznisSloj.BankarskiTecaj
+﻿namespace BiznisSloj.BankarskiTecaj
 {
-    interface ITecaj
+    public interface ITecaj
     {
         decimal VratiEuro();
     }

@@ -2,32 +2,32 @@
 
 namespace BiznisSloj.Doprinosi
 {
-  public class RacunajBeneficiraniCetiriMjeseca
-  {
-    private readonly decimal _bruto;
-
-    public RacunajBeneficiraniCetiriMjeseca(decimal bruto)
+    public class RacunajBeneficiraniCetiriMjeseca
     {
-      _bruto = bruto;
-    }
+        private readonly decimal _bruto;
 
-    private decimal OsamTridesetDevet { get; set; }
-    private decimal DvaOsamdesetDevet { get; set; }
+        public RacunajBeneficiraniCetiriMjeseca(decimal bruto)
+        {
+            _bruto = bruto;
+        }
 
-    public void Izracun()
-    {
-      OsamTridesetDevet = Racunaj(new BeneficiraniOsamTridesetDevet(_bruto));
-      DvaOsamdesetDevet = Racunaj(new BeneficiraniDvaOsamdesetDevet(_bruto));
-    }
+        private decimal OsamTridesetDevet { get; set; }
+        private decimal DvaOsamdesetDevet { get; set; }
 
-    public decimal VratiBeneCetiriMjeseca()
-    {
-      return Math.Round(OsamTridesetDevet + DvaOsamdesetDevet, 2);
-    }
+        public void Izracun()
+        {
+            OsamTridesetDevet = Racunaj(new BeneficiraniOsamTridesetDevet(_bruto));
+            DvaOsamdesetDevet = Racunaj(new BeneficiraniDvaOsamdesetDevet(_bruto));
+        }
 
-    private static decimal Racunaj(Doprinos doprinos)
-    {
-      return doprinos.RacunajDoprinos();
+        public decimal VratiBeneCetiriMjeseca()
+        {
+            return Math.Round(OsamTridesetDevet + DvaOsamdesetDevet, 2);
+        }
+
+        private static decimal Racunaj(Doprinos doprinos)
+        {
+            return doprinos.RacunajDoprinos();
+        }
     }
-  }
 }

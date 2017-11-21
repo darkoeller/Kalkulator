@@ -4,23 +4,23 @@ using BiznisSloj.KoefSati;
 
 namespace ObracunPlace
 {
-  /// <summary>
-  ///   Interaction logic for MrezaKoeficijenata.xaml
-  /// </summary>
-  public partial class MrezaKoeficijenata
-  {
-    public MrezaKoeficijenata()
+    /// <summary>
+    ///     Interaction logic for MrezaKoeficijenata.xaml
+    /// </summary>
+    public partial class MrezaKoeficijenata
     {
-      InitializeComponent();
-    }
+        public MrezaKoeficijenata()
+        {
+            InitializeComponent();
+        }
 
-    private void UserControl_Loaded(object sender, RoutedEventArgs e)
-    {
-      var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti.VratiSifre());
-      collectionView.GroupDescriptions.Add(new PropertyGroupDescription("Sifra"));
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti.VratiSifre());
+            collectionView.GroupDescriptions.Add(new PropertyGroupDescription("Sifra"));
 
-      // Set the view as the DataContext for the DataGrid
-      KoeficijentiDataGrid.DataContext = collectionView;
+            // Set the view as the DataContext for the DataGrid
+            KoeficijentiDataGrid.DataContext = collectionView;
+        }
     }
-  }
 }
