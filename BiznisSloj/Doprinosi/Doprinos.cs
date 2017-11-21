@@ -1,14 +1,14 @@
 ﻿namespace BiznisSloj.Doprinosi
 {
-  public abstract class Doprinos
-  {
-    protected readonly decimal Bruto;
-
-    protected Doprinos(decimal bruto)
+    public abstract class Doprinos
     {
-      Bruto = bruto;
-    }
+        protected readonly decimal Bruto;
 
-    public abstract decimal RacunajDoprinos();
-  }
+        protected Doprinos(decimal bruto)
+        {
+            Bruto = bruto;
+        }
+
+        public abstract decimal RacunajDoprinos();
+    }
 }

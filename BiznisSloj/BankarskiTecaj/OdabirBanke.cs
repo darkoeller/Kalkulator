@@ -6,7 +6,7 @@
 
         public OdabirBanke(string odabir)
         {
-           _odabir = odabir;
+            _odabir = odabir;
         }
 
         public decimal VratiIznos()
@@ -14,9 +14,9 @@
             switch (_odabir)
             {
                 case "HNB":
-                   return Racunaj(new TecajHNBa());
+                    return Racunaj(new TecajHNBa());
                 case "PBZ":
-                   return Racunaj(new TecajPBZa());
+                    return Racunaj(new TecajPBZa());
             }
             return 0.0m;
         }

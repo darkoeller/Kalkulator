@@ -2,20 +2,20 @@
 
 namespace BiznisSloj
 {
-  public class IzracunGodinaStaza
-  {
-    private readonly decimal _godine;
-    private readonly decimal _koeficijent;
-
-    public IzracunGodinaStaza(decimal godine, decimal koeficijent)
+    public class IzracunGodinaStaza
     {
-      _godine = godine;
-      _koeficijent = koeficijent;
-    }
+        private readonly decimal _godine;
+        private readonly decimal _koeficijent;
 
-    public decimal Izracun()
-    {
-      return Math.Round(_koeficijent * _godine * 0.5m / 100m, 2);
+        public IzracunGodinaStaza(decimal godine, decimal koeficijent)
+        {
+            _godine = godine;
+            _koeficijent = koeficijent;
+        }
+
+        public decimal Izracun()
+        {
+            return Math.Round(_koeficijent * _godine * 0.5m / 100m, 2);
+        }
     }
-  }
 }
