@@ -14,18 +14,9 @@
             switch (_odabir)
             {
                 case "HNB":
-<<<<<<< HEAD
-                    var hnb = new TecajHNBa().VratiEuro();
-                    return hnb;
-                case "PBZ":
-                    var pbz = new TecajPBZa().VratiEuro();
-                    return pbz;
-                    
-=======
                     return Racunaj(new TecajHNBa());
                 case "PBZ":
                     return Racunaj(new TecajPBZa());
->>>>>>> origin/develop
             }
             return 0.0m;
         }
