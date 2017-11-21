@@ -3,28 +3,27 @@
     public class OdabirBanke
     {
         private readonly string _odabir;
-        //private readonly ITecaj _tecaj;
 
         public OdabirBanke(string odabir)
         {
-            _odabir = odabir;
+           _odabir = odabir;
         }
 
         public decimal VratiIznos()
         {
-            decimal euro;
             switch (_odabir)
             {
                 case "HNB":
-                    var hnb = new TecajHNBa();
-                    euro = hnb.VratiEuro();
-                    return euro;
+                   return Racunaj(new TecajHNBa());
                 case "PBZ":
-                    var pbz = new TecajPBZa();
-                    euro = pbz.VratiEuro();
-                    return euro;
+                   return Racunaj(new TecajPBZa());
             }
             return 0.0m;
+        }
+
+        private static decimal Racunaj(ITecaj tecaj)
+        {
+            return tecaj.VratiEuro();
         }
     }
 }

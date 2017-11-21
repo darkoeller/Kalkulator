@@ -14,6 +14,7 @@ namespace ObracunPlace
   {
     private decimal _euro;
 
+
     public TecajEura()
     {
       InitializeComponent();
@@ -32,7 +33,7 @@ namespace ObracunPlace
           LblTecaj.Content = "0,00 ";
           break;
         case 1:
-          _euro = new OdabirBanke("HNB").VratiIznos();
+           _euro = new OdabirBanke("HNB").VratiIznos();
           LblTecaj.Content = _euro;
           TxtNazivBanke.Text = " Hrvatskoj narodnoj banci, (HNB-u) je : ";
           break;
@@ -52,7 +53,7 @@ namespace ObracunPlace
         LblEuri.Content = "0,00";
         return;
       }
-      var prolaz = decimal.TryParse(TxtEuro.Text, out decimal rata);
+      decimal.TryParse(TxtEuro.Text, out decimal rata);
       rata = Math.Round(_euro * rata, 2);
       LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);
     }
