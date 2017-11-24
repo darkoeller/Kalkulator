@@ -388,7 +388,7 @@
                                         Background="#FFF3FAFA"
                                         HorizontalAlignment="Right">
                                 <StackPanel.Resources>
-                                    <Style TargetType="Label">
+                                    <Style x:Name="SlovaDesno" TargetType="Label">
                                         <Setter Property="HorizontalAlignment"
                                                 Value="Right" />
                                     </Style>
@@ -664,9 +664,8 @@
                                    VerticalAlignment="Center"
                                    FontSize="48"
                                    Foreground="Red"
-                                   FontWeight="Bold"
                                    RenderTransformOrigin="0.5,0.5"
-                                   FontFamily="Pristina">
+                                   FontFamily="Comic Sans MS">
                             <TextBlock.Effect>
                                 <DropShadowEffect />
                             </TextBlock.Effect>
@@ -678,7 +677,7 @@
                                     <TranslateTransform />
                                 </TransformGroup>
                             </TextBlock.RenderTransform>
-                            AJDE BOK !
+                            AJD' BOK !
                         </TextBlock>
                         <Image Margin="0,100,0,0"
                                Source="Resources/penzic.png"
