@@ -388,7 +388,7 @@
                                         Background="#FFF3FAFA"
                                         HorizontalAlignment="Right">
                                 <StackPanel.Resources>
-                                    <Style x:Name="SlovaDesno" TargetType="Label">
+                                    <Style TargetType="Label">
                                         <Setter Property="HorizontalAlignment"
                                                 Value="Right" />
                                     </Style>
@@ -660,28 +660,8 @@
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical"
                                 Margin="0,100,0,0">
-                        <TextBlock HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="48"
-                                   Foreground="Red"
-                                   RenderTransformOrigin="0.5,0.5"
-                                   FontFamily="Comic Sans MS">
-                            <TextBlock.Effect>
-                                <DropShadowEffect />
-                            </TextBlock.Effect>
-                            <TextBlock.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="2" />
-                                    <SkewTransform />
-                                    <RotateTransform Angle="-18" />
-                                    <TranslateTransform />
-                                </TransformGroup>
-                            </TextBlock.RenderTransform>
-                            AJD' BOK !
-                        </TextBlock>
-                        <Image Margin="0,100,0,0"
-                               Source="Resources/penzic.png"
-                               Stretch="None" />
+                        <Image Margin="0,120,0,0"
+                               Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350"/>
                     </StackPanel>
                 </TabItem>
             </controls:MetroAnimatedTabControl>
