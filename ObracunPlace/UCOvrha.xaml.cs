@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using BiznisSloj;
 
 namespace ObracunPlace
@@ -8,7 +7,7 @@ namespace ObracunPlace
     /// <summary>
     ///     Interaction logic for UCOvrha.xaml
     /// </summary>
-    public partial class UCOvrha : UserControl
+    public partial class UCOvrha
     {
         private decimal _neto;
 

@@ -10,7 +10,7 @@ namespace ObracunPlace
     /// <summary>
     ///     Interaction logic for TecajEura.xaml
     /// </summary>
-    public partial class TecajEura : UserControl
+    public partial class TecajEura
     {
         private decimal _euro;
 

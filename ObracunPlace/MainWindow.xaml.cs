@@ -57,13 +57,13 @@ namespace ObracunPlace
 
         private decimal GetBruto()
         {
-            var prolaz = decimal.TryParse(TxtBruto.Text, out decimal bruto);
+            decimal.TryParse(TxtBruto.Text, out var bruto);
             return bruto;
         }
 
         private decimal GetNeto()
         {
-            var prolaz = decimal.TryParse(TxtNeto.Text, out decimal neto);
+            decimal.TryParse(TxtNeto.Text, out var neto);
             return neto;
         }
 
