@@ -5,9 +5,9 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
-        private const decimal ProsjecnoNeto = 5664.00m;
+        private static readonly decimal ProsjecnoNeto = 5664.00m;
 
-        private const decimal MinimalniNeto = 3276.00m;
+        private static readonly decimal MinimalniNeto = 3276.00m;
 
         public Ovrha(decimal neto)
         {

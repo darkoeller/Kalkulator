@@ -2,7 +2,7 @@
 {
     public class IzracunOlaksice
     {
-        private const decimal Koeficijent = 3800.0m;
+        private static readonly decimal Koeficijent = 3800.0m;
         private readonly decimal _faktor;
 
         public IzracunOlaksice(decimal faktor)

@@ -2,7 +2,7 @@
 {
     public abstract class KoeficSat
     {
-        protected const decimal Vrijednostboda = 11.0172m;
+        protected static readonly decimal Vrijednostboda = 11.0172m;
 
         protected KoeficSat(decimal brojsati, decimal minuli, decimal bodovi, decimal koeficijent)
         {

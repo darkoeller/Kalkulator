@@ -6,8 +6,8 @@ namespace BiznisSloj
 {
     public class ProcesuirajNeto
     {
-        private const decimal PorezMax = 17500.0m;
-        private const decimal PorKoef24 = 4200.0m;
+        private static readonly decimal PorezMax = 17500.0m;
+        private static readonly decimal PorKoef24 = 4200.0m;
 
         public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez, bool chekdoprinosi)
         {

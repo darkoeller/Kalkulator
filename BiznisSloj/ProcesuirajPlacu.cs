@@ -7,9 +7,9 @@ namespace BiznisSloj
 {
     public class ProcesuirajPlacu
     {
-        private const decimal Minimaldop = 2940.82m;
-        private const decimal Maxdoprinos1Stup = 6965.10m;
-        private const decimal Maxdoprinos2Stup = 2321.70m;
+        private static readonly decimal Minimaldop = 2940.82m;
+        private static readonly decimal Maxdoprinos1Stup = 6965.10m;
+        private static readonly decimal Maxdoprinos2Stup = 2321.70m;
 
         public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, bool chdoprinosi, decimal odbitak = 1.0m)
         {

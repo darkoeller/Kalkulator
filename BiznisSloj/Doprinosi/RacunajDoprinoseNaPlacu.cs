@@ -30,7 +30,7 @@
             return _bruto + DoprinosZaposljavanje + DoprinosZastitaNaRadu + DoprinosZdravstveno;
         }
 
-        private decimal Racunaj(Doprinos doprinosi)
+        private static decimal Racunaj(Doprinos doprinosi)
         {
             return doprinosi.RacunajDoprinos();
         }

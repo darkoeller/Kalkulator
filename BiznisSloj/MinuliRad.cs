@@ -4,7 +4,7 @@ namespace BiznisSloj
 {
     public class MinuliRad
     {
-        private const decimal VrijednostBoda = 11.0172m;
+        private static readonly decimal VrijednostBoda = 11.0172m;
         private readonly decimal _brojSati;
         private readonly decimal _minuli;
 
