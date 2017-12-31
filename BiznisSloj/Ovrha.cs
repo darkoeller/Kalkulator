@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Windows;
 
 namespace BiznisSloj
 {
     public class Ovrha
     {
-        private static readonly decimal ProsjecnoNeto = 5664.00m;
+        static readonly decimal ProsjecnoNeto = 5960.00m;
 
-        private static readonly decimal MinimalniNeto = 3276.00m;
+        static readonly decimal MinimalniNeto = 3439.80m;
 
         public Ovrha(decimal neto)
         {
@@ -21,25 +20,23 @@ namespace BiznisSloj
         public decimal IzracunajOvrhu()
         {
             var netoIznos = Neto;
-
-            if (Neto <= MinimalniNeto)
+            var prolaz = Procjena(netoIznos);
+            switch (prolaz)
             {
-                MessageBox.Show("Ovrha nije moguća zbog minimalnog neta \n ili pogrešno upisanog iznosa.");
-                return Neto;
+                case  1:
+                    netoIznos = Math.Round(netoIznos / 4 * 3, 2);
+                    break;
+                case 2:
+                    netoIznos = 3973.33m;
+                    break;
             }
-            if (Neto >= ProsjecnoNeto)
-            {
-                netoIznos = 3776.00m;
-                ZaOvrsiti = Neto - netoIznos;
-                return netoIznos;
-            }
-            if (Neto > MinimalniNeto && Neto < ProsjecnoNeto)
-            {
-                netoIznos = Math.Round(netoIznos / 3 * 2, 2);
-                ZaOvrsiti = Neto - netoIznos;
-                return netoIznos;
-            }
+            ZaOvrsiti = Neto - netoIznos;
             return netoIznos;
+        }
+
+        private static int Procjena(decimal netoIznos)
+        {
+            return netoIznos <= 5297.77m ? 1 : 2;
         }
     }
 }

@@ -542,14 +542,14 @@
                         </TextBlock>
                         <TextBlock HorizontalAlignment="Left"
                                    Margin="50,10,0,0">
-                            Prosječna mjesečna neto plaća u RH je 5.664,00 kune. Ovaj iznos je relevantan za provedbu ovrhe na plaći u 2017.godini.
+                            Prosječna mjesečna neto plaća u RH je 5.960,00 kune. Ovaj iznos je relevantan za provedbu ovrhe na plaći u 2018.godini.
                         </TextBlock>
                         <TextBlock HorizontalAlignment="Left"
                                    Margin="50,10,0,0">
-                            Visina minimalne plaće utvrđena je u bruto iznosu os 3.276,00 kune.
+                            Visina minimalne plaće utvrđena je u bruto iznosu os 3.439,80 kune.
                         </TextBlock>
-                        <TextBlock Margin="50,10,0,0">Ako se ovrha se provodi na plaću koja je viša od 5664,00 kn neto, od ovrhe se izuzima 2/3 prosječne plaće odnosno 3776,00 kn.</TextBlock>
-                        <TextBlock Margin="50,10,0,0">Ako je plaća niža od prosječne neto plaće, tada mu treba ostati 2/3 njegove plaće</TextBlock>
+                        <TextBlock Margin="50,10,0,0">Ako se ovrha se provodi na plaću koja je viša od 5297,77 kn neto, od ovrhe se izuzima 2/3 prosječne plaće odnosno 3973,33 kn.</TextBlock>
+                        <TextBlock Margin="50,10,0,0">Ako je plaća manja ili jednaka od 5297,77, tada se smije ovršiti samo 1/4 neto plaće.</TextBlock>
                     </StackPanel>
                 </TabItem>
                 <TabItem x:Name="PomocTabItem"
