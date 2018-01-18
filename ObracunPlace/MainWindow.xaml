@@ -153,7 +153,7 @@
                                     <TextBlock Margin="3"
                                                MaxWidth="100"
                                                TextWrapping="Wrap">
-                                        Sa ograničenjem za doprinose mirovinskog osig. od 9.286,80 kn
+                                        Sa ograničenjem za doprinose mirovinskog osig. od 9.624,00 kn
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Grid.Column="4"
@@ -609,22 +609,22 @@
                                     </ListItem>
                                     <ListItem>
                                         <Paragraph>
-                                            minimalna osnovica za doprinose je 2940,82kn,
+                                            minimalna osnovica za doprinose je 3.047,60kn,
                                         </Paragraph>
                                     </ListItem>
                                     <ListItem>
                                         <Paragraph>
-                                            maximalna mjesečna osnovica za doprinose je 46434,00kn,
+                                            maximalna mjesečna osnovica za doprinose je 48.120,00kn,
                                         </Paragraph>
                                     </ListItem>
                                     <ListItem>
                                         <Paragraph>
-                                            maximalna godišnja osnovica za doprinose je 557208,00kn,
+                                            maximalna godišnja osnovica za doprinose je 577.440,00kn,
                                         </Paragraph>
                                     </ListItem>
                                     <ListItem>
                                         <Paragraph>
-                                            minimalna plaća za puno radno vrijeme je 3276,00kn.
+                                            minimalna plaća za puno radno vrijeme je 3.439,80kn.
                                         </Paragraph>
                                     </ListItem>
                                 </List>

@@ -7,9 +7,9 @@ namespace BiznisSloj
 {
     public class ProcesuirajPlacu
     {
-        private static readonly decimal Minimaldop = 2940.82m;
-        private static readonly decimal Maxdoprinos1Stup = 6965.10m;
-        private static readonly decimal Maxdoprinos2Stup = 2321.70m;
+        private static readonly decimal Minimaldop = 3047.60m;
+        private static readonly decimal Maxdoprinos1Stup = 7218.00m;
+        private static readonly decimal Maxdoprinos2Stup = 2406.00m;
 
         public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, bool chdoprinosi, decimal odbitak = 1.0m)
         {
@@ -68,21 +68,21 @@ namespace BiznisSloj
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
             doprinosizplace.Izracun();
 
-            if (doprinosizplace.VratiDoprinose() <= 9286.80m)
+            if (doprinosizplace.VratiDoprinose() <= 9624.00m)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
-            else if (CheckDoprinosi && doprinosizplace.VratiDoprinose() > 9286.80m)
+            else if (CheckDoprinosi && doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetnaestPostoDoprinos = Maxdoprinos1Stup;
                 PetPostoDoprinos = Maxdoprinos2Stup;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
-            else if (CheckDoprinosi != true && doprinosizplace.VratiDoprinose() > 9286.80m)
+            else if (CheckDoprinosi != true && doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
