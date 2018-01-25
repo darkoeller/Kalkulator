@@ -266,7 +266,9 @@
     <Resource Include="Resources\euro0.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <SplashScreen Include="Paychec.png" />
+    <SplashScreen Include="Paychec.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </SplashScreen>
     <Resource Include="Resources\3c78181.png" />
     <Content Include="Resources\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
