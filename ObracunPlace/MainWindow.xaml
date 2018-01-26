@@ -9,7 +9,7 @@
                       BorderThickness="2"
                       xmlns:local="clr-namespace:ObracunPlace"
                       mc:Ignorable="d"
-                      Title="Kalkulator plaće v. 2017 : neto / bruto"
+                      Title="Kalkulator plaće v. 2018 : neto / bruto"
                       Height="835"
                       Width="860"
                       WindowStartupLocation="CenterScreen"
