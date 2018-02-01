@@ -47,7 +47,7 @@
                         Margin="5,5,5,0">
                 <controls:NumericUpDown x:Name="BodoviUpDown"
                                         Minimum="1"
-                                        Maximum="7"
+                                        Maximum="16"
                                         Value="1.00"
                                         Interval="0.05"
                                         Margin="5,0,5,0"
@@ -59,7 +59,7 @@
                                         ValueIncremented="BodoviUpDown_ValueIncremented" />
                 <controls:NumericUpDown x:Name="MinuliUpDown"
                                         Minimum="0.01"
-                                        Maximum="4.00"
+                                        Maximum="6"
                                         Interval="0.01"
                                         Value="0.01"
                                         Margin="5"
