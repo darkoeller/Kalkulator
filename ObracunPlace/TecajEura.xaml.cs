@@ -43,6 +43,7 @@ namespace ObracunPlace
                     TxtNazivBanke.Text = " Privrednoj banci Zagreb, (PBZ-u) je : ";
                     break;
             }
+
             TxtEuro.Focus();
         }
 
@@ -53,7 +54,8 @@ namespace ObracunPlace
                 LblEuri.Content = "0,00";
                 return;
             }
-            decimal.TryParse(TxtEuro.Text, out decimal rata);
+
+            decimal.TryParse(TxtEuro.Text, out var rata);
             rata = Math.Round(_euro * rata, 2);
             LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);
         }

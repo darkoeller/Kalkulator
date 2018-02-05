@@ -661,7 +661,7 @@
                     <StackPanel Orientation="Vertical"
                                 Margin="0,100,0,0">
                         <Image Margin="0,120,0,0"
-                               Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350"/>
+                               Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350" />
                     </StackPanel>
                 </TabItem>
             </controls:MetroAnimatedTabControl>

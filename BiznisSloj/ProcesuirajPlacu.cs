@@ -89,6 +89,7 @@ namespace BiznisSloj
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
+
             ProvjeriDrugiStup();
         }
 
@@ -108,6 +109,7 @@ namespace BiznisSloj
                 PoreznaOsnovica = 0.0m;
                 return;
             }
+
             PoreznaOsnovica = Math.Round(Dohodak - Olaksica, 2);
         }
 

@@ -83,6 +83,7 @@ namespace ObracunPlace
                     "Provjerite!");
                 return;
             }
+
             var odabranbruto = ProvjeriRadioGumb();
 
             if (odabranbruto)
@@ -174,6 +175,7 @@ namespace ObracunPlace
                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
                 return true;
             }
+
             if (placa.Neto <= upisanineto) return false;
             bruto -= 0.01m;
             PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);

@@ -40,6 +40,7 @@ namespace BiznisSloj.Doprinosi
 
                     break;
             }
+
             return 0.00m;
         }
     }

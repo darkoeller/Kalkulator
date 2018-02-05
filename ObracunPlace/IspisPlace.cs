@@ -17,6 +17,7 @@ namespace ObracunPlace
                     , MessageBoxImage.Information);
                 return;
             }
+
             using (var doc = new Document(PageSize.A4, 20, 15, 25, 30))
             {
                 try

@@ -70,6 +70,7 @@ namespace ObracunPlace
                     LblBene1I2.Content = "Benef. stup 1 i 2 - 11,28%";
                     break;
             }
+
             OcistiLabele();
             ImePrezime.Focus();
         }
@@ -222,6 +223,7 @@ namespace ObracunPlace
                                 if (cell.Content is TextBlock txt) centar.AddCell(new Phrase(txt.Text, desetka));
                             }
                         }
+
                     centar.HorizontalAlignment = 1;
                     doc.Add(centar);
                     pdwri.PageEvent = new Footer();
@@ -245,6 +247,7 @@ namespace ObracunPlace
                 var childOfChild = FindVisualChild<T>(child);
                 if (childOfChild != null) return childOfChild;
             }
+
             return null;
         }
 

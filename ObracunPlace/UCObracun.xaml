@@ -214,17 +214,6 @@
                     BorderBrush="Black">
 
                 <Grid>
-                    <Image Grid.Column="0"
-                           Grid.Row="0"
-                           Source="Resources/lovalovac.ico"
-                           Height="70"
-                           Margin="10,0,0,10"
-                           HorizontalAlignment="Left">
-                        <Image.Effect>
-                            <DropShadowEffect />
-                        </Image.Effect>
-                    </Image>
-
                     <StackPanel Orientation="Horizontal"
                                 Margin="227,0,170,0">
                         <TextBlock Text="Upišite godine staža : "
