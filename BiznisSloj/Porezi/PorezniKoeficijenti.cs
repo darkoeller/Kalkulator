@@ -25,11 +25,18 @@ namespace BiznisSloj.Porezi
             var rezultat = PoreznoPrirezniKoef();
 
             var porezniKoeficijentis = rezultat as IList<PorezniKoeficijenti> ?? rezultat.ToList();
-            KoefPrireza = porezniKoeficijentis.Where(r => r.Stopa == stopa).Select(r => r.KoefPrireza).FirstOrDefault();
-            KoefPorezaPrireza24 = porezniKoeficijentis.Where(r => r.Stopa == stopa)
+            KoefPrireza = porezniKoeficijentis
+                .AsParallel()
+                .Where(r => r.Stopa == stopa)
+                .Select(r => r.KoefPrireza)
+                .FirstOrDefault();
+            KoefPorezaPrireza24 = porezniKoeficijentis
+                .AsParallel()
+                .Where(r => r.Stopa == stopa)
                 .Select(r => r.KoefPorezaPrireza24)
                 .FirstOrDefault();
-            KoefPorezaPrireza36 = porezniKoeficijentis.Where(r => r.Stopa == stopa)
+            KoefPorezaPrireza36 = porezniKoeficijentis.AsParallel()
+                .Where(r => r.Stopa == stopa)
                 .Select(r => r.KoefPorezaPrireza36)
                 .FirstOrDefault();
         }
