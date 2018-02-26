@@ -13,7 +13,7 @@ namespace BiznisSloj.KoefSati
 
         public static decimal VratiIznos(string naziv)
         {
-            var rezultat = VratiSifre().Where(r => string.Equals(r.Naziv, naziv)).Select(r => r.Koeficijent).First();
+            var rezultat = VratiSifre().AsParallel().Where(r => string.Equals(r.Naziv, naziv)).Select(r => r.Koeficijent).First();
             return rezultat;
         }
 
