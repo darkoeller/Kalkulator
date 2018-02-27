@@ -96,6 +96,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <PostSharpHost>Native</PostSharpHost>
     <SkipPostSharp>True</SkipPostSharp>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
