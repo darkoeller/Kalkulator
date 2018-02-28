@@ -16,7 +16,7 @@ namespace ObracunPlace
                     "Petrokemija, d.d. tvornica gnojiva, Aleja Vukovar 4, 44320 Kutina; predsjednik Nadzornog odbora: Mijo Šepak;"
                     , maliFont) {SpacingBefore = 90f, Alignment = 1});
             doc.Add(
-                new Paragraph("Uprava: Đuro Popijač – predsjednik, Nenad Zečević – član, Davor Žmegač - član;"
+                new Paragraph("Uprava: Đuro Popijač – predsjednik, Davor Žmegač - član;"
                     , maliFont) {Alignment = 1});
             doc.Add(new Paragraph(
                 "OIB 24503685008; PDV identifikacijski broj: HR24503685008; IBAN: HR45 2340 0091 1001 2191 2 kod Privredne banke Zagreb d.d.,"
