@@ -14,9 +14,9 @@
             switch (_odabir)
             {
                 case "HNB":
-                    return Racunaj(new TecajHNBa());
+                    return Racunaj(new TecajHnBa());
                 case "PBZ":
-                    return Racunaj(new TecajPBZa());
+                    return Racunaj(new TecajPbZa());
             }
 
             return 0.0m;
