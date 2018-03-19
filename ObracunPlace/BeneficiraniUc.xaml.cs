@@ -119,11 +119,11 @@ namespace ObracunPlace
 
         private void IzracunajPetPetnaest()
         {
-            var petnaest = new DoprinosPetnaestPosto(Bruto);
-            var doprinospetnaest = Math.Round(petnaest.RacunajDoprinos(), 2);
+            var petnaest = new DoprinosPetnaestPosto();
+            var doprinospetnaest = Math.Round(petnaest.RacunajDoprinos(Bruto), 2);
             _bene.Doprinos15 = doprinospetnaest;
-            var pet = new DoprinosPetPosto(Bruto);
-            var doprinospet = Math.Round(pet.RacunajDoprinos(), 2);
+            var pet = new DoprinosPetPosto();
+            var doprinospet = Math.Round(pet.RacunajDoprinos(Bruto), 2);
             _bene.Doprinos5 = doprinospet;
             _dvadeset = doprinospet + doprinospetnaest;
             TxtDop15.Text = doprinospetnaest.ToString(new CultureInfo("hr-HR"));

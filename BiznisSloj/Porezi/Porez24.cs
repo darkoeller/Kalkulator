@@ -1,14 +1,10 @@
 ﻿namespace BiznisSloj.Porezi
 {
-    public class Porez24 : Porezi
+    public class Porez24 : IPorezi
     {
-        public Porez24(decimal bruto) : base(bruto)
+        public  decimal Izracunaj(decimal bruto)
         {
-        }
-
-        public override decimal Izracunaj()
-        {
-            return Bruto * 0.24m;
+            return bruto * 0.24m;
         }
     }
 }

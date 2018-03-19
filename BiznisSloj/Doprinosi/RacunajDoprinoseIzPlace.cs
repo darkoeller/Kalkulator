@@ -2,11 +2,11 @@
 {
     public class RacunajDoprinoseIzPlace
     {
-        private readonly decimal _bruto;
+        private  decimal Bruto { get; }
 
         public RacunajDoprinoseIzPlace(decimal bruto)
         {
-            _bruto = bruto;
+            Bruto = bruto;
         }
 
         public decimal PetPosto { get; private set; }
@@ -14,8 +14,8 @@
 
         public void Izracun()
         {
-            PetPosto = Racunaj(new DoprinosPetPosto(_bruto));
-            PetnaestPosto = Racunaj(new DoprinosPetnaestPosto(_bruto));
+            PetPosto = Racunaj(new DoprinosPetPosto());
+            PetnaestPosto = Racunaj(new DoprinosPetnaestPosto());
         }
 
         public decimal VratiDoprinose()
@@ -23,9 +23,9 @@
             return PetPosto + PetnaestPosto;
         }
 
-        private static decimal Racunaj(Doprinos doprinosi)
+        private decimal Racunaj(IDoprinosi doprinosi)
         {
-            return doprinosi.RacunajDoprinos();
+            return doprinosi.RacunajDoprinos(Bruto);
         }
     }
 }

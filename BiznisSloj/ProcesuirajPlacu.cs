@@ -109,7 +109,6 @@ namespace BiznisSloj
                 PoreznaOsnovica = 0.0m;
                 return;
             }
-
             PoreznaOsnovica = Math.Round(Dohodak - Olaksica, 2);
         }
 

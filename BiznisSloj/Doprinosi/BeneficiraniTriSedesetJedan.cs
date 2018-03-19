@@ -1,14 +1,10 @@
 ﻿namespace BiznisSloj.Doprinosi
 {
-    public class BeneficiraniTriSedesetJedan : Doprinos
+    public class BeneficiraniTriSedesetJedan : IDoprinosi
     {
-        public BeneficiraniTriSedesetJedan(decimal bruto) : base(bruto)
+        public  decimal RacunajDoprinos(decimal bruto)
         {
-        }
-
-        public override decimal RacunajDoprinos()
-        {
-            return Bruto * 0.0361m;
+            return bruto * 0.0361m;
         }
     }
 }

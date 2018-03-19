@@ -1,14 +1,10 @@
 ﻿namespace BiznisSloj.Doprinosi
 {
-    public class Zaposljavanje : Doprinos
+    public class Zaposljavanje : IDoprinosi
     {
-        public Zaposljavanje(decimal bruto) : base(bruto)
+        public  decimal RacunajDoprinos(decimal bruto)
         {
-        }
-
-        public override decimal RacunajDoprinos()
-        {
-            return Bruto * 0.017m;
+            return bruto * 0.017m;
         }
     }
 }
