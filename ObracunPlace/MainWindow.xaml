@@ -148,7 +148,7 @@
                                                   Margin="2,30,0,0"
                                                   ToolTip="Ako računate sa ograničenjem označite kvadratić."
                                                   Width="20"
-                                                  d:IsHidden="True" />
+                                                  d:IsHidden="True" IsChecked="True" />
                                     </StackPanel>
                                     <TextBlock Margin="3"
                                                MaxWidth="100"

@@ -2,7 +2,7 @@
 {
     public class IzracunajPoreze
     {
-        private  decimal Bruto { get; }
+        private  decimal Bruto { get; set; }
 
         public IzracunajPoreze(decimal bruto)
         {
@@ -16,16 +16,15 @@
         //ako je bruto veći od 17500 
         public void RacunajPoreze()
         {
-            var bruto = Bruto;
-            if (bruto > 17500.0m)
+            if (Bruto <= 17500.0m)
             {
-                bruto -= 17500;
-                Porez36Posto = Izracunaj(new Porez36());
-                OsnovicaPorez24(17500m);
+                OsnovicaPorez24(Bruto);
             }
             else
             {
-                OsnovicaPorez24(bruto);
+                Bruto -= 17500;
+                Porez36Posto = Izracunaj(new Porez36());
+                Porez24Posto = 4200.0m;
             }
         }
 

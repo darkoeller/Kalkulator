@@ -149,7 +149,6 @@ namespace BiznisSloj.Porezi
                     KoefPrireza = 1.12m,  
                     KoefPorezaPrireza24 = 1.367614880m,
                     KoefPorezaPrireza36 = 1.675603217m
-
                 },
                 new PorezniKoeficijenti
                 {

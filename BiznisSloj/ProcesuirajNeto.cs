@@ -46,20 +46,18 @@ namespace BiznisSloj
         //odabir izračuna poreza
         private void NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
-            if (neto > 37147.60m - (PorKoef24 * KoefPrireza + (19647.0m - odbitak) * 0.36m * KoefPrireza) &&
-                CheckDoprinosi)
+            if (neto > 38496.60m - (4200.0m * KoefPrireza + (20966.0m - odbitak) * 0.36m * KoefPrireza))
                 Bruto = Math.Round(CetvrtaMetoda(neto, odbitak), 2);
             else if (neto <= odbitak) Bruto = neto * 1.25m;
-            else if (neto < PorezMax - PorKoef24 * KoefPrireza + odbitak)
+            else if (neto < 17500.00m - (4200.00m * KoefPrireza) + odbitak)
                 Bruto = Math.Round(DrugaMetoda(neto, odbitak), 2);
-            else if (neto > PorezMax - PorKoef24 * KoefPrireza + odbitak)
+            else if (neto > 17500.00m - (4200.0m * KoefPrireza) + odbitak)
                 Bruto = Math.Round(TrecaMetoda(neto, odbitak), 2);
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
         {
-            return PorezMax + odbitak + (neto - (PorezMax - PorKoef24 * KoefPrireza + odbitak)) * KoefPorezaPrireza36 +
-                   9286.80m;
+            return 17500.00m + odbitak + ((neto - (17500.0m - (4200.0m * KoefPrireza) + odbitak)) * KoefPorezaPrireza36) + 9624.00m;
         }
 
         private decimal TrecaMetoda(decimal neto, decimal odbitak)

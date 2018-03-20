@@ -137,7 +137,7 @@ namespace ObracunPlace
             var upisanineto = GetNeto();
             var bruto = GetBruto();
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            var placa = new ProcesuirajPlacu(GetBruto(), Prirez, Stup1I2, CheckDoprinosi, Olaksica);
+            var placa = new ProcesuirajPlacu(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);

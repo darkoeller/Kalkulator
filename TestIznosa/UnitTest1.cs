@@ -2,7 +2,6 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.KoefSati;
 using BiznisSloj.Olaksice;
-using BiznisSloj.Porezi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestIznosa
@@ -11,14 +10,20 @@ namespace TestIznosa
     public class UnitTest1
     {
         [TestMethod]
-        public void TestPoreza()
+        public void TestProcesaVisokogNeta()
         {
-            var porez40 = new IzracunajPoreze(2600.0m);
-            porez40.RacunajPoreze();
-            var up = porez40.UkupniPorez();
-            Assert.AreEqual(up, 364.0m);
+            var neto = new ProcesuirajNeto(33000m, 2.7m, 12m, true);
+            neto.Izracunaj();
+            Assert.AreEqual(neto.Bruto, 55539.28m );
         }
-
+        [TestMethod]
+        public void TestProcesaVisokogNeta2()
+        {
+            var neto = new ProcesuirajNeto(27000m, 1m, 18m, true);
+            neto.Izracunaj();
+            Assert.AreEqual(neto.Bruto, 49449.73m );
+        }
+        
         [TestMethod]
         public void TestDoprinosa()
         {
@@ -42,7 +47,7 @@ namespace TestIznosa
         {
             var olaksica = new IzracunOlaksice(2.2m);
             var izracun = olaksica.VratiOlaksicu();
-            Assert.AreEqual(izracun, 5720.0m);
+            Assert.AreEqual(izracun, 6800.0m);
         }
 
 
