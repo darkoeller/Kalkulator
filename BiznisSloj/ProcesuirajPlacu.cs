@@ -11,12 +11,11 @@ namespace BiznisSloj
         private static readonly decimal Maxdoprinos1Stup = 7218.00m;
         private static readonly decimal Maxdoprinos2Stup = 2406.00m;
 
-        public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, bool chdoprinosi, decimal odbitak = 1.0m)
+        public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, decimal odbitak = 1.0m)
         {
             Bruto = bruto;
             Odbitak = odbitak;
             Prirez = prirez;
-            CheckDoprinosi = chdoprinosi;
             DrugiStup = drugistup;
         }
 
@@ -39,9 +38,7 @@ namespace BiznisSloj
         public decimal PoreznaOsnovica { get; private set; }
         public decimal Neto { get; private set; }
         public decimal UkupniTrosakPlace { get; private set; }
-        public decimal DvadesetPostoDoprinos { get; private set; }
 
-        private bool CheckDoprinosi { get; }
 
         private void VratiUkupniPorez()
         {
@@ -75,21 +72,20 @@ namespace BiznisSloj
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
-            else if (CheckDoprinosi && doprinosizplace.VratiDoprinose() > 9624.00m)
+            else if (doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetnaestPostoDoprinos = Maxdoprinos1Stup;
                 PetPostoDoprinos = Maxdoprinos2Stup;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
-            else if (CheckDoprinosi != true && doprinosizplace.VratiDoprinose() > 9624.00m)
+            else if (doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
             }
-
             ProvjeriDrugiStup();
         }
 

@@ -6,15 +6,11 @@ namespace BiznisSloj
 {
     public class ProcesuirajNeto
     {
-        private static readonly decimal PorezMax = 17500.0m;
-        private static readonly decimal PorKoef24 = 4200.0m;
-
-        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez, bool chekdoprinosi)
+        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez)
         {
             Neto = neto;
             Faktor = faktor;
             Prirez = prirez;
-            CheckDoprinosi = chekdoprinosi;
         }
 
         public decimal Bruto { get; private set; }
@@ -24,7 +20,6 @@ namespace BiznisSloj
         private decimal KoefPrireza { get; set; }
         private decimal KoefPorezaPrireza24 { get; set; }
         private decimal KoefPorezaPrireza36 { get; set; }
-        private bool CheckDoprinosi { get; }
 
         private decimal IzracunOlaksiceClanova()
         {
@@ -62,9 +57,7 @@ namespace BiznisSloj
 
         private decimal TrecaMetoda(decimal neto, decimal odbitak)
         {
-            return (PorezMax + odbitak + (neto - (PorezMax - PorKoef24 * KoefPrireza + odbitak)) *
-                    KoefPorezaPrireza36) /
-                   0.8m;
+            return (17500.0m + odbitak + (neto - (17500.0m - (4200.0m * KoefPrireza) + odbitak)) * KoefPorezaPrireza36) / 0.8m;
         }
 
         //računa neto bez poreza

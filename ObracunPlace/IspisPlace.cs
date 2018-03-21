@@ -83,9 +83,7 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Doprinos 5% : ", times));
                     listaIznosa.AddCell(new Phrase(_listica.PetPostoDoprinos.ToString("c"), times));
-                    listaIznosa.AddCell(new Phrase("Doprinos 20% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DvadesetPostoDoprinos.ToString("c"), times));
-                    listaIznosa.AddCell(new Phrase("Doprinosi iz plaće ukupno : ", times));
+                    listaIznosa.AddCell(new Phrase("Doprinosi iz plaće ukupno (20%) : ", times));
                     listaIznosa.AddCell(new Phrase(_listica.DoprinosiIzPlaceUkupno.ToString("c"), times));
                     listaIznosa.AddCell(new Phrase("Dohodak (bruto - doprinosi) : ", times));
                     listaIznosa.AddCell(new Phrase(_listica.Dohodak.ToString("c"), times));

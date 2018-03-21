@@ -73,12 +73,11 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="80" />
                                 </Grid.RowDefinitions>
-                                <StackPanel Margin="3,0,3,0">
+                                <StackPanel Grid.Column="0" Margin="3,0,3,0" Width="120">
                                     <RadioButton GroupName="BrutoNeto"
                                                  x:Name="RbBruto"
                                                  Content="Iz bruta u neto"
@@ -99,15 +98,16 @@
                                 <StackPanel Grid.Column="1"
                                             Orientation="Horizontal"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Left">
+                                            HorizontalAlignment="Left"
+                                            Width="165">
                                     <TextBlock TextWrapping="Wrap"
                                                Margin="7,0,5,0"
                                                Text=" Faktor porezne olakšice"
-                                               MaxWidth="60" />
+                                               MaxWidth="80" />
                                     <controls:NumericUpDown Interval="0.1"
                                                             x:Name="OlaksicaUpDown"
                                                             Value="1"
-                                                            Width="80"
+                                                            Width="90"
                                                             Height="30"
                                                             Minimum="1.00"
                                                             Maximum="10"
@@ -119,10 +119,11 @@
                                 <StackPanel Grid.Column="2"
                                             Orientation="Horizontal"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Left">
+                                            HorizontalAlignment="Left"
+                                            Width="200">
                                     <TextBlock TextWrapping="Wrap"
                                                Margin="5,0,5,0"
-                                               Text="Prirez :"
+                                               Text="Iznos prireza u % :"
                                                ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6"
                                                VerticalAlignment="Center" />
                                     <controls:NumericUpDown x:Name="PrirezUpDown"
@@ -130,38 +131,20 @@
                                                             Width="80"
                                                             Height="30"
                                                             Minimum="0"
-                                                            Margin="0,0,7,0"
+                                                            Margin="0"
                                                             Maximum="18"
                                                             ToolTip="Iznos prireza za općine i gradove: Kutina 12%, Lipovljani 6% itd. "
                                                             Culture="hr"
                                                             TrackMouseWheelWhenMouseOver="True" />
                                 </StackPanel>
+                               
                                 <StackPanel Grid.Column="3"
-                                            Orientation="Horizontal"
                                             VerticalAlignment="Center"
-                                            Margin="0"
-                                            MaxWidth="150">
-                                    <StackPanel VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
-                                                Height="80">
-                                        <CheckBox x:Name="CheckBoxDoprinosi"
-                                                  Margin="2,30,0,0"
-                                                  ToolTip="Ako računate sa ograničenjem označite kvadratić."
-                                                  Width="20"
-                                                  d:IsHidden="True" IsChecked="True" />
-                                    </StackPanel>
-                                    <TextBlock Margin="3"
-                                               MaxWidth="100"
-                                               TextWrapping="Wrap">
-                                        Sa ograničenjem za doprinose mirovinskog osig. od 9.624,00 kn
-                                    </TextBlock>
-                                </StackPanel>
-                                <StackPanel Grid.Column="4"
-                                            VerticalAlignment="Center">
+                                            Width="145">
                                     <RadioButton GroupName="StupOsig"
                                                  IsChecked="True"
                                                  x:Name="Rb1I2Stup"
-                                                 Content="1;2.stup osig."
+                                                 Content="1. i 2.stup osiguranja"
                                                  Margin="5,0,5,10"
                                                  FontFamily="Roboto Light" />
                                     <RadioButton GroupName="StupOsig"
@@ -171,7 +154,7 @@
                                                  ToolTip="Odaberite ako niste u 2.stupu, vaš doprinos je 20%"
                                                  FontFamily="Roboto Light" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="5"
+                                <StackPanel Grid.Column="4"
                                             VerticalAlignment="Center"
                                             Margin="0"
                                             Width="150">
@@ -181,8 +164,8 @@
                                                HorizontalAlignment="Center" />
                                     <TextBox x:Name="TxtBruto"
                                              Width="100"
-                                             Margin="0,5,0,0"
-                                             HorizontalAlignment="Right"
+                                             Margin="0,7,0,0"
+                                             HorizontalAlignment="Center"
                                              BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                                              Background="#FFFBFAE9"
                                              TextAlignment="Right"

@@ -51,9 +51,7 @@ namespace ObracunPlace
 
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
         private decimal Prirez => decimal.Parse(PrirezUpDown.Value.ToString());
-
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
-        private bool CheckDoprinosi => bool.Parse(CheckBoxDoprinosi.IsChecked.ToString());
 
         private decimal GetBruto()
         {
@@ -94,7 +92,7 @@ namespace ObracunPlace
             {
                 TxtBruto.Text = "";
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
-                var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez, CheckDoprinosi);
+                var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez);
                 neto.Izracunaj();
                 TxtBruto.Text = neto.Bruto.ToString(new CultureInfo("hr-HR"));
                 ProcesuirajBruto();
@@ -137,7 +135,7 @@ namespace ObracunPlace
             var upisanineto = GetNeto();
             var bruto = GetBruto();
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            var placa = new ProcesuirajPlacu(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
+            var placa = new ProcesuirajPlacu(bruto, Prirez, Stup1I2, Olaksica);
             placa.Izracun();
             if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
             PopuniVrijednosti(placa);
@@ -172,23 +170,25 @@ namespace ObracunPlace
             if (placa.Neto < upisanineto)
             {
                 bruto += 0.01m;
-                PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
+                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, Olaksica);
                 return true;
             }
 
-            if (placa.Neto <= upisanineto) return false;
-            bruto -= 0.01m;
-            PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, CheckDoprinosi, Olaksica);
-            return true;
+            if (placa.Neto > upisanineto)
+            {
+                bruto -= 0.01m;
+                PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, Olaksica);
+                return true;
+            }
+            return false;
         }
 
-        private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, bool checkDoprinosi
-            , decimal olaksica)
+        private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, decimal olaksica)
         {
             TxtBruto.Text = upisanineto.ToString(new CultureInfo("hr-HR"));
-            var placu = new ProcesuirajPlacu(upisanineto, prirez, stup1I2, checkDoprinosi, olaksica);
-            placu.Izracun();
-            PopuniVrijednosti(placu);
+            var placa = new ProcesuirajPlacu(upisanineto, prirez, stup1I2, olaksica);
+            placa.Izracun();
+            PopuniVrijednosti(placa);
         }
 
         private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
