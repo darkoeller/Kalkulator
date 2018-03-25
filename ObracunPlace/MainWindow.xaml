@@ -78,7 +78,7 @@
                                     <RowDefinition Height="80" />
                                 </Grid.RowDefinitions>
                                 <StackPanel Grid.Column="0" Margin="3,0,3,0" Width="120">
-                                    <RadioButton GroupName="BrutoNeto"
+                                    <RadioButton GroupName="BrutoBrutto"
                                                  x:Name="RbBruto"
                                                  Content="Iz bruta u neto"
                                                  HorizontalAlignment="Center"
@@ -86,7 +86,7 @@
                                                  ToolTip="Označite ako želite izračunati neto plaću, iz bruta u neto"
                                                  Checked="RbBruto_Checked"
                                                  FontFamily="Roboto Light" />
-                                    <RadioButton GroupName="BrutoNeto"
+                                    <RadioButton GroupName="BrutoBrutto"
                                                  x:Name="RbNeto"
                                                  Content="Iz neta u bruto"
                                                  HorizontalAlignment="Center"
@@ -407,14 +407,14 @@
                                          TextAlignment="Right"
                                          Foreground="OrangeRed"
                                          FontFamily="Roboto"
-                                         ToolTip="Neto plaća, kod upisa koristite zarez"
+                                         ToolTip="Brutto plaća, kod upisa koristite zarez"
                                          FontWeight="Bold" />
                                 <Label x:Name="LblPrijevoz"
                                        Margin="0,5,0,4"
-                                       ToolTip="Neto + naknada za prijevoz"
+                                       ToolTip="Brutto + naknada za prijevoz"
                                        Background="White" />
                                 <Label x:Name="LblOdbici"
-                                       ToolTip="Neto plaća - vaši ukupni odbici" />
+                                       ToolTip="Brutto plaća - vaši ukupni odbici" />
                                 <Border Height="1"
                                         BorderThickness="0,0,0,1"
                                         BorderBrush="Black"

@@ -52,6 +52,7 @@ namespace ObracunPlace
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
         private decimal Prirez => decimal.Parse(PrirezUpDown.Value.ToString());
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
+        //private decimal IzracunatiBrutto { get; set; }
 
         private decimal GetBruto()
         {
@@ -82,9 +83,7 @@ namespace ObracunPlace
                 return;
             }
 
-            var odabranbruto = ProvjeriRadioGumb();
-
-            if (odabranbruto)
+            if (ProvjeriRadioGumb())
             {
                 ProcesuirajBruto();
             }
@@ -101,7 +100,7 @@ namespace ObracunPlace
 
         private void OduzmiOdbitke()
         {
-            if (TxtBoxOdbici.Value.Equals(null)) return;
+            if (string.IsNullOrEmpty(TxtBoxOdbici.Value.ToString())) return;
             var neto = GetNeto();
             var odbici = decimal.Parse(TxtBoxOdbici.Value.ToString());
             var stringPrijevoz = LblPrijevoz.Content.ToString();
@@ -132,15 +131,19 @@ namespace ObracunPlace
 
         private void ProcesuirajBruto()
         {
-            var upisanineto = GetNeto();
+            var neto = GetNeto();
             var bruto = GetBruto();
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
             var placa = new ProcesuirajPlacu(bruto, Prirez, Stup1I2, Olaksica);
             placa.Izracun();
-            if (RbNeto.IsChecked == true && VratiNeto(placa, upisanineto, bruto)) return;
-            PopuniVrijednosti(placa);
-            CmbPrijevoz_SelectionChanged(this, null);
-            OduzmiOdbitke();
+            if (RbNeto.IsChecked != true)
+            {
+                PopuniVrijednosti(placa);
+                CmbPrijevoz_SelectionChanged(this, null);
+                OduzmiOdbitke();
+                return;
+            }
+            UsporediNeto(neto, placa);
         }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
@@ -165,22 +168,25 @@ namespace ObracunPlace
             _listica = placa;
         }
 
-        private bool VratiNeto(ProcesuirajPlacu placa, decimal upisanineto, decimal bruto)
+        private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
         {
-            if (placa.Neto < upisanineto)
+            var izracunatiNeto = placa.Neto;
+            var izracunatiBruto = placa.Bruto;
+            if (izracunatiNeto < neto)
             {
-                bruto += 0.01m;
-                 PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, Olaksica);
-                return true;
+                izracunatiBruto += 0.01m;
+                PonovoProcesuirajBruto(izracunatiBruto, Prirez, Stup1I2, Olaksica);
+                return;
             }
-
-            if (placa.Neto > upisanineto)
+            if (izracunatiNeto > neto)
             {
-                bruto -= 0.01m;
-                PonovoProcesuirajBruto(bruto, Prirez, Stup1I2, Olaksica);
-                return true;
+                izracunatiBruto -= 0.01m;
+                PonovoProcesuirajBruto(izracunatiBruto, Prirez, Stup1I2, Olaksica);
             }
-            return false;
+            else if (izracunatiNeto == neto)
+            {
+                PopuniVrijednosti(placa);
+            }
         }
 
         private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, decimal olaksica)

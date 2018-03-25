@@ -35,7 +35,7 @@ namespace BiznisSloj
             KoefPrireza = priporezkoef.KoefPrireza;
             KoefPorezaPrireza24 = priporezkoef.KoefPorezaPrireza24;
             KoefPorezaPrireza36 = priporezkoef.KoefPorezaPrireza36;
-            NadjiMetoduZaIzracun(Neto, odbitak);
+             NadjiMetoduZaIzracun(Neto, odbitak);
         }
 
         //odabir izračuna poreza
