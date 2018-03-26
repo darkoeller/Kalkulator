@@ -52,7 +52,6 @@ namespace ObracunPlace
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
         private decimal Prirez => decimal.Parse(PrirezUpDown.Value.ToString());
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
-        //private decimal IzracunatiBrutto { get; set; }
 
         private decimal GetBruto()
         {
