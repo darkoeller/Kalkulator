@@ -84,6 +84,7 @@
     <Compile Include="ProcesuirajNeto.cs" />
     <Compile Include="ProcesuirajPlacu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsporediIVratiBrutoIznos.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

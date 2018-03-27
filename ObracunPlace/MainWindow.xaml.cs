@@ -169,32 +169,13 @@ namespace ObracunPlace
 
         private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
         {
-            var izracunatiNeto = placa.Neto;
-            var izracunatiBruto = placa.Bruto;
-            if (izracunatiNeto < neto)
-            {
-                izracunatiBruto += 0.01m;
-                PonovoProcesuirajBruto(izracunatiBruto, Prirez, Stup1I2, Olaksica);
-                return;
-            }
-            if (izracunatiNeto > neto)
-            {
-                izracunatiBruto -= 0.01m;
-                PonovoProcesuirajBruto(izracunatiBruto, Prirez, Stup1I2, Olaksica);
-            }
-            else if (izracunatiNeto == neto)
-            {
-                PopuniVrijednosti(placa);
-            }
-        }
-
-        private void PonovoProcesuirajBruto(decimal upisanineto, decimal prirez, bool stup1I2, decimal olaksica)
-        {
-            TxtBruto.Text = upisanineto.ToString(new CultureInfo("hr-HR"));
-            var placa = new ProcesuirajPlacu(upisanineto, prirez, stup1I2, olaksica);
-            placa.Izracun();
+            var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa, Prirez,Stup1I2, Olaksica);
+            placa = usporediBruto.Usporedi();
             PopuniVrijednosti(placa);
         }
+
+
+
 
         private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
         {
