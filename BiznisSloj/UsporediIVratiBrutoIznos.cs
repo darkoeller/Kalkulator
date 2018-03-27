@@ -2,32 +2,34 @@
 {
     public class UsporediIVratiBrutoIznos
     {
-        private bool Stup1I2 { get; }
-        private decimal Olaksica { get; }
-        private readonly decimal _neto;
+        private readonly decimal _netoIzTBoxa;
         private ProcesuirajPlacu Placa { get; set; }
-        private readonly decimal _prirez;
 
-        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa, decimal prirez, bool stup1I2, decimal olaksica)
+        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa)
         {
-            Stup1I2 = stup1I2;
-            Olaksica = olaksica;
-            _neto = neto;
+            _netoIzTBoxa = neto;
             Placa = placa;
-            _prirez = prirez;
         }
 
         public ProcesuirajPlacu Usporedi()
         {
-            var izracunatiNeto = Placa.Neto;
-            var izracunatiBruto = Placa.Bruto;
-            if (izracunatiNeto < _neto)
+            while (_netoIzTBoxa < Placa.Neto)
             {
-                izracunatiBruto += 0.01m;
-               return  Placa = PonovoProcesuirajBruto(izracunatiBruto);
+                Placa.Bruto += 0.01m;
+                ProcesuirajPlacu(Placa);
             }
+  
 
-            if (izracunatiNeto < _neto)
+
+            //var izracunatiNeto = Placa.Neto;
+            //var izracunatiBruto = Placa.Bruto;
+            //if (izracunatiNeto < _neto)
+            //{
+            //    izracunatiBruto += 0.01m;
+            //   return  Placa = PonovoProcesuirajBruto(izracunatiBruto);
+            //}
+
+            if (izracunatiNeto > _neto)
             {
                 izracunatiBruto -= 0.01m;
                 return Placa = PonovoProcesuirajBruto(izracunatiBruto);
@@ -38,7 +40,7 @@
 
         private ProcesuirajPlacu PonovoProcesuirajBruto(decimal upisanineto)
         {
-            var placa = new ProcesuirajPlacu(upisanineto, _prirez, Stup1I2, Olaksica);
+            var placa = new ProcesuirajPlacu(upisanineto);
             placa.Izracun();
             return placa;
         }

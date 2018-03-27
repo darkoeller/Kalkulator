@@ -84,7 +84,7 @@ namespace ObracunPlace
 
             if (ProvjeriRadioGumb())
             {
-                ProcesuirajBruto();
+                ProcessBruto();
             }
             else
             {
@@ -93,7 +93,7 @@ namespace ObracunPlace
                 var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez);
                 neto.Izracunaj();
                 TxtBruto.Text = neto.Bruto.ToString(new CultureInfo("hr-HR"));
-                ProcesuirajBruto();
+                ProcessBruto();
             }
         }
 
@@ -128,7 +128,7 @@ namespace ObracunPlace
             return RbBruto.IsChecked != false;
         }
 
-        private void ProcesuirajBruto()
+        private void ProcessBruto()
         {
             var neto = GetNeto();
             var bruto = GetBruto();
@@ -169,7 +169,7 @@ namespace ObracunPlace
 
         private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
         {
-            var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa, Prirez,Stup1I2, Olaksica);
+            var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa);
             placa = usporediBruto.Usporedi();
             PopuniVrijednosti(placa);
         }

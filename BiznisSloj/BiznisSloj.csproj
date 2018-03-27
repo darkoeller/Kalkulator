@@ -81,6 +81,7 @@
     <Compile Include="Porezi\IPorezi.cs" />
     <Compile Include="Porezi\PorezniKoeficijenti.cs" />
     <Compile Include="Prijevoz.cs" />
+    <Compile Include="ProcesuirajBruto.cs" />
     <Compile Include="ProcesuirajNeto.cs" />
     <Compile Include="ProcesuirajPlacu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,7 +19,7 @@ namespace BiznisSloj
             DrugiStup = drugistup;
         }
 
-        public decimal Bruto { get; }
+        public decimal Bruto { get; set; }
         private decimal Odbitak { get; }
         public decimal Prirez { get; private set; }
         private bool DrugiStup { get; }
