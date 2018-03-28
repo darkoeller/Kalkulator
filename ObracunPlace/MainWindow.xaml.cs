@@ -84,7 +84,10 @@ namespace ObracunPlace
 
             if (ProvjeriRadioGumb())
             {
-                ProcessBruto();
+                if (string.IsNullOrEmpty(TxtBruto.Text)) return;
+                var placa  = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
+                PopuniVrijednosti(placa);
+                OduzmiOdbitke();
             }
             else
             {
@@ -92,9 +95,24 @@ namespace ObracunPlace
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
                 var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez);
                 neto.Izracunaj();
-                TxtBruto.Text = neto.Bruto.ToString(new CultureInfo("hr-HR"));
-                ProcessBruto();
+                TxtBruto.Text = Math.Round(neto.Bruto, 2).ToString(new CultureInfo("hr-HR"));
+                var placa = ProcesuirajPlacu();
+                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa).Usporedi();
+                TxtBruto.Text = noviBrutoIznos.ToString(new CultureInfo("hr-HR"));
+                placa = ProcesuirajPlacu();
+                if (placa.Neto != GetNeto())
+                {
+                    BtnIzracun_Click(this, null);
+                    placa = null;
+                }
+                PopuniVrijednosti(placa);
             }
+        }
+
+        private ProcesuirajPlacu ProcesuirajPlacu()
+        {
+            var placa = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
+            return placa;
         }
 
         private void OduzmiOdbitke()
@@ -128,23 +146,6 @@ namespace ObracunPlace
             return RbBruto.IsChecked != false;
         }
 
-        private void ProcessBruto()
-        {
-            var neto = GetNeto();
-            var bruto = GetBruto();
-            if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            var placa = new ProcesuirajPlacu(bruto, Prirez, Stup1I2, Olaksica);
-            placa.Izracun();
-            if (RbNeto.IsChecked != true)
-            {
-                PopuniVrijednosti(placa);
-                CmbPrijevoz_SelectionChanged(this, null);
-                OduzmiOdbitke();
-                return;
-            }
-            UsporediNeto(neto, placa);
-        }
-
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
         {
             TxtNeto.Text = placa.Neto.ToString(new CultureInfo("hr-HR"));
@@ -167,12 +168,12 @@ namespace ObracunPlace
             _listica = placa;
         }
 
-        private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
-        {
-            var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa);
-            placa = usporediBruto.Usporedi();
-            PopuniVrijednosti(placa);
-        }
+        //private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
+        //{
+        //    var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa);
+        //   // placa = usporediBruto.Usporedi();
+        //    PopuniVrijednosti(placa);
+        //}
 
 
 

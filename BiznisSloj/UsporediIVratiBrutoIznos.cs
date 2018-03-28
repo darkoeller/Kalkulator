@@ -3,46 +3,28 @@
     public class UsporediIVratiBrutoIznos
     {
         private readonly decimal _netoIzTBoxa;
-        private ProcesuirajPlacu Placa { get; set; }
+        private readonly ProcesuirajPlacu _placa;
 
         public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa)
         {
             _netoIzTBoxa = neto;
-            Placa = placa;
+            _placa = placa;
         }
 
-        public ProcesuirajPlacu Usporedi()
+        public decimal Usporedi()
         {
-            while (_netoIzTBoxa < Placa.Neto)
+            var neto = _placa.Neto;
+            var bruto = _placa.Bruto;
+
+            if(_netoIzTBoxa < neto)
             {
-                Placa.Bruto += 0.01m;
-                ProcesuirajPlacu(Placa);
+                bruto += 0.01m;
             }
-  
-
-
-            //var izracunatiNeto = Placa.Neto;
-            //var izracunatiBruto = Placa.Bruto;
-            //if (izracunatiNeto < _neto)
-            //{
-            //    izracunatiBruto += 0.01m;
-            //   return  Placa = PonovoProcesuirajBruto(izracunatiBruto);
-            //}
-
-            if (izracunatiNeto > _neto)
+            if(_netoIzTBoxa > neto)
             {
-                izracunatiBruto -= 0.01m;
-                return Placa = PonovoProcesuirajBruto(izracunatiBruto);
+                bruto -= 0.01m;
             }
-
-            return Placa;
-        }
-
-        private ProcesuirajPlacu PonovoProcesuirajBruto(decimal upisanineto)
-        {
-            var placa = new ProcesuirajPlacu(upisanineto);
-            placa.Izracun();
-            return placa;
+            return bruto;
         }
     }
 }
