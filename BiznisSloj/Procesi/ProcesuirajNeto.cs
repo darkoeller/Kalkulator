@@ -2,7 +2,7 @@
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
 
-namespace BiznisSloj
+namespace BiznisSloj.Procesi
 {
     public class ProcesuirajNeto
     {

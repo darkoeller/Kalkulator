@@ -3,7 +3,7 @@ using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
 
-namespace BiznisSloj
+namespace BiznisSloj.Procesi
 {
     public class ProcesuirajPlacu
     {
@@ -19,7 +19,7 @@ namespace BiznisSloj
             DrugiStup = drugistup;
         }
 
-        public decimal Bruto { get; set; }
+        public decimal Bruto { get; }
         private decimal Odbitak { get; }
         public decimal Prirez { get; private set; }
         private bool DrugiStup { get; }

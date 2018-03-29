@@ -2,6 +2,7 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.KoefSati;
 using BiznisSloj.Olaksice;
+using BiznisSloj.Procesi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestIznosa

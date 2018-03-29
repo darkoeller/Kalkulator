@@ -80,12 +80,13 @@
     <Compile Include="Porezi\Porez36.cs" />
     <Compile Include="Porezi\IPorezi.cs" />
     <Compile Include="Porezi\PorezniKoeficijenti.cs" />
+    <Compile Include="Porezi\Prirezi.cs" />
     <Compile Include="Prijevoz.cs" />
-    <Compile Include="ProcesuirajBruto.cs" />
-    <Compile Include="ProcesuirajNeto.cs" />
-    <Compile Include="ProcesuirajPlacu.cs" />
+    <Compile Include="Procesi\ProcesuirajBruto.cs" />
+    <Compile Include="Procesi\ProcesuirajNeto.cs" />
+    <Compile Include="Procesi\ProcesuirajPlacu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsporediIVratiBrutoIznos.cs" />
+    <Compile Include="Procesi\UsporediIVratiBrutoIznos.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

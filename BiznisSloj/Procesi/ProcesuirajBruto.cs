@@ -1,4 +1,4 @@
-﻿namespace BiznisSloj
+﻿namespace BiznisSloj.Procesi
 {
     public static class ProcesuirajBruto
     {

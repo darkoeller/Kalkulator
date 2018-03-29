@@ -126,7 +126,11 @@
                                                Text="Iznos prireza u % :"
                                                ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6"
                                                VerticalAlignment="Center" />
-                                    <controls:NumericUpDown x:Name="PrirezUpDown"
+                                    <ComboBox x:Name="CmbPrirez" 
+                                              Width="80"
+                                              IsReadOnly="True" 
+                                              SelectionChanged="CmbPrirez_SelectionChanged" />
+                                    <!--<controls:NumericUpDown x:Name="PrirezUpDown"
                                                             Value="0"
                                                             Width="80"
                                                             Height="30"
@@ -135,7 +139,7 @@
                                                             Maximum="18"
                                                             ToolTip="Iznos prireza za općine i gradove: Kutina 12%, Lipovljani 6% itd. "
                                                             Culture="hr"
-                                                            TrackMouseWheelWhenMouseOver="True" />
+                                                            TrackMouseWheelWhenMouseOver="True" />-->
                                 </StackPanel>
                                
                                 <StackPanel Grid.Column="3"
@@ -366,7 +370,7 @@
                         <GroupBox Header="Iznosi u kunama"
                                   Height="520">
                             <StackPanel x:Name="StPanel2"
-                                        MinWidth="180"
+                                        MinWidth="205"
                                         Margin="0"
                                         Background="#FFF3FAFA"
                                         HorizontalAlignment="Right">

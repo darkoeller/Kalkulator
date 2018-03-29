@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using BiznisSloj;
+using BiznisSloj.Porezi;
+using BiznisSloj.Procesi;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
@@ -20,29 +22,7 @@ namespace ObracunPlace
     {
         private static ProcesuirajPlacu _listica;
 
-        private static readonly IEnumerable<decimal> Popisprireza = new List<decimal>
-        {
-            0,
-            1m,
-            2m,
-            3m,
-            4m,
-            5m,
-            6m,
-            6.25m,
-            6.5m,
-            7m,
-            7.5m,
-            8m,
-            9m,
-            10m,
-            11m,
-            12m,
-            13m,
-            14m,
-            15m,
-            18m
-        };
+        
 
         public MainWindow()
         {
@@ -50,7 +30,7 @@ namespace ObracunPlace
         }
 
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
-        private decimal Prirez => decimal.Parse(PrirezUpDown.Value.ToString());
+        private decimal Prirez => decimal.Parse(CmbPrirez.SelectedItem.ToString());
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
 
         private decimal GetBruto()
@@ -65,16 +45,16 @@ namespace ObracunPlace
             return neto;
         }
 
-        private bool ProvjeriPrirez()
-        {
-            var prirez = from p in Popisprireza where p.Equals(Prirez) select p;
-            var postoji = prirez.Any();
-            return postoji;
-        }
+        //private bool ProvjeriPrirez()
+        //{
+        //    var prirez = from p in Popisprireza where p.Equals(Prirez) select p;
+        //    var postoji = prirez.Any();
+        //    return postoji;
+        //}
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
-        {
-            if (!ProvjeriPrirez() || string.IsNullOrEmpty(TxtBruto.Text))
+        {//!ProvjeriPrirez() ||
+            if ( string.IsNullOrEmpty(TxtBruto.Text))
             {
                 var metro = (MetroWindow) Application.Current.MainWindow;
                 metro.ShowMessageAsync("Upisali ste prirez koji nije na listi ili nema iznosa u brutu/netu.",
@@ -168,16 +148,6 @@ namespace ObracunPlace
             _listica = placa;
         }
 
-        //private void UsporediNeto(decimal neto, ProcesuirajPlacu placa)
-        //{
-        //    var usporediBruto = new UsporediIVratiBrutoIznos(neto, placa);
-        //   // placa = usporediBruto.Usporedi();
-        //    PopuniVrijednosti(placa);
-        //}
-
-
-
-
         private void BtnOcisti_Clic(object sender, RoutedEventArgs e)
         {
             TxtBruto.Text = "0,00";
@@ -197,6 +167,7 @@ namespace ObracunPlace
             UkljuciGumb();
             TxtBruto.Focus();
             TabKontrola.SelectedIndex += 1;
+            CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
             CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
             CmbPrijevoz.SelectedIndex = 0;
         }
@@ -251,6 +222,11 @@ namespace ObracunPlace
         private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Close();
+        }
+
+        private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
