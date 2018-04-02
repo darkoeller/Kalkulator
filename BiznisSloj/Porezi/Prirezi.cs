@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Navigation;
 
 namespace BiznisSloj.Porezi
 {
@@ -9,31 +7,12 @@ namespace BiznisSloj.Porezi
     {
         private static readonly IEnumerable<string> Popisprireza = new List<string>
         {
-            "0","1","2",
-            //2m,
-            //3m,
-            //4m,
-            //5m,
-            //6m,
-            //6.25m,
-            //6.5m,
-            //7m,
-            //7.5m,
-            //8m,
-            //9m,
-            //10m,
-            //11m,
-            //12m,
-            //13m,
-            //14m,
-            //15m,
-            //18m
+            "0","1","2","3","4","5","6","6,25","6,5","7","7,5","8","9","10","11","12","13","14","15","18"
         };
 
         public static IEnumerable ListaPrireza()
         {
-            var prirezi = Popisprireza;
-            return prirezi.ToString();
+            return Popisprireza;
         }
     }
 }

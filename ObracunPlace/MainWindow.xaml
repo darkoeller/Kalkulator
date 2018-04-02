@@ -127,21 +127,12 @@
                                                ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6"
                                                VerticalAlignment="Center" />
                                     <ComboBox x:Name="CmbPrirez" 
-                                              Width="80"
+                                              Width="60"
+                                              Margin="10,0"
                                               IsReadOnly="True" 
-                                              SelectionChanged="CmbPrirez_SelectionChanged" />
-                                    <!--<controls:NumericUpDown x:Name="PrirezUpDown"
-                                                            Value="0"
-                                                            Width="80"
-                                                            Height="30"
-                                                            Minimum="0"
-                                                            Margin="0"
-                                                            Maximum="18"
-                                                            ToolTip="Iznos prireza za općine i gradove: Kutina 12%, Lipovljani 6% itd. "
-                                                            Culture="hr"
-                                                            TrackMouseWheelWhenMouseOver="True" />-->
+                                              SelectionChanged="CmbPrirez_SelectionChanged"
+                                              HorizontalContentAlignment="Center"/>
                                 </StackPanel>
-                               
                                 <StackPanel Grid.Column="3"
                                             VerticalAlignment="Center"
                                             Width="145">

@@ -12,6 +12,7 @@ using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -30,7 +31,7 @@ namespace ObracunPlace
         }
 
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
-        private decimal Prirez => decimal.Parse(CmbPrirez.SelectedItem.ToString());
+        private decimal Prirez { get; set; } 
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
 
         private decimal GetBruto()
@@ -45,15 +46,8 @@ namespace ObracunPlace
             return neto;
         }
 
-        //private bool ProvjeriPrirez()
-        //{
-        //    var prirez = from p in Popisprireza where p.Equals(Prirez) select p;
-        //    var postoji = prirez.Any();
-        //    return postoji;
-        //}
-
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
-        {//!ProvjeriPrirez() ||
+        {
             if ( string.IsNullOrEmpty(TxtBruto.Text))
             {
                 var metro = (MetroWindow) Application.Current.MainWindow;
@@ -71,21 +65,15 @@ namespace ObracunPlace
             }
             else
             {
-                TxtBruto.Text = "";
+                TxtBruto.Text = string.Empty;
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
                 var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez);
                 neto.Izracunaj();
                 TxtBruto.Text = Math.Round(neto.Bruto, 2).ToString(new CultureInfo("hr-HR"));
                 var placa = ProcesuirajPlacu();
-                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa).Usporedi();
-                TxtBruto.Text = noviBrutoIznos.ToString(new CultureInfo("hr-HR"));
-                placa = ProcesuirajPlacu();
-                if (placa.Neto != GetNeto())
-                {
-                    BtnIzracun_Click(this, null);
-                    placa = null;
-                }
-                PopuniVrijednosti(placa);
+                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa, Prirez, Olaksica).Usporedi();
+                TxtBruto.Text = noviBrutoIznos.Bruto.ToString(new CultureInfo("hr-HR"));
+                PopuniVrijednosti(noviBrutoIznos);
             }
         }
 
@@ -168,6 +156,7 @@ namespace ObracunPlace
             TxtBruto.Focus();
             TabKontrola.SelectedIndex += 1;
             CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
+            CmbPrirez.SelectedIndex = 0;
             CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
             CmbPrijevoz.SelectedIndex = 0;
         }
@@ -204,7 +193,7 @@ namespace ObracunPlace
             TxtNeto.Focus();
             TxtBruto.Text = "0,00";
         }
-
+        [Background]
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(e.Uri.AbsoluteUri);
@@ -223,10 +212,10 @@ namespace ObracunPlace
         {
             Close();
         }
-
+        [Background]
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+           Prirez= decimal.Parse(CmbPrirez.SelectedItem.ToString());
         }
     }
 }
