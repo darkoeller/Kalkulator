@@ -35,7 +35,8 @@ namespace BiznisSloj.Porezi
                 .Where(r => r.Stopa == stopa)
                 .Select(r => r.KoefPorezaPrireza24)
                 .FirstOrDefault();
-            KoefPorezaPrireza36 = porezniKoeficijentis.AsParallel()
+            KoefPorezaPrireza36 = porezniKoeficijentis
+                .AsParallel()
                 .Where(r => r.Stopa == stopa)
                 .Select(r => r.KoefPorezaPrireza36)
                 .FirstOrDefault();

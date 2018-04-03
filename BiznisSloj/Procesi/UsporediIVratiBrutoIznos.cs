@@ -3,7 +3,7 @@
     public class UsporediIVratiBrutoIznos
     {
         private readonly decimal _netoIzTBoxa;
-        private readonly ProcesuirajPlacu _placa;
+        private  ProcesuirajPlacu _placa;
         private readonly decimal _prirez;
         private readonly decimal _olaksica;
 
@@ -20,21 +20,27 @@
             var neto = _placa.Neto;
             var bruto = _placa.Bruto;
 
-            if(_netoIzTBoxa < neto)
+            while (_netoIzTBoxa != neto)
             {
-                bruto -= 0.01m;
-                var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
-                novaPlaca.Izracun();
-                return novaPlaca;
-            }
+                if (_netoIzTBoxa < neto)
+                {
+                    bruto -= 0.01m;
+                    var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
+                    novaPlaca.Izracun();
+                    neto = novaPlaca.Neto;
+                    _placa = novaPlaca;
+                }
 
-            if (_netoIzTBoxa <= neto) return _placa;
-            {
-                bruto -= 0.01m;
-                var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
-                novaPlaca.Izracun();
-                return novaPlaca;
+                if (_netoIzTBoxa <= neto) return _placa;
+                {
+                    bruto += 0.01m;
+                    var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
+                    novaPlaca.Izracun();
+                    neto = novaPlaca.Neto;
+                    _placa = novaPlaca;
+                }
             }
+            return _placa;
         }
     }
 }
