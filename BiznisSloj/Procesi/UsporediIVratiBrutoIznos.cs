@@ -25,22 +25,25 @@
                 if (_netoIzTBoxa < neto)
                 {
                     bruto -= 0.01m;
-                    var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
-                    novaPlaca.Izracun();
-                    neto = novaPlaca.Neto;
-                    _placa = novaPlaca;
+                    neto = ProcessNeto(bruto);
                 }
 
                 if (_netoIzTBoxa <= neto) return _placa;
                 {
                     bruto += 0.01m;
-                    var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
-                    novaPlaca.Izracun();
-                    neto = novaPlaca.Neto;
-                    _placa = novaPlaca;
+                    neto = ProcessNeto(bruto);
                 }
             }
             return _placa;
+        }
+
+        private decimal ProcessNeto(decimal bruto)
+        {
+           var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
+            novaPlaca.Izracun();
+            var neto = novaPlaca.Neto;
+            _placa = novaPlaca;
+            return neto;
         }
     }
 }
