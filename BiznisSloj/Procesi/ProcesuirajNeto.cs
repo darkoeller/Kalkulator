@@ -6,12 +6,12 @@ namespace BiznisSloj.Procesi
 {
     public class ProcesuirajNeto
     {
-        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez, bool stup1I2)
+        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez, bool mirStup)
         {
             Neto = neto;
             Faktor = faktor;
             Prirez = prirez;
-            MirStup = stup1I2;
+            MirStup = mirStup;
         }
 
         private decimal Faktor { get; }
@@ -29,30 +29,32 @@ namespace BiznisSloj.Procesi
             return umanjenje;
         }
 
-        public ProcesuirajPlacu Izracunaj()
+        private void PostaviKoeficijentePorezaPrireza()
         {
-            var odbitak = IzracunOlaksiceClanova();
             var priporezkoef = new PorezniKoeficijenti(Prirez);
             KoefPrireza = priporezkoef.KoefPrireza;
             KoefPorezaPrireza24 = priporezkoef.KoefPorezaPrireza24;
             KoefPorezaPrireza36 = priporezkoef.KoefPorezaPrireza36;
+        }
+
+        public ProcesuirajPlacu Izracunaj()
+        {
+            var odbitak = IzracunOlaksiceClanova();
+            PostaviKoeficijentePorezaPrireza();
             var izracunBruta = Math.Round(NadjiMetoduZaIzracun(Neto, odbitak), 2);
             var placa = new ProcesuirajPlacu(izracunBruta, Prirez, MirStup, Faktor);
             var usporedjeniIznosiBruta = new UsporediIVratiBrutoIznos(Neto, placa, Prirez, Faktor,MirStup).Usporedi();
             return usporedjeniIznosiBruta  ;
         }
 
-        //odabir izračuna poreza
         private decimal  NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
             if (neto > 38496.60m - (4200.0m * KoefPrireza + (20966.0m - odbitak) * 0.36m * KoefPrireza))
-              return  Math.Round(CetvrtaMetoda(neto, odbitak), decimals: 2);
+              return  Math.Round(CetvrtaMetoda(neto, odbitak), 2);
             if (neto <= odbitak) return  neto * 1.25m;
             if (neto < 17500.00m - (4200.00m * KoefPrireza) + odbitak)
-               return  Math.Round(DrugaMetoda(neto, odbitak), decimals: 2);
-            if (neto > 17500.00m - (4200.0m * KoefPrireza) + odbitak)
-              return   Math.Round(TrecaMetoda(neto, odbitak), decimals: 2);
-            return 0.0m;
+               return  Math.Round(DrugaMetoda(neto, odbitak),  2);
+            return neto > 17500.00m - (4200.0m * KoefPrireza) + odbitak ? Math.Round(TrecaMetoda(neto, odbitak),  2) : 0.0m;
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
