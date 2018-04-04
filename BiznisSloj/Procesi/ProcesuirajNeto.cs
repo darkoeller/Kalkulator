@@ -6,20 +6,21 @@ namespace BiznisSloj.Procesi
 {
     public class ProcesuirajNeto
     {
-        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez)
+        public ProcesuirajNeto(decimal neto, decimal faktor, decimal prirez, bool stup1I2)
         {
             Neto = neto;
             Faktor = faktor;
             Prirez = prirez;
+            MirStup = stup1I2;
         }
 
-        public decimal Bruto { get; private set; }
         private decimal Faktor { get; }
         private decimal Neto { get; }
         private decimal Prirez { get; }
         private decimal KoefPrireza { get; set; }
         private decimal KoefPorezaPrireza24 { get; set; }
         private decimal KoefPorezaPrireza36 { get; set; }
+        private bool MirStup { get; }
 
         private decimal IzracunOlaksiceClanova()
         {
@@ -28,26 +29,30 @@ namespace BiznisSloj.Procesi
             return umanjenje;
         }
 
-        public void Izracunaj()
+        public ProcesuirajPlacu Izracunaj()
         {
             var odbitak = IzracunOlaksiceClanova();
             var priporezkoef = new PorezniKoeficijenti(Prirez);
             KoefPrireza = priporezkoef.KoefPrireza;
             KoefPorezaPrireza24 = priporezkoef.KoefPorezaPrireza24;
             KoefPorezaPrireza36 = priporezkoef.KoefPorezaPrireza36;
-            NadjiMetoduZaIzracun(Neto, odbitak);
+            var izracunBruta = Math.Round(NadjiMetoduZaIzracun(Neto, odbitak), 2);
+            var placa = new ProcesuirajPlacu(izracunBruta, Prirez, MirStup, Faktor);
+            var usporedjeniIznosiBruta = new UsporediIVratiBrutoIznos(Neto, placa, Prirez, Faktor,MirStup).Usporedi();
+            return usporedjeniIznosiBruta  ;
         }
 
         //odabir izračuna poreza
-        private void NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
+        private decimal  NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
             if (neto > 38496.60m - (4200.0m * KoefPrireza + (20966.0m - odbitak) * 0.36m * KoefPrireza))
-                Bruto = Math.Round(CetvrtaMetoda(neto, odbitak), 2);
-            else if (neto <= odbitak) Bruto = neto * 1.25m;
-            else if (neto < 17500.00m - (4200.00m * KoefPrireza) + odbitak)
-                Bruto = Math.Round(DrugaMetoda(neto, odbitak), 2);
-            else if (neto > 17500.00m - (4200.0m * KoefPrireza) + odbitak)
-                Bruto = Math.Round(TrecaMetoda(neto, odbitak), 2);
+              return  Math.Round(CetvrtaMetoda(neto, odbitak), decimals: 2);
+            if (neto <= odbitak) return  neto * 1.25m;
+            if (neto < 17500.00m - (4200.00m * KoefPrireza) + odbitak)
+               return  Math.Round(DrugaMetoda(neto, odbitak), decimals: 2);
+            if (neto > 17500.00m - (4200.0m * KoefPrireza) + odbitak)
+              return   Math.Round(TrecaMetoda(neto, odbitak), decimals: 2);
+            return 0.0m;
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)

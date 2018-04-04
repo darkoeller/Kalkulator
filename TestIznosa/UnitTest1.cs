@@ -2,7 +2,7 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.KoefSati;
 using BiznisSloj.Olaksice;
-using BiznisSloj.Procesi;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestIznosa
@@ -10,21 +10,7 @@ namespace TestIznosa
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestProcesaVisokogNeta()
-        {
-            var neto = new ProcesuirajNeto(33000m, 2.7m, 12m);
-            neto.Izracunaj();
-            Assert.AreEqual(neto.Bruto, 55539.28m );
-        }
-        [TestMethod]
-        public void TestProcesaVisokogNeta2()
-        {
-            var neto = new ProcesuirajNeto(27000m, 1m, 18m);
-            neto.Izracunaj();
-            Assert.AreEqual(neto.Bruto, 49449.73m );
-        }
-        
+  
         [TestMethod]
         public void TestDoprinosa()
         {

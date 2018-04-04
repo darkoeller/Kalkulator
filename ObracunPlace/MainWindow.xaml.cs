@@ -59,7 +59,7 @@ namespace ObracunPlace
             if (ProvjeriRadioGumb())
             {
                 if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-                var placa  = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
+                var placa = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
                 PopuniVrijednosti(placa);
                 OduzmiOdbitke();
             }
@@ -67,20 +67,10 @@ namespace ObracunPlace
             {
                 TxtBruto.Text = string.Empty;
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
-                var neto = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez);
-                neto.Izracunaj();
-                TxtBruto.Text = Math.Round(neto.Bruto, 2).ToString(new CultureInfo("hr-HR"));
-                var placa = ProcesuirajPlacu();
-                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa, Prirez, Olaksica, Stup1I2).Usporedi();
-                TxtBruto.Text = noviBrutoIznos.Bruto.ToString(new CultureInfo("hr-HR"));
-                PopuniVrijednosti(noviBrutoIznos);
+                var izracunPlaceIzNeta = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez, Stup1I2).Izracunaj();
+                TxtBruto.Text = izracunPlaceIzNeta.Bruto.ToString(new CultureInfo("hr-HR"));
+                PopuniVrijednosti(izracunPlaceIzNeta);
             }
-        }
-
-        private ProcesuirajPlacu ProcesuirajPlacu()
-        {
-            var placa = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
-            return placa;
         }
 
         private void OduzmiOdbitke()
