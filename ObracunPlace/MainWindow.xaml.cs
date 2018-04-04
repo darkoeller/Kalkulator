@@ -71,7 +71,7 @@ namespace ObracunPlace
                 neto.Izracunaj();
                 TxtBruto.Text = Math.Round(neto.Bruto, 2).ToString(new CultureInfo("hr-HR"));
                 var placa = ProcesuirajPlacu();
-                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa, Prirez, Olaksica).Usporedi();
+                var noviBrutoIznos = new UsporediIVratiBrutoIznos(GetNeto(), placa, Prirez, Olaksica, Stup1I2).Usporedi();
                 TxtBruto.Text = noviBrutoIznos.Bruto.ToString(new CultureInfo("hr-HR"));
                 PopuniVrijednosti(noviBrutoIznos);
             }

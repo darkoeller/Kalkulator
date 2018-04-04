@@ -6,13 +6,15 @@
         private  ProcesuirajPlacu _placa;
         private readonly decimal _prirez;
         private readonly decimal _olaksica;
+        private readonly bool _miroStup;
 
-        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa, decimal  prirez, decimal olaksica)
+        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa, decimal  prirez, decimal olaksica, bool miroStup)
         {
             _netoIzTBoxa = neto;
             _placa = placa;
             _prirez = prirez;
             _olaksica = olaksica;
+            _miroStup = miroStup;
         }
 
         public ProcesuirajPlacu  Usporedi()
@@ -39,7 +41,7 @@
 
         private decimal ProcessNeto(decimal bruto)
         {
-           var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, true, _olaksica);
+            var novaPlaca = new ProcesuirajPlacu(bruto, _prirez, _miroStup, _olaksica);
             novaPlaca.Izracun();
             var neto = novaPlaca.Neto;
             _placa = novaPlaca;
