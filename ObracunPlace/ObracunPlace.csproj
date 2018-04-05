@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kalkulator plaće</ProductName>
     <PublisherName>Kalkulator plaće</PublisherName>
-    <ApplicationRevision>92</ApplicationRevision>
+    <ApplicationRevision>93</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

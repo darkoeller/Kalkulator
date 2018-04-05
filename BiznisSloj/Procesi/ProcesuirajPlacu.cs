@@ -2,6 +2,7 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
+using PostSharp.Patterns.Threading;
 
 namespace BiznisSloj.Procesi
 {
@@ -108,22 +109,26 @@ namespace BiznisSloj.Procesi
             PoreznaOsnovica = Math.Round(Dohodak - Olaksica, 2);
         }
 
-        private void VratiPrirez()
-        {
-            Prirez = Math.Round(Prirez * UkupniPorez / 100, 2);
-        }
-
-
-        public void Izracun()
+        private void RacunajDoprinosePorezePrireze()
         {
             VratiDoprinoseNaPlacu();
             VratiDoprinoseIzPlace();
             VratiOlaksicu();
             VratiUkupniPorez();
             VratiPrirez();
+        }
+        [Background]
+        private void VratiPrirez()
+        {
+            Prirez = Math.Round(Prirez * UkupniPorez / 100, 2);
+        }
+
+        public void Izracun()
+        {
+            RacunajDoprinosePorezePrireze();
             UkupniTrosakPlace = Math.Round(Bruto + DoprinosNaPlacUkupno, 2);
             UkupniPorez += Prirez;
             Neto = Math.Round(Dohodak - UkupniPorez, 2);
-        }
+        }        
     }
 }

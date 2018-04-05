@@ -1,6 +1,7 @@
 ﻿using System;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
+using PostSharp.Patterns.Threading;
 
 namespace BiznisSloj.Procesi
 {
@@ -28,7 +29,7 @@ namespace BiznisSloj.Procesi
             var umanjenje = olaksica.VratiOlaksicu();
             return umanjenje;
         }
-
+        [Background]
         private void PostaviKoeficijentePorezaPrireza()
         {
             var priporezkoef = new PorezniKoeficijenti(Prirez);
@@ -42,12 +43,12 @@ namespace BiznisSloj.Procesi
             var odbitak = IzracunOlaksiceClanova();
             PostaviKoeficijentePorezaPrireza();
             var izracunBruta = Math.Round(NadjiMetoduZaIzracun(Neto, odbitak), 2);
-            var placa = new ProcesuirajPlacu(izracunBruta, Prirez, MirStup, Faktor);
+            var placa =  ProcesuirajBruto.VratiIzracunPlace(izracunBruta, Faktor, Prirez, MirStup);
             var usporedjeniIznosiBruta = new UsporediIVratiBrutoIznos(Neto, placa, Prirez, Faktor,MirStup).Usporedi();
             return usporedjeniIznosiBruta  ;
         }
 
-        private decimal  NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
+        private decimal NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
             if (neto > 38496.60m - (4200.0m * KoefPrireza + (20966.0m - odbitak) * 0.36m * KoefPrireza))
               return  Math.Round(CetvrtaMetoda(neto, odbitak), 2);

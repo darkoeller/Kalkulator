@@ -4,8 +4,8 @@ namespace BiznisSloj.KoefSati
 {
     public class KoefSatSamoPrva : KoeficSat
     {
-        public KoefSatSamoPrva(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent) : base(brojSati
-            , minuli, bodovi, koeficijent)
+        public KoefSatSamoPrva(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent) 
+            : base(brojSati, minuli, bodovi, koeficijent)
         {
         }
 
