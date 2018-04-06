@@ -23,8 +23,6 @@ namespace ObracunPlace
     {
         private static ProcesuirajPlacu _listica;
 
-        
-
         public MainWindow()
         {
             InitializeComponent();
@@ -33,6 +31,7 @@ namespace ObracunPlace
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
         private decimal Prirez { get; set; } 
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
+        private decimal IznosPrijevoza { get; set; }
 
         private decimal GetBruto()
         {
@@ -82,21 +81,17 @@ namespace ObracunPlace
             stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
             var prijevoz = decimal.Parse(stringPrijevoz);
 
-            if (CmbPrijevoz.SelectedIndex == 0)
+            if (CmbPrijevoz.SelectedIndex < 1)
             {
                 neto -= odbici;
+                LblPrijevoz.Content = neto.ToString("C");
                 LblOdbici.Content = neto.ToString("C");
             }
             else if (CmbPrijevoz.SelectedIndex > 0)
             {
+
                 VratiTotal(prijevoz, odbici);
             }
-        }
-
-        private void VratiTotal(decimal prijevoz, decimal odbici)
-        {
-            prijevoz -= odbici;
-            LblOdbici.Content = prijevoz.ToString("C");
         }
 
         private bool ProvjeriRadioGumb()
@@ -191,11 +186,18 @@ namespace ObracunPlace
 
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var iznos = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
-            iznos += GetNeto();
-            LblPrijevoz.Content = iznos.ToString("C", new CultureInfo("hr-HR"));
+            IznosPrijevoza  = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
+            var prijevoz = IznosPrijevoza;
+            prijevoz += GetNeto();
+            LblPrijevoz.Content = prijevoz.ToString("C", new CultureInfo("hr-HR"));
             var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
-            VratiTotal(iznos, odbitak);
+            VratiTotal(prijevoz, odbitak);
+        }
+
+        private void VratiTotal(decimal prijevoz, decimal odbici)
+        {
+            prijevoz -= odbici;
+            LblOdbici.Content = prijevoz.ToString("C");
         }
 
         private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)

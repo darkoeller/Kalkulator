@@ -18,8 +18,6 @@ namespace ObracunPlace
         {
             var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti.VratiSifre());
             collectionView.GroupDescriptions.Add(new PropertyGroupDescription("Sifra"));
-
-            // Set the view as the DataContext for the DataGrid
             KoeficijentiDataGrid.DataContext = collectionView;
         }
     }

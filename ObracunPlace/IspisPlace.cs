@@ -25,7 +25,6 @@ namespace ObracunPlace
                     var pdwri = PdfWriter.GetInstance(doc
                         , new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
                     var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
-                    // var times2 = FontFactory.GetFont(FontFactory.TIMES, 9,new CMYKColor(100, 70, 29,25));
                     var times = new Font(bfTimes, 9);
                     var desetka = new Font(bfTimes, 10);
                     doc.Open();
@@ -70,68 +69,79 @@ namespace ObracunPlace
                     doc.Add(new Paragraph(" "));
                     //ovdje dođe tijelo platne liste
                     var listaIznosa = new PdfPTable(2);
-                    float[] sirina = {20f, 8f};
+                    float[] sirina = {16f, 8f};
                     listaIznosa.SpacingBefore = 10f;
                     listaIznosa.SpacingAfter = 30f;
                     listaIznosa.SetWidths(sirina);
-                    listaIznosa.WidthPercentage = 50;
-                    listaIznosa.AddCell(new Phrase(" OPISI STAVKI ", times));
-                    listaIznosa.AddCell(new Phrase(" IZNOSI", times));
+                    listaIznosa.WidthPercentage = 55;
+                    var opis = new PdfPCell(new Phrase("OPISI STAVKI", desetka)){HorizontalAlignment=1, FixedHeight = 10f};
+                    listaIznosa.AddCell(opis);
+                    var iznosi = new PdfPCell(new Phrase("IZNOSI", desetka)){HorizontalAlignment=1};
+                    listaIznosa.AddCell(iznosi);
                     listaIznosa.AddCell(new Phrase("Bruto iznos : ", times));
-                    listaIznosa.AddCell(new Phrase(GetBruto().ToString("c"), times));
+                    var brutoIznos = new PdfPCell(new Phrase(GetBruto().ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(brutoIznos);
                     listaIznosa.AddCell(new Phrase("Doprinos 15% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times));
+                    var petnaestPosto = new PdfPCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(petnaestPosto);
                     listaIznosa.AddCell(new Phrase("Doprinos 5% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.PetPostoDoprinos.ToString("c"), times));
+                    var petPosto = new PdfPCell(new Phrase(_listica.PetPostoDoprinos.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(petPosto);
                     listaIznosa.AddCell(new Phrase("Doprinosi iz plaće ukupno (20%) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DoprinosiIzPlaceUkupno.ToString("c"), times));
+                    var dopUkupno = new PdfPCell(new Phrase(_listica.DoprinosiIzPlaceUkupno.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(dopUkupno);
                     listaIznosa.AddCell(new Phrase("Dohodak (bruto - doprinosi) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.Dohodak.ToString("c"), times));
+                    var dohodak = new PdfPCell(new Phrase(_listica.Dohodak.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(dohodak);
                     listaIznosa.AddCell(new Phrase("Iznos olakšice (vaš neoporezivi iznos) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.Olaksica.ToString("c"), times));
+                    var olaksica = new PdfPCell(new Phrase(_listica.Olaksica.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(olaksica);
                     listaIznosa.AddCell(new Phrase("Porezna osnovica (dohodak - olakšica) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.PoreznaOsnovica.ToString("c"), times));
+                    var porOsnovica = new PdfPCell(new Phrase(_listica.PoreznaOsnovica.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(porOsnovica);
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 24% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.PorezDvadesetCetiriPosto.ToString("c"), times));
+                    var dvacetri = new PdfPCell(new Phrase(_listica.PorezDvadesetCetiriPosto.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(dvacetri);
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 36% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.PorezTridesetSestPosto.ToString("c"), times));
+                    var trisest = new PdfPCell(new Phrase(_listica.PorezTridesetSestPosto.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(trisest);
                     listaIznosa.AddCell(new Phrase("Prirez (u vašem gradu ili općini) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.Prirez.ToString("c"), times));
+                    var prirez = new PdfPCell(new Phrase(_listica.Prirez .ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(prirez);
                     listaIznosa.AddCell(new Phrase("Ukupno porezi + prirez : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.UkupniPorez.ToString("c"), times));
+                    var ukPorez = new PdfPCell(new Phrase(_listica.UkupniPorez.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(ukPorez);
                     listaIznosa.AddCell(new Phrase("Neto plaća : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.Neto.ToString("c"), times));
-                    listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz : ", times));
-                    listaIznosa.AddCell(new Phrase(LblPrijevoz.Content.ToString(), times));
-                    var labOdbici =
-                        new PdfPCell(new Phrase("Neto iznos - osobni odbici (za isplatu) : ", times))
-                        {
-                            BackgroundColor = new BaseColor(0, 255, 255)
-                        };
+                    var netoPlaca = new PdfPCell(new Phrase(_listica.Neto.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(netoPlaca);
+                    listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz (" + IznosPrijevoza +" kn"+") :", times));
+                    var prijevoz = new PdfPCell(new Phrase(LblPrijevoz.Content.ToString(), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(prijevoz);
+                    var labOdbici = new PdfPCell(new Phrase("Neto iznos - osobni odbici (" + TxtBoxOdbici.Value + "kn"+") = " + " za isplatu :" , times)){BackgroundColor = new BaseColor(0, 255, 255)};
                     listaIznosa.AddCell(labOdbici);
-                    var totalOdbici =
-                        new PdfPCell(new Phrase(LblOdbici.Content.ToString(), times))
-                        {
-                            BackgroundColor = new BaseColor(0, 255, 255)
-                        };
+                    var totalOdbici = new PdfPCell(new Phrase(LblOdbici.Content.ToString(), times)){BackgroundColor = new BaseColor(0, 255, 255), HorizontalAlignment=2};
                     listaIznosa.AddCell(totalOdbici);
                     listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZdravstveno.ToString("c"), times));
+                    var zdravstveno = new PdfPCell(new Phrase(_listica.DoprinosZaZdravstveno.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(zdravstveno);
                     listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZnr.ToString("c"), times));
+                    var znr = new PdfPCell(new Phrase(_listica.DoprinosZaZnr.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(znr);
                     listaIznosa.AddCell(new Phrase("Doprinos za zapošljavanje 1,7% : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times));
+                    var zaposljavanje = new PdfPCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(zaposljavanje);
                     listaIznosa.AddCell(new Phrase("Doprinosi na plaću ukupno (15% + 0,5% + 1,7%) : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.DoprinosNaPlacUkupno.ToString("c"), times));
+                    var dopriNpUkupno = new PdfPCell(new Phrase(_listica.DoprinosNaPlacUkupno.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(dopriNpUkupno);
                     listaIznosa.AddCell(new Phrase("Ukupan trošak plaće za poslodavca : ", times));
-                    listaIznosa.AddCell(new Phrase(_listica.UkupniTrosakPlace.ToString("c"), times));
+                    var ukupTrosak = new PdfPCell(new Phrase(_listica.UkupniTrosakPlace.ToString("c"), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(ukupTrosak);
                     doc.Add(listaIznosa);
-                    doc.Add(
-                        new Paragraph("Obračun izradio: ", times)
+                    doc.Add(new Paragraph("Obračun izradio/la: ", times)
                         {
                             SpacingBefore = 10f,
-                            Alignment = 2,
-                            IndentationRight = 80f
+                            Alignment = 0,
+                            IndentationLeft = 80f
                         });
                     pdwri.PageEvent = new Footer();
                     doc.Close();
@@ -140,8 +150,7 @@ namespace ObracunPlace
                 catch (Exception)
                 {
                     MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor",
-                        MessageBoxButton.OK
-                        , MessageBoxImage.Error);
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
