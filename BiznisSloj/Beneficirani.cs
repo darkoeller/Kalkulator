@@ -1,4 +1,4 @@
-﻿namespace ObracunPlace
+﻿namespace BiznisSloj
 {
     public class Beneficirani
     {

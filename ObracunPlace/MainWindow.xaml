@@ -8,6 +8,7 @@
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       BorderThickness="2"
                       xmlns:local="clr-namespace:ObracunPlace"
+                      xmlns:controlzex="urn:controlzex"
                       mc:Ignorable="d"
                       Title="Kalkulator plaće v. 2018 : neto / bruto"
                       Height="835"
@@ -112,9 +113,34 @@
                                                             Minimum="1.00"
                                                             Maximum="10"
                                                             Margin="0,0,7,0"
-                                                            ToolTip="Ako nemate nikog na olakšici vaš faktor je 1; 0,7 za 1.dijete; 1 za 2.dijete; 1.4 za treće dijete; 0,7 za uzdržavanog člana; 0,4 za invalidnost itd."
                                                             Culture="hr"
-                                                            TrackMouseWheelWhenMouseOver="True" />
+                                                            TrackMouseWheelWhenMouseOver="True"
+                                                            ToolTipService.ShowDuration="5000">
+                                        <controls:NumericUpDown.ToolTip>
+                                            <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                                                <ToolTip.Template>
+                                                    <ControlTemplate>
+                                                        <Grid>
+                                                            <Border Background="DeepSkyBlue"
+                                                                    BorderBrush="PapayaWhip"
+                                                                    BorderThickness="1"
+                                                                    Opacity="0.8"
+                                                                    CornerRadius="3"
+                                                                    SnapsToDevicePixels="True" />
+                                                            <TextBlock Margin="5"
+                                                                       MaxWidth="250"
+                                                                       TextWrapping="Wrap"
+                                                                       Foreground="WhiteSmoke"
+                                                                       FontSize="10"
+                                                                       Text="Ako u obitelji nemate nikog na olakšici, vaš porezni faktor=1, nakon toga pribrojite: za 1. dijete=0,7; za 2.dijete=1; za 3.dijete=1,4; osobna invalidnost = 0,4"
+                                                                       TextOptions.TextFormattingMode="Display"
+                                                                       TextOptions.TextRenderingMode="ClearType" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </ToolTip.Template>
+                                            </ToolTip>
+                                        </controls:NumericUpDown.ToolTip>
+                                    </controls:NumericUpDown>
                                 </StackPanel>
                                 <StackPanel Grid.Column="2"
                                             Orientation="Horizontal"
@@ -128,10 +154,37 @@
                                                VerticalAlignment="Center" />
                                     <ComboBox x:Name="CmbPrirez" 
                                               Width="60"
+                                              Height="30"
                                               Margin="10,0"
                                               IsReadOnly="True" 
                                               SelectionChanged="CmbPrirez_SelectionChanged"
-                                              HorizontalContentAlignment="Center"/>
+                                              HorizontalContentAlignment="Center"
+                                              ToolTipService.ShowDuration="4000">
+                                        <ComboBox.ToolTip>
+                                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                                            <ToolTip.Template>
+                                                <ControlTemplate>
+                                                    <Grid>
+                                                        <Border Background="DeepSkyBlue"
+                                                                BorderBrush="PapayaWhip"
+                                                                BorderThickness="1"
+                                                                Opacity="0.8"
+                                                                CornerRadius="3"
+                                                                SnapsToDevicePixels="True" />
+                                                        <TextBlock Margin="5"
+                                                                   MaxWidth="250"
+                                                                   TextWrapping="Wrap"
+                                                                   Foreground="WhiteSmoke"
+                                                                   FontSize="10"
+                                                                   Text="Prirez u općinama i gradovima: Kutina=12%; Lipovljani, Popovača=6%; Novska, Garešnica=10%"
+                                                                   TextOptions.TextFormattingMode="Display"
+                                                                   TextOptions.TextRenderingMode="ClearType" />
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </ToolTip.Template>
+                                        </ToolTip>
+                                        </ComboBox.ToolTip>
+                                    </ComboBox>
                                 </StackPanel>
                                 <StackPanel Grid.Column="3"
                                             VerticalAlignment="Center"
@@ -159,6 +212,7 @@
                                                HorizontalAlignment="Center" />
                                     <TextBox x:Name="TxtBruto"
                                              Width="100"
+                                             Height="30"
                                              Margin="0,7,0,0"
                                              HorizontalAlignment="Center"
                                              VerticalContentAlignment="Center"
@@ -249,53 +303,40 @@
                         </StackPanel>
                         <GroupBox Header="Opisi stavki"
                                   Height="520">
-                            <StackPanel x:Name="PanelLeft"
-                                        MinWidth="520"
+                            <StackPanel MinWidth="520"
                                         Margin="0,10,0,0">
-                                <TextBlock x:Name="TextBlockOsnovica"
-                                           TextWrapping="Wrap"
+                                <TextBlock TextWrapping="Wrap"
                                            Text="OSNOVICA ZA UTVRĐIVANJE DOPRINOSA PREMA OPOREZIVIM NAKNADAMA"
                                            Padding="2" />
-                                <TextBlock x:Name="TextBlockDoprinos1"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            TextWrapping="Wrap"
                                            Text="1. doprinos za mirovinsko osiguranje na temelju generacijske solidarnosti - 15% :"
                                            Margin="0,6,0,0" />
-                                <TextBlock x:Name="TextBlockDoprinos2"
-                                           TextWrapping="Wrap"
+                                <TextBlock TextWrapping="Wrap"
                                            Style="{StaticResource UvucenText}"
                                            Text="2. doprinos za mirovinsko osiguranje na temelju individualno kapitalizirane štednje - 5% :"
                                            Margin="0,6,0,0" />
-                                <TextBlock x:Name="TextBlockDopUkupno"
-                                           TextWrapping="Wrap"
+                                <TextBlock TextWrapping="Wrap"
                                            Style="{StaticResource UvucenText}"
                                            Text="Doprinosi iz plaće ukupno ili samo 1. stup doprinosa - 20% :"
                                            Margin="0,6,0,0" />
-                                <TextBlock x:Name="TextBlocDohodak"
-                                           Text="DOHODAK (bruto - doprinosi iz plaće) :"
+                                <TextBlock Text="DOHODAK (bruto - doprinosi iz plaće) :"
                                            Margin="0,4,0,0" />
-                                <TextBlock x:Name="TextBlocOdbitak"
-                                           Text="NEOPOREZIVI ODBITAK :"
+                                <TextBlock Text="NEOPOREZIVI ODBITAK :"
                                            Margin="0,8,0,0" />
-                                <TextBlock x:Name="TextBlocOsnovica"
-                                           Text="POREZNA OSNOVICA :"
+                                <TextBlock Text="POREZNA OSNOVICA :"
                                            Margin="0,10,0,0" />
-                                <TextBlock x:Name="TextBlocPorUkupno"
-                                           Text="POREZ + PRIREZ, SVEUKUPNO:"
+                                <TextBlock Text="POREZ + PRIREZ, SVEUKUPNO:"
                                            Margin="0,10,0,0" />
-                                <TextBlock x:Name="TextBlocOsnovica25"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="1. porez po stopi - 24% :"
                                            Margin="0,7,0,0" />
-                                <TextBlock x:Name="TextBlocOsnovica40"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="2. porez po stopi - 36% :"
                                            Margin="0,5,0,0" />
-                                <TextBlock x:Name="TextBlocPrirez"
-                                           Text="IZNOS PRIREZA :"
+                                <TextBlock Text="IZNOS PRIREZA :"
                                            Margin="0,8,0,0" />
-                                <TextBlock x:Name="TextBlocNeto"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="NETO PLAĆA  :-)"
                                            Margin="0,5,0,0"
                                            FontWeight="Bold" />
@@ -316,7 +357,7 @@
                                 </StackPanel>
                                 <Border BorderThickness="0,0,0,1"
                                         BorderBrush="Black">
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="0,3">
                                         <TextBlock Style="{StaticResource UvucenText}"
                                                    VerticalAlignment="Center">
                                             Upišite iznos svojih odbitaka (sindikat, krediti, dopunsko, itd.) :
@@ -335,26 +376,20 @@
                                                                 controls:TextBoxHelper.UseFloatingWatermark="True" />
                                     </StackPanel>
                                 </Border>
-                                <TextBlock x:Name="TextBlocNaPlacu"
-                                           Text="DOPRINOSI NA PLAĆU :"
+                                <TextBlock Text="DOPRINOSI NA PLAĆU :"
                                            Margin="0,2,0,0" />
-                                <TextBlock x:Name="TextBlocZdravstvo"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="1. doprinos za zdravstveno - 15% :"
                                            Margin="0,5,0,0" />
-                                <TextBlock x:Name="TextBlocZdravlje"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="2. doprinos za zaštitu na radu - 0.5% :"
                                            Margin="0,5,0,0" />
-                                <TextBlock x:Name="TextBlo"
-                                           Style="{StaticResource UvucenText}"
+                                <TextBlock Style="{StaticResource UvucenText}"
                                            Text="3. doprinos za zapošljavanje - 1.7% :"
                                            Margin="0,5,0,0" />
-                                <TextBlock x:Name="TexNaPlacuUk"
-                                           Text="DOPRINOSI NA PLAĆU UKUPNO :"
+                                <TextBlock Text="DOPRINOSI NA PLAĆU UKUPNO :"
                                            Margin="0,8,0,0" />
-                                <TextBlock x:Name="TextUkupniTrosak"
-                                           Text="UKUPAN TROŠAK PLAĆE ZA POSLODAVCA (bruto plaća + doprinosi na plaću):"
+                                <TextBlock Text="UKUPAN TROŠAK PLAĆE ZA POSLODAVCA (bruto plaća + doprinosi na plaću):"
                                            Margin="0,5,0,0"
                                            FontWeight="Bold" />
                             </StackPanel>
@@ -395,6 +430,7 @@
                                 <Label x:Name="LblPrirez"
                                        ToolTip="Prirez" />
                                 <TextBox x:Name="TxtNeto"
+                                         Height ="30"
                                          Width="100"
                                          HorizontalAlignment="Right"
                                          VerticalContentAlignment="Center"

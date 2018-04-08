@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="PostSharp, Version=5.0.49.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.5.0.49\lib\net35-client\PostSharp.dll</HintPath>
     </Reference>
@@ -59,6 +62,7 @@
     <Compile Include="BankarskiTecaj\OdabirBanke.cs" />
     <Compile Include="BankarskiTecaj\TecajHNBa.cs" />
     <Compile Include="BankarskiTecaj\TecajPBZa.cs" />
+    <Compile Include="Beneficirani.cs" />
     <Compile Include="DodatakNaPlacu.cs" />
     <Compile Include="Doprinosi\BeneficiraniDvaNulaJedan.cs" />
     <Compile Include="Doprinosi\BeneficiraniDvaOsamdesetDevet.cs" />
@@ -73,6 +77,8 @@
     <Compile Include="Doprinosi\RacunajBeneficiraniCetiriMjeseca.cs" />
     <Compile Include="Doprinosi\RacunajBeneficiraniDvaMjeseca.cs" />
     <Compile Include="Doprinosi\RacunajBeneficiraniTriMjeseca.cs" />
+    <Compile Include="Ispis\Footer.cs" />
+    <Compile Include="Ispis\IspisListicePlace.cs" />
     <Compile Include="IzracunGodinaStaza.cs" />
     <Compile Include="KoefSati\IzracunajKoeficijentSate.cs" />
     <Compile Include="KoefSati\Koeficijenti.cs" />
@@ -87,6 +93,7 @@
     <Compile Include="MinuliRad.cs" />
     <Compile Include="Olaksice\IzracunOlaksice.cs" />
     <Compile Include="Ovrha.cs" />
+    <Compile Include="Ispis\PodaciZaIspisPlace.cs" />
     <Compile Include="Porezi\IzracunajPoreze.cs" />
     <Compile Include="Porezi\Porez24.cs" />
     <Compile Include="Porezi\Porez36.cs" />

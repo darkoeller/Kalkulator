@@ -8,8 +8,10 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using BiznisSloj;
+using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
+using ControlzEx;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using PostSharp.Patterns.Threading;
@@ -21,11 +23,12 @@ namespace ObracunPlace
     /// </summary>
     public partial class MainWindow
     {
-        private static ProcesuirajPlacu _listica;
+        private ProcesuirajPlacu _listica;
 
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += (s, e) => { KeyboardNavigationEx.Focus(TxtBruto);};
         }
 
         private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
@@ -138,7 +141,6 @@ namespace ObracunPlace
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             UkljuciGumb();
-            TxtBruto.Focus();
             TabKontrola.SelectedIndex += 1;
             CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
             CmbPrirez.SelectedIndex = 0;
@@ -208,6 +210,19 @@ namespace ObracunPlace
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            Prirez= decimal.Parse(CmbPrirez.SelectedItem.ToString());
+        }
+        [Background]
+        private void Ispis_Click(object sender, RoutedEventArgs e)
+        {
+            if (_listica == null)
+            {
+                MessageBox.Show("Provjerite da li ste izračunali iznose", "Pozor", MessageBoxButton.OK
+                    , MessageBoxImage.Information);
+                return;
+            }
+            var podaciZaIspis = new PodaciZaIspisPlace {Placa = _listica, Prijevoz=IznosPrijevoza, TxtOdbiciIznos=TxtBoxOdbici.Value, LblOdbici=LblOdbici.Content.ToString(), LblPrijevoz=LblPrijevoz.Content.ToString(), NaslovniText= NaslovniText.Text};
+            var ispis = new IspisListicePlace(podaciZaIspis);
+            ispis.Ispis();
         }
     }
 }

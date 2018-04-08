@@ -107,7 +107,6 @@
                         Height="40"
                         Click="BtnIzracun_Click"
                         Margin="21,0,90,0"
-                        ToolTip="Izračunajte tečaj eura."
                         VerticalAlignment="Center"
                         IsDefault="True"
                         KeyboardNavigation.TabIndex="2">

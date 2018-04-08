@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:controlzex="urn:controlzex"
              mc:Ignorable="d"
              d:DesignHeight="585"
              d:DesignWidth="790">
@@ -52,7 +53,7 @@
                                         Interval="0.05"
                                         Margin="5,0,5,0"
                                         Height="26"
-                                        ToolTip="Upišite svoje bodove"
+                                        ToolTip="Koristite zarez za decimale."
                                         Culture="hr"
                                         TrackMouseWheelWhenMouseOver="True"
                                         ValueDecremented="BodoviUpDown_ValueDecremented"
@@ -64,7 +65,7 @@
                                         Value="0.01"
                                         Margin="5"
                                         Height="26"
-                                        ToolTip="Upišite bodove minulog rada"
+                                        ToolTip="Upišite iznos bodova za vaš minuli rad."
                                         Culture="hr"
                                         TrackMouseWheelWhenMouseOver="True"
                                         ValueDecremented="MinuliUpDown_ValueDecremented"
@@ -76,7 +77,7 @@
                                         Value="0.50"
                                         Height="26"
                                         Margin="5"
-                                        ToolTip="Upišite sate rada"
+                                        ToolTip="Upišite sate rada za pojedinu vrstu rada ili ukupne mjesečne sate."
                                         Culture="hr"
                                         Focusable="True"
                                         TrackMouseWheelWhenMouseOver="True"
@@ -86,7 +87,7 @@
                           Margin="5"
                           SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
                           IsReadOnly="True"
-                          ToolTip="Odaberite vrstu rada"
+                          ToolTip="Odaberite vrstu rada."
                           Focusable="True" />
             </StackPanel>
             <StackPanel Grid.Column="2"
@@ -105,7 +106,7 @@
                          Background="#FFE7FAFF"
                          BorderBrush="{DynamicResource AccentColorBrush}"
                          BorderThickness="3"
-                         ToolTip="Lista izračuna"
+                         ToolTip="Lista izračunatih iznosa."
                          Margin="0,0,0.2,0"
                          FontFamily="Roboto Light" />
             </Border>
@@ -132,15 +133,65 @@
                         Margin="5"
                         Content="Dodaj dodatak na plaću"
                         Click="BtnDodatak_Click"
-                        ToolTip="Dodatak za topli obrok"
-                        FontWeight="Normal" />
+                        FontWeight="Normal"
+                        ToolTipService.ShowDuration="5000">
+                    <Button.ToolTip>
+                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                            <ToolTip.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Border Background="DeepSkyBlue"
+                                                BorderBrush="PapayaWhip"
+                                                BorderThickness="1"
+                                                Opacity="0.8"
+                                                CornerRadius="3"
+                                                SnapsToDevicePixels="True" />
+                                        <TextBlock Margin="5"
+                                                   MaxWidth="230"
+                                                   TextWrapping="Wrap"
+                                                   Foreground="WhiteSmoke"
+                                                   FontSize="10"
+                                                   Text="Dodatak 'kao za topli obrok', prije nego kliknete provjerite da su upisani ukupni sati rada za mjesec koji računate."
+                                                   TextOptions.TextFormattingMode="Display"
+                                                   TextOptions.TextRenderingMode="ClearType" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </ToolTip.Template>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
                 <Button x:Name="BtnMinuli"
                         Margin="5"
                         Content="Dodaj minuli rad"
                         Click="BtnMinuli_Click"
-                        ToolTip="U listu i bruto dodaje minuli"
                         FontFamily="Roboto-Light"
-                        FontWeight="Normal" />
+                        FontWeight="Normal"
+                        ToolTipService.ShowDuration="3000">
+                    <Button.ToolTip>
+                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                            <ToolTip.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Border Background="DeepSkyBlue"
+                                                BorderBrush="PapayaWhip"
+                                                BorderThickness="1"
+                                                Opacity="0.8"
+                                                CornerRadius="3"
+                                                SnapsToDevicePixels="True" />
+                                        <TextBlock Margin="5"
+                                                   MaxWidth="230"
+                                                   TextWrapping="Wrap"
+                                                   Foreground="WhiteSmoke"
+                                                   FontSize="10"
+                                                   Text="Za točan izračun, kao i za dodatak, moraju biti upisani ukupni mjesečni sati rada."
+                                                   TextOptions.TextFormattingMode="Display"
+                                                   TextOptions.TextRenderingMode="ClearType" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </ToolTip.Template>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
                 <Button x:Name="BtnOcistiOdabrano"
                         Margin="5,5,5,0"
                         Content="Obriši označeno"
@@ -153,7 +204,7 @@
                         Content="Očisti listu"
                         Click="BtnOcisti_Click"
                         IsCancel="True"
-                        ToolTip="Briše stavke iz liste"
+                        ToolTip="Briše sve stavke iz liste izračuna."
                         FontFamily="Roboto Light" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Grid.Row="1"
@@ -236,9 +287,34 @@
                                 Content="Izračunaj minuli"
                                 Margin="30,20,10,0"
                                 Click="BtnRacunaMinuli_Click"
-                                ToolTip="Provjerite upisane bodove"
                                 Height="30"
-                                FontFamily="Roboto Light" />
+                                FontFamily="Roboto Light"
+                                ToolTipService.ShowDuration="3000">
+                            <Button.ToolTip>
+                                <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                                    <ToolTip.Template>
+                                        <ControlTemplate>
+                                            <Grid>
+                                                <Border Background="DeepSkyBlue"
+                                                        BorderBrush="PapayaWhip"
+                                                        BorderThickness="1"
+                                                        Opacity="0.8"
+                                                        CornerRadius="3"
+                                                        SnapsToDevicePixels="True" />
+                                                <TextBlock Margin="5"
+                                                           MaxWidth="230"
+                                                           TextWrapping="Wrap"
+                                                           Foreground="WhiteSmoke"
+                                                           FontSize="10"
+                                                           Text="Prije nego kliknete na ovaj gumb provjerite da li ste točno upisali svoje bodove."
+                                                           TextOptions.TextFormattingMode="Display"
+                                                           TextOptions.TextRenderingMode="ClearType" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </ToolTip.Template>
+                                </ToolTip>
+                            </Button.ToolTip>
+                        </Button>
                         <Label x:Name="LblMinuli"
                                VerticalAlignment="Center" />
                     </StackPanel>

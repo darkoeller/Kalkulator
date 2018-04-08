@@ -25,6 +25,7 @@ namespace ObracunPlace
         public UcObracun()
         {
             InitializeComponent();
+
             var svesifre = Koeficijenti.VratiSifre();
             var sifre = svesifre.Select(s => s.Naziv);
             ChComboBoxVrsteRada.ItemsSource = sifre;

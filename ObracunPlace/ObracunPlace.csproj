@@ -201,13 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Beneficirani.cs" />
     <Compile Include="BeneficiraniUc.xaml.cs">
       <DependentUpon>BeneficiraniUc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Footer.cs" />
     <Compile Include="Header.cs" />
-    <Compile Include="IspisPlace.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

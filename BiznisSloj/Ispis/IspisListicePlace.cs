@@ -2,22 +2,33 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using BiznisSloj.Procesi;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-namespace ObracunPlace
+namespace BiznisSloj.Ispis
 {
-    public partial class MainWindow
+    public  class IspisListicePlace
     {
-        private void Ispis_Click(object sender, RoutedEventArgs e)
-        {
-            if (_listica == null)
-            {
-                MessageBox.Show("Provjerite da li ste izračunali iznose", "Pozor", MessageBoxButton.OK
-                    , MessageBoxImage.Information);
-                return;
-            }
+        private  readonly ProcesuirajPlacu _listica;
+        private readonly double? _txtOdbici;
+        private readonly decimal _iznosPrijevoza;
+        private readonly string _naslov;
+        private readonly string _odbici;
+        private readonly string _lblprijevoz;
 
+        public IspisListicePlace(PodaciZaIspisPlace podaci)
+        {
+            _listica = podaci.Placa;
+            _iznosPrijevoza =podaci.Prijevoz;
+            _txtOdbici = podaci.TxtOdbiciIznos;
+            _naslov = podaci.NaslovniText;
+            _odbici = podaci.LblOdbici;
+            _lblprijevoz = podaci.LblPrijevoz;
+        }
+
+        public void Ispis()
+        {
             using (var doc = new Document(PageSize.A4, 20, 15, 25, 30))
             {
                 try
@@ -53,7 +64,7 @@ namespace ObracunPlace
                     var kutina = new Paragraph("Kutina, ", times);
                     var celijakutina = new PdfPCell(kutina)
                     {
-                        HorizontalAlignment = Element.ALIGN_LEFT,
+                        HorizontalAlignment = Element.ALIGN_RIGHT,
                         Border = Rectangle.NO_BORDER
                     };
                     var datum = new Phrase(DateTime.Now.Date.ToString("d"), times);
@@ -65,7 +76,7 @@ namespace ObracunPlace
                     headertablica.AddCell(celijakutina);
                     headertablica.AddCell(celijadatum);
                     doc.Add(headertablica);
-                    doc.Add(new Paragraph(NaslovniText.Text, desetka) {SpacingBefore = 20f, Alignment = 1});
+                    doc.Add(new Paragraph(_naslov, desetka) {SpacingBefore = 20f, Alignment = 1});
                     doc.Add(new Paragraph(" "));
                     //ovdje dođe tijelo platne liste
                     var listaIznosa = new PdfPTable(2);
@@ -79,7 +90,7 @@ namespace ObracunPlace
                     var iznosi = new PdfPCell(new Phrase("IZNOSI", desetka)){HorizontalAlignment=1};
                     listaIznosa.AddCell(iznosi);
                     listaIznosa.AddCell(new Phrase("Bruto iznos : ", times));
-                    var brutoIznos = new PdfPCell(new Phrase(GetBruto().ToString("c"), times)){HorizontalAlignment=2};
+                    var brutoIznos = new PdfPCell(new Phrase(_listica.Bruto.ToString("c"), times)){HorizontalAlignment=2};
                     listaIznosa.AddCell(brutoIznos);
                     listaIznosa.AddCell(new Phrase("Doprinos 15% : ", times));
                     var petnaestPosto = new PdfPCell(new Phrase(_listica.PetnaestPostoDoprinos.ToString("c"), times)){HorizontalAlignment=2};
@@ -114,12 +125,12 @@ namespace ObracunPlace
                     listaIznosa.AddCell(new Phrase("Neto plaća : ", times));
                     var netoPlaca = new PdfPCell(new Phrase(_listica.Neto.ToString("c"), times)){HorizontalAlignment=2};
                     listaIznosa.AddCell(netoPlaca);
-                    listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz (" + IznosPrijevoza +" kn"+") :", times));
-                    var prijevoz = new PdfPCell(new Phrase(LblPrijevoz.Content.ToString(), times)){HorizontalAlignment=2};
+                    listaIznosa.AddCell(new Phrase("Neto iznos + naknada za prijevoz (" + _iznosPrijevoza +" kn"+") :", times));
+                    var prijevoz = new PdfPCell(new Phrase(_lblprijevoz, times)){HorizontalAlignment=2};
                     listaIznosa.AddCell(prijevoz);
-                    var labOdbici = new PdfPCell(new Phrase("Neto iznos - osobni odbici (" + TxtBoxOdbici.Value + "kn"+") = " + " za isplatu :" , times)){BackgroundColor = new BaseColor(0, 255, 255)};
+                    var labOdbici = new PdfPCell(new Phrase("Neto iznos - osobni odbici (" + _txtOdbici + "kn"+") = " + " za isplatu :" , times)){BackgroundColor = new BaseColor(0, 255, 255)};
                     listaIznosa.AddCell(labOdbici);
-                    var totalOdbici = new PdfPCell(new Phrase(LblOdbici.Content.ToString(), times)){BackgroundColor = new BaseColor(0, 255, 255), HorizontalAlignment=2};
+                    var totalOdbici = new PdfPCell(new Phrase(_odbici, times)){BackgroundColor = new BaseColor(0, 255, 255), HorizontalAlignment=2};
                     listaIznosa.AddCell(totalOdbici);
                     listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
                     var zdravstveno = new PdfPCell(new Phrase(_listica.DoprinosZaZdravstveno.ToString("c"), times)){HorizontalAlignment=2};
@@ -153,6 +164,7 @@ namespace ObracunPlace
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
         }
     }
 }

@@ -7,7 +7,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using BiznisSloj;
 using BiznisSloj.Doprinosi;
+using BiznisSloj.Ispis;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MahApps.Metro.Controls;
@@ -190,7 +192,7 @@ namespace ObracunPlace
                     var kutina = new Paragraph("Kutina, ", times);
                     var celijakutina = new PdfPCell(kutina)
                     {
-                        HorizontalAlignment = Element.ALIGN_LEFT,
+                        HorizontalAlignment = Element.ALIGN_RIGHT,
                         Border = Rectangle.NO_BORDER
                     };
                     var datum = new Phrase(DateTime.Now.Date.ToString("d"), times);
@@ -214,8 +216,7 @@ namespace ObracunPlace
                     if (izvor != null)
                         foreach (var item in izvor)
                         {
-                            var red = DataGridBene.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-                            if (red == null) continue;
+                            if (!(DataGridBene.ItemContainerGenerator.ContainerFromItem(item) is DataGridRow red)) continue;
                             var presenter = FindVisualChild<DataGridCellsPresenter>(red);
                             for (var i = 0; i < DataGridBene.Columns.Count; ++i)
                             {
