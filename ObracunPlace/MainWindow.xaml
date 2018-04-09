@@ -121,18 +121,18 @@
                                                 <ToolTip.Template>
                                                     <ControlTemplate>
                                                         <Grid>
-                                                            <Border Background="DeepSkyBlue"
-                                                                    BorderBrush="PapayaWhip"
+                                                            <Border Background="DarkSeaGreen"
+                                                                    BorderBrush="Black"
                                                                     BorderThickness="1"
-                                                                    Opacity="0.8"
+                                                                    Opacity="0.9"
                                                                     CornerRadius="3"
                                                                     SnapsToDevicePixels="True" />
                                                             <TextBlock Margin="5"
-                                                                       MaxWidth="250"
+                                                                       MaxWidth="220"
                                                                        TextWrapping="Wrap"
                                                                        Foreground="WhiteSmoke"
                                                                        FontSize="10"
-                                                                       Text="Ako u obitelji nemate nikog na olakšici, vaš porezni faktor=1, nakon toga pribrojite: za 1. dijete=0,7; za 2.dijete=1; za 3.dijete=1,4; osobna invalidnost = 0,4"
+                                                                       Text="Ako u obitelji nemate nikog na olakšici, vaš porezni faktor=1, nakon toga pribrojite: za 1. dijete=0,7; za 2.dijete=1; za 3.dijete=1,4; osobna invalidnost = 0,4 itd."
                                                                        TextOptions.TextFormattingMode="Display"
                                                                        TextOptions.TextRenderingMode="ClearType" />
                                                         </Grid>
@@ -165,14 +165,14 @@
                                             <ToolTip.Template>
                                                 <ControlTemplate>
                                                     <Grid>
-                                                        <Border Background="DeepSkyBlue"
-                                                                BorderBrush="PapayaWhip"
+                                                        <Border Background="DarkSeaGreen"
+                                                                BorderBrush="Black"
                                                                 BorderThickness="1"
-                                                                Opacity="0.8"
+                                                                Opacity="0.9"
                                                                 CornerRadius="3"
                                                                 SnapsToDevicePixels="True" />
                                                         <TextBlock Margin="5"
-                                                                   MaxWidth="250"
+                                                                   MaxWidth="220"
                                                                    TextWrapping="Wrap"
                                                                    Foreground="WhiteSmoke"
                                                                    FontSize="10"
@@ -199,7 +199,6 @@
                                                  x:Name="Rb1Stup"
                                                  Content="samo 1. stup"
                                                  Margin="5,0,0,0"
-                                                 ToolTip="Odaberite ako niste u 2.stupu, vaš doprinos je 20%"
                                                  FontFamily="Roboto Light" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="4"
@@ -220,8 +219,34 @@
                                              Background="#FFFBFAE9"
                                              TextAlignment="Right"
                                              Foreground="OrangeRed"
-                                             ToolTip="Ovdje unesite bruto, obavezno koristite zarez za decimalni broj"
-                                             FontFamily="Roboto" />
+                                             FontFamily="Roboto"
+                                             ToolTipService.ShowDuration ="3000"
+                                             ToolTipService.HasDropShadow="True">
+                                        <TextBox.ToolTip>
+                                            <ToolTip controlzex:ToolTipAssist.AutoMove="True">
+                                                <ToolTip.Template>
+                                                    <ControlTemplate>
+                                                        <Grid>
+                                                            <Border Background="DarkSeaGreen"
+                                                                    BorderBrush="Black"
+                                                                    BorderThickness="1"
+                                                                    Opacity="0.9"
+                                                                    CornerRadius="3"
+                                                                    SnapsToDevicePixels="True" />
+                                                            <TextBlock Margin="5"
+                                                                       MaxWidth="150"
+                                                                       TextWrapping="Wrap"
+                                                                       Foreground="WhiteSmoke"
+                                                                       FontSize="10"
+                                                                       Text="Kod upisa decimalnog broja obavezno koristite zarez."
+                                                                       TextOptions.TextFormattingMode="Display"
+                                                                       TextOptions.TextRenderingMode="ClearType" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </ToolTip.Template>
+                                            </ToolTip>
+                                        </TextBox.ToolTip>
+                                    </TextBox>
                                 </StackPanel>
                                 <GridSplitter Grid.Column="0"
                                               Width="2"
@@ -281,7 +306,6 @@
                                     Width="100"
                                     Click="BtnIzracun_Click"
                                     Margin="60,0,0,0"
-                                    ToolTip="Izračunajte neto ili bruto"
                                     IsDefault="True">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Stretch="None"
@@ -440,7 +464,7 @@
                                          TextAlignment="Right"
                                          Foreground="OrangeRed"
                                          FontFamily="Roboto"
-                                         ToolTip="Brutto plaća, kod upisa koristite zarez"
+                                         ToolTip="Neto plaća, kod upisa koristite zarez"
                                          FontWeight="Bold" />
                                 <Label x:Name="LblPrijevoz"
                                        Margin="0,5,0,4"

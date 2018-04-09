@@ -65,7 +65,6 @@
                                         Value="0.01"
                                         Margin="5"
                                         Height="26"
-                                        ToolTip="Upišite iznos bodova za vaš minuli rad."
                                         Culture="hr"
                                         TrackMouseWheelWhenMouseOver="True"
                                         ValueDecremented="MinuliUpDown_ValueDecremented"
@@ -87,7 +86,6 @@
                           Margin="5"
                           SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
                           IsReadOnly="True"
-                          ToolTip="Odaberite vrstu rada."
                           Focusable="True" />
             </StackPanel>
             <StackPanel Grid.Column="2"
@@ -126,7 +124,6 @@
                         Content="Izračunaj"
                         Click="BtnIzracun_Click"
                         IsDefault="True"
-                        ToolTip="Računa iznose"
                         FontFamily="Roboto Light" />
                 <Button x:Name="BtnDodatak"
                         FontFamily="Roboto-Light"
@@ -140,14 +137,14 @@
                             <ToolTip.Template>
                                 <ControlTemplate>
                                     <Grid>
-                                        <Border Background="DeepSkyBlue"
-                                                BorderBrush="PapayaWhip"
+                                        <Border Background="DarkSeaGreen"
+                                                BorderBrush="Black"
                                                 BorderThickness="1"
-                                                Opacity="0.8"
+                                                Opacity="0.9"
                                                 CornerRadius="3"
                                                 SnapsToDevicePixels="True" />
                                         <TextBlock Margin="5"
-                                                   MaxWidth="230"
+                                                   MaxWidth="200"
                                                    TextWrapping="Wrap"
                                                    Foreground="WhiteSmoke"
                                                    FontSize="10"
@@ -172,14 +169,14 @@
                             <ToolTip.Template>
                                 <ControlTemplate>
                                     <Grid>
-                                        <Border Background="DeepSkyBlue"
-                                                BorderBrush="PapayaWhip"
+                                        <Border Background="DarkSeaGreen"
+                                                BorderBrush="Black"
                                                 BorderThickness="1"
-                                                Opacity="0.8"
+                                                Opacity="0.9"
                                                 CornerRadius="3"
                                                 SnapsToDevicePixels="True" />
                                         <TextBlock Margin="5"
-                                                   MaxWidth="230"
+                                                   MaxWidth="200"
                                                    TextWrapping="Wrap"
                                                    Foreground="WhiteSmoke"
                                                    FontSize="10"
@@ -196,7 +193,6 @@
                         Margin="5,5,5,0"
                         Content="Obriši označeno"
                         Click="BtnOcistiOdabrano_Click"
-                        ToolTip="Odaberite što želite obrisati iz liste"
                         FontFamily="Roboto-Light"
                         FontWeight="Normal" />
                 <Button x:Name="BtnOcisti"
@@ -295,14 +291,14 @@
                                     <ToolTip.Template>
                                         <ControlTemplate>
                                             <Grid>
-                                                <Border Background="DeepSkyBlue"
-                                                        BorderBrush="PapayaWhip"
+                                                <Border Background="DarkSeaGreen"
+                                                        BorderBrush="Black"
                                                         BorderThickness="1"
-                                                        Opacity="0.8"
+                                                        Opacity="0.9"
                                                         CornerRadius="3"
                                                         SnapsToDevicePixels="True" />
                                                 <TextBlock Margin="5"
-                                                           MaxWidth="230"
+                                                           MaxWidth="200"
                                                            TextWrapping="Wrap"
                                                            Foreground="WhiteSmoke"
                                                            FontSize="10"
