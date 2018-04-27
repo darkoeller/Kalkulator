@@ -87,12 +87,11 @@ namespace ObracunPlace
             if (CmbPrijevoz.SelectedIndex < 1)
             {
                 neto -= odbici;
-                LblPrijevoz.Content = neto.ToString("C");
-                LblOdbici.Content = neto.ToString("C");
+                LblPrijevoz.Content =  Math.Round(neto,2).ToString("C");
+                LblOdbici.Content = Math.Round(neto,2).ToString("C");
             }
             else if (CmbPrijevoz.SelectedIndex > 0)
             {
-
                 VratiTotal(prijevoz, odbici);
             }
         }
@@ -104,23 +103,23 @@ namespace ObracunPlace
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
         {
-            TxtNeto.Text = placa.Neto.ToString(new CultureInfo("hr-HR"));
-            Lbl1Stup.Content = placa.PetnaestPostoDoprinos.ToString("C");
-            Lbl2Stup.Content = placa.PetPostoDoprinos.ToString("C");
-            LblDopUkupno.Content = placa.DoprinosiIzPlaceUkupno.ToString("C");
-            LblBruto.Content = placa.Bruto.ToString("C");
-            LblDohodak.Content = placa.Dohodak.ToString("C");
-            LblOdbitak.Content = placa.Olaksica.ToString("C");
-            LblPorOsnovica.Content = placa.PoreznaOsnovica.ToString("C");
-            LblPorezUkupno.Content = placa.UkupniPorez.ToString("C");
-            LblPorez25.Content = placa.PorezDvadesetCetiriPosto.ToString("C");
-            LblPorez40.Content = placa.PorezTridesetSestPosto.ToString("C");
-            LblPrirez.Content = placa.Prirez.ToString("C");
-            LblZdravstveno.Content = placa.DoprinosZaZdravstveno.ToString("C");
-            LblZnr.Content = placa.DoprinosZaZnr.ToString("C");
-            LblZaposljavanje.Content = placa.DoprinosZaZaposljavanje.ToString("C");
-            LblDoprinosiUkupno.Content = placa.DoprinosNaPlacUkupno.ToString("C");
-            LblTrosakPlace.Content = placa.UkupniTrosakPlace.ToString("C");
+            TxtNeto.Text = Math.Round(placa.Neto,2).ToString(new CultureInfo("hr-HR"));
+            Lbl1Stup.Content = Math.Round(placa.PetnaestPostoDoprinos,2).ToString("C");
+            Lbl2Stup.Content = Math.Round(placa.PetPostoDoprinos,2).ToString("C");
+            LblDopUkupno.Content = Math.Round(placa.DoprinosiIzPlaceUkupno,2).ToString("C");
+            LblBruto.Content = Math.Round(placa.Bruto,2).ToString("C");
+            LblDohodak.Content = Math.Round(placa.Dohodak,2).ToString("C");
+            LblOdbitak.Content = Math.Round(placa.Olaksica,2).ToString("C");
+            LblPorOsnovica.Content = Math.Round(placa.PoreznaOsnovica,2).ToString("C");
+            LblPorezUkupno.Content = Math.Round(placa.UkupniPorez,2).ToString("C");
+            LblPorez25.Content = Math.Round(placa.PorezDvadesetCetiriPosto,2).ToString("C");
+            LblPorez40.Content = Math.Round(placa.PorezTridesetSestPosto,2).ToString("C");
+            LblPrirez.Content = Math.Round(placa.Prirez,2).ToString("C");
+            LblZdravstveno.Content = Math.Round(placa.DoprinosZaZdravstveno,2).ToString("C");
+            LblZnr.Content = Math.Round(placa.DoprinosZaZnr,2).ToString("C");
+            LblZaposljavanje.Content = Math.Round(placa.DoprinosZaZaposljavanje,2).ToString("C");
+            LblDoprinosiUkupno.Content = Math.Round(placa.DoprinosNaPlacUkupno,2).ToString("C");
+            LblTrosakPlace.Content = Math.Round(placa.UkupniTrosakPlace,2).ToString("C");
             _listica = placa;
         }
 
@@ -191,7 +190,7 @@ namespace ObracunPlace
             IznosPrijevoza  = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
             var prijevoz = IznosPrijevoza;
             prijevoz += GetNeto();
-            LblPrijevoz.Content = prijevoz.ToString("C", new CultureInfo("hr-HR"));
+            LblPrijevoz.Content = Math.Round(prijevoz,2).ToString("C", new CultureInfo("hr-HR"));
             var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
             VratiTotal(prijevoz, odbitak);
         }
@@ -199,7 +198,7 @@ namespace ObracunPlace
         private void VratiTotal(decimal prijevoz, decimal odbici)
         {
             prijevoz -= odbici;
-            LblOdbici.Content = prijevoz.ToString("C");
+            LblOdbici.Content = Math.Round(prijevoz,2).ToString("C");
         }
 
         private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)
@@ -220,9 +219,8 @@ namespace ObracunPlace
                     , MessageBoxImage.Information);
                 return;
             }
-            var podaciZaIspis = new PodaciZaIspisPlace {Placa = _listica, Prijevoz=IznosPrijevoza, TxtOdbiciIznos=TxtBoxOdbici.Value, LblOdbici=LblOdbici.Content.ToString(), LblPrijevoz=LblPrijevoz.Content.ToString(), NaslovniText= NaslovniText.Text};
-            var ispis = new IspisListicePlace(podaciZaIspis);
-            ispis.Ispis();
+            var podaciZaIspis = new PodaciZaIspisPlace {Placa = _listica, Prijevoz=IznosPrijevoza, TxtOdbiciIznos=TxtBoxOdbici.Value, LblOdbici=LblOdbici.Content.ToString(), LblPrijevoz=LblPrijevoz.Content.ToString(), NaslovniText= NaslovniText.Text, PrirezTxtB = CmbPrirez.SelectedValue.ToString()};
+            new IspisListicePlace(podaciZaIspis).Ispis();
         }
     }
 }

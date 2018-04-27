@@ -11,11 +11,13 @@
 
         public decimal PetPosto { get; private set; }
         public decimal PetnaestPosto { get; private set; }
+        public decimal DvadesetPosto { get; private set; }
 
         public void Izracun()
         {
             PetPosto = Racunaj(new DoprinosPetPosto());
             PetnaestPosto = Racunaj(new DoprinosPetnaestPosto());
+            DvadesetPosto = Racunaj(new DvadestPostotniDoprinos());
         }
 
         public decimal VratiDoprinose()

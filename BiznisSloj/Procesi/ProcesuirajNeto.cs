@@ -42,9 +42,9 @@ namespace BiznisSloj.Procesi
         {
             var odbitak = IzracunOlaksiceClanova();
             PostaviKoeficijentePorezaPrireza();
-            var izracunBruta = Math.Round(NadjiMetoduZaIzracun(Neto, odbitak), 2);
+            var izracunBruta = NadjiMetoduZaIzracun(Neto, odbitak);
             var placa =  ProcesuirajBruto.VratiIzracunPlace(izracunBruta, Faktor, Prirez, MirStup);
-            var usporedjeniIznosiBruta = new UsporediIVratiBrutoIznos(Neto, placa, Prirez, Faktor,MirStup).Usporedi();
+            var usporedjeniIznosiBruta = new UsporediIVratiBrutoIznos(Neto, placa, Prirez, Faktor, MirStup).Usporedi();
             return usporedjeniIznosiBruta  ;
         }
 

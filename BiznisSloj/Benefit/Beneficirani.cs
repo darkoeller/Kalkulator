@@ -1,4 +1,4 @@
-﻿namespace BiznisSloj
+﻿namespace BiznisSloj.Benefit
 {
     public class Beneficirani
     {

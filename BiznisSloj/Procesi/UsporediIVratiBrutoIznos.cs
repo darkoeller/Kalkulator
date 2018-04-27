@@ -1,4 +1,6 @@
-﻿namespace BiznisSloj.Procesi
+﻿using System;
+
+namespace BiznisSloj.Procesi
 {
     public class UsporediIVratiBrutoIznos
     {
@@ -19,8 +21,8 @@
 
         public ProcesuirajPlacu  Usporedi()
         {
-            var neto = _placa.Neto;
-            var bruto = _placa.Bruto;
+            var neto = Math.Round(_placa.Neto,2);
+            var bruto = Math.Round(_placa.Bruto,2);
 
             while (_netoIzTBoxa != neto)
             {

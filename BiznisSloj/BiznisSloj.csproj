@@ -62,7 +62,8 @@
     <Compile Include="BankarskiTecaj\OdabirBanke.cs" />
     <Compile Include="BankarskiTecaj\TecajHNBa.cs" />
     <Compile Include="BankarskiTecaj\TecajPBZa.cs" />
-    <Compile Include="Beneficirani.cs" />
+    <Compile Include="Benefit\Beneficirani.cs" />
+    <Compile Include="Datumi\Datum.cs" />
     <Compile Include="DodatakNaPlacu.cs" />
     <Compile Include="Doprinosi\BeneficiraniDvaNulaJedan.cs" />
     <Compile Include="Doprinosi\BeneficiraniDvaOsamdesetDevet.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Doprinosi\BeneficiraniOsamTridesetDevet.cs" />
     <Compile Include="Doprinosi\BeneficiraniPetOsamdesetTri.cs" />
     <Compile Include="Doprinosi\BeneficiraniTriSedesetJedan.cs" />
+    <Compile Include="Doprinosi\DvadestPostotniDoprinos.cs" />
     <Compile Include="Doprinosi\IDoprinosi.cs" />
     <Compile Include="Doprinosi\DoprinosPetnaestPosto.cs" />
     <Compile Include="Doprinosi\DoprinosPetPosto.cs" />
@@ -106,10 +108,12 @@
     <Compile Include="Procesi\ProcesuirajPlacu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Procesi\UsporediIVratiBrutoIznos.cs" />
+    <Compile Include="Datumi\RazlikaDatuma.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

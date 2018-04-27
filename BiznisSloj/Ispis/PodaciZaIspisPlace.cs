@@ -10,5 +10,6 @@ namespace BiznisSloj.Ispis
         public string LblOdbici { get; set; }
         public string LblPrijevoz { get; set; }
         public string NaslovniText { get; set; }
+        public string PrirezTxtB { get; set; }
     }
 }

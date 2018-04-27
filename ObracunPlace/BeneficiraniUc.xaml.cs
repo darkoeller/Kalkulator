@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using BiznisSloj;
+using BiznisSloj.Benefit;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Ispis;
 using iTextSharp.text;
@@ -83,7 +83,7 @@ namespace ObracunPlace
             _bene = new Beneficirani();
             IzracunajPetPetnaest();
             IzracunajBeneficirani();
-            TxtUkupno.Text = (_beneficirani + _dvadeset).ToString(new CultureInfo("hr-HR"));
+            TxtUkupno.Text = Math.Round((_beneficirani + _dvadeset),2).ToString(new CultureInfo("hr-HR"));
             ImePrezime.Focus();
             var oddatuma = OdDatuma.SelectedDate.ToString();
             oddatuma = oddatuma.TrimEnd('0', ':');
@@ -114,23 +114,23 @@ namespace ObracunPlace
             var bene2 = odabir.Beneficirani2;
             _bene.Beneficirani2 = bene2;
             _beneficirani = bene1 + bene2;
-            TxtBene1.Text = bene1.ToString(new CultureInfo("hr-HR"));
-            TxtBene2.Text = bene2.ToString(new CultureInfo("hr-HR"));
-            TxtUkBene1I2.Text = (bene1 + bene2).ToString(new CultureInfo("hr-HR"));
+            TxtBene1.Text = Math.Round(bene1,2).ToString(new CultureInfo("hr-HR"));
+            TxtBene2.Text = Math.Round(bene2,2).ToString(new CultureInfo("hr-HR"));
+            TxtUkBene1I2.Text = Math.Round((bene1 + bene2),2).ToString(new CultureInfo("hr-HR"));
         }
 
         private void IzracunajPetPetnaest()
         {
             var petnaest = new DoprinosPetnaestPosto();
-            var doprinospetnaest = Math.Round(petnaest.RacunajDoprinos(Bruto), 2);
+            var doprinospetnaest =petnaest.RacunajDoprinos(Bruto);
             _bene.Doprinos15 = doprinospetnaest;
             var pet = new DoprinosPetPosto();
-            var doprinospet = Math.Round(pet.RacunajDoprinos(Bruto), 2);
+            var doprinospet = pet.RacunajDoprinos(Bruto);
             _bene.Doprinos5 = doprinospet;
             _dvadeset = doprinospet + doprinospetnaest;
-            TxtDop15.Text = doprinospetnaest.ToString(new CultureInfo("hr-HR"));
-            TxtDop5.Text = doprinospet.ToString(new CultureInfo("hr-HR"));
-            Txt20.Text = (doprinospet + doprinospetnaest).ToString(new CultureInfo("hr-HR"));
+            TxtDop15.Text = Math.Round(doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));
+            TxtDop5.Text = Math.Round(doprinospet,2).ToString(new CultureInfo("hr-HR"));
+            Txt20.Text = Math.Round((doprinospet + doprinospetnaest),2).ToString(new CultureInfo("hr-HR"));
         }
 
         private void BtnOcisti_Click(object sender, RoutedEventArgs e)

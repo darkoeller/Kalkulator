@@ -21,6 +21,11 @@ namespace BiznisSloj.KoefSati
             return rezultat;
         }
 
+        static Koeficijenti()
+        {
+            VratiSifre();
+        }
+
         public static IEnumerable<Koeficijenti> VratiSifre()
         {
             var sifreRada = new ObservableCollection<Koeficijenti>

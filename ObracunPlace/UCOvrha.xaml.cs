@@ -1,6 +1,9 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using BiznisSloj;
+using BiznisSloj.Datumi;
+using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -32,6 +35,17 @@ namespace ObracunPlace
             TextBoxNeto.Text = "";
             TxtNetoOstaje.Text = "";
             TxtNetoOvrha.Text = "";
+        }
+
+        private void IzracunajDatum_Click(object sender, RoutedEventArgs e)
+        {
+            if (PocetniDt.SelectedDate == null || ZavrsniDt.SelectedDate == null) return;
+            var pocetno =(DateTime) PocetniDt.SelectedDate;
+            var zavrsno = (DateTime) ZavrsniDt.SelectedDate;
+            var razlika = new RazlikaDatuma(pocetno,zavrsno).VratiIzracun();
+            LblGodine.Content = razlika.Godine;
+            LblMjeseci.Content = razlika.Mjeseci;
+            LblDani.Content = razlika.Dani;
         }
     }
 }

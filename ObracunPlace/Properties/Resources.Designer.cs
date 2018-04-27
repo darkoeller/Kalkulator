@@ -19,10 +19,10 @@ namespace ObracunPlace.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ObracunPlace.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ObracunPlace.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ObracunPlace.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\11438.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string _11438 {
+        public static string _11438 {
             get {
                 return ResourceManager.GetString("_11438", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\Calculator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string Calculator {
+        public static string Calculator {
             get {
                 return ResourceManager.GetString("Calculator", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\cleaning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string cleaning {
+        public static string cleaning {
             get {
                 return ResourceManager.GetString("cleaning", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\filequickprint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string filequickprint {
+        public static string filequickprint {
             get {
                 return ResourceManager.GetString("filequickprint", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string logo {
+        public static string logo {
             get {
                 return ResourceManager.GetString("logo", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\lovalovac.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string lovalovac {
+        public static string lovalovac {
             get {
                 return ResourceManager.GetString("lovalovac", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace ObracunPlace.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ..\Resources\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
-        internal static string pencil {
+        public static string pencil {
             get {
                 return ResourceManager.GetString("pencil", resourceCulture);
             }

@@ -7,6 +7,7 @@ using BiznisSloj.KoefSati;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using PostSharp.Patterns.Model;
+using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -46,7 +47,7 @@ namespace ObracunPlace
         private decimal BrojSati => decimal.Parse(SatiRadaUpDown.Value.ToString());
         private decimal GodineStaza => decimal.Parse(GodineUpDown.Value.ToString());
 
-
+        [Background]
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var vrstarada = ChComboBoxVrsteRada.SelectedItem.ToString();
@@ -58,10 +59,9 @@ namespace ObracunPlace
         {
             if (ChComboBoxVrsteRada == null || ChComboBoxVrsteRada.SelectedIndex == -1) return;
             var text = ChComboBoxVrsteRada.SelectedItem.ToString();
-            var izracun = new IzracunajKoeficijentSate(BrojSati, Minuli, Bodovi, _koeficijent);
-            var rezultat = izracun.Izracun();
-            Bruto += rezultat;
-            ListBoxBruto.Items.Add($"{text}: {rezultat}");
+            var izracun = new IzracunajKoeficijentSate( BrojSati, Minuli, Bodovi, _koeficijent).Izracun();
+            Bruto += izracun;
+            ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
             StatusLbl.Content = "izračun satnice";
         }
@@ -133,32 +133,32 @@ namespace ObracunPlace
             var broj = decimal.Parse(zadnje);
             return broj;
         }
-
+        [Background]
         private void BodoviUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "smanjujem bodove";
         }
-
+        [Background]
         private void MinuliUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "smanjujem minuli";
         }
-
+        [Background]
         private void BodoviUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "povećavam bodove";
         }
-
+        [Background]
         private void MinuliUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "povećavam minuli";
         }
-
+        [Background]
         private void SatiRadaUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "smanjujem sate rada";
         }
-
+        [Background]
         private void SatiRadaUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
         {
             StatusLbl.Content = "povećavam sate rada";

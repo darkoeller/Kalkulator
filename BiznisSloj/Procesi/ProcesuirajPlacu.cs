@@ -11,6 +11,7 @@ namespace BiznisSloj.Procesi
         private static readonly decimal Minimaldop = 3047.60m;
         private static readonly decimal Maxdoprinos1Stup = 7218.00m;
         private static readonly decimal Maxdoprinos2Stup = 2406.00m;
+        private static readonly decimal Maxdoprinos1I2Stup = 9624.00m;
 
         public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, decimal odbitak = 1.0m)
         {
@@ -30,6 +31,7 @@ namespace BiznisSloj.Procesi
         public decimal DoprinosiIzPlaceUkupno { get; private set; }
         public decimal PetPostoDoprinos { get; private set; }
         public decimal PetnaestPostoDoprinos { get; private set; }
+        public decimal DvadesetPostoDoprinos { get; private set; }
         public decimal DoprinosZaZnr { get; private set; }
         public decimal Olaksica { get; private set; }
         public decimal UkupniPorez { get; private set; }
@@ -45,47 +47,50 @@ namespace BiznisSloj.Procesi
         {
             var ukupniporez = new IzracunajPoreze(PoreznaOsnovica);
             ukupniporez.RacunajPoreze();
-            PorezDvadesetCetiriPosto = Math.Round(ukupniporez.Porez24Posto, 2);
-            PorezTridesetSestPosto = Math.Round(ukupniporez.Porez36Posto, 2);
-            UkupniPorez = Math.Round(ukupniporez.UkupniPorez(), 2);
+            PorezDvadesetCetiriPosto = ukupniporez.Porez24Posto;
+            PorezTridesetSestPosto = ukupniporez.Porez36Posto;
+            UkupniPorez = ukupniporez.UkupniPorez();
         }
-
+        [Background]
         private void VratiDoprinoseNaPlacu()
         {
             var doprinosinaplacu = new RacunajDoprinoseNaPlacu(Bruto);
             doprinosinaplacu.Izracun();
-            DoprinosZaZaposljavanje = Math.Round(doprinosinaplacu.DoprinosZaposljavanje, 2);
-            DoprinosZaZdravstveno = Math.Round(doprinosinaplacu.DoprinosZdravstveno, 2);
-            DoprinosZaZnr = Math.Round(doprinosinaplacu.DoprinosZastitaNaRadu, 2);
-            DoprinosNaPlacUkupno = Math.Round(doprinosinaplacu.VratiDoprinoseNaPlacu(), 2);
+            DoprinosZaZaposljavanje = doprinosinaplacu.DoprinosZaposljavanje;
+            DoprinosZaZdravstveno = doprinosinaplacu.DoprinosZdravstveno;
+            DoprinosZaZnr = doprinosinaplacu.DoprinosZastitaNaRadu;
+            DoprinosNaPlacUkupno = doprinosinaplacu.VratiDoprinoseNaPlacu();
         }
 
         private void VratiDoprinoseIzPlace()
         {
             if (Bruto < Minimaldop) return;
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
-            doprinosizplace.Izracun();
+                doprinosizplace.Izracun();
 
             if (doprinosizplace.VratiDoprinose() <= 9624.00m)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
+                DvadesetPostoDoprinos = doprinosizplace.DvadesetPosto;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
-                Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
+                Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
             else if (doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetnaestPostoDoprinos = Maxdoprinos1Stup;
                 PetPostoDoprinos = Maxdoprinos2Stup;
+                DvadesetPostoDoprinos = Maxdoprinos1I2Stup;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
-                Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
+                Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
             else if (doprinosizplace.VratiDoprinose() > 9624.00m)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
+                DvadesetPostoDoprinos = doprinosizplace.DvadesetPosto;
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
-                Dohodak = Math.Round(Bruto - DoprinosiIzPlaceUkupno, 2);
+                Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
             ProvjeriDrugiStup();
         }
@@ -100,7 +105,7 @@ namespace BiznisSloj.Procesi
         private void VratiOlaksicu()
         {
             var olaksica = new IzracunOlaksice(Odbitak);
-            Olaksica = Math.Round(olaksica.VratiOlaksicu(), 2);
+            Olaksica = olaksica.VratiOlaksicu();
             if (Dohodak - Olaksica < 0.0m)
             {
                 PoreznaOsnovica = 0.0m;
@@ -120,15 +125,15 @@ namespace BiznisSloj.Procesi
         [Background]
         private void VratiPrirez()
         {
-            Prirez = Math.Round(Prirez * UkupniPorez / 100, 2);
+            Prirez = Prirez * UkupniPorez / 100;
         }
 
         public void Izracun()
         {
             RacunajDoprinosePorezePrireze();
-            UkupniTrosakPlace = Math.Round(Bruto + DoprinosNaPlacUkupno, 2);
+            UkupniTrosakPlace = Bruto + DoprinosNaPlacUkupno;
             UkupniPorez += Prirez;
-            Neto = Math.Round(Dohodak - UkupniPorez, 2);
+            Neto = Dohodak - UkupniPorez;
         }        
     }
 }

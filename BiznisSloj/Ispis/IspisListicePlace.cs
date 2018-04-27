@@ -16,6 +16,7 @@ namespace BiznisSloj.Ispis
         private readonly string _naslov;
         private readonly string _odbici;
         private readonly string _lblprijevoz;
+        private readonly string _prirezTextBox;
 
         public IspisListicePlace(PodaciZaIspisPlace podaci)
         {
@@ -25,6 +26,7 @@ namespace BiznisSloj.Ispis
             _naslov = podaci.NaslovniText;
             _odbici = podaci.LblOdbici;
             _lblprijevoz = podaci.LblPrijevoz;
+            _prirezTextBox = podaci.PrirezTxtB;
         }
 
         public void Ispis()
@@ -116,7 +118,7 @@ namespace BiznisSloj.Ispis
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 36% : ", times));
                     var trisest = new PdfPCell(new Phrase(_listica.PorezTridesetSestPosto.ToString("c"), times)){HorizontalAlignment=2};
                     listaIznosa.AddCell(trisest);
-                    listaIznosa.AddCell(new Phrase("Prirez (u vašem gradu ili općini) : ", times));
+                    listaIznosa.AddCell(new Phrase("Prirez (u vašem gradu ili općini) " + "=(" +_prirezTextBox +"%)"+ ": ", times));
                     var prirez = new PdfPCell(new Phrase(_listica.Prirez .ToString("c"), times)){HorizontalAlignment=2};
                     listaIznosa.AddCell(prirez);
                     listaIznosa.AddCell(new Phrase("Ukupno porezi + prirez : ", times));
