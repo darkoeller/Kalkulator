@@ -3,18 +3,17 @@ using System.Globalization;
 using System.Windows;
 using BiznisSloj;
 using BiznisSloj.Datumi;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
     /// <summary>
     ///     Interaction logic for UCOvrha.xaml
     /// </summary>
-    public partial class UCOvrha
+    public partial class UcOvrha
     {
         private decimal _neto;
 
-        public UCOvrha()
+        public UcOvrha()
         {
             InitializeComponent();
             TextBoxNeto.Focus();

@@ -2,12 +2,12 @@
 {
     public class RacunajDoprinoseIzPlace
     {
-        private  decimal Bruto { get; }
-
         public RacunajDoprinoseIzPlace(decimal bruto)
         {
             Bruto = bruto;
         }
+
+        private decimal Bruto { get; }
 
         public decimal PetPosto { get; private set; }
         public decimal PetnaestPosto { get; private set; }

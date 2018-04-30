@@ -125,7 +125,8 @@ namespace BiznisSloj
 
         public static decimal VratiIznosPrijevoza(string mjesto)
         {
-            var iznos = ListaRelacija.AsParallel().Where(rel => string.Equals(rel.Key, mjesto)).Select(st => st.Value).First();
+            var iznos = ListaRelacija.AsParallel().Where(rel => string.Equals(rel.Key, mjesto)).Select(st => st.Value)
+                .First();
             return iznos;
         }
     }

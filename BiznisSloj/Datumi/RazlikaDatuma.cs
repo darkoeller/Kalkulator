@@ -4,13 +4,12 @@ namespace BiznisSloj.Datumi
 {
     public class RazlikaDatuma
     {
-        private readonly int[] _brojMjesecnihDana = new int[12] { 31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        private  DateTime _odDatuma;
-        private  DateTime _doDatuma;
+        private readonly int[] _brojMjesecnihDana = {31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        private int _dani;
+        private DateTime _doDatuma;
         private int _godine;
         private int _mjeseci;
-        private int _dani;
-       
+        private DateTime _odDatuma;
 
 
         public RazlikaDatuma(DateTime stariDatum, DateTime noviDatum)
@@ -26,13 +25,14 @@ namespace BiznisSloj.Datumi
                 _odDatuma = _doDatuma;
                 _doDatuma = _odDatuma;
             }
+
             //izračun
             var povecaj = RacunajVeljacu();
             //izračun mjeseci
             povecaj = VratiBrojMjeseci(povecaj);
             //izračun godina
             _godine = _doDatuma.Year - (_odDatuma.Year + povecaj);
-            var vraćeniDatum = new Datum(_godine,_mjeseci,_dani);
+            var vraćeniDatum = new Datum(_godine, _mjeseci, _dani);
             return vraćeniDatum;
         }
 
@@ -40,21 +40,15 @@ namespace BiznisSloj.Datumi
         {
             var povecaj = 0;
 
-            if (_odDatuma.Day > _doDatuma.Day)
-            {
-                povecaj = _brojMjesecnihDana[_odDatuma.Month - 1];
-            }
+            if (_odDatuma.Day > _doDatuma.Day) povecaj = _brojMjesecnihDana[_odDatuma.Month - 1];
 
             /// ako je mjesec veljača
             /// if it's to _dani is less then from _dani
-            if (povecaj == -1)
-            {
-                povecaj = DateTime.IsLeapYear(_odDatuma.Year) ? 29 : 28;
-            }
+            if (povecaj == -1) povecaj = DateTime.IsLeapYear(_odDatuma.Year) ? 29 : 28;
 
             if (povecaj != 0)
             {
-                _dani = (_doDatuma.Day + povecaj) - _odDatuma.Day;
+                _dani = _doDatuma.Day + povecaj - _odDatuma.Day;
                 povecaj = 1;
             }
             else
@@ -67,14 +61,14 @@ namespace BiznisSloj.Datumi
 
         private int VratiBrojMjeseci(int povecaj)
         {
-            if ((_odDatuma.Month + povecaj) > _doDatuma.Month)
+            if (_odDatuma.Month + povecaj > _doDatuma.Month)
             {
-                _mjeseci = (_doDatuma.Month + 12) - (_odDatuma.Month + povecaj);
+                _mjeseci = _doDatuma.Month + 12 - (_odDatuma.Month + povecaj);
                 povecaj = 1;
             }
             else
             {
-                _mjeseci = (_doDatuma.Month) - (_odDatuma.Month + povecaj);
+                _mjeseci = _doDatuma.Month - (_odDatuma.Month + povecaj);
                 povecaj = 0;
             }
 

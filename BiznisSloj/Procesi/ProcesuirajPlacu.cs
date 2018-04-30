@@ -51,6 +51,7 @@ namespace BiznisSloj.Procesi
             PorezTridesetSestPosto = ukupniporez.Porez36Posto;
             UkupniPorez = ukupniporez.UkupniPorez();
         }
+
         [Background]
         private void VratiDoprinoseNaPlacu()
         {
@@ -66,7 +67,7 @@ namespace BiznisSloj.Procesi
         {
             if (Bruto < Minimaldop) return;
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
-                doprinosizplace.Izracun();
+            doprinosizplace.Izracun();
 
             if (doprinosizplace.VratiDoprinose() <= 9624.00m)
             {
@@ -92,6 +93,7 @@ namespace BiznisSloj.Procesi
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
+
             ProvjeriDrugiStup();
         }
 
@@ -111,6 +113,7 @@ namespace BiznisSloj.Procesi
                 PoreznaOsnovica = 0.0m;
                 return;
             }
+
             PoreznaOsnovica = Math.Round(Dohodak - Olaksica, 2);
         }
 
@@ -122,6 +125,7 @@ namespace BiznisSloj.Procesi
             VratiUkupniPorez();
             VratiPrirez();
         }
+
         [Background]
         private void VratiPrirez()
         {
@@ -134,6 +138,6 @@ namespace BiznisSloj.Procesi
             UkupniTrosakPlace = Bruto + DoprinosNaPlacUkupno;
             UkupniPorez += Prirez;
             Neto = Dohodak - UkupniPorez;
-        }        
+        }
     }
 }

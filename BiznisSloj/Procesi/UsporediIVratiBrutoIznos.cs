@@ -4,13 +4,14 @@ namespace BiznisSloj.Procesi
 {
     public class UsporediIVratiBrutoIznos
     {
-        private readonly decimal _netoIzTBoxa;
-        private  ProcesuirajPlacu _placa;
-        private readonly decimal _prirez;
-        private readonly decimal _olaksica;
         private readonly bool _miroStup;
+        private readonly decimal _netoIzTBoxa;
+        private readonly decimal _olaksica;
+        private readonly decimal _prirez;
+        private ProcesuirajPlacu _placa;
 
-        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa, decimal  prirez, decimal olaksica, bool miroStup)
+        public UsporediIVratiBrutoIznos(decimal neto, ProcesuirajPlacu placa, decimal prirez, decimal olaksica,
+            bool miroStup)
         {
             _netoIzTBoxa = neto;
             _placa = placa;
@@ -19,10 +20,10 @@ namespace BiznisSloj.Procesi
             _miroStup = miroStup;
         }
 
-        public ProcesuirajPlacu  Usporedi()
+        public ProcesuirajPlacu Usporedi()
         {
-            var neto = Math.Round(_placa.Neto,2);
-            var bruto = Math.Round(_placa.Bruto,2);
+            var neto = Math.Round(_placa.Neto, 2);
+            var bruto = Math.Round(_placa.Bruto, 2);
 
             while (_netoIzTBoxa != neto)
             {
@@ -38,6 +39,7 @@ namespace BiznisSloj.Procesi
                     neto = ProcessNeto(bruto);
                 }
             }
+
             return _placa;
         }
 

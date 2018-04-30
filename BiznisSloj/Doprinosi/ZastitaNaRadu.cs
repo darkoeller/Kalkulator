@@ -2,7 +2,7 @@
 {
     public class ZastitaNaRadu : IDoprinosi
     {
-        public  decimal RacunajDoprinos(decimal bruto)
+        public decimal RacunajDoprinos(decimal bruto)
         {
             return bruto * 0.005m;
         }

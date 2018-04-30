@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using BiznisSloj;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
@@ -53,7 +51,7 @@ namespace ObracunPlace
             if ( string.IsNullOrEmpty(TxtBruto.Text))
             {
                 var metro = (MetroWindow) Application.Current.MainWindow;
-                metro.ShowMessageAsync("Upisali ste prirez koji nije na listi ili nema iznosa u brutu/netu.",
+                metro.ShowMessageAsync("Nema iznosa u brutu/netu.",
                     "Provjerite!");
                 return;
             }
@@ -162,7 +160,7 @@ namespace ObracunPlace
             TxtNeto.Text = "0,00";
         }
 
-
+        [Background]
         private static void OmoguciKontrole(IEnumerable<Control> kontrole, bool omoguci)
         {
             foreach (var kontrolu in kontrole) kontrolu.IsEnabled = omoguci;
@@ -179,12 +177,7 @@ namespace ObracunPlace
             TxtNeto.Focus();
             TxtBruto.Text = "0,00";
         }
-        [Background]
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
-        {
-            Process.Start(e.Uri.AbsoluteUri);
-        }
-
+ 
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             IznosPrijevoza  = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
@@ -219,8 +212,21 @@ namespace ObracunPlace
                     , MessageBoxImage.Information);
                 return;
             }
-            var podaciZaIspis = new PodaciZaIspisPlace {Placa = _listica, Prijevoz=IznosPrijevoza, TxtOdbiciIznos=TxtBoxOdbici.Value, LblOdbici=LblOdbici.Content.ToString(), LblPrijevoz=LblPrijevoz.Content.ToString(), NaslovniText= NaslovniText.Text, PrirezTxtB = CmbPrirez.SelectedValue.ToString()};
+            var podaciZaIspis = new PodaciZaIspisPlace
+            {
+                Placa = _listica, Prijevoz=IznosPrijevoza, 
+                TxtOdbiciIznos=TxtBoxOdbici.Value, 
+                LblOdbici=LblOdbici.Content.ToString(), 
+                LblPrijevoz=LblPrijevoz.Content.ToString(), 
+                NaslovniText= NaslovniText.Text, 
+                PrirezTxtB = CmbPrirez.SelectedValue.ToString()
+            };
             new IspisListicePlace(podaciZaIspis).Ispis();
+        }
+        [Background]
+        private void Rb1Stup_Checked(object sender, RoutedEventArgs e)
+        {
+            LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos,2).ToString("C");
         }
     }
 }

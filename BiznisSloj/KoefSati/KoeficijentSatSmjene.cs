@@ -5,7 +5,7 @@ namespace BiznisSloj.KoefSati
 {
     public class KoeficijentSatSmjene : KoeficSat
     {
-        public KoeficijentSatSmjene(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent) 
+        public KoeficijentSatSmjene(decimal brojSati, decimal minuli, decimal bodovi, decimal koeficijent)
             : base(brojSati, minuli, bodovi, koeficijent)
         {
         }

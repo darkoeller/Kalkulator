@@ -4,14 +4,15 @@ namespace BiznisSloj.Doprinosi
 {
     public class OdabireVrstuBeneficirano
     {
-        private  decimal Bruto { get; }
         private readonly int _vrsta;
 
         public OdabireVrstuBeneficirano(decimal bruto, int vrsta)
         {
-             Bruto = bruto;
+            Bruto = bruto;
             _vrsta = vrsta;
         }
+
+        private decimal Bruto { get; }
 
         public decimal Beneficirani1 { get; private set; }
         public decimal Beneficirani2 { get; private set; }
@@ -40,6 +41,7 @@ namespace BiznisSloj.Doprinosi
 
                     break;
             }
+
             return 0.00m;
         }
     }

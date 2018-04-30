@@ -71,6 +71,11 @@ namespace ObracunPlace
                     LblBene2.Content = "Benef. stup 2 - 2,89%";
                     LblBene1I2.Content = "Benef. stup 1 i 2 - 11,28%";
                     break;
+                default:
+                    LblBene1.Content = "Beneficirani za stup 1.";
+                    LblBene2.Content = "Beneficirani za 2. stup";
+                    LblBene1I2.Content = "Benefeficirani stup 1 i 2";
+                    break;
             }
 
             OcistiLabele();
@@ -130,7 +135,7 @@ namespace ObracunPlace
             _dvadeset = doprinospet + doprinospetnaest;
             TxtDop15.Text = Math.Round(doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));
             TxtDop5.Text = Math.Round(doprinospet,2).ToString(new CultureInfo("hr-HR"));
-            Txt20.Text = Math.Round((doprinospet + doprinospetnaest),2).ToString(new CultureInfo("hr-HR"));
+            Txt20.Text = Math.Round(doprinospet + doprinospetnaest,2).ToString(new CultureInfo("hr-HR"));
         }
 
         private void BtnOcisti_Click(object sender, RoutedEventArgs e)

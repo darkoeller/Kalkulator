@@ -2,12 +2,12 @@
 {
     public class IzracunajPoreze
     {
-        private  decimal Bruto { get; set; }
-
         public IzracunajPoreze(decimal bruto)
         {
             Bruto = bruto;
         }
+
+        private decimal Bruto { get; set; }
 
         public decimal Porez24Posto { get; private set; }
 

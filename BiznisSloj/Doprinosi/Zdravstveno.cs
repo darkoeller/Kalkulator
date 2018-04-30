@@ -2,7 +2,7 @@
 {
     public class Zdravstveno : IDoprinosi
     {
-        public  decimal RacunajDoprinos(decimal bruto)
+        public decimal RacunajDoprinos(decimal bruto)
         {
             return bruto * 0.15m;
         }

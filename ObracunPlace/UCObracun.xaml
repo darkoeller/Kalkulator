@@ -8,6 +8,7 @@
              mc:Ignorable="d"
              d:DesignHeight="585"
              d:DesignWidth="790">
+    <StackPanel Orientation="Vertical">
     <GroupBox Width="730"
               Height="520"
               Margin="10,10,2,0"
@@ -319,4 +320,7 @@
             </Border>
         </Grid>
     </GroupBox>
+        <TextBlock Margin="30,10,0,10"> * MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju.</TextBlock>
+        <TextBlock Margin="30,0,0,0"> Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'.</TextBlock>    
+    </StackPanel>
 </UserControl>

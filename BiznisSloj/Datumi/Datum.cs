@@ -2,9 +2,9 @@
 {
     public struct Datum
     {
-        public int Godine { get; set; }
-        public int Mjeseci { get; set; }
-        public int Dani { get; set; }
+        public int Godine { get; private set; }
+        public int Mjeseci { get; private set; }
+        public int Dani { get; private set; }
 
         public Datum(int godine, int mjeseci, int dani)
         {

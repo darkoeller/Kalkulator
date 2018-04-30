@@ -2,7 +2,6 @@
 {
     public interface IDoprinosi
     {
-
         decimal RacunajDoprinos(decimal bruto);
     }
 }

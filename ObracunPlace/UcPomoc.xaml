@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="ObracunPlace.UcPomoc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="650">
+     <StackPanel MaxWidth="650"
+                 MaxHeight="700"
+                                Margin="10,0">
+                        <FlowDocumentReader ViewingMode="TwoPage"
+                                            Zoom="5"
+                                            MaxZoom="110"
+                                            ZoomIncrement="5">
+                            <FlowDocument FontSize="12"
+                                          IsOptimalParagraphEnabled="True"
+                                          FontFamily="Roboto Light">
+                                <Paragraph>
+                                    <Run Text="Još nekoliko kratkih uputstava." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Program možete koristit u svrhu provjere isplatnog listića. Način obračuna je ponešto specifičan za naše poduzeće. Ovdje nije obuhvaćen izračun bolovanja koji se oslanja na prosjeke plaća u proteklim mjesecima." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Uglavnom, prvo upišite svoje bodove, zatim minuli rad (pomoći si možete izračunom pri dnu), potom upišite sate rada te odaberite vrstu rada iz padajućeg izbornika. Gumb 'Izračunaj' stavlja iznos u listu i kumulira ukupan iznos." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Nakon izračunatih iznosa sati rada, kliknite na 'Dodaj dodatak na plaću' i 'Dodaj minuli', koji će, obzirom na upisane sate rada dodati iznose u listu (sati bolovanja ne ulaze u taj izračun). Iz liste iznosa stavke možete micati gumbom 'Briši označeno', automatski se smanjuje i iznos u ukupnom brutu." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Za obračune viših svota bitno je obratiti pažnju koliko će recimo 'menadžer' platiti doprinosa. Koja su ograničenja za to plaćanje navedeno je dolje niže u promjenama. " />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Bold>
+                                        <Run Text="Naglašavam," />
+                                    </Bold>
+                                    <Run
+                                        Text=" smjene su na isplatnom listiću prikazane u grupama npr. pod grupom 05 se nalazi sav prekovremeni rad, da bi dobili točan rezultat morate točno znati koja vrsta rada se koristi. Radno vrijeme je podjeljeno na 8 sati. Ono što se na platnom listiću ne vidi je npr. 8 sati 1.smjena naknade za G.O., 4 sata 2.smjene naknade za G.O., a sve u grupi 09." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani 6%)." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run
+                                        Text="Prijevoz na posao se plaća bez obzira na broj sati rada u mjesecu, osnovica je 22 dana. Znači ukoliko ste bili na bolovanju ili godišnjem, iznos relacije podijelite sa 22, da bi dobili iznos po danu. Nakon toga pomnožite iznos po danu sa brojem dana G.O. ili B.O. i oduzmite od ukupnog iznosa za prijevoz. Npr. za radnike iz Kutine naknada za prijevoz je 369,6kn odnosno 16,8kn po danu. Pet dana G.O. je 16,8*5=84kn. Vaš prijevoz je 369,9-84 = 285,6kn." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Promjene u 2017. godini : " />
+                                </Paragraph>
+                                <List>
+                                    <ListItem>
+                                        <Paragraph>
+                                            porez na iznos do 17500,00kn je 24%, a preko tog iznosa je 36%,
+                                        </Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>
+                                            minimalna osnovica za doprinose je 3.047,60kn,
+                                        </Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>
+                                            maximalna mjesečna osnovica za doprinose je 48.120,00kn,
+                                        </Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>
+                                            maximalna godišnja osnovica za doprinose je 577.440,00kn,
+                                        </Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>
+                                            minimalna plaća za puno radno vrijeme je 3.439,80kn.
+                                        </Paragraph>
+                                    </ListItem>
+                                </List>
+                                <Paragraph>
+                                    <Run Text="Za sve nejasnoće nazovite. Prihvaćam sve sugestije za poboljšanja." />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Pišite na e-mail : " />
+                                    <Hyperlink NavigateUri="mailTo:darko.eler@petrokemija.hr"
+                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                        <Run Text="darko.eler@petrokemija.hr" />
+                                    </Hyperlink>
+                                    <Run Text=" , ugodan rad!" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </FlowDocumentReader>
+                        <xctk:Calculator Margin="10,0,10,0" />
+                        <TextBlock
+                            Text="Za rad sa kalkulatorom možete koristiti tipkovnicu : Enter=računa, Esc=briše itd."
+                            Margin="0,5" />
+                    </StackPanel>
+</UserControl>

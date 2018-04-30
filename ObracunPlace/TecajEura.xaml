@@ -34,7 +34,7 @@
                 VALUTNI PRETVARAČ
             </TextBlock>
         </StackPanel>
-        <Border CornerRadius="5"
+        <Border CornerRadius="3"
                 BorderThickness="2"
                 BorderBrush="CornflowerBlue"
                 Background="#FFF3FAFA">
@@ -135,11 +135,11 @@
                 <TextBlock Grid.ColumnSpan="2"
                            Grid.Column="0"
                            Grid.Row="1"
-                           Margin="2,11.736,5.96,44.366"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
+                           Margin="2,10"
                            TextWrapping="Wrap"
-                           Text=" Izračunajte ratu kredita, ako vam je rata u eurima. Dakle, prvo odaberite izvor iz koje banke će aplikacija povući srednji tečaj. Nakon toga unesite iznos rate i klik na gumb 'IZRAČUNAJ'" />
+                           Text=" Izračunajte ratu kredita, ako vam je rata u eurima. Dakle, prvo odaberite izvor iz koje banke će aplikacija povući srednji tečaj. Nakon toga unesite iznos rate i kliknite na gumb 'IZRAČUNAJ'" />
                 <StackPanel Grid.Column="0"
                             Grid.Row="3"
                             Orientation="Horizontal"
@@ -148,7 +148,7 @@
                             Grid.RowSpan="2">
                     <TextBlock VerticalAlignment="Top"
                                Margin="5,5,0,10"
-                               Text=" Izračunata rata vašeg kredita u kunama je :" />
+                               Text=" Izračun rate vašeg kredita u kunama je : " />
                     <Label x:Name="LblEuri"
                            Margin="5,0"
                            VerticalAlignment="Top"

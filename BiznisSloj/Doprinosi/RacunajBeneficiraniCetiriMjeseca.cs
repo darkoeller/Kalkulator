@@ -4,12 +4,12 @@ namespace BiznisSloj.Doprinosi
 {
     public class RacunajBeneficiraniCetiriMjeseca
     {
-        private  decimal Bruto { get; }
-
         public RacunajBeneficiraniCetiriMjeseca(decimal bruto)
         {
             Bruto = bruto;
         }
+
+        private decimal Bruto { get; }
 
         private decimal OsamTridesetDevet { get; set; }
         private decimal DvaOsamdesetDevet { get; set; }
