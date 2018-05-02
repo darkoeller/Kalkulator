@@ -42,6 +42,7 @@ namespace ObracunPlace
             var pocetno =(DateTime) PocetniDt.SelectedDate;
             var zavrsno = (DateTime) ZavrsniDt.SelectedDate;
             var razlika = new RazlikaDatuma(pocetno,zavrsno).VratiIzracun();
+            LblUkupnoDana.Content = razlika.UkupnoDana;
             LblGodine.Content = razlika.Godine;
             LblMjeseci.Content = razlika.Mjeseci;
             LblDani.Content = razlika.Dani;

@@ -10,6 +10,7 @@ namespace BiznisSloj.Datumi
         private int _godine;
         private int _mjeseci;
         private DateTime _odDatuma;
+        private double _ukupnoDana;
 
 
         public RazlikaDatuma(DateTime stariDatum, DateTime noviDatum)
@@ -32,7 +33,8 @@ namespace BiznisSloj.Datumi
             povecaj = VratiBrojMjeseci(povecaj);
             //izračun godina
             _godine = _doDatuma.Year - (_odDatuma.Year + povecaj);
-            var vraćeniDatum = new Datum(_godine, _mjeseci, _dani);
+            var vraćeniDatum = new Datum(_godine, _mjeseci, _dani, _ukupnoDana);
+            _ukupnoDana = _doDatuma.Subtract(_odDatuma).TotalDays + 1;
             return vraćeniDatum;
         }
 

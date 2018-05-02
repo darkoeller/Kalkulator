@@ -142,8 +142,8 @@
     <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net40\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.2\lib\net40\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="PostSharp, Version=5.0.50.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.5.0.50\lib\net35-client\PostSharp.dll</HintPath>
@@ -357,4 +357,4 @@
     <Error Condition="!Exists('..\packages\PostSharp.5.0.50\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.5.0.50\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.5.0.50\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.5.0.50\build\PostSharp.targets'))" />
   </Target>
- </Project>
+</Project>
