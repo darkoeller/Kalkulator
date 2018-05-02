@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using BiznisSloj;
 using BiznisSloj.Datumi;
+using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -46,6 +47,26 @@ namespace ObracunPlace
             LblGodine.Content = razlika.Godine;
             LblMjeseci.Content = razlika.Mjeseci;
             LblDani.Content = razlika.Dani;
+        }
+
+        private void PocetniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            IsprazniLabele();
+            IzracunajDatum_Click(this, null);
+        }
+        [Background]
+        private void IsprazniLabele()
+        {   
+            LblUkupnoDana.Content = "0";
+            LblGodine.Content = "0";
+            LblMjeseci.Content = "0";
+            LblDani.Content = "0";
+        }
+
+        private void ZavrsniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            IsprazniLabele();
+            IzracunajDatum_Click(this, null);
         }
     }
 }

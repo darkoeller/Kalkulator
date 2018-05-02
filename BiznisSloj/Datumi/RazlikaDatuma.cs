@@ -17,6 +17,7 @@ namespace BiznisSloj.Datumi
         {
             _odDatuma = stariDatum;
             _doDatuma = noviDatum;
+            _ukupnoDana = 0;
         }
 
         public Datum VratiIzracun()
@@ -26,28 +27,24 @@ namespace BiznisSloj.Datumi
                 _odDatuma = _doDatuma;
                 _doDatuma = _odDatuma;
             }
-
             //izračun
             var povecaj = RacunajVeljacu();
             //izračun mjeseci
             povecaj = VratiBrojMjeseci(povecaj);
             //izračun godina
             _godine = _doDatuma.Year - (_odDatuma.Year + povecaj);
+            _ukupnoDana = _doDatuma.Subtract(_odDatuma).TotalDays;
             var vraćeniDatum = new Datum(_godine, _mjeseci, _dani, _ukupnoDana);
-            _ukupnoDana = _doDatuma.Subtract(_odDatuma).TotalDays + 1;
             return vraćeniDatum;
         }
 
         private int RacunajVeljacu()
         {
             var povecaj = 0;
-
             if (_odDatuma.Day > _doDatuma.Day) povecaj = _brojMjesecnihDana[_odDatuma.Month - 1];
-
             /// ako je mjesec veljača
             /// if it's to _dani is less then from _dani
             if (povecaj == -1) povecaj = DateTime.IsLeapYear(_odDatuma.Year) ? 29 : 28;
-
             if (povecaj != 0)
             {
                 _dani = _doDatuma.Day + povecaj - _odDatuma.Day;
@@ -57,7 +54,6 @@ namespace BiznisSloj.Datumi
             {
                 _dani = _doDatuma.Day - _odDatuma.Day;
             }
-
             return povecaj;
         }
 
@@ -73,7 +69,6 @@ namespace BiznisSloj.Datumi
                 _mjeseci = _doDatuma.Month - (_odDatuma.Month + povecaj);
                 povecaj = 0;
             }
-
             return povecaj;
         }
     }
