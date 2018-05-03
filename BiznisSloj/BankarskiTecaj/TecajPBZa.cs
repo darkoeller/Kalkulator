@@ -22,7 +22,7 @@ namespace BiznisSloj.BankarskiTecaj
             catch (Exception)
             {
                 MessageBox.Show(
-                    "Došlo je do pogreške prilikom prezimanja podatka, \n provjerite da li imate pristup internetu"
+                    "Došlo je do pogreške prilikom prezimanja podatka, \n provjerite da li imate pristup internetu\nili probajte malo kasnije."
                     , "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return 0.0m;
             }

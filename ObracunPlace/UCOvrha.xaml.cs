@@ -20,7 +20,6 @@ namespace ObracunPlace
             TextBoxNeto.Focus();
         }
 
-
         private void IzracunajNeto_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TextBoxNeto.Text)) return;
@@ -37,7 +36,7 @@ namespace ObracunPlace
             TxtNetoOvrha.Text = "";
         }
 
-        private void IzracunajDatum_Click(object sender, RoutedEventArgs e)
+        private void IzracunajDatume()
         {
             if (PocetniDt.SelectedDate == null || ZavrsniDt.SelectedDate == null) return;
             var pocetno =(DateTime) PocetniDt.SelectedDate;
@@ -52,7 +51,7 @@ namespace ObracunPlace
         private void PocetniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             IsprazniLabele();
-            IzracunajDatum_Click(this, null);
+            IzracunajDatume();
         }
         [Background]
         private void IsprazniLabele()
@@ -66,7 +65,7 @@ namespace ObracunPlace
         private void ZavrsniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             IsprazniLabele();
-            IzracunajDatum_Click(this, null);
+            IzracunajDatume();
         }
     }
 }

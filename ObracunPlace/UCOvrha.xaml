@@ -153,24 +153,10 @@
                         <Label x:Name="LblUkupnoDana" Foreground="Red" HorizontalContentAlignment="Right" Margin="0,0,5,0" />
                     </StackPanel>
                 </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="10">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
         <DatePicker x:Name="PocetniDt"  Width="150" Margin="10" HorizontalContentAlignment="Center" ToolTip="Odaberite početni datum." SelectedDateChanged="PocetniDt_SelectedDateChanged" />
          <DatePicker x:Name="ZavrsniDt"  Width="150"  Margin="10" HorizontalContentAlignment="Center" ToolTip="Odaberite završni datum." SelectedDateChanged="ZavrsniDt_SelectedDateChanged" />
-            <Button Height="40"
-                    x:Name="IzracunajDatum"
-                    Margin="5"
-                    Width="100" Click="IzracunajDatum_Click">
-                <StackPanel Orientation="Horizontal">
-                    <Image Stretch="None"
-                           Source="Resources/Calculator.png" />
-                    <TextBlock Text="IZRAČUNAJ"
-                               VerticalAlignment="Center"
-                               Margin="3"
-                               FontWeight="Normal"
-                               FontFamily="Roboto Light" />
-                </StackPanel>
-            </Button>
-        </StackPanel>
+       </StackPanel>
         <TextBlock Margin="15">U datumare možete upisivati datume tipkovnicom ili koristiti pomoćnike za odabir.</TextBlock>
     </StackPanel>
 </UserControl>

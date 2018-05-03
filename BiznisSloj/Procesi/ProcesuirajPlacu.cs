@@ -8,7 +8,6 @@ namespace BiznisSloj.Procesi
 {
     public class ProcesuirajPlacu
     {
-        private static readonly decimal Minimaldop = 3047.60m;
         private static readonly decimal Maxdoprinos1Stup = 7218.00m;
         private static readonly decimal Maxdoprinos2Stup = 2406.00m;
         private static readonly decimal Maxdoprinos1I2Stup = 9624.00m;
@@ -65,7 +64,6 @@ namespace BiznisSloj.Procesi
 
         private void VratiDoprinoseIzPlace()
         {
-            if (Bruto < Minimaldop) return;
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
             doprinosizplace.Izracun();
 

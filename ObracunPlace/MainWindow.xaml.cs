@@ -68,7 +68,7 @@ namespace ObracunPlace
                 TxtBruto.Text = string.Empty;
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
                 var izracunPlaceIzNeta = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez, Stup1I2).Izracunaj();
-                TxtBruto.Text = izracunPlaceIzNeta.Bruto.ToString(new CultureInfo("hr-HR"));
+                TxtBruto.Text = Math.Round(izracunPlaceIzNeta.Bruto,2).ToString(new CultureInfo("hr-HR"));
                 PopuniVrijednosti(izracunPlaceIzNeta);
             }
         }

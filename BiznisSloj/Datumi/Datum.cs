@@ -2,10 +2,10 @@
 {
     public struct Datum
     {
-        public int Godine { get; private set; }
-        public int Mjeseci { get; private set; }
-        public int Dani { get; private set; }
-        public double UkupnoDana { get; private set; }
+        public int Godine { get; }
+        public int Mjeseci { get; }
+        public int Dani { get; }
+        public double UkupnoDana { get; }
 
         public Datum(int godine, int mjeseci, int dani, double ukupnoDana)
         {
