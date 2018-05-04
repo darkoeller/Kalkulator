@@ -1,6 +1,6 @@
 ﻿namespace BiznisSloj.Datumi
 {
-    public struct Datum
+    public class Datum
     {
         public int Godine { get; }
         public int Mjeseci { get; }

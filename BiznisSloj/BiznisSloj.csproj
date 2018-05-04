@@ -106,7 +106,7 @@
     <Compile Include="Porezi\IPorezi.cs" />
     <Compile Include="Porezi\PorezniKoeficijenti.cs" />
     <Compile Include="Porezi\Prirezi.cs" />
-    <Compile Include="Prijevoz.cs" />
+    <Compile Include="CjenikPrijevoza\Prijevoz.cs" />
     <Compile Include="Procesi\ProcesuirajBruto.cs" />
     <Compile Include="Procesi\ProcesuirajNeto.cs" />
     <Compile Include="Procesi\ProcesuirajPlacu.cs" />
@@ -117,7 +117,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="CjenikPrijevoza\CjenikPrijevoza.json" />
+    <Content Include="KoefSati\Koeficijenti.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
