@@ -34,9 +34,9 @@ namespace BiznisSloj.Procesi
         private void PostaviKoeficijentePorezaPrireza()
         {
             var priporezkoef = new PorezniKoeficijenti(Prirez);
-            KoefPrireza = priporezkoef.KoefPrireza;
-            KoefPorezaPrireza24 = priporezkoef.KoefPorezaPrireza24;
-            KoefPorezaPrireza36 = priporezkoef.KoefPorezaPrireza36;
+            KoefPrireza = (decimal)priporezkoef.KoefPrireza;
+            KoefPorezaPrireza24 = (decimal)priporezkoef.KoefPorezaPrireza24;
+            KoefPorezaPrireza36 = (decimal)priporezkoef.KoefPorezaPrireza36;
         }
 
         public ProcesuirajPlacu Izracunaj()

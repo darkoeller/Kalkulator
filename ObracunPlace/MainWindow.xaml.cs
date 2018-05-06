@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using BiznisSloj;
 using BiznisSloj.CjenikPrijevoza;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
@@ -140,9 +139,9 @@ namespace ObracunPlace
         {
             UkljuciGumb();
             TabKontrola.SelectedIndex += 1;
-            CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
+            CmbPrirez.ItemsSource = PorezniKoeficijenti.VratiStopePrireza();
             CmbPrirez.SelectedIndex = 0;
-            CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
+            CmbPrijevoz.ItemsSource = Prijevoz.ListaRelacija();
             CmbPrijevoz.SelectedIndex = 0;
         }
 

@@ -27,6 +27,7 @@ namespace BiznisSloj.Datumi
                 _odDatuma = _doDatuma;
                 _doDatuma = _odDatuma;
             }
+
             //izračun
             var povecaj = RacunajVeljacu();
             //izračun mjeseci
@@ -54,6 +55,7 @@ namespace BiznisSloj.Datumi
             {
                 _dani = _doDatuma.Day - _odDatuma.Day;
             }
+
             return povecaj;
         }
 
@@ -69,6 +71,7 @@ namespace BiznisSloj.Datumi
                 _mjeseci = _doDatuma.Month - (_odDatuma.Month + povecaj);
                 povecaj = 0;
             }
+
             return povecaj;
         }
     }

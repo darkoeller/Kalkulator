@@ -16,9 +16,6 @@
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}"
-                                    Header="Id"
-                                    Width="SizeToHeader" />
                 <DataGridTextColumn Binding="{Binding Sifra}"
                                     Header="Šifra"
                                     Width="SizeToHeader" />

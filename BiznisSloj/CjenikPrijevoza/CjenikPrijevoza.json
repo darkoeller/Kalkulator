@@ -2,544 +2,436 @@
   "Cjenik":
   [
     {
-      "Id": 1,
-      "Stanica": "BEZ PRIJEVOZA",
-      "Iznos": 0
+      "Relacija": "BEZ PRIJEVOZA",
+      "Iznos": 0.0
     },
     {
-      "Id": 2,
-      "Stanica": "Antunovac - Kutina",
+      "Relacija": "Antunovac - Kutina",
       "Iznos": 985.60
     },
     {
-      "Id": 3,
-      "Stanica": "Banova Jaruga - Kutina",
-      "Iznos": 770
+      "Relacija": "Banova Jaruga - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 3,
-      "Stanica": "Batina - Kutina",
+      "Relacija": "Batina - Kutina",
       "Iznos": 431.2
     },
     {
-      "Id": 4,
-      "Stanica": "Borovac - Kutina",
+      "Relacija": "Borovac - Kutina",
       "Iznos": 1478.4
     },
     {
-      "Id": 5,
-      "Stanica": "Brekinska - Kutina",
+      "Relacija": "Brekinska - Kutina",
       "Iznos": 800.8
     },
     {
-      "Id": 6,
-      "Stanica": "Brestača - Kutina",
-      "Iznos": 1078
+      "Relacija": "Brestača - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 7,
-      "Stanica": "Brezine - Kutina",
+      "Relacija": "Brezine - Kutina",
       "Iznos": 954.8
     },
     {
-      "Id": 8,
-      "Stanica": "Brinjani - Kutina",
+      "Relacija": "Brinjani - Kutina",
       "Iznos": 616.0
     },
     {
-      "Id": 9,
-      "Stanica": "Bročice - Kutina",
+      "Relacija": "Bročice - Kutina",
       "Iznos": 1170.4
     },
     {
-      "Id": 10,
-      "Stanica": "Caginec - Kutina",
-      "Iznos": 1386
+      "Relacija": "Caginec - Kutina",
+      "Iznos": 1386.0
     },
     {
-      "Id": 11,
-      "Stanica": "Ciglenica - Kutina",
-      "Iznos": 770
+      "Relacija": "Ciglenica - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 12,
-      "Stanica": "Do 50 km",
+      "Relacija": "Do 50 km",
       "Iznos": 1509.2
     },
     {
-      "Id": 13,
-      "Stanica": "Donja Gračenica - Kutina",
+      "Relacija": "Donja Gračenica - Kutina",
       "Iznos": 400.4
     },
     {
-      "Id": 14,
-      "Stanica": "Donja Gračenica - Gojlo",
+      "Relacija": "Donja Gračenica - Gojlo",
       "Iznos": 646.8
     },
     {
-      "Id": 15,
-      "Stanica": "Donja Vlahinička - Kutina",
-      "Iznos": 561
+      "Relacija": "Donja Vlahinička - Kutina",
+      "Iznos": 561.0
     },
     {
-      "Id": 16,
-      "Stanica": "Dubrava, Stara Kapela - Kutina",
+      "Relacija": "Dubrava, Stara Kapela - Kutina",
       "Iznos": 1509.2
     },
     {
-      "Id": 17,
-      "Stanica": "Duhovi - Kutina",
-      "Iznos": 1078
+      "Relacija": "Duhovi - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 18,
-      "Stanica": "Gaj - Kutina",
+      "Relacija": "Gaj - Kutina",
       "Iznos": 954.8
     },
     {
-      "Id": 19,
-      "Stanica": "Garešnica - Kutina",
+      "Relacija": "Garešnica - Kutina",
       "Iznos": 983.4
     },
     {
-      "Id": 20,
-      "Stanica": "Gornja Jelenska - Banova Jaruga",
+      "Relacija": "Gornja Jelenska - Banova Jaruga",
       "Iznos": 1232
     },
     {
-      "Id": 21,
-      "Stanica": "Gojlo - Kutina",
-      "Iznos": 616
+      "Relacija": "Gojlo - Kutina",
+      "Iznos": 616.0
     },
     {
-      "Id": 22,
-      "Stanica": "Gornja Gračenica - Kutina",
-      "Iznos": 369
+      "Relacija": "Gornja Gračenica - Kutina",
+      "Iznos": 369.0
     },
     {
-      "Id": 23,
-      "Stanica": "Gornja Jelenska - Kutina",
+      "Relacija": "Gornja Jelenska - Kutina",
       "Iznos": 985.6
     },
     {
-      "Id": 24,
-      "Stanica": "Gornja Vlahinička - Kutina",
+      "Relacija": "Gornja Vlahinička - Kutina",
       "Iznos": 800.8
     },
     {
-      "Id": 25,
-      "Stanica": "Grabričina - Kutina",
+      "Relacija": "Grabričina - Kutina",
       "Iznos": 800.8
     },
     {
-      "Id": 26,
-      "Stanica": "Grabrov Potok - Kutina",
-      "Iznos": 561
+      "Relacija": "Grabrov Potok - Kutina",
+      "Iznos": 561.0
     },
     {
-      "Id": 27,
-      "Stanica": "Hrastovac - Kutina",
+      "Relacija": "Hrastovac - Kutina",
       "Iznos": 1047.20
     },
     {
-      "Id": 28,
-      "Stanica": "Husain - Kutina",
+      "Relacija": "Husain - Kutina",
       "Iznos": 369.6
     },
     {
-      "Id": 29,
-      "Stanica": "Husain - Banova Jaruga",
-      "Iznos": 616
+      "Relacija": "Husain - Banova Jaruga",
+      "Iznos": 616.0
     },
     {
-      "Id": 30,
-      "Stanica": "Husain - Gojlo",
+      "Relacija": "Husain - Gojlo",
       "Iznos": 554.4
     },
     {
-      "Id": 31,
-      "Stanica": "Ilova - Kutina",
+      "Relacija": "Ilova - Kutina",
       "Iznos": 554.4
     },
     {
-      "Id": 32,
-      "Stanica": "Ilova - Banova Jaruga",
+      "Relacija": "Ilova - Banova Jaruga",
       "Iznos": 554.4
     },
     {
-      "Id": 33,
-      "Stanica": "Ilova - Gojlo",
+      "Relacija": "Ilova - Gojlo",
       "Iznos": 369.6
     },
     {
-      "Id": 34,
-      "Stanica": "Ivanić Grad - Kutina",
+      "Relacija": "Ivanić Grad - Kutina",
       "Iznos": 1478.4
     },
     {
-      "Id": 35,
-      "Stanica": "Jamarice - Kutina",
+      "Relacija": "Jamarice - Kutina",
       "Iznos": 862.4
     },
     {
-      "Id": 36,
-      "Stanica": "Janja Lipa - Kutina",
+      "Relacija": "Janja Lipa - Kutina",
       "Iznos": 954.8
     },
     {
-      "Id": 37,
-      "Stanica": "Jasenovac - Kutina",
+      "Relacija": "Jasenovac - Kutina",
       "Iznos": 1355.2
     },
     {
-      "Id": 38,
-      "Stanica": "Jazavica - Kutina",
+      "Relacija": "Jazavica - Kutina",
       "Iznos": 1262.8
     },
     {
-      "Id": 39,
-      "Stanica": "Kaniška Iva - Kutina",
-      "Iznos": 770
+      "Relacija": "Kaniška Iva - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 40,
-      "Stanica": "Kapelica - Kutina",
-      "Iznos": 770
+      "Relacija": "Kapelica - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 41,
-      "Stanica": "Katoličke Čaire - Kutina",
-      "Iznos": 770
+      "Relacija": "Katoličke Čaire - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 42,
-      "Stanica": "Kletište - Kutina",
+      "Relacija": "Kletište - Kutina",
       "Iznos": 431.2
     },
     {
-      "Id": 43,
-      "Stanica": "Kloštar Ivanić - Kutina",
+      "Relacija": "Kloštar Ivanić - Kutina",
       "Iznos": 1509.2
     },
     {
-      "Id": 44,
-      "Stanica": "Kozarice - Kutina",
+      "Relacija": "Kozarice - Kutina",
       "Iznos": 893.2
     },
     {
-      "Id": 45,
-      "Stanica": "Krajiška Kutinica - Kutina",
+      "Relacija": "Krajiška Kutinica - Kutina",
       "Iznos": 862.4
     },
     {
-      "Id": 46,
-      "Stanica": "Kraljeva Velika - Kutina",
+      "Relacija": "Kraljeva Velika - Kutina",
       "Iznos": 893.2
     },
     {
-      "Id": 47,
-      "Stanica": "Krapje - Kutina",
+      "Relacija": "Krapje - Kutina",
       "Iznos": 1509.2
     },
     {
-      "Id": 48,
-      "Stanica": "Krivaj - Kutina",
+      "Relacija": "Krivaj - Kutina",
       "Iznos": 862.4
     },
     {
-      "Id": 49,
-      "Stanica": "Križ - Kutina",
+      "Relacija": "Križ - Kutina",
       "Iznos": 1170.4
     },
     {
-      "Id": 50,
-      "Stanica": "Kukunjevac - Kutina",
-      "Iznos": 1078
+      "Relacija": "Kukunjevac - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 51,
-      "Stanica": "Kutina - Kutina",
+      "Relacija": "Kutina - Kutina",
       "Iznos": 369.6
     },
     {
-      "Id": 52,
-      "Stanica": "Kutinica - Kutina",
-      "Iznos": 770
+      "Relacija": "Kutinica - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 53,
-      "Stanica": "Kutinska Ciglenica - Kutina",
+      "Relacija": "Kutinska Ciglenica - Kutina",
       "Iznos": 369.6
     },
     {
-      "Id": 54,
-      "Stanica": "Kutinska Slatina - Kutina",
+      "Relacija": "Kutinska Slatina - Kutina",
       "Iznos": 369.6
     },
     {
-      "Id": 55,
-      "Stanica": "Lipik - Kutina",
+      "Relacija": "Lipik - Kutina",
       "Iznos": 1478.4
     },
     {
-      "Id": 56,
-      "Stanica": "Lipovljani - Kutina",
+      "Relacija": "Lipovljani - Kutina",
       "Iznos": 893.2
     },
     {
-      "Id": 57,
-      "Stanica": "Lipovljani - Banova Jaruga",
+      "Relacija": "Lipovljani - Banova Jaruga",
       "Iznos": 554.4
     },
     {
-      "Id": 58,
-      "Stanica": "Mala Bršljanica - Kutina",
-      "Iznos": 770
+      "Relacija": "Mala Bršljanica - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 59,
-      "Stanica": "Marino Selo - Kutina",
+      "Relacija": "Marino Selo - Kutina",
       "Iznos": 954.8
     },
     {
-      "Id": 60,
-      "Stanica": "Međurić - Kutina",
-      "Iznos": 770
+      "Relacija": "Međurić - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 61,
-      "Stanica": "Mikleuška - Kutina",
-      "Iznos": 770
+      "Relacija": "Mikleuška - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 62,
-      "Stanica": "Mišinka - Kutina",
+      "Relacija": "Mišinka - Kutina",
       "Iznos": 431.2
     },
     {
-      "Id": 63,
-      "Stanica": "Moslavačka Slatina - Kutina",
+      "Relacija": "Moslavačka Slatina - Kutina",
       "Iznos": 492.8
     },
     {
-      "Id": 64,
-      "Stanica": "Nova Gradiška - Kutina",
+      "Relacija": "Nova Gradiška - Kutina",
       "Iznos": 1724.8
     },
     {
-      "Id": 65,
-      "Stanica": "Nova Subocka - Banova Jaruga",
+      "Relacija": "Nova Subocka - Banova Jaruga",
       "Iznos": 708.4
     },
     {
-      "Id": 66,
-      "Stanica": "Nova Subocka - Kutina",
+      "Relacija": "Nova Subocka - Kutina",
       "Iznos": 985.6
     },
     {
-      "Id": 67,
-      "Stanica": "Novska - Kutina",
-      "Iznos": 1078
+      "Relacija": "Novska - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 68,
-      "Stanica": "Novska - Banova Jaruga",
+      "Relacija": "Novska - Banova Jaruga",
       "Iznos": 862.4
     },
     {
-      "Id": 69,
-      "Stanica": "Okoli - Kutina",
+      "Relacija": "Okoli - Kutina",
       "Iznos": 1047.2
     },
     {
-      "Id": 70,
-      "Stanica": "Osekovo - Kutina",
+      "Relacija": "Osekovo - Kutina",
       "Iznos": 492.8
     },
     {
-      "Id": 71,
-      "Stanica": "Osekovo - Gojlo",
+      "Relacija": "Osekovo - Gojlo",
       "Iznos": 862.4
     },
     {
-      "Id": 72,
-      "Stanica": "Pakrac - Kutina",
+      "Relacija": "Pakrac - Kutina",
       "Iznos": 1509.2
     },
     {
-      "Id": 73,
-      "Stanica": "Pašijan Veliki - Kutina",
-      "Iznos": 1078
+      "Relacija": "Pašijan Veliki - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 74,
-      "Stanica": "Piljenice - Kutina",
+      "Relacija": "Piljenice - Kutina",
       "Iznos": 646.8
     },
     {
-      "Id": 75,
-      "Stanica": "Piljenice - Banova Jaruga",
+      "Relacija": "Piljenice - Banova Jaruga",
       "Iznos": 369.6
     },
     {
-      "Id": 76,
-      "Stanica": "Poljana - Kutina",
+      "Relacija": "Poljana - Kutina",
       "Iznos": 954.8
     },
     {
-      "Id": 77,
-      "Stanica": "Popovača - Kutina",
+      "Relacija": "Popovača - Kutina",
       "Iznos": 528
     },
     {
-      "Id": 78,
-      "Stanica": "Popovača - Gojlo",
+      "Relacija": "Popovača - Gojlo",
       "Iznos": 649.9
     },
     {
-      "Id": 79,
-      "Stanica": "Potok - Kutina",
-      "Iznos": 528
+      "Relacija": "Potok - Kutina",
+      "Iznos": 528.0
     },
     {
-      "Id": 80,
-      "Stanica": "Rajić - Kutina",
-      "Iznos": 1386
+      "Relacija": "Rajić - Kutina",
+      "Iznos": 1386.0
     },
     {
-      "Id": 81,
-      "Stanica": "Ravnik - Kutina",
+      "Relacija": "Ravnik - Kutina",
       "Iznos": 492.8
     },
     {
-      "Id": 82,
-      "Stanica": "Repušnica - Kutina",
+      "Relacija": "Repušnica - Kutina",
       "Iznos": 369.6
     },
     {
-      "Id": 83,
-      "Stanica": "Repušnica - Banova Jaruga",
-      "Iznos": 924
+      "Relacija": "Repušnica - Banova Jaruga",
+      "Iznos": 924.0
     },
     {
-      "Id": 84,
-      "Stanica": "Repušnica - Gojlo",
+      "Relacija": "Repušnica - Gojlo",
       "Iznos": 523.6
     },
     {
-      "Id": 85,
-      "Stanica": "Rogoža - Kutina",
-      "Iznos": 770
+      "Relacija": "Rogoža - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 86,
-      "Stanica": "Roždanik - Kutina",
+      "Relacija": "Roždanik - Kutina",
       "Iznos": 1355.2
     },
     {
-      "Id": 87,
-      "Stanica": "Selište - Kutina",
+      "Relacija": "Selište - Kutina",
       "Iznos": 554.4
     },
     {
-      "Id": 88,
-      "Stanica": "Sisak - Kutina",
-      "Iznos": 858
+      "Relacija": "Sisak - Kutina",
+      "Iznos": 858.0
     },
     {
-      "Id": 89,
-      "Stanica": "Sotin - Vukovar",
-      "Iznos": 704
+      "Relacija": "Sotin - Vukovar",
+      "Iznos": 704.0
     },
     {
-      "Id": 90,
-      "Stanica": "Stara Subocka - Kutina",
+      "Relacija": "Stara Subocka - Kutina",
       "Iznos": 985.6
     },
     {
-      "Id": 91,
-      "Stanica": "Stari Grabovac - Kutina",
+      "Relacija": "Stari Grabovac - Kutina",
       "Iznos": 1170.4
     },
     {
-      "Id": 92,
-      "Stanica": "Staro Petrovo Selo - Kutina",
+      "Relacija": "Staro Petrovo Selo - Kutina",
       "Iznos": 1909.6
     },
     {
-      "Id": 93,
-      "Stanica": "Stružec - Kutina",
-      "Iznos": 561
+      "Relacija": "Stružec - Kutina",
+      "Iznos": 561.0
     },
     {
-      "Id": 94,
-      "Stanica": "Stupovača - Kutina",
+      "Relacija": "Stupovača - Kutina",
       "Iznos": 708.4
     },
     {
-      "Id": 95,
-      "Stanica": "Šartovac - Kutina",
-      "Iznos": 396
+      "Relacija": "Šartovac - Kutina",
+      "Iznos": 396.0
     },
     {
-      "Id": 96,
-      "Stanica": "Uljanik - Kutina",
-      "Iznos": 1078
+      "Relacija": "Uljanik - Kutina",
+      "Iznos": 1078.0
     },
     {
-      "Id": 97,
-      "Stanica": "Uštica - Kutina",
+      "Relacija": "Uštica - Kutina",
       "Iznos": 1139.6
     },
     {
-      "Id": 98,
-      "Stanica": "Velika Bršljanica - Kutina",
-      "Iznos": 770
+      "Relacija": "Velika Bršljanica - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 99,
-      "Stanica": "Velika Ludina - Kutina",
-      "Iznos": 561
+      "Relacija": "Velika Ludina - Kutina",
+      "Iznos": 561.0
     },
     {
-      "Id": 100,
-      "Stanica": "Veliko Brdo - Kutina",
-      "Iznos": 429
+      "Relacija": "Veliko Brdo - Kutina",
+      "Iznos": 429.0
     },
     {
-      "Id": 101,
-      "Stanica": "Veliko Vukovje - Kutina",
-      "Iznos": 770
+      "Relacija": "Veliko Vukovje - Kutina",
+      "Iznos": 770.0
     },
     {
-      "Id": 102,
-      "Stanica": "Velika Gorica - Zagreb",
-      "Iznos": 530
+      "Relacija": "Velika Gorica - Zagreb",
+      "Iznos": 530.0
     },
     {
-      "Id": 103,
-      "Stanica": "Vidrenjak - Kutina",
+      "Relacija": "Vidrenjak - Kutina",
       "Iznos": 1047.20
     },
     {
-      "Id": 104,
-      "Stanica": "Voloder - Kutina",
-      "Iznos": 429
+      "Relacija": "Voloder - Kutina",
+      "Iznos": 429.0
     },
     {
-      "Id": 105,
-      "Stanica": "Zagreb - Kutina",
+      "Relacija": "Zagreb - Kutina",
       "Iznos": 1718.20
     },
     {
-      "Id": 106,
-      "Stanica": "Zbjegovača - Kutina",
-      "Iznos": 616
+      "Relacija": "Zbjegovača - Kutina",
+      "Iznos": 616.0
     },
     {
-      "Id": 107,
-      "Stanica": "Zbjegovača - Gojlo",
-      "Iznos": 616
+      "Relacija": "Zbjegovača - Gojlo",
+      "Iznos": 616.0
     }
   ]
 }

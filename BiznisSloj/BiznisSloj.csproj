@@ -41,6 +41,9 @@
     <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PostSharp, Version=5.0.50.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.5.0.50\lib\net35-client\PostSharp.dll</HintPath>
     </Reference>
@@ -105,7 +108,6 @@
     <Compile Include="Porezi\Porez36.cs" />
     <Compile Include="Porezi\IPorezi.cs" />
     <Compile Include="Porezi\PorezniKoeficijenti.cs" />
-    <Compile Include="Porezi\Prirezi.cs" />
     <Compile Include="CjenikPrijevoza\Prijevoz.cs" />
     <Compile Include="Procesi\ProcesuirajBruto.cs" />
     <Compile Include="Procesi\ProcesuirajNeto.cs" />
@@ -116,10 +118,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Porezi\PorezneStope.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CjenikPrijevoza\CjenikPrijevoza.json" />
-    <Content Include="KoefSati\Koeficijenti.json" />
+    <Content Include="CjenikPrijevoza\CjenikPrijevoza.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KoefSati\Koeficijenti.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
