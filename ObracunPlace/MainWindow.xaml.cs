@@ -9,10 +9,6 @@ using BiznisSloj;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
-using ControlzEx;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -26,11 +22,10 @@ namespace ObracunPlace
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += (s, e) => { KeyboardNavigationEx.Focus(TxtBruto);};
         }
 
-        private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Value.ToString());
-        private decimal Prirez { get; set; } 
+        private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Text);
+        private decimal Prirez { get; set; }
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private decimal IznosPrijevoza { get; set; }
 
@@ -48,10 +43,9 @@ namespace ObracunPlace
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
-            if ( string.IsNullOrEmpty(TxtBruto.Text))
+            if (string.IsNullOrEmpty(TxtBruto.Text))
             {
-                var metro = (MetroWindow) Application.Current.MainWindow;
-                metro.ShowMessageAsync("Nema iznosa u brutu/netu.",
+                MessageBox.Show("Nema iznosa u brutu/netu.",
                     "Provjerite!");
                 return;
             }
@@ -75,9 +69,9 @@ namespace ObracunPlace
 
         private void OduzmiOdbitke()
         {
-            if (string.IsNullOrEmpty(TxtBoxOdbici.Value.ToString())) return;
+            if (string.IsNullOrEmpty(TxtBoxOdbici.Text)) return;
             var neto = GetNeto();
-            var odbici = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            var odbici = decimal.Parse(TxtBoxOdbici.Text);
             var stringPrijevoz = LblPrijevoz.Content.ToString();
             stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
             var prijevoz = decimal.Parse(stringPrijevoz);
@@ -85,8 +79,8 @@ namespace ObracunPlace
             if (CmbPrijevoz.SelectedIndex < 1)
             {
                 neto -= odbici;
-                LblPrijevoz.Content =  Math.Round(neto,2).ToString("C");
-                LblOdbici.Content = Math.Round(neto,2).ToString("C");
+                LblPrijevoz.Content = Math.Round(neto, 2).ToString("C");
+                LblOdbici.Content = Math.Round(neto, 2).ToString("C");
             }
             else if (CmbPrijevoz.SelectedIndex > 0)
             {
@@ -101,23 +95,23 @@ namespace ObracunPlace
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
         {
-            TxtNeto.Text = Math.Round(placa.Neto,2).ToString(new CultureInfo("hr-HR"));
-            Lbl1Stup.Content = Math.Round(placa.PetnaestPostoDoprinos,2).ToString("C");
-            Lbl2Stup.Content = Math.Round(placa.PetPostoDoprinos,2).ToString("C");
-            LblDopUkupno.Content = Math.Round(placa.DoprinosiIzPlaceUkupno,2).ToString("C");
-            LblBruto.Content = Math.Round(placa.Bruto,2).ToString("C");
-            LblDohodak.Content = Math.Round(placa.Dohodak,2).ToString("C");
-            LblOdbitak.Content = Math.Round(placa.Olaksica,2).ToString("C");
-            LblPorOsnovica.Content = Math.Round(placa.PoreznaOsnovica,2).ToString("C");
-            LblPorezUkupno.Content = Math.Round(placa.UkupniPorez,2).ToString("C");
-            LblPorez25.Content = Math.Round(placa.PorezDvadesetCetiriPosto,2).ToString("C");
-            LblPorez40.Content = Math.Round(placa.PorezTridesetSestPosto,2).ToString("C");
-            LblPrirez.Content = Math.Round(placa.Prirez,2).ToString("C");
-            LblZdravstveno.Content = Math.Round(placa.DoprinosZaZdravstveno,2).ToString("C");
-            LblZnr.Content = Math.Round(placa.DoprinosZaZnr,2).ToString("C");
-            LblZaposljavanje.Content = Math.Round(placa.DoprinosZaZaposljavanje,2).ToString("C");
-            LblDoprinosiUkupno.Content = Math.Round(placa.DoprinosNaPlacUkupno,2).ToString("C");
-            LblTrosakPlace.Content = Math.Round(placa.UkupniTrosakPlace,2).ToString("C");
+            TxtNeto.Text = Math.Round(placa.Neto, 2).ToString(new CultureInfo("hr-HR"));
+            Lbl1Stup.Content = Math.Round(placa.PetnaestPostoDoprinos, 2).ToString("C");
+            Lbl2Stup.Content = Math.Round(placa.PetPostoDoprinos, 2).ToString("C");
+            LblDopUkupno.Content = Math.Round(placa.DoprinosiIzPlaceUkupno, 2).ToString("C");
+            LblBruto.Content = Math.Round(placa.Bruto, 2).ToString("C");
+            LblDohodak.Content = Math.Round(placa.Dohodak, 2).ToString("C");
+            LblOdbitak.Content = Math.Round(placa.Olaksica, 2).ToString("C");
+            LblPorOsnovica.Content = Math.Round(placa.PoreznaOsnovica, 2).ToString("C");
+            LblPorezUkupno.Content = Math.Round(placa.UkupniPorez, 2).ToString("C");
+            LblPorez25.Content = Math.Round(placa.PorezDvadesetCetiriPosto, 2).ToString("C");
+            LblPorez40.Content = Math.Round(placa.PorezTridesetSestPosto, 2).ToString("C");
+            LblPrirez.Content = Math.Round(placa.Prirez, 2).ToString("C");
+            LblZdravstveno.Content = Math.Round(placa.DoprinosZaZdravstveno, 2).ToString("C");
+            LblZnr.Content = Math.Round(placa.DoprinosZaZnr, 2).ToString("C");
+            LblZaposljavanje.Content = Math.Round(placa.DoprinosZaZaposljavanje, 2).ToString("C");
+            LblDoprinosiUkupno.Content = Math.Round(placa.DoprinosNaPlacUkupno, 2).ToString("C");
+            LblTrosakPlace.Content = Math.Round(placa.UkupniTrosakPlace, 2).ToString("C");
             _listica = placa;
         }
 
@@ -126,7 +120,7 @@ namespace ObracunPlace
             TxtBruto.Text = "0,00";
             TxtNeto.Text = "0,00";
             OcistiLabele();
-            TxtBoxOdbici.Value = 0.00;
+            TxtBoxOdbici.Text = "0.00";
             CmbPrijevoz.SelectedIndex = 0;
         }
 
@@ -160,7 +154,6 @@ namespace ObracunPlace
             TxtNeto.Text = "0,00";
         }
 
-        [Background]
         private static void OmoguciKontrole(IEnumerable<Control> kontrole, bool omoguci)
         {
             foreach (var kontrolu in kontrole) kontrolu.IsEnabled = omoguci;
@@ -177,33 +170,33 @@ namespace ObracunPlace
             TxtNeto.Focus();
             TxtBruto.Text = "0,00";
         }
- 
+
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IznosPrijevoza  = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
+            IznosPrijevoza = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
             var prijevoz = IznosPrijevoza;
             prijevoz += GetNeto();
-            LblPrijevoz.Content = Math.Round(prijevoz,2).ToString("C", new CultureInfo("hr-HR"));
-            var odbitak = decimal.Parse(TxtBoxOdbici.Value.ToString());
+            LblPrijevoz.Content = Math.Round(prijevoz, 2).ToString("C", new CultureInfo("hr-HR"));
+            var odbitak = Convert.ToDecimal(TxtBoxOdbici.Text);
             VratiTotal(prijevoz, odbitak);
         }
 
         private void VratiTotal(decimal prijevoz, decimal odbici)
         {
             prijevoz -= odbici;
-            LblOdbici.Content = Math.Round(prijevoz,2).ToString("C");
+            LblOdbici.Content = Math.Round(prijevoz, 2).ToString("C");
         }
 
         private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Close();
         }
-        [Background]
+
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           Prirez= decimal.Parse(CmbPrirez.SelectedItem.ToString());
+            Prirez = decimal.Parse(CmbPrirez.SelectedItem.ToString());
         }
-        [Background]
+
         private void Ispis_Click(object sender, RoutedEventArgs e)
         {
             if (_listica == null)
@@ -212,21 +205,23 @@ namespace ObracunPlace
                     , MessageBoxImage.Information);
                 return;
             }
+
             var podaciZaIspis = new PodaciZaIspisPlace
             {
-                Placa = _listica, Prijevoz=IznosPrijevoza, 
-                TxtOdbiciIznos=TxtBoxOdbici.Value, 
-                LblOdbici=LblOdbici.Content.ToString(), 
-                LblPrijevoz=LblPrijevoz.Content.ToString(), 
-                NaslovniText= NaslovniText.Text, 
+                Placa = _listica,
+                Prijevoz = IznosPrijevoza,
+                TxtOdbiciIznos = double.Parse(TxtBoxOdbici.Text),
+                LblOdbici = LblOdbici.Content.ToString(),
+                LblPrijevoz = LblPrijevoz.Content.ToString(),
+                NaslovniText = NaslovniText.Text,
                 PrirezTxtB = CmbPrirez.SelectedValue.ToString()
             };
             new IspisListicePlace(podaciZaIspis).Ispis();
         }
-        [Background]
+
         private void Rb1Stup_Checked(object sender, RoutedEventArgs e)
         {
-            LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos,2).ToString("C");
+            LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos, 2).ToString("C");
         }
     }
 }

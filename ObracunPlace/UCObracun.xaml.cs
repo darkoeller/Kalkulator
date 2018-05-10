@@ -4,17 +4,12 @@ using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj;
 using BiznisSloj.KoefSati;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
-using PostSharp.Patterns.Model;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
     /// <summary>
     ///     Interaction logic for UCObracun.xaml
     /// </summary>
-    [NotifyPropertyChanged]
     public sealed partial class UcObracun
     {
         // Using a DependencyProperty as the backing store for Bruto.  This enables animation, styling, binding, etc...
@@ -42,12 +37,11 @@ namespace ObracunPlace
         }
 
 
-        private decimal Bodovi => decimal.Parse(BodoviUpDown.Value.ToString());
-        private decimal Minuli => decimal.Parse(MinuliUpDown.Value.ToString());
-        private decimal BrojSati => decimal.Parse(SatiRadaUpDown.Value.ToString());
-        private decimal GodineStaza => decimal.Parse(GodineUpDown.Value.ToString());
+        private decimal Bodovi => decimal.Parse(BodoviUpDown.Text);
+        private decimal Minuli => decimal.Parse(MinuliUpDown.Text);
+        private decimal BrojSati => decimal.Parse(SatiRadaUpDown.Text);
+        private decimal GodineStaza => decimal.Parse(GodineUpDown.Text);
 
-        [Background]
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var vrstarada = ChComboBoxVrsteRada.SelectedItem.ToString();
@@ -59,7 +53,7 @@ namespace ObracunPlace
         {
             if (ChComboBoxVrsteRada == null || ChComboBoxVrsteRada.SelectedIndex == -1) return;
             var text = ChComboBoxVrsteRada.SelectedItem.ToString();
-            var izracun = new IzracunajKoeficijentSate( BrojSati, Minuli, Bodovi, _koeficijent).Izracun();
+            var izracun = new IzracunajKoeficijentSate(BrojSati, Minuli, Bodovi, _koeficijent).Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
@@ -104,8 +98,7 @@ namespace ObracunPlace
         {
             if (ListBoxBruto.SelectedIndex == -1)
             {
-                var metro = (MetroWindow) Application.Current.MainWindow;
-                metro.ShowMessageAsync("Lista je prazna ili niste ništa odabrali za brisanje.", "Provjerite!");
+                MessageBox.Show("Lista je prazna ili niste ništa odabrali za brisanje.", "Provjerite!");
             }
             else
             {
@@ -132,36 +125,6 @@ namespace ObracunPlace
             var zadnje = razlika.Split(' ').Last();
             var broj = decimal.Parse(zadnje);
             return broj;
-        }
-        [Background]
-        private void BodoviUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "smanjujem bodove";
-        }
-        [Background]
-        private void MinuliUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "smanjujem minuli";
-        }
-        [Background]
-        private void BodoviUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "povećavam bodove";
-        }
-        [Background]
-        private void MinuliUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "povećavam minuli";
-        }
-        [Background]
-        private void SatiRadaUpDown_ValueDecremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "smanjujem sate rada";
-        }
-        [Background]
-        private void SatiRadaUpDown_ValueIncremented(object sender, NumericUpDownChangedRoutedEventArgs args)
-        {
-            StatusLbl.Content = "povećavam sate rada";
         }
     }
 }

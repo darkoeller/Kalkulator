@@ -1,24 +1,21 @@
-﻿<controls:MetroWindow x:Class="ObracunPlace.MainWindow"
-                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      GlowBrush="{DynamicResource AccentColorBrush}"
-                      BorderThickness="2"
-                      xmlns:local="clr-namespace:ObracunPlace"
-                      xmlns:controlzex="urn:controlzex"
-                      mc:Ignorable="d"
-                      Title="Kalkulator plaće v. 2018 : neto / bruto"
-                      Height="835"
-                      Width="900"
-                      WindowStartupLocation="CenterScreen"
-                      Loaded="MainWindow_OnLoaded"
-                      Icon="Resources/11438.ico"
-                      ResizeMode="CanResizeWithGrip"
-                      ShowInTaskbar="True"
-                      WindowStyle="SingleBorderWindow"
-                      FontFamily="Roboto Light">
+﻿<Window x:Class="ObracunPlace.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        BorderThickness="2"
+        xmlns:local="clr-namespace:ObracunPlace"
+        mc:Ignorable="d"
+        Title="Kalkulator plaće v. 2018 : neto / bruto"
+        Height="835"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Loaded="MainWindow_OnLoaded"
+        Icon="Resources/11438.ico"
+        ResizeMode="CanResizeWithGrip"
+        ShowInTaskbar="True"
+        WindowStyle="SingleBorderWindow"
+        FontFamily="Roboto Light">
     <Window.Resources>
         <Style x:Key="UvucenText"
                TargetType="TextBlock">
@@ -28,16 +25,12 @@
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid x:Name="CjelaMreza"
-              Height="800"
+              Height="790"
               Width="800">
-            <controls:MetroAnimatedTabControl x:Name="TabKontrola"
-                                              controls:ControlsHelper.HeaderFontSize="12"
-                                              controls:ControlsHelper.ContentCharacterCasing="Lower"
-                                              controls:TabControlHelper.Underlined="SelectedTabItem">
-                <TabItem Header=" bruto/neto | "
-                         controls:ControlsHelper.HeaderFontSize="12">
+            <TabControl x:Name="TabKontrola">
+                <TabItem Header=" bruto/neto  ">
                     <DockPanel x:Name="DckPanel"
-                               Margin="8,10,8,0"
+                               Margin="3,10,3,0"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                MinWidth="780"
@@ -55,12 +48,8 @@
                         <TextBox x:Name="NaslovniText"
                                  DockPanel.Dock="Top"
                                  Margin="5,2,5,5"
-                                 controls:TextBoxHelper.Watermark="Ovdje unesite tekst koji će se pojaviti na ispisu, npr. 'moja' plaća za rujan 2017. godine ili sl."
-                                 controls:TextBoxHelper.IsWaitingForData="True"
-                                 controls:TextBoxHelper.ClearTextButton="True"
                                  FontFamily="Roboto Light" />
                         <Border DockPanel.Dock="Top"
-                                BorderBrush="{DynamicResource AccentColorBrush}"
                                 BorderThickness="3"
                                 Margin="3,3,5,0">
                             <Grid Background="#FFEEF8FB"
@@ -103,42 +92,13 @@
                                                Margin="7,0,5,0"
                                                Text=" Faktor porezne olakšice"
                                                MaxWidth="80" />
-                                    <controls:NumericUpDown Interval="0.1"
-                                                            x:Name="OlaksicaUpDown"
-                                                            Value="1"
-                                                            Width="90"
-                                                            Height="30"
-                                                            Minimum="1.00"
-                                                            Maximum="10"
-                                                            Margin="0,0,7,0"
-                                                            Culture="hr"
-                                                            TrackMouseWheelWhenMouseOver="True"
-                                                            ToolTipService.ShowDuration="5000">
-                                        <controls:NumericUpDown.ToolTip>
-                                            <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                                                <ToolTip.Template>
-                                                    <ControlTemplate>
-                                                        <Grid>
-                                                            <Border Background="DarkSeaGreen"
-                                                                    BorderBrush="Black"
-                                                                    BorderThickness="1"
-                                                                    Opacity="0.9"
-                                                                    CornerRadius="3"
-                                                                    SnapsToDevicePixels="True" />
-                                                            <TextBlock Margin="5"
-                                                                       MaxWidth="220"
-                                                                       TextWrapping="Wrap"
-                                                                       Foreground="WhiteSmoke"
-                                                                       FontSize="10"
-                                                                       Text="Ako u obitelji nemate nikog na olakšici, vaš porezni faktor=1, nakon toga pribrojite: za 1. dijete=0,7; za 2.dijete=1; za 3.dijete=1,4; osobna invalidnost = 0,4 itd."
-                                                                       TextOptions.TextFormattingMode="Display"
-                                                                       TextOptions.TextRenderingMode="ClearType" />
-                                                        </Grid>
-                                                    </ControlTemplate>
-                                                </ToolTip.Template>
-                                            </ToolTip>
-                                        </controls:NumericUpDown.ToolTip>
-                                    </controls:NumericUpDown>
+                                    <TextBox
+                                        x:Name="OlaksicaUpDown"
+
+                                        Width="90"
+                                        Height="30"
+
+                                        Margin="0,0,7,0" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="2"
                                             Orientation="Horizontal"
@@ -150,39 +110,14 @@
                                                Text="Iznos prireza u % :"
                                                ToolTip="Gradski ili općinski: Kutina = 12, Lipovljani = 6"
                                                VerticalAlignment="Center" />
-                                    <ComboBox x:Name="CmbPrirez" 
+                                    <ComboBox x:Name="CmbPrirez"
                                               Width="60"
                                               Height="30"
                                               Margin="10,0"
-                                              IsReadOnly="True" 
+                                              IsReadOnly="True"
                                               SelectionChanged="CmbPrirez_SelectionChanged"
                                               HorizontalContentAlignment="Center"
-                                              ToolTipService.ShowDuration="4000">
-                                        <ComboBox.ToolTip>
-                                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                                            <ToolTip.Template>
-                                                <ControlTemplate>
-                                                    <Grid>
-                                                        <Border Background="DarkSeaGreen"
-                                                                BorderBrush="Black"
-                                                                BorderThickness="1"
-                                                                Opacity="0.9"
-                                                                CornerRadius="3"
-                                                                SnapsToDevicePixels="True" />
-                                                        <TextBlock Margin="5"
-                                                                   MaxWidth="220"
-                                                                   TextWrapping="Wrap"
-                                                                   Foreground="WhiteSmoke"
-                                                                   FontSize="10"
-                                                                   Text="Prirez u općinama i gradovima: Kutina=12%; Lipovljani, Popovača=6%; Novska, Garešnica=10%"
-                                                                   TextOptions.TextFormattingMode="Display"
-                                                                   TextOptions.TextRenderingMode="ClearType" />
-                                                    </Grid>
-                                                </ControlTemplate>
-                                            </ToolTip.Template>
-                                        </ToolTip>
-                                        </ComboBox.ToolTip>
-                                    </ComboBox>
+                                              VerticalContentAlignment="Center" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="3"
                                             VerticalAlignment="Center"
@@ -218,46 +153,17 @@
                                              TextAlignment="Right"
                                              Foreground="OrangeRed"
                                              FontFamily="Roboto"
-                                             ToolTipService.ShowDuration ="3000"
-                                             ToolTipService.HasDropShadow="True">
-                                        <TextBox.ToolTip>
-                                            <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                                                <ToolTip.Template>
-                                                    <ControlTemplate>
-                                                        <Grid>
-                                                            <Border Background="DarkSeaGreen"
-                                                                    BorderBrush="Black"
-                                                                    BorderThickness="1"
-                                                                    Opacity="0.9"
-                                                                    CornerRadius="3"
-                                                                    SnapsToDevicePixels="True" />
-                                                            <TextBlock Margin="5"
-                                                                       MaxWidth="150"
-                                                                       TextWrapping="Wrap"
-                                                                       Foreground="WhiteSmoke"
-                                                                       FontSize="10"
-                                                                       Text="Kod upisa decimalnog broja obavezno koristite zarez."
-                                                                       TextOptions.TextFormattingMode="Display"
-                                                                       TextOptions.TextRenderingMode="ClearType" />
-                                                        </Grid>
-                                                    </ControlTemplate>
-                                                </ToolTip.Template>
-                                            </ToolTip>
-                                        </TextBox.ToolTip>
-                                    </TextBox>
+                                             ToolTipService.ShowDuration="3000"
+                                             ToolTipService.HasDropShadow="True" />
                                 </StackPanel>
                                 <GridSplitter Grid.Column="0"
-                                              Width="2"
-                                              Background="{DynamicResource AccentColorBrush}" />
+                                              Width="2" />
                                 <GridSplitter Grid.Column="1"
-                                              Width="2"
-                                              Background="{DynamicResource AccentColorBrush}" />
+                                              Width="2" />
                                 <GridSplitter Grid.Column="2"
-                                              Width="2"
-                                              Background="{DynamicResource AccentColorBrush}" />
+                                              Width="2" />
                                 <GridSplitter Grid.Column="3"
-                                              Width="2"
-                                              Background="{DynamicResource AccentColorBrush}" />
+                                              Width="2" />
                             </Grid>
                         </Border>
                         <StackPanel x:Name="StckBottom"
@@ -265,7 +171,7 @@
                                     MinHeight="50"
                                     HorizontalAlignment="Center"
                                     Orientation="Horizontal"
-                                    Margin="50,10,0,0"
+                                    Margin="50,0,0,13"
                                     MinWidth="250">
                             <Button x:Name="BtnOcisti"
                                     Width="100"
@@ -283,7 +189,7 @@
                                 </StackPanel>
                             </Button>
                             <Button x:Name="Ispis"
-                                    Width="110"
+                                    Width="112"
                                     Margin="60,0,0,0"
                                     Click="Ispis_Click"
                                     ToolTip="Ispisuje  iznose u .pdf">
@@ -321,9 +227,9 @@
                                        IsEnabled="False" />
                         </StackPanel>
                         <GroupBox Header="Opisi stavki"
-                                  Height="520">
+                                  Height="510">
                             <StackPanel MinWidth="520"
-                                        Margin="0,10,0,0">
+                                        Margin="0,9,1,0">
                                 <TextBlock TextWrapping="Wrap"
                                            Text="OSNOVICA ZA UTVRĐIVANJE DOPRINOSA PREMA OPOREZIVIM NAKNADAMA"
                                            Padding="2" />
@@ -367,32 +273,27 @@
                                         Ovdje odaberite relaciju putovanja za naknadu prijevoza :
                                     </TextBlock>
                                     <ComboBox x:Name="CmbPrijevoz"
-                                              Width="240"
+                                              Width="238"
                                               Margin="5,0,0,0"
                                               HorizontalAlignment="Right"
                                               SelectionChanged="CmbPrijevoz_SelectionChanged"
                                               IsReadOnly="True"
-                                              HorizontalContentAlignment="Center" />
+                                              HorizontalContentAlignment="Center" 
+                                              VerticalContentAlignment="Center"/>
                                 </StackPanel>
                                 <Border BorderThickness="0,0,0,1"
                                         BorderBrush="Black">
-                                    <StackPanel Orientation="Horizontal" Margin="0,3">
+                                    <StackPanel Orientation="Horizontal" Margin="0,6">
                                         <TextBlock Style="{StaticResource UvucenText}"
                                                    VerticalAlignment="Center">
                                             Upišite iznos svojih odbitaka (sindikat, krediti, dopunsko, itd.) :
                                         </TextBlock>
-                                        <controls:NumericUpDown x:Name="TxtBoxOdbici"
-                                                                Margin="121,2,0,2"
-                                                                Width="100"
-                                                                HorizontalContentAlignment="Right"
-                                                                Value="0.00"
-                                                                Minimum="0.00"
-                                                                Maximum="5000.00"
-                                                                Interval="0.01"
-                                                                Culture="hr-HR"
-                                                                TrackMouseWheelWhenMouseOver="True"
-                                                                TextAlignment="Right"
-                                                                controls:TextBoxHelper.UseFloatingWatermark="True" />
+                                        <TextBox x:Name="TxtBoxOdbici"
+                                                 Margin="121,2,0,2"
+                                                 Width="100"
+                                                 HorizontalContentAlignment="Right"
+                                                 Text="0,00"
+                                                 TextAlignment="Right" />
                                     </StackPanel>
                                 </Border>
                                 <TextBlock Text="DOPRINOSI NA PLAĆU :"
@@ -414,10 +315,10 @@
                             </StackPanel>
                         </GroupBox>
                         <GroupBox Header="Iznosi u kunama"
-                                  Height="520">
+                                  Height="510">
                             <StackPanel x:Name="StPanel2"
                                         MinWidth="205"
-                                        Margin="0"
+                                        Margin="1"
                                         Background="#FFF3FAFA"
                                         HorizontalAlignment="Right">
                                 <StackPanel.Resources>
@@ -449,7 +350,7 @@
                                 <Label x:Name="LblPrirez"
                                        ToolTip="Prirez" />
                                 <TextBox x:Name="TxtNeto"
-                                         Height ="30"
+                                         Height="30"
                                          Width="100"
                                          HorizontalAlignment="Right"
                                          VerticalContentAlignment="Center"
@@ -487,8 +388,7 @@
                         </GroupBox>
                     </DockPanel>
                 </TabItem>
-                <TabItem Header=" izračun bruto dohotka | "
-                         controls:ControlsHelper.HeaderFontSize="12">
+                <TabItem Header=" izračun bruto dohotka ">
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top">
@@ -528,13 +428,11 @@
                                          DockPanel.Dock="Top" />
                     </DockPanel>
                 </TabItem>
-                <TabItem Header=" izračun doprinosa za benef. staž | "
-                         controls:ControlsHelper.HeaderFontSize="12">
+                <TabItem Header=" izračun doprinosa za benef. staž ">
                     <local:BeneficiraniUc VerticalAlignment="Top"
                                           Margin="10,0,10,0" />
                 </TabItem>
-                <TabItem Header=" tečajevi banaka | "
-                         controls:ControlsHelper.HeaderFontSize="12">
+                <TabItem Header=" tečajevi banaka ">
                     <StackPanel Orientation="Vertical">
                         <local:TecajEura Margin="0,65,0,0"
                                          VerticalAlignment="Top"
@@ -542,15 +440,13 @@
                                          Height="500" />
                     </StackPanel>
                 </TabItem>
-                <TabItem Header=" ovrha / razlika datuma | "
-                         controls:ControlsHelper.HeaderFontSize="12">
-                        <local:UcOvrha Margin="0,15,0,0"
-                                       Width="550"
-                                       Height="690" />
+                <TabItem Header=" ovrha / razlika datuma ">
+                    <local:UcOvrha Margin="0,15,0,0"
+                                   Width="550"
+                                   Height="690" />
                 </TabItem>
-                <TabItem Header=" pomoć | "
-                         controls:ControlsHelper.HeaderFontSize="12">
-                    <local:UcPomoc></local:UcPomoc>
+                <TabItem Header=" pomoć ">
+                    <local:UcPomoc />
                 </TabItem>
                 <TabItem x:Name="ZatvoriTabItem">
                     <TabItem.Header>
@@ -568,7 +464,7 @@
                                Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350" />
                     </StackPanel>
                 </TabItem>
-            </controls:MetroAnimatedTabControl>
+            </TabControl>
         </Grid>
     </ScrollViewer>
-</controls:MetroWindow>
+</Window>

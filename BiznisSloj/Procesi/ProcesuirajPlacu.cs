@@ -2,7 +2,6 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
-using PostSharp.Patterns.Threading;
 
 namespace BiznisSloj.Procesi
 {
@@ -52,7 +51,6 @@ namespace BiznisSloj.Procesi
             UkupniPorez = ukupniporez.UkupniPorez();
         }
 
-        [Background]
         private void VratiDoprinoseNaPlacu()
         {
             var doprinosinaplacu = new RacunajDoprinoseNaPlacu(Bruto);
@@ -126,7 +124,6 @@ namespace BiznisSloj.Procesi
             VratiPrirez();
         }
 
-        [Background]
         private void VratiPrirez()
         {
             Prirez = Prirez * UkupniPorez / 100;

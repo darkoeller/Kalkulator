@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using BiznisSloj;
 using BiznisSloj.Datumi;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -37,36 +37,36 @@ namespace ObracunPlace
             TxtNetoOvrha.Text = "";
         }
 
-        private void IzracunajDatum_Click(object sender, RoutedEventArgs e)
+        private void IzracunajDatum()
         {
             if (PocetniDt.SelectedDate == null || ZavrsniDt.SelectedDate == null) return;
-            var pocetno =(DateTime) PocetniDt.SelectedDate;
+            var pocetno = (DateTime) PocetniDt.SelectedDate;
             var zavrsno = (DateTime) ZavrsniDt.SelectedDate;
-            var razlika = new RazlikaDatuma(pocetno,zavrsno).VratiIzracun();
+            var razlika = new RazlikaDatuma(pocetno, zavrsno).VratiIzracun();
             LblUkupnoDana.Content = razlika.UkupnoDana;
             LblGodine.Content = razlika.Godine;
             LblMjeseci.Content = razlika.Mjeseci;
             LblDani.Content = razlika.Dani;
         }
 
-        private void PocetniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void PocetniDt_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             IsprazniLabele();
-            IzracunajDatum_Click(this, null);
+            IzracunajDatum();
         }
-        [Background]
+
         private void IsprazniLabele()
-        {   
+        {
             LblUkupnoDana.Content = "0";
             LblGodine.Content = "0";
             LblMjeseci.Content = "0";
             LblDani.Content = "0";
         }
 
-        private void ZavrsniDt_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ZavrsniDt_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             IsprazniLabele();
-            IzracunajDatum_Click(this, null);
+            IzracunajDatum();
         }
     }
 }

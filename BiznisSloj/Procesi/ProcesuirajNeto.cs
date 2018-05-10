@@ -1,7 +1,6 @@
 ﻿using System;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
-using PostSharp.Patterns.Threading;
 
 namespace BiznisSloj.Procesi
 {
@@ -30,7 +29,6 @@ namespace BiznisSloj.Procesi
             return umanjenje;
         }
 
-        [Background]
         private void PostaviKoeficijentePorezaPrireza()
         {
             var priporezkoef = new PorezniKoeficijenti(Prirez);

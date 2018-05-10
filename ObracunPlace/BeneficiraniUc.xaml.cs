@@ -12,8 +12,6 @@ using BiznisSloj.Doprinosi;
 using BiznisSloj.Ispis;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 using Image = iTextSharp.text.Image;
 
 namespace ObracunPlace
@@ -35,7 +33,7 @@ namespace ObracunPlace
         }
 
         private int Odabrano { get; set; }
-        private decimal Bruto => decimal.Parse(TxtBruto.Value.ToString());
+        private decimal Bruto => decimal.Parse(TxtBruto.Text);
 
 
         private void BeneficiraniUc_OnLoaded(object sender, RoutedEventArgs e)
@@ -84,11 +82,11 @@ namespace ObracunPlace
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtBruto.Value.ToString())) return;
+            if (string.IsNullOrEmpty(TxtBruto.Text)) return;
             _bene = new Beneficirani();
             IzracunajPetPetnaest();
             IzracunajBeneficirani();
-            TxtUkupno.Text = Math.Round((_beneficirani + _dvadeset),2).ToString(new CultureInfo("hr-HR"));
+            TxtUkupno.Text = Math.Round(_beneficirani + _dvadeset, 2).ToString(new CultureInfo("hr-HR"));
             ImePrezime.Focus();
             var oddatuma = OdDatuma.SelectedDate.ToString();
             oddatuma = oddatuma.TrimEnd('0', ':');
@@ -119,28 +117,28 @@ namespace ObracunPlace
             var bene2 = odabir.Beneficirani2;
             _bene.Beneficirani2 = bene2;
             _beneficirani = bene1 + bene2;
-            TxtBene1.Text = Math.Round(bene1,2).ToString(new CultureInfo("hr-HR"));
-            TxtBene2.Text = Math.Round(bene2,2).ToString(new CultureInfo("hr-HR"));
-            TxtUkBene1I2.Text = Math.Round((bene1 + bene2),2).ToString(new CultureInfo("hr-HR"));
+            TxtBene1.Text = Math.Round(bene1, 2).ToString(new CultureInfo("hr-HR"));
+            TxtBene2.Text = Math.Round(bene2, 2).ToString(new CultureInfo("hr-HR"));
+            TxtUkBene1I2.Text = Math.Round(bene1 + bene2, 2).ToString(new CultureInfo("hr-HR"));
         }
 
         private void IzracunajPetPetnaest()
         {
             var petnaest = new DoprinosPetnaestPosto();
-            var doprinospetnaest =petnaest.RacunajDoprinos(Bruto);
+            var doprinospetnaest = petnaest.RacunajDoprinos(Bruto);
             _bene.Doprinos15 = doprinospetnaest;
             var pet = new DoprinosPetPosto();
             var doprinospet = pet.RacunajDoprinos(Bruto);
             _bene.Doprinos5 = doprinospet;
             _dvadeset = doprinospet + doprinospetnaest;
             TxtDop15.Text = Math.Round(doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));
-            TxtDop5.Text = Math.Round(doprinospet,2).ToString(new CultureInfo("hr-HR"));
-            Txt20.Text = Math.Round(doprinospet + doprinospetnaest,2).ToString(new CultureInfo("hr-HR"));
+            TxtDop5.Text = Math.Round(doprinospet, 2).ToString(new CultureInfo("hr-HR"));
+            Txt20.Text = Math.Round(doprinospet + doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));
         }
 
         private void BtnOcisti_Click(object sender, RoutedEventArgs e)
         {
-            TxtBruto.Value = 0.00;
+            TxtBruto.Text = "0.00";
             OcistiLabele();
             ImePrezime.Focus();
         }
@@ -221,7 +219,8 @@ namespace ObracunPlace
                     if (izvor != null)
                         foreach (var item in izvor)
                         {
-                            if (!(DataGridBene.ItemContainerGenerator.ContainerFromItem(item) is DataGridRow red)) continue;
+                            if (!(DataGridBene.ItemContainerGenerator.ContainerFromItem(item) is DataGridRow red))
+                                continue;
                             var presenter = FindVisualChild<DataGridCellsPresenter>(red);
                             for (var i = 0; i < DataGridBene.Columns.Count; ++i)
                             {
@@ -238,8 +237,7 @@ namespace ObracunPlace
                 }
                 catch (Exception)
                 {
-                    var metro = (MetroWindow) Application.Current.MainWindow;
-                    metro.ShowMessageAsync("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
+                    MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
                 }
             }
         }

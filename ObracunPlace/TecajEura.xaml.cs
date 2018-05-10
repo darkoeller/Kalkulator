@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj.BankarskiTecaj;
-using PostSharp.Patterns.Threading;
 
 namespace ObracunPlace
 {
@@ -22,7 +21,6 @@ namespace ObracunPlace
             TxtDatum.Text = DateTime.Now.ToShortDateString();
         }
 
-        [Background]
         private void CmbBanke_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = CmbBanke.SelectedIndex;
@@ -57,6 +55,7 @@ namespace ObracunPlace
                 LblEuri.Content = "0,00";
                 return;
             }
+
             decimal.TryParse(TxtEuro.Text, out var rata);
             rata = Math.Round(_euro * rata, 2);
             LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);

@@ -3,324 +3,220 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-             xmlns:controlzex="urn:controlzex"
              mc:Ignorable="d"
              d:DesignHeight="585"
              d:DesignWidth="790">
     <StackPanel Orientation="Vertical">
-    <GroupBox Width="730"
-              Height="520"
-              Margin="10,10,2,0"
-              Header="Izračunajte svoj bruto iznos plaće"
-              VerticalAlignment="Top">
-        <Grid Width="720"
-              Height="490"
-              HorizontalAlignment="Left"
-              Margin="0"
-              Background="#FFF3FAFA">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80*" />
-                <ColumnDefinition Width="120*" />
-                <ColumnDefinition Width="70*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition MinHeight="140" />
-                <RowDefinition MinHeight="230" />
-                <RowDefinition MinHeight="70" />
-            </Grid.RowDefinitions>
-            <StackPanel Name="TextPanel"
-                        Margin="0,5,5,0">
-                <TextBlock Text="Osnovni koeficijent (bodovi) :"
-                           HorizontalAlignment="Right"
-                           Margin="0,5,0,0" />
-                <TextBlock Text="Minuli rad :"
-                           Margin="0,15,0,0"
-                           HorizontalAlignment="Right" />
-                <TextBlock Text="Sati rada :"
-                           Margin="0,20,0,0"
-                           HorizontalAlignment="Right" />
-                <TextBlock Text="Vrsta rada :"
-                           Margin="0,20,0,0"
-                           HorizontalAlignment="Right" />
-            </StackPanel>
-            <StackPanel Grid.Column="1"
-                        Grid.Row="0"
-                        Margin="5,5,5,0">
-                <controls:NumericUpDown x:Name="BodoviUpDown"
-                                        Minimum="1"
-                                        Maximum="16"
-                                        Value="1.00"
-                                        Interval="0.05"
-                                        Margin="5,0,5,0"
-                                        Height="26"
-                                        ToolTip="Koristite zarez za decimale."
-                                        Culture="hr"
-                                        TrackMouseWheelWhenMouseOver="True"
-                                        ValueDecremented="BodoviUpDown_ValueDecremented"
-                                        ValueIncremented="BodoviUpDown_ValueIncremented" />
-                <controls:NumericUpDown x:Name="MinuliUpDown"
-                                        Minimum="0.01"
-                                        Maximum="6"
-                                        Interval="0.01"
-                                        Value="0.01"
-                                        Margin="5"
-                                        Height="26"
-                                        Culture="hr"
-                                        TrackMouseWheelWhenMouseOver="True"
-                                        ValueDecremented="MinuliUpDown_ValueDecremented"
-                                        ValueIncremented="MinuliUpDown_ValueIncremented" />
-                <controls:NumericUpDown x:Name="SatiRadaUpDown"
-                                        Minimum="0.50"
-                                        Maximum="350.00"
-                                        Interval="0.50"
-                                        Value="0.50"
-                                        Height="26"
-                                        Margin="5"
-                                        ToolTip="Upišite sate rada za pojedinu vrstu rada ili ukupne mjesečne sate."
-                                        Culture="hr"
-                                        Focusable="True"
-                                        TrackMouseWheelWhenMouseOver="True"
-                                        ValueDecremented="SatiRadaUpDown_ValueDecremented"
-                                        ValueIncremented="SatiRadaUpDown_ValueIncremented" />
-                <ComboBox Name="ChComboBoxVrsteRada"
-                          Margin="5"
-                          SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
-                          IsReadOnly="True"
-                          Focusable="True" />
-            </StackPanel>
-            <StackPanel Grid.Column="2"
-                        Grid.Row="0"
-                        VerticalAlignment="Bottom">
-                <Image Source="Resources/skrinja.png"
-                       MaxHeight="130" Margin="5"
-                       Stretch="Fill" />
-            </StackPanel>
-            <Border Grid.Column="1"
-                    Grid.Row="1"
-                    Margin="10,0,10,30">
-                <ListBox x:Name="ListBoxBruto"
-                         HorizontalContentAlignment="Right"
-                         Padding="5,3"
-                         Background="#FFE7FAFF"
-                         BorderBrush="{DynamicResource AccentColorBrush}"
-                         BorderThickness="3"
-                         ToolTip="Lista izračunatih iznosa."
-                         Margin="0,0,0.2,0"
-                         FontFamily="Roboto Light" />
-            </Border>
-            <Label x:Name="LblBruto"
-                   Grid.Column="1"
-                   Grid.Row="1"
-                   VerticalAlignment="Bottom"
-                   HorizontalAlignment="Right"
-                   Margin="5,5,0,5"
-                   Foreground="Red" />
-            <StackPanel Grid.Column="2"
+        <GroupBox Width="730"
+                  Height="520"
+                  Margin="10,10,2,0"
+                  Header="Izračunajte svoj bruto iznos plaće"
+                  VerticalAlignment="Top">
+            <Grid Width="720"
+                  Height="490"
+                  HorizontalAlignment="Left"
+                  Margin="0"
+                  Background="#FFF3FAFA">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="120*" />
+                    <ColumnDefinition Width="70*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="140" />
+                    <RowDefinition MinHeight="230" />
+                    <RowDefinition MinHeight="70" />
+                </Grid.RowDefinitions>
+                <StackPanel Name="TextPanel"
+                            Margin="0,5,5,0">
+                    <TextBlock Text="Osnovni koeficijent (bodovi) :"
+                               HorizontalAlignment="Right"
+                               Margin="0,5,0,0" />
+                    <TextBlock Text="Minuli rad :"
+                               Margin="0,15,0,0"
+                               HorizontalAlignment="Right" />
+                    <TextBlock Text="Sati rada :"
+                               Margin="0,20,0,0"
+                               HorizontalAlignment="Right" />
+                    <TextBlock Text="Vrsta rada :"
+                               Margin="0,20,0,0"
+                               HorizontalAlignment="Right" />
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Grid.Row="0"
+                            Margin="5,5,5,0">
+                    <TextBox x:Name="BodoviUpDown"
+                             HorizontalContentAlignment="Right"
+                             Margin="5,0,5,0"
+                             Height="26"
+                             ToolTip="Koristite zarez za decimale." />
+                    <TextBox x:Name="MinuliUpDown"
+                             HorizontalContentAlignment="Right"
+                             Margin="5"
+                             Height="26" />
+                    <TextBox x:Name="SatiRadaUpDown"
+                             HorizontalContentAlignment="Right"
+                             Height="26"
+                             Margin="5"
+                             ToolTip="Upišite sate rada za pojedinu vrstu rada ili ukupne mjesečne sate."
+                             Focusable="True" />
+                    <ComboBox Name="ChComboBoxVrsteRada"
+                              Margin="5"
+                              SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
+                              IsReadOnly="True"
+                              Focusable="True" />
+                </StackPanel>
+                <StackPanel Grid.Column="2"
+                            Grid.Row="0"
+                            VerticalAlignment="Bottom">
+                    <Image Source="Resources/skrinja.png"
+                           MaxHeight="130" Margin="5"
+                           Stretch="Fill" />
+                </StackPanel>
+                <Border Grid.Column="1"
                         Grid.Row="1"
-                        VerticalAlignment="Bottom"
-                        Margin="0,0,0,30">
-                <Button x:Name="BtnIzracun"
-                        Margin="5"
-                        Content="Izračunaj"
-                        Click="BtnIzracun_Click"
-                        IsDefault="True"
-                        FontFamily="Roboto Light" />
-                <Button x:Name="BtnDodatak"
-                        FontFamily="Roboto-Light"
-                        Margin="5"
-                        Content="Dodaj dodatak na plaću"
-                        Click="BtnDodatak_Click"
-                        FontWeight="Normal"
-                        ToolTipService.ShowDuration="5000">
-                    <Button.ToolTip>
-                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                            <ToolTip.Template>
-                                <ControlTemplate>
-                                    <Grid>
-                                        <Border Background="DarkSeaGreen"
-                                                BorderBrush="Black"
-                                                BorderThickness="1"
-                                                Opacity="0.9"
-                                                CornerRadius="3"
-                                                SnapsToDevicePixels="True" />
-                                        <TextBlock Margin="5"
-                                                   MaxWidth="200"
-                                                   TextWrapping="Wrap"
-                                                   Foreground="WhiteSmoke"
-                                                   FontSize="10"
-                                                   Text="Dodatak 'kao za topli obrok', prije nego kliknete provjerite da su upisani ukupni sati rada za mjesec koji računate."
-                                                   TextOptions.TextFormattingMode="Display"
-                                                   TextOptions.TextRenderingMode="ClearType" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </ToolTip.Template>
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name="BtnMinuli"
-                        Margin="5"
-                        Content="Dodaj minuli rad"
-                        Click="BtnMinuli_Click"
-                        FontFamily="Roboto-Light"
-                        FontWeight="Normal"
-                        ToolTipService.ShowDuration="3000">
-                    <Button.ToolTip>
-                        <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                            <ToolTip.Template>
-                                <ControlTemplate>
-                                    <Grid>
-                                        <Border Background="DarkSeaGreen"
-                                                BorderBrush="Black"
-                                                BorderThickness="1"
-                                                Opacity="0.9"
-                                                CornerRadius="3"
-                                                SnapsToDevicePixels="True" />
-                                        <TextBlock Margin="5"
-                                                   MaxWidth="200"
-                                                   TextWrapping="Wrap"
-                                                   Foreground="WhiteSmoke"
-                                                   FontSize="10"
-                                                   Text="Za točan izračun, kao i za dodatak, moraju biti upisani ukupni mjesečni sati rada."
-                                                   TextOptions.TextFormattingMode="Display"
-                                                   TextOptions.TextRenderingMode="ClearType" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </ToolTip.Template>
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name="BtnOcistiOdabrano"
-                        Margin="5,5,5,0"
-                        Content="Obriši označeno"
-                        Click="BtnOcistiOdabrano_Click"
-                        FontFamily="Roboto-Light"
-                        FontWeight="Normal" />
-                <Button x:Name="BtnOcisti"
-                        Margin="5"
-                        Content="Očisti listu"
-                        Click="BtnOcisti_Click"
-                        IsCancel="True"
-                        ToolTip="Briše sve stavke iz liste izračuna."
-                        FontFamily="Roboto Light" />
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Row="1"
-                        Grid.Column="0">
-                <Expander>
-                    <Expander.Header>
-                        <TextBlock Text=" KLIKNITE ZA POMOĆ"
-                                   Foreground="WhiteSmoke" />
-                    </Expander.Header>
-                    <Expander.Content>
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="160">
-                            <WrapPanel>
-                                <TextBlock Foreground="LightSlateGray"
-                                           TextWrapping="Wrap"
-                                           Padding="0,2,15,0"
-                                           FontStyle="Italic"
-                                           Width="200">
-                                    <Run
-                                        Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
-                                </TextBlock>
-                                <TextBlock Text="--------------------------------------------" />
-                                <TextBlock Foreground="LightSlateGray"
-                                           TextWrapping="Wrap"
-                                           Padding="5"
-                                           FontStyle="Italic">
-                                    <Run
-                                        Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
-                                </TextBlock>
-                                <TextBlock Text="--------------------------------------------" />
-                                <TextBlock Foreground="LightSlateGray"
-                                           TextWrapping="Wrap"
-                                           Padding="5"
-                                           FontStyle="Italic"
-                                           Text="Kod unosa decimalnog broja obavezno koristite zarez, a ne točku!" />
-                            </WrapPanel>
-                        </ScrollViewer>
-                    </Expander.Content>
-                </Expander>
-                <StatusBar x:Name="Status"
-                           Height="35"
-                           Width="210"
-                           Margin="0,130,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Foreground="WhiteSmoke" Content="Status: "
-                               HorizontalAlignment="Left" />
-                        <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
-                               HorizontalAlignment="Center" />
-                    </StackPanel>
-                </StatusBar>
-            </StackPanel>
-            <Border Grid.ColumnSpan="3"
-                    Grid.Column="0"
-                    Margin="0,235,0,0"
-                    Background="#FFF2FFF9"
-                    Grid.Row="1"
-                    Grid.RowSpan="2"
-                    BorderThickness="0,3,0,0"
-                    BorderBrush="Black">
+                        Margin="10,0,10,30">
+                    <ListBox x:Name="ListBoxBruto"
+                             HorizontalContentAlignment="Right"
+                             Padding="5,3"
+                             Background="#FFE7FAFF"
+                             BorderThickness="3"
+                             ToolTip="Lista izračunatih iznosa."
+                             Margin="0,0,0.2,0"
+                             FontFamily="Roboto Light" />
+                </Border>
+                <Label x:Name="LblBruto"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Right"
+                       Margin="5,5,0,5"
+                       Foreground="Red" />
+                <StackPanel Grid.Column="2"
+                            Grid.Row="1"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,30">
+                    <Button x:Name="BtnIzracun"
+                            Margin="5"
+                            Content="Izračunaj"
+                            Click="BtnIzracun_Click"
+                            IsDefault="True"
+                            FontFamily="Roboto Light" />
+                    <Button x:Name="BtnDodatak"
+                            FontFamily="Roboto-Light"
+                            Margin="5"
+                            Content="Dodaj dodatak na plaću"
+                            Click="BtnDodatak_Click"
+                            FontWeight="Normal"
+                            ToolTipService.ShowDuration="5000" />
+                    <Button x:Name="BtnMinuli"
+                            Margin="5"
+                            Content="Dodaj minuli rad"
+                            Click="BtnMinuli_Click"
+                            FontFamily="Roboto-Light"
+                            FontWeight="Normal"
+                            ToolTipService.ShowDuration="3000" />
+                    <Button x:Name="BtnOcistiOdabrano"
+                            Margin="5,5,5,0"
+                            Content="Obriši označeno"
+                            Click="BtnOcistiOdabrano_Click"
+                            FontFamily="Roboto-Light"
+                            FontWeight="Normal" />
+                    <Button x:Name="BtnOcisti"
+                            Margin="5"
+                            Content="Očisti listu"
+                            Click="BtnOcisti_Click"
+                            IsCancel="True"
+                            ToolTip="Briše sve stavke iz liste izračuna."
+                            FontFamily="Roboto Light" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Row="1"
+                            Grid.Column="0">
+                    <Expander IsExpanded="True">
+                        <Expander.Header>
+                            <TextBlock Text=" KRATKO POJAŠNJENJE"
+                                       Foreground="Black" />
+                        </Expander.Header>
+                        <Expander.Content>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="180">
+                                <WrapPanel>
+                                    <TextBlock Foreground="LightSlateGray"
+                                               TextWrapping="Wrap"
+                                               Padding="0,2,15,0"
+                                               FontStyle="Italic"
+                                               Width="200">
+                                        <Run
+                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
+                                    </TextBlock>
+                                    <TextBlock Text="--------------------------------------------" />
+                                    <TextBlock Foreground="LightSlateGray"
+                                               TextWrapping="Wrap"
+                                               Padding="5"
+                                               FontStyle="Italic">
+                                        <Run
+                                            Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
+                                    </TextBlock>
+                                    <TextBlock Text="--------------------------------------------" />
+                                    <TextBlock Foreground="LightSlateGray"
+                                               TextWrapping="Wrap"
+                                               Padding="5"
+                                               FontStyle="Italic"
+                                               Text="Kod unosa decimalnog broja obavezno koristite zarez, a ne točku!" />
+                                </WrapPanel>
+                            </ScrollViewer>
+                        </Expander.Content>
+                    </Expander>
+                    <StatusBar x:Name="Status"
+                               Height="35"
+                               Width="210"
+                               Margin="0,130,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Foreground="WhiteSmoke" Content="Status: "
+                                   HorizontalAlignment="Left" />
+                            <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
+                                   HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </StatusBar>
+                </StackPanel>
+                <Border Grid.ColumnSpan="3"
+                        Grid.Column="0"
+                        Margin="0,235,0,0"
+                        Background="#FFF2FFF9"
+                        Grid.Row="1"
+                        Grid.RowSpan="2"
+                        BorderThickness="0,3,0,0"
+                        BorderBrush="Black">
 
-                <Grid>
-                    <StackPanel Orientation="Horizontal"
-                                Margin="227,0,170,0">
-                        <TextBlock Text="Upišite godine staža : "
-                                   VerticalAlignment="Top"
-                                   Margin="25,25,5,0" />
-                        <controls:NumericUpDown x:Name="GodineUpDown"
-                                                Value="1"
-                                                Minimum="1"
-                                                Maximum="65"
-                                                Height="20"
-                                                Width="100"
-                                                Margin="5,20,0,0"
-                                                ToolTip="Dodajte ili smanjite godine"
-                                                VerticalAlignment="Top"
-                                                Culture="hr"
-                                                TrackMouseWheelWhenMouseOver="True" />
-                    </StackPanel>
-                    <StackPanel Margin="510,0,0,0">
-                        <Button x:Name="BtnRacunaMinuli"
-                                Content="Izračunaj minuli"
-                                Margin="30,20,10,0"
-                                Click="BtnRacunaMinuli_Click"
-                                Height="30"
-                                FontFamily="Roboto Light"
-                                ToolTipService.ShowDuration="3000">
-                            <Button.ToolTip>
-                                <ToolTip controlzex:ToolTipAssist.AutoMove="True">
-                                    <ToolTip.Template>
-                                        <ControlTemplate>
-                                            <Grid>
-                                                <Border Background="DarkSeaGreen"
-                                                        BorderBrush="Black"
-                                                        BorderThickness="1"
-                                                        Opacity="0.9"
-                                                        CornerRadius="3"
-                                                        SnapsToDevicePixels="True" />
-                                                <TextBlock Margin="5"
-                                                           MaxWidth="200"
-                                                           TextWrapping="Wrap"
-                                                           Foreground="WhiteSmoke"
-                                                           FontSize="10"
-                                                           Text="Prije nego kliknete na ovaj gumb provjerite da li ste točno upisali svoje bodove."
-                                                           TextOptions.TextFormattingMode="Display"
-                                                           TextOptions.TextRenderingMode="ClearType" />
-                                            </Grid>
-                                        </ControlTemplate>
-                                    </ToolTip.Template>
-                                </ToolTip>
-                            </Button.ToolTip>
-                        </Button>
-                        <Label x:Name="LblMinuli"
-                               VerticalAlignment="Center" />
-                    </StackPanel>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="227,0,170,0">
+                            <TextBlock Text="Upišite godine staža : "
+                                       VerticalAlignment="Top"
+                                       Margin="25,25,5,0" />
+                            <TextBox x:Name="GodineUpDown"
 
-                </Grid>
-            </Border>
-        </Grid>
-    </GroupBox>
+                                     Height="20"
+                                     Width="100"
+                                     Margin="5,20,0,0"
+                                     ToolTip="Dodajte ili smanjite godine"
+                                     VerticalAlignment="Top" />
+                        </StackPanel>
+                        <StackPanel Margin="510,0,0,0">
+                            <Button x:Name="BtnRacunaMinuli"
+                                    Content="Izračunaj minuli"
+                                    Margin="30,20,10,0"
+                                    Click="BtnRacunaMinuli_Click"
+                                    Height="30"
+                                    FontFamily="Roboto Light" />
+                            <Label x:Name="LblMinuli"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </GroupBox>
         <TextBlock Margin="30,10,0,10"> * MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju.</TextBlock>
-        <TextBlock Margin="30,0,0,0"> Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'.</TextBlock>    
+        <TextBlock Margin="30,0,0,0"> Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'.</TextBlock>
     </StackPanel>
 </UserControl>
