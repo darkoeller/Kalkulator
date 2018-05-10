@@ -24,10 +24,15 @@ namespace ObracunPlace
             InitializeComponent();
         }
 
-        private decimal Olaksica => decimal.Parse(OlaksicaUpDown.Text);
         private decimal Prirez { get; set; }
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private decimal IznosPrijevoza { get; set; }
+
+        private decimal GetOlaksica()
+        {
+            decimal.TryParse(OlaksicaUpDown.Text, out var olaksica);
+            return olaksica;
+        }
 
         private decimal GetBruto()
         {
@@ -39,6 +44,12 @@ namespace ObracunPlace
         {
             decimal.TryParse(TxtNeto.Text, out var neto);
             return neto;
+        }
+
+        private decimal GetOdbici()
+        {
+            decimal.TryParse(TxtBoxOdbici.Text, out var odbici);
+            return odbici;
         }
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
@@ -53,7 +64,7 @@ namespace ObracunPlace
             if (ProvjeriRadioGumb())
             {
                 if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-                var placa = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), Olaksica, Prirez, Stup1I2);
+                var placa = ProcesuirajBruto.VratiIzracunPlace(GetBruto(), GetOlaksica(), Prirez, Stup1I2);
                 PopuniVrijednosti(placa);
                 OduzmiOdbitke();
             }
@@ -61,7 +72,7 @@ namespace ObracunPlace
             {
                 TxtBruto.Text = string.Empty;
                 if (string.IsNullOrEmpty(TxtNeto.Text)) return;
-                var izracunPlaceIzNeta = new ProcesuirajNeto(GetNeto(), Olaksica, Prirez, Stup1I2).Izracunaj();
+                var izracunPlaceIzNeta = new ProcesuirajNeto(GetNeto(), GetOlaksica(), Prirez, Stup1I2).Izracunaj();
                 TxtBruto.Text = izracunPlaceIzNeta.Bruto.ToString(new CultureInfo("hr-HR"));
                 PopuniVrijednosti(izracunPlaceIzNeta);
             }
@@ -71,11 +82,8 @@ namespace ObracunPlace
         {
             if (string.IsNullOrEmpty(TxtBoxOdbici.Text)) return;
             var neto = GetNeto();
-            var odbici = decimal.Parse(TxtBoxOdbici.Text);
-            var stringPrijevoz = LblPrijevoz.Content.ToString();
-            stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
-            var prijevoz = decimal.Parse(stringPrijevoz);
-
+            var odbici = GetOdbici();
+            var prijevoz = GetPrijevoz();
             if (CmbPrijevoz.SelectedIndex < 1)
             {
                 neto -= odbici;
@@ -86,6 +94,14 @@ namespace ObracunPlace
             {
                 VratiTotal(prijevoz, odbici);
             }
+        }
+
+        private decimal GetPrijevoz()
+        {
+            var stringPrijevoz = LblPrijevoz.Content.ToString();
+            stringPrijevoz = stringPrijevoz.Substring(0, stringPrijevoz.Length - 2);
+            decimal.TryParse(stringPrijevoz, out var prijevoz);
+            return prijevoz;
         }
 
         private bool ProvjeriRadioGumb()

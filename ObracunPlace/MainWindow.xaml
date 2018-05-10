@@ -25,7 +25,7 @@
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid x:Name="CjelaMreza"
-              Height="790"
+              Height="795"
               Width="800">
             <TabControl x:Name="TabKontrola">
                 <TabItem Header=" bruto/neto  ">
@@ -33,8 +33,8 @@
                                Margin="3,10,3,0"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
-                               MinWidth="780"
-                               Height="750">
+                               MinWidth="785"
+                               Height="760">
                         <TextBlock DockPanel.Dock="Top"
                                    TextAlignment="Center"
                                    Margin="0,0,0,5"
@@ -46,7 +46,10 @@
                                  FontSize="12" />
                         </TextBlock>
                         <TextBox x:Name="NaslovniText"
+                                 HorizontalContentAlignment="Center"
+                                 VerticalContentAlignment="Center"
                                  DockPanel.Dock="Top"
+                                 Height="24"
                                  Margin="5,2,5,5"
                                  FontFamily="Roboto Light" />
                         <Border DockPanel.Dock="Top"
@@ -86,19 +89,19 @@
                                 <StackPanel Grid.Column="1"
                                             Orientation="Horizontal"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Left"
+                                            HorizontalAlignment="Center"
                                             Width="165">
                                     <TextBlock TextWrapping="Wrap"
-                                               Margin="7,0,5,0"
+                                               Margin="15,0,0,0"
                                                Text=" Faktor porezne olakšice"
                                                MaxWidth="80" />
                                     <TextBox
                                         x:Name="OlaksicaUpDown"
-
-                                        Width="90"
-                                        Height="30"
-
-                                        Margin="0,0,7,0" />
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Width="60"
+                                        Height="25"
+                                        Margin="5,0,7,0" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="2"
                                             Orientation="Horizontal"
@@ -112,7 +115,7 @@
                                                VerticalAlignment="Center" />
                                     <ComboBox x:Name="CmbPrirez"
                                               Width="60"
-                                              Height="30"
+                                              Height="25"
                                               Margin="10,0"
                                               IsReadOnly="True"
                                               SelectionChanged="CmbPrirez_SelectionChanged"
@@ -144,7 +147,7 @@
                                                HorizontalAlignment="Center" />
                                     <TextBox x:Name="TxtBruto"
                                              Width="100"
-                                             Height="30"
+                                             Height="25"
                                              Margin="0,7,0,0"
                                              HorizontalAlignment="Center"
                                              VerticalContentAlignment="Center"
@@ -171,10 +174,10 @@
                                     MinHeight="50"
                                     HorizontalAlignment="Center"
                                     Orientation="Horizontal"
-                                    Margin="50,0,0,13"
+                                    Margin="50,0,0,23"
                                     MinWidth="250">
                             <Button x:Name="BtnOcisti"
-                                    Width="100"
+                                    Width="110"
                                     Click="BtnOcisti_Clic"
                                     ToolTip="Očistite kontrole na 0,00"
                                     IsCancel="True"
@@ -204,7 +207,7 @@
                                 </StackPanel>
                             </Button>
                             <Button x:Name="BtnIzracun"
-                                    Width="100"
+                                    Width="110"
                                     Click="BtnIzracun_Click"
                                     Margin="60,0,0,0"
                                     IsDefault="True">
@@ -266,7 +269,7 @@
                                            Margin="0,5,0,0"
                                            FontWeight="Bold" />
                                 <StackPanel Orientation="Horizontal"
-                                            Margin="5,10,5,0"
+                                            Margin="5,5,5,0"
                                             Background="#FFF3FAFA">
                                     <TextBlock Margin="5"
                                                HorizontalAlignment="Left">
@@ -283,7 +286,7 @@
                                 </StackPanel>
                                 <Border BorderThickness="0,0,0,1"
                                         BorderBrush="Black">
-                                    <StackPanel Orientation="Horizontal" Margin="0,6">
+                                    <StackPanel Orientation="Horizontal" Margin="0,6" Height="25">
                                         <TextBlock Style="{StaticResource UvucenText}"
                                                    VerticalAlignment="Center">
                                             Upišite iznos svojih odbitaka (sindikat, krediti, dopunsko, itd.) :
@@ -291,7 +294,9 @@
                                         <TextBox x:Name="TxtBoxOdbici"
                                                  Margin="121,2,0,2"
                                                  Width="100"
+                                                 Height="25"
                                                  HorizontalContentAlignment="Right"
+                                                 VerticalContentAlignment="Center"
                                                  Text="0,00"
                                                  TextAlignment="Right" />
                                     </StackPanel>
@@ -350,7 +355,7 @@
                                 <Label x:Name="LblPrirez"
                                        ToolTip="Prirez" />
                                 <TextBox x:Name="TxtNeto"
-                                         Height="30"
+                                         Height="25"
                                          Width="100"
                                          HorizontalAlignment="Right"
                                          VerticalContentAlignment="Center"
