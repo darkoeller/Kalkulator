@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using BiznisSloj;
+using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;

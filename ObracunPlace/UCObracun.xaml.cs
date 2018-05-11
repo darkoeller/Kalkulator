@@ -37,10 +37,26 @@ namespace ObracunPlace
         }
 
 
-        private decimal Bodovi => decimal.Parse(BodoviUpDown.Text);
-        private decimal Minuli => decimal.Parse(MinuliUpDown.Text);
-        private decimal BrojSati => decimal.Parse(SatiRadaUpDown.Text);
-        private decimal GodineStaza => decimal.Parse(GodineUpDown.Text);
+        private decimal GetBodovi()
+        {
+            decimal.TryParse(BodoviUpDown.Text, out var bodovi);
+            return bodovi;
+        }
+        private decimal GetMinuli()
+        {
+            decimal.TryParse(MinuliUpDown.Text, out var minuli);
+            return minuli;
+        }
+        private decimal GetSatiRada()
+        {
+            decimal.TryParse(SatiRadaUpDown.Text, out var satirada);
+            return satirada;
+        }
+        private decimal GetGodineStaza()
+        {
+            decimal.TryParse(GodineUpDown.Text, out var godine);
+            return godine;
+        }
 
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -53,7 +69,7 @@ namespace ObracunPlace
         {
             if (ChComboBoxVrsteRada == null || ChComboBoxVrsteRada.SelectedIndex == -1) return;
             var text = ChComboBoxVrsteRada.SelectedItem.ToString();
-            var izracun = new IzracunajKoeficijentSate(BrojSati, Minuli, Bodovi, _koeficijent).Izracun();
+            var izracun = new IzracunajKoeficijentSate(GetSatiRada(), GetMinuli(), GetBodovi(), _koeficijent).Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
@@ -75,7 +91,7 @@ namespace ObracunPlace
 
         private void BtnMinuli_Click(object sender, RoutedEventArgs e)
         {
-            var minuli = new MinuliRad(BrojSati, Minuli);
+            var minuli = new MinuliRad(GetSatiRada(), GetMinuli());
             var izracun = minuli.Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add("Minuli rad: " + izracun.ToString(new CultureInfo("hr-HR")));
@@ -86,7 +102,7 @@ namespace ObracunPlace
 
         private void BtnDodatak_Click(object sender, RoutedEventArgs e)
         {
-            var dodatak = new DodatakNaPlacu(BrojSati);
+            var dodatak = new DodatakNaPlacu(GetSatiRada());
             var izracun = dodatak.Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add("Dodatak na plaću: " + izracun.ToString(new CultureInfo("hr-HR")));
@@ -113,7 +129,7 @@ namespace ObracunPlace
 
         private void BtnRacunaMinuli_Click(object sender, RoutedEventArgs e)
         {
-            var minuli = new IzracunGodinaStaza(GodineStaza, Bodovi);
+            var minuli = new IzracunGodinaStaza(GetGodineStaza(), GetBodovi());
             var rezultat = minuli.Izracun();
             LblMinuli.Content = "Vaš minuli iznosi : " + rezultat.ToString(new CultureInfo("hr-HR"));
             Bruto += rezultat;

@@ -45,8 +45,10 @@
             <StackPanel MaxWidth="150">
                 <TextBox x:Name="TxtBruto"
                          Margin="5,0,0,0" Width="120" Focusable="True"
+                         VerticalContentAlignment="Center"
                          ToolTip="Upišite bruto " />
                 <ComboBox x:Name="CmbVrstaBene" HorizontalContentAlignment="Center"
+                          VerticalContentAlignment ="Center"
                           SelectionChanged="CmbVrstaBene_SelectionChanged" Margin="5,12,0,0"
                           ToolTip="2,3 ili 4 mjeseca produženja" />
             </StackPanel>
@@ -62,13 +64,13 @@
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
                         <TextBox x:Name="TxtDop15" Width="100" IsReadOnly="True" Margin="80,0,0,0" Focusable="False"
-                                 IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                         <TextBox x:Name="TxtDop5" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
-                                 IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                         <TextBox x:Name="TxtBene1" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
-                                 IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                         <TextBox x:Name="TxtBene2" Width="100" IsReadOnly="True" Margin="20,0,0,0" Focusable="False"
-                                 IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                         <Label Content="Doprinos 20%" Margin="30,0,0,0" />
@@ -76,16 +78,16 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBox x:Name="Txt20" IsReadOnly="True" Width="100" TextAlignment="Center" Focusable="False"
-                                 IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                         <TextBox x:Name="TxtUkBene1I2" IsReadOnly="True" Width="100" Margin="120,0,0,0"
                                  TextAlignment="Center" Focusable="False" IsEnabled="False"
-                                 HorizontalContentAlignment="Center" />
+                                 HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center"
                                 Margin="0,10,0,0">
                         <Label Content="Sveukupno doprinosa" />
                         <TextBox x:Name="TxtUkupno" IsReadOnly="True" Width="100" TextAlignment="Center"
-                                 Focusable="False" IsEnabled="False" HorizontalContentAlignment="Center" />
+                                 Focusable="False" IsEnabled="False" HorizontalContentAlignment="Center" Height="24" VerticalContentAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
@@ -100,7 +102,7 @@
                                FontFamily="Roboto Light" />
                 </StackPanel>
             </Button>
-            <Button x:Name="BtnIspis" Click="BtnIspis_Click" Width="110" Margin="50,0,0,0"
+            <Button x:Name="BtnIspis" Click="BtnIspis_Click" Width="120" Margin="50,0,0,0"
                     ToolTip="Ispisuje listu u .pdf">
                 <StackPanel Orientation="Horizontal">
                     <Image Stretch="None" Source="Resources/filequickprint.png" />

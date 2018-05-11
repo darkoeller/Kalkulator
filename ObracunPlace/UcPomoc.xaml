@@ -8,10 +8,10 @@
     <StackPanel MaxWidth="650"
                 MaxHeight="700"
                 Margin="10,0">
-        <FlowDocumentReader ViewingMode="TwoPage"
+        <FlowDocumentReader ViewingMode="Scroll"
                             Zoom="5"
                             MaxZoom="110"
-                            ZoomIncrement="5">
+                            ZoomIncrement="5" Height="657" Margin="0">
             <FlowDocument FontSize="12"
                           IsOptimalParagraphEnabled="True"
                           FontFamily="Roboto Light">
@@ -92,8 +92,5 @@
                 </Paragraph>
             </FlowDocument>
         </FlowDocumentReader>
-        <TextBlock
-            Text="Za rad sa kalkulatorom možete koristiti tipkovnicu : Enter=računa, Esc=briše itd."
-            Margin="0,5" />
     </StackPanel>
 </UserControl>

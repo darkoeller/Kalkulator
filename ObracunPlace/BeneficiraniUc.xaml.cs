@@ -33,7 +33,12 @@ namespace ObracunPlace
         }
 
         private int Odabrano { get; set; }
-        private decimal Bruto => decimal.Parse(TxtBruto.Text);
+
+        private decimal GetBruto()
+        {
+            decimal.TryParse(TxtBruto.Text, out var olaksica);
+            return olaksica;
+        }
 
 
         private void BeneficiraniUc_OnLoaded(object sender, RoutedEventArgs e)
@@ -94,7 +99,7 @@ namespace ObracunPlace
             var dodatuma = DoDatuma.SelectedDate.ToString();
             dodatuma = dodatuma.TrimEnd('0', ':');
             _bene.DoDatuma = dodatuma;
-            _bene.Bruto = Bruto;
+            _bene.Bruto = GetBruto();
             _bene.Vrsta = CmbVrstaBene.SelectedItem.ToString();
             _bene.Ukupno = _beneficirani + _dvadeset;
             _bene.Ime = ImePrezime.Text;
@@ -110,7 +115,7 @@ namespace ObracunPlace
 
         private void IzracunajBeneficirani()
         {
-            var odabir = new OdabireVrstuBeneficirano(Bruto, Odabrano);
+            var odabir = new OdabireVrstuBeneficirano(GetBruto(), Odabrano);
             odabir.VratiBeneficirani();
             var bene1 = odabir.Beneficirani1;
             _bene.Beneficirani1 = bene1;
@@ -125,10 +130,10 @@ namespace ObracunPlace
         private void IzracunajPetPetnaest()
         {
             var petnaest = new DoprinosPetnaestPosto();
-            var doprinospetnaest = petnaest.RacunajDoprinos(Bruto);
+            var doprinospetnaest = petnaest.RacunajDoprinos(GetBruto());
             _bene.Doprinos15 = doprinospetnaest;
             var pet = new DoprinosPetPosto();
-            var doprinospet = pet.RacunajDoprinos(Bruto);
+            var doprinospet = pet.RacunajDoprinos(GetBruto());
             _bene.Doprinos5 = doprinospet;
             _dvadeset = doprinospet + doprinospetnaest;
             TxtDop15.Text = Math.Round(doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));

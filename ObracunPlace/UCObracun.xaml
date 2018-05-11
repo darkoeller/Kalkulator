@@ -47,22 +47,28 @@
                             Margin="5,5,5,0">
                     <TextBox x:Name="BodoviUpDown"
                              HorizontalContentAlignment="Right"
+                             VerticalContentAlignment="Center"
                              Margin="5,0,5,0"
                              Height="26"
                              ToolTip="Koristite zarez za decimale." />
                     <TextBox x:Name="MinuliUpDown"
                              HorizontalContentAlignment="Right"
+                             VerticalContentAlignment="Center"
                              Margin="5"
                              Height="26" />
                     <TextBox x:Name="SatiRadaUpDown"
                              HorizontalContentAlignment="Right"
                              Height="26"
                              Margin="5"
+                             VerticalContentAlignment="Center"
                              ToolTip="Upišite sate rada za pojedinu vrstu rada ili ukupne mjesečne sate."
                              Focusable="True" />
                     <ComboBox Name="ChComboBoxVrsteRada"
+                              Height="26"
                               Margin="5"
                               SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
+                              VerticalContentAlignment="Center"
+                              HorizontalContentAlignment="Center"
                               IsReadOnly="True"
                               Focusable="True" />
                 </StackPanel>
@@ -97,6 +103,7 @@
                             VerticalAlignment="Bottom"
                             Margin="0,0,0,30">
                     <Button x:Name="BtnIzracun"
+                            Height="26"
                             Margin="5"
                             Content="Izračunaj"
                             Click="BtnIzracun_Click"
@@ -105,25 +112,29 @@
                     <Button x:Name="BtnDodatak"
                             FontFamily="Roboto-Light"
                             Margin="5"
+                            Height="26"
                             Content="Dodaj dodatak na plaću"
                             Click="BtnDodatak_Click"
                             FontWeight="Normal"
                             ToolTipService.ShowDuration="5000" />
                     <Button x:Name="BtnMinuli"
                             Margin="5"
+                            Height="26"
                             Content="Dodaj minuli rad"
                             Click="BtnMinuli_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal"
                             ToolTipService.ShowDuration="3000" />
                     <Button x:Name="BtnOcistiOdabrano"
-                            Margin="5,5,5,0"
+                            Margin="5,0,5,0"
+                            Height="26"
                             Content="Obriši označeno"
                             Click="BtnOcistiOdabrano_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal" />
                     <Button x:Name="BtnOcisti"
                             Margin="5"
+                            Height="26"
                             Content="Očisti listu"
                             Click="BtnOcisti_Click"
                             IsCancel="True"
@@ -146,7 +157,7 @@
                                                FontStyle="Italic"
                                                Width="200">
                                         <Run
-                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora. Vrijednosti možete upisivati direktno, ne morate koristiti '+' ili '-' ili kotačić na mišu." />
+                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora." />
                                     </TextBlock>
                                     <TextBlock Text="--------------------------------------------" />
                                     <TextBlock Foreground="LightSlateGray"
@@ -194,7 +205,8 @@
                                        VerticalAlignment="Top"
                                        Margin="25,25,5,0" />
                             <TextBox x:Name="GodineUpDown"
-
+                                     VerticalContentAlignment="Center"
+                                     HorizontalContentAlignment="Right"
                                      Height="20"
                                      Width="100"
                                      Margin="5,20,0,0"

@@ -33,10 +33,7 @@
                 VALUTNI PRETVARAČ
             </TextBlock>
         </StackPanel>
-        <Border CornerRadius="3"
-                BorderThickness="2"
-                BorderBrush="CornflowerBlue"
-                Background="#FFF3FAFA">
+        <GroupBox Header="Odaberite valutu" Background="#FFF3FAFA" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120*" />
@@ -87,6 +84,8 @@
                           Grid.Row="2"
                           Grid.Column="1"
                           HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center"
+                          VerticalContentAlignment="Center"
                           Margin="21,20,0,10"
                           VerticalAlignment="Top"
                           Width="150"
@@ -156,6 +155,6 @@
                                Text="kuna." />
                 </StackPanel>
             </Grid>
-        </Border>
+        </GroupBox>
     </StackPanel>
 </UserControl>
