@@ -152,7 +152,7 @@ namespace ObracunPlace
             TabKontrola.SelectedIndex += 1;
             CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
             CmbPrirez.SelectedIndex = 0;
-            CmbPrijevoz.ItemsSource = Prijevoz.ListaStanica();
+            CmbPrijevoz.ItemsSource = Prijevoz.VratiListu();
             CmbPrijevoz.SelectedIndex = 0;
         }
 
@@ -190,12 +190,12 @@ namespace ObracunPlace
 
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IznosPrijevoza = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
-            var prijevoz = IznosPrijevoza;
-            prijevoz += GetNeto();
-            LblPrijevoz.Content = Math.Round(prijevoz, 2).ToString("C", new CultureInfo("hr-HR"));
-            var odbitak = Convert.ToDecimal(TxtBoxOdbici.Text);
-            VratiTotal(prijevoz, odbitak);
+            //IznosPrijevoza = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
+            //var prijevoz = IznosPrijevoza;
+            //prijevoz += GetNeto();
+            //LblPrijevoz.Content = Math.Round(prijevoz, 2).ToString("C", new CultureInfo("hr-HR"));
+            //var odbitak = Convert.ToDecimal(TxtBoxOdbici.Text);
+            //VratiTotal(prijevoz, odbitak);
         }
 
         private void VratiTotal(decimal prijevoz, decimal odbici)

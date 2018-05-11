@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cjenik>
+  <Relacije>
+    <Relacija>BEZ PRIJEVOZA</Relacija>
+    <Iznos>0.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Antunovac - Kutina</Relacija>
+    <Iznos>985.60</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Banova Jaruga - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Batina - Kutina</Relacija>
+    <Iznos>431.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Borovac - Kutina</Relacija>
+    <Iznos>1478.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Brekinska - Kutina</Relacija>
+    <Iznos>800.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Brestača - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Brezine - Kutina</Relacija>
+    <Iznos>954.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Brinjani - Kutina</Relacija>
+    <Iznos>616.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Bročice - Kutina</Relacija>
+    <Iznos>1170.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Caginec - Kutina</Relacija>
+    <Iznos>1386.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ciglenica - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Do 50 km</Relacija>
+    <Iznos>1509.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Donja Gračenica - Kutina</Relacija>
+    <Iznos>400.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Donja Gračenica - Gojlo</Relacija>
+    <Iznos>646.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Donja Vlahinička - Kutina</Relacija>
+    <Iznos>561.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Dubrava Stara Kapela - Kutina</Relacija>
+    <Iznos>1509.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Duhovi - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gaj - Kutina</Relacija>
+    <Iznos>954.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Garešnica - Kutina</Relacija>
+    <Iznos>983.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gornja Jelenska - Banova Jaruga</Relacija>
+    <Iznos>1232</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gojlo - Kutina</Relacija>
+    <Iznos>616.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gornja Gračenica - Kutina</Relacija>
+    <Iznos>369.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gornja Jelenska - Kutina</Relacija>
+    <Iznos>985.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Gornja Vlahinička - Kutina</Relacija>
+    <Iznos>800.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Grabričina - Kutina</Relacija>
+    <Iznos>800.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Grabrov Potok - Kutina</Relacija>
+    <Iznos>561.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Hrastovac - Kutina</Relacija>
+    <Iznos>1047.20</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Husain - Kutina</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Husain - Banova Jaruga</Relacija>
+    <Iznos>616.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Husain - Gojlo</Relacija>
+    <Iznos>554.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ilova - Kutina</Relacija>
+    <Iznos>554.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ilova - Banova Jaruga</Relacija>
+    <Iznos>554.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ilova - Gojlo</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ivanić Grad - Kutina</Relacija>
+    <Iznos>1478.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Jamarice - Kutina</Relacija>
+    <Iznos>862.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Janja Lipa - Kutina</Relacija>
+    <Iznos>954.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Jasenovac - Kutina</Relacija>
+    <Iznos>1355.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Jazavica - Kutina</Relacija>
+    <Iznos>1262.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kaniška Iva - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kapelica - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Katoličke Čaire - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kletište - Kutina</Relacija>
+    <Iznos>431.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kloštar Ivanić - Kutina</Relacija>
+    <Iznos>1509.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kozarice - Kutina</Relacija>
+    <Iznos>893.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Krajiška Kutinica - Kutina</Relacija>
+    <Iznos>862.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kraljeva Velika - Kutina</Relacija>
+    <Iznos>893.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Krapje - Kutina</Relacija>
+    <Iznos>1509.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Krivaj - Kutina</Relacija>
+    <Iznos>862.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Križ - Kutina</Relacija>
+    <Iznos>1170.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kukunjevac - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kutina - Kutina</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kutinica - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kutinska Ciglenica - Kutina</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Kutinska Slatina - Kutina</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Lipik - Kutina</Relacija>
+    <Iznos>1478.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Lipovljani - Kutina</Relacija>
+    <Iznos>893.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Lipovljani - Banova Jaruga</Relacija>
+    <Iznos>554.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Mala Bršljanica - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Marino Selo - Kutina</Relacija>
+    <Iznos>954.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Međurić - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Mikleuška - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Mišinka - Kutina</Relacija>
+    <Iznos>431.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Moslavačka Slatina - Kutina</Relacija>
+    <Iznos>492.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Nova Gradiška - Kutina</Relacija>
+    <Iznos>1724.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Nova Subocka - Banova Jaruga</Relacija>
+    <Iznos>708.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Nova Subocka - Kutina</Relacija>
+    <Iznos>985.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Novska - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Novska - Banova Jaruga</Relacija>
+    <Iznos>862.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Okoli - Kutina</Relacija>
+    <Iznos>1047.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Osekovo - Kutina</Relacija>
+    <Iznos>492.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Osekovo - Gojlo</Relacija>
+    <Iznos>862.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Pakrac - Kutina</Relacija>
+    <Iznos>1509.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Pašijan Veliki - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Piljenice - Kutina</Relacija>
+    <Iznos>646.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Piljenice - Banova Jaruga</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Poljana - Kutina</Relacija>
+    <Iznos>954.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Popovača - Kutina</Relacija>
+    <Iznos>528</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Popovača - Gojlo</Relacija>
+    <Iznos>649.9</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Potok - Kutina</Relacija>
+    <Iznos>528.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Rajić - Kutina</Relacija>
+    <Iznos>1386.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Ravnik - Kutina</Relacija>
+    <Iznos>492.8</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Repušnica - Kutina</Relacija>
+    <Iznos>369.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Repušnica - Banova Jaruga</Relacija>
+    <Iznos>924.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Repušnica - Gojlo</Relacija>
+    <Iznos>523.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Rogoža - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Roždanik - Kutina</Relacija>
+    <Iznos>1355.2</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Selište - Kutina</Relacija>
+    <Iznos>554.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Sisak - Kutina</Relacija>
+    <Iznos>858.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Sotin - Vukovar</Relacija>
+    <Iznos>704.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Stara Subocka - Kutina</Relacija>
+    <Iznos>985.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Stari Grabovac - Kutina</Relacija>
+    <Iznos>1170.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Staro Petrovo Selo - Kutina</Relacija>
+    <Iznos>1909.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Stružec - Kutina</Relacija>
+    <Iznos>561.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Stupovača - Kutina</Relacija>
+    <Iznos>708.4</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Šartovac - Kutina</Relacija>
+    <Iznos>396.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Uljanik - Kutina</Relacija>
+    <Iznos>1078.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Uštica - Kutina</Relacija>
+    <Iznos>1139.6</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Velika Bršljanica - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Velika Ludina - Kutina</Relacija>
+    <Iznos>561.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Veliko Brdo - Kutina</Relacija>
+    <Iznos>429.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Veliko Vukovje - Kutina</Relacija>
+    <Iznos>770.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Velika Gorica - Zagreb</Relacija>
+    <Iznos>530.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Vidrenjak - Kutina</Relacija>
+    <Iznos>1047.20</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Voloder - Kutina</Relacija>
+    <Iznos>429.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Zagreb - Kutina</Relacija>
+    <Iznos>1718.20</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Zbjegovača - Kutina</Relacija>
+    <Iznos>616.0</Iznos>
+  </Relacije>
+  <Relacije>
+    <Relacija>Zbjegovača - Gojlo</Relacija>
+    <Iznos>616.0</Iznos>
+  </Relacije>
+</Cjenik>
