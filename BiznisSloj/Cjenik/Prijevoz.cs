@@ -1,39 +1,42 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace BiznisSloj.Cjenik
 {
     public struct Prijevoz
     {
-        private static readonly List<string> ListaRelacija = new List<string>();
 
         public static IEnumerable<string> VratiListu()
         {
-            var doc = new XmlDocument();
-            doc.Load("Cjenik.xml");
-            var elemList = doc.GetElementsByTagName("Relacija");
-            for (var i = 0; i < elemList.Count; i++)
+            var listaRelacija = new List<string>();
+            var xelement = VratiCjenik();
+            var elemList = xelement.Descendants("Relacije")
+                .Where(r => r.Element("Relacija") != null)
+                .Elements("Relacija").ToList();
+            foreach (var rel in elemList)
             {
-               ListaRelacija.Add(elemList[i].InnerXml);
-            }
-            return ListaRelacija;
+                listaRelacija.Add(rel.Value);
+            } 
+            return listaRelacija;
         }
-        
 
+        public static decimal VratiIznosPrijevoza(string mjesto)
+        {
+            var xelement = VratiCjenik();
+            var prevoz = xelement.Descendants("Relacije").AsParallel()
+                .Where(a => (string) a.Element("Relacija") == mjesto)
+                .Elements("Iznos")
+                .First();
+            var iznos = decimal.Parse(prevoz.Value);
+            iznos = iznos / 10;
+            return iznos;
+        }
 
-        //public static IEnumerable<string> ListaStanica()
-        //{
-        //    var stanice = ListaRelacija.Select(st => st.Key);
-        //    return stanice;
-        //}
-
-        //public static decimal VratiIznosPrijevoza(string mjesto)
-        //{
-        //    var iznos = ListaRelacija.AsParallel().Where(rel => string.Equals(rel.Key, mjesto)).Select(st => st.Value)
-        //        .First();
-        //    return iznos;
-        //}
+        private static XDocument VratiCjenik()
+        {
+            var xelement = XDocument.Load("Cjenik.xml");
+            return xelement;
+        }
     }
 }
