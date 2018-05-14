@@ -58,7 +58,7 @@ namespace TestIznosa
         [TestMethod]
         public void ProvjeraVracanjaIznosa()
         {
-            var iznos = Koeficijenti.VratiIznos("Naknada za G.O. nedjeljom noću");
+            var iznos = Koeficijenti2.VratiIznos("Naknada za G.O. nedjeljom noću");
             Assert.AreEqual(iznos, 1.85m);
         }
 

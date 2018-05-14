@@ -8,6 +8,11 @@
              d:DesignHeight="300"
              d:DesignWidth="420"
              Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="PoravnajDesno" TargetType="{x:Type TextBlock}">
+            <Setter Property ="TextAlignment" Value="Right"/>
+            </Style>
+    </UserControl.Resources>
     <Grid>
         <DataGrid x:Name="KoeficijentiDataGrid"
                   AutoGenerateColumns="False"
@@ -16,9 +21,6 @@
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}"
-                                    Header="Id"
-                                    Width="SizeToHeader" />
                 <DataGridTextColumn Binding="{Binding Sifra}"
                                     Header="Šifra"
                                     Width="SizeToHeader" />
@@ -27,15 +29,8 @@
                                     Width="250" />
                 <DataGridTextColumn Binding="{Binding Koeficijent}"
                                     Header="Koeficijent"
-                                    Width="SizeToHeader">
-                    <DataGridTextColumn.CellStyle>
-                        <Style>
-                            <Setter Property="TextBlock.VerticalAlignment"
-                                    Value="Center" />
-                            <Setter Property="TextBlock.HorizontalAlignment"
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTextColumn.CellStyle>
+                                    Width="SizeToHeader"
+                                    ElementStyle="{StaticResource PoravnajDesno}">
                 </DataGridTextColumn>
             </DataGrid.Columns>
             <DataGrid.GroupStyle>

@@ -16,7 +16,7 @@ namespace ObracunPlace
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti.VratiSifre());
+            var collectionView = CollectionViewSource.GetDefaultView(Koeficijenti2.VratiSifre());
             collectionView.GroupDescriptions.Add(new PropertyGroupDescription("Sifra"));
             KoeficijentiDataGrid.DataContext = collectionView;
         }

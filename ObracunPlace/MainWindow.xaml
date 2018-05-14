@@ -101,7 +101,8 @@
                                         VerticalContentAlignment="Center"
                                         Width="60"
                                         Height="25"
-                                        Margin="5,0,7,0" />
+                                        Margin="5,0,7,0"
+                                        Text="1" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="2"
                                             Orientation="Horizontal"
@@ -281,8 +282,8 @@
                                               HorizontalAlignment="Right"
                                               SelectionChanged="CmbPrijevoz_SelectionChanged"
                                               IsReadOnly="True"
-                                              HorizontalContentAlignment="Center" 
-                                              VerticalContentAlignment="Center"/>
+                                              HorizontalContentAlignment="Center"
+                                              VerticalContentAlignment="Center" />
                                 </StackPanel>
                                 <Border BorderThickness="0,0,0,1"
                                         BorderBrush="Black">

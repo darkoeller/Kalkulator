@@ -22,7 +22,7 @@ namespace ObracunPlace
         {
             InitializeComponent();
 
-            var svesifre = Koeficijenti.VratiSifre();
+            var svesifre = Koeficijenti2.VratiSifre();
             var sifre = svesifre.Select(s => s.Naziv);
             ChComboBoxVrsteRada.ItemsSource = sifre;
             BodoviUpDown.Focus();
@@ -42,16 +42,19 @@ namespace ObracunPlace
             decimal.TryParse(BodoviUpDown.Text, out var bodovi);
             return bodovi;
         }
+
         private decimal GetMinuli()
         {
             decimal.TryParse(MinuliUpDown.Text, out var minuli);
             return minuli;
         }
+
         private decimal GetSatiRada()
         {
             decimal.TryParse(SatiRadaUpDown.Text, out var satirada);
             return satirada;
         }
+
         private decimal GetGodineStaza()
         {
             decimal.TryParse(GodineUpDown.Text, out var godine);
@@ -61,7 +64,7 @@ namespace ObracunPlace
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var vrstarada = ChComboBoxVrsteRada.SelectedItem.ToString();
-            _koeficijent = Koeficijenti.VratiIznos(vrstarada);
+            _koeficijent = Koeficijenti2.VratiIznos(vrstarada);
             StatusLbl.Content = "promjena vrste rada";
         }
 

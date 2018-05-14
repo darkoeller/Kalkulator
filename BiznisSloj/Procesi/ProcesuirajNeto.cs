@@ -17,9 +17,9 @@ namespace BiznisSloj.Procesi
         private decimal Faktor { get; }
         private decimal Neto { get; }
         private decimal Prirez { get; }
-        private decimal KoefPrireza { get; set; }
-        private decimal KoefPorezaPrireza24 { get; set; }
-        private decimal KoefPorezaPrireza36 { get; set; }
+        private double KoefPrireza { get; set; }
+        private double KoefPorezaPrireza24 { get; set; }
+        private double KoefPorezaPrireza36 { get; set; }
         private bool MirStup { get; }
 
         private decimal IzracunOlaksiceClanova()
@@ -31,7 +31,7 @@ namespace BiznisSloj.Procesi
 
         private void PostaviKoeficijentePorezaPrireza()
         {
-            var priporezkoef = new PorezniKoeficijenti(Prirez);
+            var priporezkoef = new PorezniKoeficijenti2(Prirez);
             KoefPrireza = priporezkoef.KoefPrireza;
             KoefPorezaPrireza24 = priporezkoef.KoefPorezaPrireza24;
             KoefPorezaPrireza36 = priporezkoef.KoefPorezaPrireza36;
@@ -49,32 +49,35 @@ namespace BiznisSloj.Procesi
 
         private decimal NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
-            if (neto > 38496.60m - (4200.0m * KoefPrireza + (20966.0m - odbitak) * 0.36m * KoefPrireza))
+            if (neto > 38496.60m -
+                (4200.0m * (decimal) KoefPrireza + (20966.0m - odbitak) * 0.36m * (decimal) KoefPrireza))
                 return Math.Round(CetvrtaMetoda(neto, odbitak), 2);
             if (neto <= odbitak) return neto * 1.25m;
-            if (neto < 17500.00m - 4200.00m * KoefPrireza + odbitak)
+            if (neto < 17500.00m - 4200.00m * (decimal) KoefPrireza + odbitak)
                 return Math.Round(DrugaMetoda(neto, odbitak), 2);
-            return neto > 17500.00m - 4200.0m * KoefPrireza + odbitak
+            return neto > 17500.00m - 4200.0m * (decimal) KoefPrireza + odbitak
                 ? Math.Round(TrecaMetoda(neto, odbitak), 2)
                 : 0.0m;
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
         {
-            return 17500.00m + odbitak + (neto - (17500.0m - 4200.0m * KoefPrireza + odbitak)) * KoefPorezaPrireza36 +
+            return 17500.00m + odbitak + (neto - (17500.0m - 4200.0m * (decimal) KoefPrireza + odbitak)) *
+                   (decimal) KoefPorezaPrireza36 +
                    9624.00m;
         }
 
         private decimal TrecaMetoda(decimal neto, decimal odbitak)
         {
-            return (17500.0m + odbitak + (neto - (17500.0m - 4200.0m * KoefPrireza + odbitak)) * KoefPorezaPrireza36) /
+            return (17500.0m + odbitak + (neto - (17500.0m - 4200.0m * (decimal) KoefPrireza + odbitak)) *
+                    (decimal) KoefPorezaPrireza36) /
                    0.8m;
         }
 
         //računa neto bez poreza
         private decimal DrugaMetoda(decimal neto, decimal odbitak)
         {
-            return ((neto - odbitak) * KoefPorezaPrireza24 + odbitak) / 0.8m;
+            return ((neto - odbitak) * (decimal) KoefPorezaPrireza24 + odbitak) / 0.8m;
         }
     }
 }

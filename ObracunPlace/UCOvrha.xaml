@@ -18,8 +18,8 @@
             IZRAČUNAJTE IZNOSE ZA UPLATU NA ZAŠTIĆENI RAČUN
         </TextBlock>
         <GroupBox Header="FINA"
-                BorderBrush="CornflowerBlue"
-                Background="#FFF3FAFA" Height="260" Width="500" Margin="0">
+                  BorderBrush="CornflowerBlue"
+                  Background="#FFF3FAFA" Height="260" Width="500" Margin="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

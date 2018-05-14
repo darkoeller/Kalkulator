@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using BiznisSloj;
 using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
@@ -150,9 +149,9 @@ namespace ObracunPlace
         {
             UkljuciGumb();
             TabKontrola.SelectedIndex += 1;
-            CmbPrirez.ItemsSource = Prirezi.ListaPrireza();
+            CmbPrirez.ItemsSource = PorezniKoeficijenti2.VratiStopePrireza();
             CmbPrirez.SelectedIndex = 0;
-            CmbPrijevoz.ItemsSource = Prijevoz.VratiListu();
+            CmbPrijevoz.ItemsSource = Prijevoz2.ListaRelacija();
             CmbPrijevoz.SelectedIndex = 0;
         }
 
@@ -190,7 +189,7 @@ namespace ObracunPlace
 
         private void CmbPrijevoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IznosPrijevoza = Math.Round(Prijevoz.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
+            IznosPrijevoza = Math.Round(Prijevoz2.VratiIznosPrijevoza(CmbPrijevoz.SelectedItem.ToString()), 2);
             var prijevoz = IznosPrijevoza;
             prijevoz += GetNeto();
             LblPrijevoz.Content = Math.Round(prijevoz, 2).ToString("C", new CultureInfo("hr-HR"));

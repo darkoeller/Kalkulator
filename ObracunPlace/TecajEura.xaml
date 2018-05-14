@@ -33,12 +33,12 @@
                 VALUTNI PRETVARAČ
             </TextBlock>
         </StackPanel>
-        <GroupBox Header="Odaberite valutu" Background="#FFF3FAFA" >
+        <GroupBox Header="Odaberite valutu" Background="#FFF3FAFA">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120*" />
                     <RowDefinition Height="88*" />
-                    <RowDefinition Height="65*" />
+                    <RowDefinition Height="75*" />
                     <RowDefinition Height="70*" />
                     <RowDefinition Height="75*" />
                 </Grid.RowDefinitions>
@@ -86,7 +86,7 @@
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
                           VerticalContentAlignment="Center"
-                          Margin="21,20,0,10"
+                          Margin="21,10,0,10"
                           VerticalAlignment="Top"
                           Width="150"
                           Height="26"
