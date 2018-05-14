@@ -2,7 +2,6 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.KoefSati;
 using BiznisSloj.Olaksice;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestIznosa
@@ -10,7 +9,6 @@ namespace TestIznosa
     [TestClass]
     public class UnitTest1
     {
-  
         [TestMethod]
         public void TestDoprinosa()
         {
@@ -36,7 +34,6 @@ namespace TestIznosa
             var izracun = olaksica.VratiOlaksicu();
             Assert.AreEqual(izracun, 6800.0m);
         }
-
 
 
         [TestMethod]

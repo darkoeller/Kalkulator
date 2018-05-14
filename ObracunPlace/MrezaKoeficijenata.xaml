@@ -10,8 +10,8 @@
              Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <Style x:Key="PoravnajDesno" TargetType="{x:Type TextBlock}">
-            <Setter Property ="TextAlignment" Value="Right"/>
-            </Style>
+            <Setter Property="TextAlignment" Value="Right" />
+        </Style>
     </UserControl.Resources>
     <Grid>
         <DataGrid x:Name="KoeficijentiDataGrid"
@@ -30,8 +30,7 @@
                 <DataGridTextColumn Binding="{Binding Koeficijent}"
                                     Header="Koeficijent"
                                     Width="SizeToHeader"
-                                    ElementStyle="{StaticResource PoravnajDesno}">
-                </DataGridTextColumn>
+                                    ElementStyle="{StaticResource PoravnajDesno}" />
             </DataGrid.Columns>
             <DataGrid.GroupStyle>
                 <GroupStyle>

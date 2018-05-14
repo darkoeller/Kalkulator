@@ -8,7 +8,7 @@ using BiznisSloj.KoefSati;
 namespace ObracunPlace
 {
     /// <summary>
-    ///     Interaction logic for UCObracun.xaml
+    ///   Interaction logic for UCObracun.xaml
     /// </summary>
     public sealed partial class UcObracun
     {
@@ -65,7 +65,6 @@ namespace ObracunPlace
         {
             var vrstarada = ChComboBoxVrsteRada.SelectedItem.ToString();
             _koeficijent = Koeficijenti2.VratiIznos(vrstarada);
-            StatusLbl.Content = "promjena vrste rada";
         }
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
@@ -76,7 +75,6 @@ namespace ObracunPlace
             Bruto += izracun;
             ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
-            StatusLbl.Content = "izračun satnice";
         }
 
         private void PozoviLabelu()
@@ -89,7 +87,6 @@ namespace ObracunPlace
             ListBoxBruto.Items.Clear();
             Bruto = 0.0m;
             PozoviLabelu();
-            StatusLbl.Content = "očišćeno !";
         }
 
         private void BtnMinuli_Click(object sender, RoutedEventArgs e)
@@ -99,7 +96,6 @@ namespace ObracunPlace
             Bruto += izracun;
             ListBoxBruto.Items.Add("Minuli rad: " + izracun.ToString(new CultureInfo("hr-HR")));
             PozoviLabelu();
-            StatusLbl.Content = "izračun minulog rada";
         }
 
 
@@ -110,7 +106,6 @@ namespace ObracunPlace
             Bruto += izracun;
             ListBoxBruto.Items.Add("Dodatak na plaću: " + izracun.ToString(new CultureInfo("hr-HR")));
             PozoviLabelu();
-            StatusLbl.Content = "izračun dodatka";
         }
 
         private void BtnOcistiOdabrano_Click(object sender, RoutedEventArgs e)
@@ -126,7 +121,6 @@ namespace ObracunPlace
                 Bruto -= broj;
                 ListBoxBruto.Items.RemoveAt(ListBoxBruto.SelectedIndex);
                 PozoviLabelu();
-                StatusLbl.Content = "obrisan red";
             }
         }
 
@@ -136,7 +130,6 @@ namespace ObracunPlace
             var rezultat = minuli.Izracun();
             LblMinuli.Content = "Vaš minuli iznosi : " + rezultat.ToString(new CultureInfo("hr-HR"));
             Bruto += rezultat;
-            StatusLbl.Content = "izračun minulog";
         }
 
         private static decimal PronadjiDecimalniBroj(string razlika)

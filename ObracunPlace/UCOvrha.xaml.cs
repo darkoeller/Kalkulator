@@ -8,7 +8,7 @@ using BiznisSloj.Datumi;
 namespace ObracunPlace
 {
     /// <summary>
-    ///     Interaction logic for UCOvrha.xaml
+    ///   Interaction logic for UCOvrha.xaml
     /// </summary>
     public partial class UcOvrha
     {

@@ -177,17 +177,6 @@
                             </ScrollViewer>
                         </Expander.Content>
                     </Expander>
-                    <StatusBar x:Name="Status"
-                               Height="35"
-                               Width="210"
-                               Margin="0,130,0,0">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Foreground="WhiteSmoke" Content="Status: "
-                                   HorizontalAlignment="Left" />
-                            <Label Foreground="WhiteSmoke" x:Name="StatusLbl"
-                                   HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </StatusBar>
                 </StackPanel>
                 <Border Grid.ColumnSpan="3"
                         Grid.Column="0"

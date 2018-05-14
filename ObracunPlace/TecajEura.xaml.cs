@@ -7,7 +7,7 @@ using BiznisSloj.BankarskiTecaj;
 namespace ObracunPlace
 {
     /// <summary>
-    ///     Interaction logic for TecajEura.xaml
+    ///   Interaction logic for TecajEura.xaml
     /// </summary>
     public partial class TecajEura
     {

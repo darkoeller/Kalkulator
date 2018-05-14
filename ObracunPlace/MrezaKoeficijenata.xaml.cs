@@ -5,7 +5,7 @@ using BiznisSloj.KoefSati;
 namespace ObracunPlace
 {
     /// <summary>
-    ///     Interaction logic for MrezaKoeficijenata.xaml
+    ///   Interaction logic for MrezaKoeficijenata.xaml
     /// </summary>
     public partial class MrezaKoeficijenata
     {

@@ -132,8 +132,8 @@
                       GridLinesVisibility="All" FontFamily="Roboto Light">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header=" Prezime i ime" Binding="{Binding Ime}" />
-                    <DataGridTextColumn Header=" Od dat. " Binding="{Binding OdDatuma}" />
-                    <DataGridTextColumn Header=" Do dat. " Binding="{Binding DoDatuma}" />
+                    <DataGridTextColumn Header=" Od datuma " Binding="{Binding OdDatuma}" />
+                    <DataGridTextColumn Header=" Do datuma " Binding="{Binding DoDatuma}" />
                     <DataGridTextColumn Header=" Vrsta" Binding="{Binding Vrsta}" />
                     <DataGridTextColumn Header=" Bruto "
                                         Binding="{Binding Bruto, StringFormat=c, ConverterCulture= hr}" />

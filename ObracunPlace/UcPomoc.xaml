@@ -10,7 +10,7 @@
                 Margin="10,0">
         <FlowDocumentReader ViewingMode="Scroll"
                             Zoom="5"
-                            MaxZoom="110"
+                            MaxZoom="130"
                             ZoomIncrement="5" Height="657" Margin="0">
             <FlowDocument FontSize="12"
                           IsOptimalParagraphEnabled="True"
@@ -43,7 +43,7 @@
                 </Paragraph>
                 <Paragraph>
                     <Run
-                        Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani 6%)." />
+                        Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani 6%, Popovača i Novska 10%)." />
                 </Paragraph>
                 <Paragraph>
                     <Run

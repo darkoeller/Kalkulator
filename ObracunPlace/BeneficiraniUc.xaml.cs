@@ -17,7 +17,7 @@ using Image = iTextSharp.text.Image;
 namespace ObracunPlace
 {
     /// <summary>
-    ///     Interaction logic for BeneficiraniUc.xaml
+    ///   Interaction logic for BeneficiraniUc.xaml
     /// </summary>
     public partial class BeneficiraniUc
     {
