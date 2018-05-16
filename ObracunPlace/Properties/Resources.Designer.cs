@@ -113,14 +113,5 @@ namespace ObracunPlace.Properties {
                 return ResourceManager.GetString("lovalovac", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ..\Resources\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
-        /// </summary>
-        public static string pencil {
-            get {
-                return ResourceManager.GetString("pencil", resourceCulture);
-            }
-        }
     }
 }
