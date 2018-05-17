@@ -5,6 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              d:DesignHeight="780" d:DesignWidth="830" Loaded="BeneficiraniUc_OnLoaded">
+    <UserControl.Resources>
+        <Storyboard x:Key="WaitStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="Wait"
+                Storyboard.TargetProperty="(TextBlock.RenderTransform).(RotateTransform.Angle)"
+                From="0"
+                To="360"
+                Duration="0:0:2"
+                RepeatBehavior="Forever" />
+        </Storyboard>
+    </UserControl.Resources>
     <DockPanel LastChildFill="False" HorizontalAlignment="Center">
         <TextBlock DockPanel.Dock="Top"
                    TextAlignment="Center"
@@ -46,6 +57,7 @@
                 <TextBox x:Name="TxtBruto"
                          Margin="5,0,0,0" Width="120" Focusable="True"
                          Height="24"
+                         HorizontalContentAlignment="Right"
                          VerticalContentAlignment="Center"
                          ToolTip="Upišite bruto " />
                 <ComboBox x:Name="CmbVrstaBene" HorizontalContentAlignment="Center"
@@ -102,6 +114,11 @@
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" MinHeight="50"
                     DockPanel.Dock="Top">
+            <TextBlock Name="Wait" FontFamily="Fonts/#FontAwesome" FontSize="50" Text="&#xf110;" RenderTransformOrigin="0.5, 0.5" Margin="10,0">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="0" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
             <Button x:Name="BtnOcisti" IsCancel="True" Click="BtnOcisti_Click" Width="100"
                     ToolTip="Kao da pritisnete 'Esc'">
                 <StackPanel Orientation="Horizontal">

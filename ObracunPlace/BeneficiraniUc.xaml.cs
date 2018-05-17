@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using BiznisSloj.Benefit;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Ispis;
@@ -30,6 +31,7 @@ namespace ObracunPlace
         {
             InitializeComponent();
             _popis = new ObservableCollection<Beneficirani>();
+            Wait.Visibility = Visibility.Hidden;
         }
 
         private int Odabrano { get; set; }
@@ -50,6 +52,7 @@ namespace ObracunPlace
             DoDatuma.SelectedDateFormat = DatePickerFormat.Short;
             OdDatuma.SelectedDate = DateTime.Today.AddMonths(-1);
             DoDatuma.SelectedDate = DateTime.Today.AddMonths(-1);
+           
             ImePrezime.Focus();
         }
 
@@ -80,7 +83,6 @@ namespace ObracunPlace
                     LblBene1I2.Content = "Benefeficirani stup 1 i 2";
                     break;
             }
-
             OcistiLabele();
             ImePrezime.Focus();
         }
@@ -163,6 +165,8 @@ namespace ObracunPlace
 
         private void BtnIspis_Click(object sender, RoutedEventArgs e)
         {
+            ((Storyboard)FindResource("WaitStoryboard")).Begin();
+            Wait.Visibility = Visibility.Visible;
             using (var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30))
             {
                 try
@@ -245,6 +249,8 @@ namespace ObracunPlace
                     MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
                 }
             }
+            ((Storyboard)FindResource("WaitStoryboard")).Stop();
+            Wait.Visibility = Visibility.Hidden;
         }
 
         private static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
