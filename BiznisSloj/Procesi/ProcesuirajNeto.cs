@@ -49,22 +49,24 @@ namespace BiznisSloj.Procesi
 
         private decimal NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
-            if (neto > 38496.60m -
-                (4200.0m * (decimal) KoefPrireza + (20966.0m - odbitak) * 0.36m * (decimal) KoefPrireza))
+            if (neto > (odbitak * (36m + 0.36m * Prirez) - 11758.56m * Prirez + 2673744m) / 100m)
+                return Math.Round(PetaMetoda(neto, odbitak), 2);
+            if (neto <= (odbitak * (36m + 0.36m * Prirez)- 11272.99m * Prirez + 2587420.8m) / 100m &&  neto > odbitak + 17500m - 175m *24m -1.75m* 24m * Prirez)
                 return Math.Round(CetvrtaMetoda(neto, odbitak), 2);
-            if (neto <= odbitak) return neto * 1.25m;
-            if (neto < 17500.00m - 4200.00m * (decimal) KoefPrireza + odbitak)
+            if (neto > odbitak && neto <= odbitak + 17500m - 175m * 24m - 1.75m * 24m * Prirez)
                 return Math.Round(DrugaMetoda(neto, odbitak), 2);
-            return neto > 17500.00m - 4200.0m * (decimal) KoefPrireza + odbitak
-                ? Math.Round(TrecaMetoda(neto, odbitak), 2)
-                : 0.0m;
+            if (neto <= odbitak) return neto * 1.25m;
+            return 0.0m;
+        }
+
+        private decimal PetaMetoda(decimal neto, decimal odbitak)
+        {
+            return (100 * neto - odbitak * (36m + 0.36m * Prirez) - 5564.64m * Prirez + 405936m) / (64m - 0.36m * Prirez);
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
         {
-            return 17500.00m + odbitak + (neto - (17500.0m - 4200.0m * (decimal) KoefPrireza + odbitak)) *
-                   (decimal) KoefPorezaPrireza36 +
-                   9624.00m;
+            return (neto - odbitak * (0.36m + 0.0036m * Prirez) - 21m * Prirez - 2100m) / (0.512m - 0.00288m * Prirez);
         }
 
         private decimal TrecaMetoda(decimal neto, decimal odbitak)
@@ -74,10 +76,9 @@ namespace BiznisSloj.Procesi
                    0.8m;
         }
 
-        //računa neto bez poreza
         private decimal DrugaMetoda(decimal neto, decimal odbitak)
         {
-            return ((neto - odbitak) * (decimal) KoefPorezaPrireza24 + odbitak) / 0.8m;
+            return (neto - odbitak * (0.24m + 0.0024m * Prirez)) / (0.608m - 0.00192m * Prirez);
         }
     }
 }
