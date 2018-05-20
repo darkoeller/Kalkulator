@@ -17,7 +17,7 @@ namespace BiznisSloj.Doprinosi
         public decimal Beneficirani1 { get; private set; }
         public decimal Beneficirani2 { get; private set; }
 
-        public decimal VratiBeneficirani()
+        public void VratiBeneficirani()
         {
             switch (_vrsta)
             {
@@ -38,11 +38,8 @@ namespace BiznisSloj.Doprinosi
                     Beneficirani1 = Math.Round(bene5.RacunajDoprinos(Bruto), 2);
                     var bene6 = new BeneficiraniDvaOsamdesetDevet();
                     Beneficirani2 = Math.Round(bene6.RacunajDoprinos(Bruto), 2);
-
                     break;
             }
-
-            return 0.00m;
         }
     }
 }

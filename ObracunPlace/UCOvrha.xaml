@@ -7,6 +7,11 @@
              d:DesignHeight="720"
              d:DesignWidth="550"
              Focusable="True">
+    <UserControl.Resources>
+        <Style x:Key="RadMargin" TargetType="RadioButton" >
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </UserControl.Resources>
     <StackPanel Orientation="Vertical" Width="550">
         <TextBlock HorizontalAlignment="Center"
                    FontWeight="Bold"
@@ -17,110 +22,98 @@
                    TextDecorations="Underline">
             IZRAČUNAJTE IZNOSE ZA UPLATU NA ZAŠTIĆENI RAČUN
         </TextBlock>
-        <GroupBox Header="FINA"
-                  BorderBrush="CornflowerBlue"
-                  Background="#FFF3FAFA" Height="260" Width="500" Margin="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="35*" />
-                    <RowDefinition Height="30*" />
-                    <RowDefinition Height="35*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0"
-                          Grid.Row="1"
-                          Grid.ColumnSpan="2"
-                          Header="Ovdje upišite neto iznos plaće"
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbClanak" IsChecked="True" Checked="RbClanak_Checked">Ovrha po čl. 173</RadioButton>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanje" Checked="RbUzdrzavanje_Checked">Ovrha radi tražbine po osnovi zakonskog uzdržavanja.</RadioButton>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanjeDjeteta" Checked="RbUzdrzavanjeDjeteta_Checked">Ovrha radi naplate tražbine za uzdržavanje djeteta.</RadioButton>
+            </StackPanel>
+            <GroupBox Header="Ovdje upišite neto iznos plaće"
                           HorizontalAlignment="Center"
-                          Margin="0,10,0,2">
-                    <TextBox Language="hr"
+                          Margin="0"
+                          Background="#FFEEF8FB">
+                <TextBox Language="hr"
                              VerticalContentAlignment="Center"
                              x:Name="TextBoxNeto"
                              HorizontalAlignment="Center"
                              Width="100"
                              Height="26"
                              HorizontalContentAlignment="Center" />
-                </GroupBox>
-                <Button Height="40"
-                        Grid.Column="1"
-                        Grid.Row="3"
-                        x:Name="IzracunajNeto"
-                        ToolTip="Izračunajte ovrhu"
-                        IsDefault="True"
-                        Click="IzracunajNeto_Click"
-                        Margin="0,20,0,10"
-                        Width="100">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Stretch="None"
-                               Source="Resources/Calculator.png" />
-                        <TextBlock Text="IZRAČUNAJ"
-                                   VerticalAlignment="Center"
-                                   Margin="3"
-                                   FontWeight="Normal"
-                                   FontFamily="Roboto Light" />
-                    </StackPanel>
-                </Button>
-                <StackPanel Grid.Column="0"
-                            Grid.Row="2"
-                            Orientation="Vertical"
-                            HorizontalAlignment="Center">
-                    <TextBlock Margin="0,15,0,0">
-                        <Run Text="Iznos koji ostaje za isplatu :" />
-                    </TextBlock>
-                    <TextBox x:Name="TxtNetoOstaje"
-                             IsReadOnly="True"
-                             Margin="10,10,10,0"
-                             Width="100"
-                             Height="26"
-                             VerticalContentAlignment="Center"
-                             HorizontalContentAlignment="Center"
-                             IsEnabled="False"
-                             Language="hr"
-                             Focusable="False" />
-                </StackPanel>
-                <StackPanel Grid.Row="2"
-                            Grid.Column="1"
-                            Orientation="Vertical"
-                            HorizontalAlignment="Center">
-                    <TextBlock Margin="0,15,0,0">
-                        <Run Text="Iznos koji će se ovršiti :" />
-                    </TextBlock>
-                    <TextBox x:Name="TxtNetoOvrha"
-                             IsReadOnly="True"
-                             Margin="10,10,10,0"
-                             Width="100"
-                             Height="26"
-                             VerticalContentAlignment="Center"
-                             HorizontalContentAlignment="Center"
-                             IsEnabled="False"
-                             Language="hr"
-                             Focusable="False" />
-                </StackPanel>
-                <Button Height="40"
-                        Grid.Row="3"
-                        Grid.Column="0"
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel 
+                Orientation="Vertical"
+                HorizontalAlignment="Center">
+                <TextBlock Margin="0,15,0,0">
+                    <Run Text="Iznos koji ostaje za isplatu :" />
+                </TextBlock>
+                <TextBox x:Name="TxtNetoOstaje"
+                         IsReadOnly="True"
+                         Margin="10,10,10,0"
+                         Width="100"
+                         Height="26"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         IsEnabled="False"
+                         Language="hr"
+                         Focusable="False" />
+            </StackPanel>
+            <StackPanel Margin="20,0,0,0"
+                Orientation="Vertical"
+                HorizontalAlignment="Center">
+                <TextBlock Margin="0,15,0,0">
+                    <Run Text="Iznos koji će se ovršiti :" />
+                </TextBlock>
+                <TextBox x:Name="TxtNetoOvrha"
+                         IsReadOnly="True"
+                         Margin="10,10,10,0"
+                         Width="100"
+                         Height="26"
+                         Foreground="DarkRed"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         IsEnabled="False"
+                         Language="hr"
+                         Focusable="False" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="40"
                         x:Name="BtnCisti"
                         Width="100"
-                        Margin="0,20,0,10"
+                        Margin="10,20,20,10"
                         ToolTip="Očistite kontrole na 0,00"
                         IsCancel="True"
                         Click="BtnCisti_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/cleaning.png"
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/cleaning.png"
                                Stretch="None" />
-                        <TextBlock Text="OČISTI"
+                    <TextBlock Text="OČISTI"
                                    VerticalAlignment="Center"
                                    Margin="3"
                                    FontWeight="Normal"
                                    FontFamily="Roboto Light" />
-                    </StackPanel>
-                </Button>
-            </Grid>
-        </GroupBox>
+                </StackPanel>
+            </Button>
+            <Button Height="40"
+                    x:Name="IzracunajNeto"
+                    ToolTip="Izračunajte ovrhu"
+                    IsDefault="True"
+                    Click="IzracunajNeto_Click"
+                    Margin="35,20,0,10"
+                    Width="100">
+                <StackPanel Orientation="Horizontal">
+                    <Image Stretch="None"
+                           Source="Resources/Calculator.png" />
+                    <TextBlock Text="IZRAČUNAJ"
+                               VerticalAlignment="Center"
+                               Margin="3"
+                               FontWeight="Normal"
+                               FontFamily="Roboto Light" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
         <TextBlock HorizontalAlignment="Center"
                    Margin="10">
             'Enter' na tipkovinici pokreće izračun, 'Esc' čisti tekst iz kontrola.

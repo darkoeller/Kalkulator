@@ -7,7 +7,7 @@ namespace BiznisSloj.Cjenik
 {
     public struct Prijevoz2
     {
-        private string Relacija { get; set; }
+        private string  Relacija { get; set; }
         private double Iznos { get; set; }
 
         public static bool operator ==(Prijevoz2 left, Prijevoz2 right)
@@ -28,7 +28,7 @@ namespace BiznisSloj.Cjenik
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
-            return obj is Prijevoz2 && Equals((Prijevoz2) obj);
+            return obj is Prijevoz2 prijevoz2 && Equals(prijevoz2);
         }
 
         public override int GetHashCode()

@@ -31,10 +31,9 @@ namespace BiznisSloj.Ispis
 
         public void Ispis()
         {
-            using (var doc = new Document(PageSize.A4, 20, 15, 25, 30))
-            {
                 try
                 {
+                    var doc = new Document(PageSize.A4, 20, 15, 25, 30);
                     var pdwri = PdfWriter.GetInstance(doc
                         , new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
                     var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
@@ -54,7 +53,7 @@ namespace BiznisSloj.Ispis
                     doc.Add(new Paragraph("Tel.: +385 44 647 270", times));
                     doc.Add(new Paragraph("Fax: +385 44 680 882", times));
                     doc.Add(new Paragraph("E-mail: ", times));
-                    var anchor = new Anchor("www.petrokemija.hr", times) {Reference = "http://www.petrokemija.hr"};
+                    var anchor = new Anchor("www.petrokemija.hr", times) { Reference = "http://www.petrokemija.hr" };
                     doc.Add(anchor);
                     doc.Add(new Paragraph(" "));
                     var headertablica = new PdfPTable(2)
@@ -78,11 +77,11 @@ namespace BiznisSloj.Ispis
                     headertablica.AddCell(celijakutina);
                     headertablica.AddCell(celijadatum);
                     doc.Add(headertablica);
-                    doc.Add(new Paragraph(_naslov, desetka) {SpacingBefore = 20f, Alignment = 1});
+                    doc.Add(new Paragraph(_naslov, desetka) { SpacingBefore = 20f, Alignment = 1 });
                     doc.Add(new Paragraph(" "));
                     //ovdje dođe tijelo platne liste
                     var listaIznosa = new PdfPTable(2);
-                    float[] sirina = {16f, 8f};
+                    float[] sirina = { 16f, 8f };
                     listaIznosa.SpacingBefore = 10f;
                     listaIznosa.SpacingAfter = 30f;
                     listaIznosa.SetWidths(sirina);
@@ -93,7 +92,7 @@ namespace BiznisSloj.Ispis
                         FixedHeight = 10f
                     };
                     listaIznosa.AddCell(opis);
-                    var iznosi = new PdfPCell(new Phrase("IZNOSI", desetka)) {HorizontalAlignment = 1};
+                    var iznosi = new PdfPCell(new Phrase("IZNOSI", desetka)) { HorizontalAlignment = 1 };
                     listaIznosa.AddCell(iznosi);
                     listaIznosa.AddCell(new Phrase("Bruto iznos : ", times));
                     var brutoIznos =
@@ -147,7 +146,8 @@ namespace BiznisSloj.Ispis
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 24% : ", times));
                     var dvacetri =
                         new PdfPCell(new Phrase(Math.Round(_listica.PorezDvadesetCetiriPosto, 2).ToString("c"),
-                            times)) {HorizontalAlignment = 2};
+                            times))
+                        { HorizontalAlignment = 2 };
                     listaIznosa.AddCell(dvacetri);
                     listaIznosa.AddCell(new Phrase("Porez po stopi od 36% : ", times));
                     var trisest =
@@ -180,7 +180,7 @@ namespace BiznisSloj.Ispis
                     listaIznosa.AddCell(netoPlaca);
                     listaIznosa.AddCell(
                         new Phrase("Neto iznos + naknada za prijevoz (" + _iznosPrijevoza + " kn" + ") :", times));
-                    var prijevoz = new PdfPCell(new Phrase(_lblprijevoz, times)) {HorizontalAlignment = 2};
+                    var prijevoz = new PdfPCell(new Phrase(_lblprijevoz, times)) { HorizontalAlignment = 2 };
                     listaIznosa.AddCell(prijevoz);
                     var labOdbici =
                         new PdfPCell(new Phrase(
@@ -245,7 +245,6 @@ namespace BiznisSloj.Ispis
                     MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            }
         }
     }
 }

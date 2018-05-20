@@ -69,13 +69,6 @@ namespace BiznisSloj.Procesi
             return (neto - odbitak * (0.36m + 0.0036m * Prirez) - 21m * Prirez - 2100m) / (0.512m - 0.00288m * Prirez);
         }
 
-        private decimal TrecaMetoda(decimal neto, decimal odbitak)
-        {
-            return (17500.0m + odbitak + (neto - (17500.0m - 4200.0m * (decimal) KoefPrireza + odbitak)) *
-                    (decimal) KoefPorezaPrireza36) /
-                   0.8m;
-        }
-
         private decimal DrugaMetoda(decimal neto, decimal odbitak)
         {
             return (neto - odbitak * (0.24m + 0.0024m * Prirez)) / (0.608m - 0.00192m * Prirez);

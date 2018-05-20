@@ -4,12 +4,13 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
+        private readonly byte _rbovrha;
+
         private static readonly decimal ProsjecnoNeto = 5960.00m;
 
-        private static readonly decimal MinimalniNeto = 3439.80m;
-
-        public Ovrha(decimal neto)
+        public Ovrha(decimal neto, byte rbovrha)
         {
+            _rbovrha = rbovrha;
             Neto = neto;
         }
 
@@ -19,8 +20,22 @@ namespace BiznisSloj
 
         public decimal IzracunajOvrhu()
         {
+            switch (_rbovrha)
+            {
+                case 1:
+                    return IzracunPoClanku();
+                case 2:
+                    return IzracunUzdrzavanje();
+                case 3:
+                    return OvrhaZaUzdrzavanjeDjece();
+            }
+            return 0.0m;
+        }
+
+        private decimal IzracunPoClanku()
+        {
             var netoIznos = Neto;
-            var prolaz = Procjena(netoIznos);
+            var prolaz = ProcjenaClanak(netoIznos);
             switch (prolaz)
             {
                 case 1:
@@ -34,10 +49,37 @@ namespace BiznisSloj
             ZaOvrsiti = Neto - netoIznos;
             return netoIznos;
         }
-
-        private static int Procjena(decimal netoIznos)
+        private decimal IzracunUzdrzavanje()
         {
-            return netoIznos <= 5297.77m ? 1 : 2;
+            var neto = Neto;
+            if (neto < ProsjecnoNeto)
+            {
+                neto = Math.Round(Neto / 2, 2);
+                ZaOvrsiti = neto;
+                return neto;
+            }
+            if (neto < ProsjecnoNeto) return 0;
+            ZaOvrsiti = Neto - 2980.0m;
+            return 2980.0m;
+        }
+
+
+        private decimal OvrhaZaUzdrzavanjeDjece()
+        {
+            var neto = Neto;
+            if (neto < ProsjecnoNeto)
+            {
+                ZaOvrsiti = Math.Round(neto / 4 * 3, 2);
+                return Math.Round(neto / 4 * 1, 2);
+            }
+            if (neto < ProsjecnoNeto) return 0;
+            ZaOvrsiti = neto - 1490.0m;
+            return 1490.0m;
+        }
+
+        private static byte ProcjenaClanak(decimal netoIznos)
+        {
+            return netoIznos <= 5297.77m ? (byte)1 : (byte)2;
         }
     }
 }

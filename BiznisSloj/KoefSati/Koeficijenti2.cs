@@ -25,7 +25,7 @@ namespace BiznisSloj.KoefSati
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
-            return obj is Koeficijenti2 && Equals((Koeficijenti2) obj);
+            return obj is Koeficijenti2 koeficijenti2 && Equals(koeficijenti2);
         }
 
         public override int GetHashCode()

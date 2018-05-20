@@ -20,12 +20,13 @@ namespace ObracunPlace
             TextBoxNeto.Focus();
         }
 
+        private byte RbOvrha { get; set; }
 
         private void IzracunajNeto_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TextBoxNeto.Text)) return;
             decimal.TryParse(TextBoxNeto.Text, out _neto);
-            var ovrha = new Ovrha(_neto);
+            var ovrha = new Ovrha(_neto, RbOvrha);
             TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString(CultureInfo.InvariantCulture);
             TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString(CultureInfo.InvariantCulture);
         }
@@ -67,6 +68,27 @@ namespace ObracunPlace
         {
             IsprazniLabele();
             IzracunajDatum();
+        }
+
+        private void RbClanak_Checked(object sender, RoutedEventArgs e)
+        {
+            RbOvrha = 1;
+        }
+
+        private void RbUzdrzavanje_Checked(object sender, RoutedEventArgs e)
+        {
+            RbOvrha = 2;
+            TxtNetoOstaje.Text = "";
+            TxtNetoOvrha.Text = "";
+            TextBoxNeto.Focus();
+        }
+
+        private void RbUzdrzavanjeDjeteta_Checked(object sender, RoutedEventArgs e)
+        {
+            RbOvrha = 3;
+            TxtNetoOstaje.Text = "";
+            TxtNetoOvrha.Text = "";
+            TextBoxNeto.Focus();
         }
     }
 }
