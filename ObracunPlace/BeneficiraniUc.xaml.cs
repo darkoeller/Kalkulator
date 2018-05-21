@@ -167,10 +167,9 @@ namespace ObracunPlace
         {
             ((Storyboard)FindResource("WaitStoryboard")).Begin();
             Wait.Visibility = Visibility.Visible;
-            using (var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30))
-            {
                 try
                 {
+                    var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
                     var pdwri = PdfWriter.GetInstance(doc
                         , new FileStream("Ispis.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
                     var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
@@ -248,7 +247,7 @@ namespace ObracunPlace
                 {
                     MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
                 }
-            }
+            
             ((Storyboard)FindResource("WaitStoryboard")).Stop();
             Wait.Visibility = Visibility.Hidden;
         }

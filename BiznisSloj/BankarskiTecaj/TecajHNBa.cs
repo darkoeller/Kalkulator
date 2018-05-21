@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Linq;
-using System.Windows;
-using System.Xml.Linq;
+using System.Net;
+using System.Text;
 
 namespace BiznisSloj.BankarskiTecaj
 {
-    public class TecajHnBa : ITecaj
+    public struct TecajHnBa : ITecaj
     {
         public decimal VratiEuro()
         {
-            try
+            using (var client = new WebClient())
             {
-                var xelement = XDocument.Load("http://api.hnb.hr/tecajn?valuta=EUR&format=xml");
-                var tecaj = xelement.Descendants().First(x => x.Name == "srednji_tecaj");
-                var euro = decimal.Parse(tecaj.Value);
-                return euro;
+                var web = FormirajWebString();
+                var content = client.DownloadString(web);
+                content = content.Replace(".", ",");
+                decimal.TryParse(content, out var tecaj);
+                return tecaj;
             }
+        }
 
-            catch (Exception)
-            {
-                MessageBox.Show(
-                    "Došlo je do pogreške prilikom prezimanja podataka,\n provjerite da li imate pristup internetu."
-                    , "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return 0.0m;
-            }
+        private static string FormirajWebString()
+        {
+            var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/");
+            var web = DateTime.Today.ToShortDateString();
+            bilder.Append(web + "/srednji/eur");
+            return bilder.ToString();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace BiznisSloj.BankarskiTecaj
 {
-    public class TecajPbZa : ITecaj
+    public struct TecajPbZa : ITecaj
     {
         public decimal VratiEuro()
         {
