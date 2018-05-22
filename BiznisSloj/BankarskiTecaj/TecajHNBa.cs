@@ -21,7 +21,7 @@ namespace BiznisSloj.BankarskiTecaj
         private static string FormirajWebString()
         {
             var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/");
-            var web = DateTime.Today.ToShortDateString();
+            var web = DateTime.Today.ToShortDateString().Remove(9,1);
             bilder.Append(web + "/srednji/eur");
             return bilder.ToString();
         }
