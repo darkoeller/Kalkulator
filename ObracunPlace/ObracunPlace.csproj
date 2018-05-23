@@ -163,7 +163,11 @@
     <Compile Include="BeneficiraniUc.xaml.cs">
       <DependentUpon>BeneficiraniUc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrutoNetoUserControla.xaml.cs">
+      <DependentUpon>BrutoNetoUserControla.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Header.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,6 +186,10 @@
       <DependentUpon>UcPomoc.xaml</DependentUpon>
     </Compile>
     <Page Include="BeneficiraniUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrutoNetoUserControla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

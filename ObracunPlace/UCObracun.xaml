@@ -97,7 +97,7 @@
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Right"
                        Margin="5,5,0,5"
-                       Foreground="Red" />
+                       Foreground="Red"/>
                 <StackPanel Grid.Column="2"
                             Grid.Row="1"
                             VerticalAlignment="Bottom"
@@ -115,16 +115,14 @@
                             Height="26"
                             Content="Dodaj dodatak na plaću"
                             Click="BtnDodatak_Click"
-                            FontWeight="Normal"
-                            ToolTipService.ShowDuration="5000" />
+                            FontWeight="Normal" />
                     <Button x:Name="BtnMinuli"
                             Margin="5"
                             Height="26"
                             Content="Dodaj minuli rad"
                             Click="BtnMinuli_Click"
                             FontFamily="Roboto-Light"
-                            FontWeight="Normal"
-                            ToolTipService.ShowDuration="3000" />
+                            FontWeight="Normal" />
                     <Button x:Name="BtnOcistiOdabrano"
                             Margin="5,0,5,0"
                             Height="26"

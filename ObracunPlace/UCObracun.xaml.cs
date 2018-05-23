@@ -1,16 +1,18 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj;
 using BiznisSloj.KoefSati;
+using ObracunPlace.Annotations;
 
 namespace ObracunPlace
 {
     /// <summary>
     ///   Interaction logic for UCObracun.xaml
     /// </summary>
-    public sealed partial class UcObracun
+    public sealed partial class UcObracun : INotifyPropertyChanged
     {
         // Using a DependencyProperty as the backing store for Bruto.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BrutoProperty =
@@ -33,7 +35,7 @@ namespace ObracunPlace
         public decimal Bruto
         {
             private get { return (decimal) GetValue(BrutoProperty); }
-            set { SetValue(BrutoProperty, value); }
+            set { SetValue(BrutoProperty, value); OnPropertyChanged(nameof(Bruto)); }
         }
 
 
@@ -137,6 +139,14 @@ namespace ObracunPlace
             var zadnje = razlika.Split(' ').Last();
             var broj = decimal.Parse(zadnje);
             return broj;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
