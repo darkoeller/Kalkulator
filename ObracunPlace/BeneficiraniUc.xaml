@@ -57,7 +57,7 @@
                 <TextBox x:Name="TxtBruto"
                          Margin="5,0,0,0" Width="120" Focusable="True"
                          Height="24"
-                         HorizontalContentAlignment="Right"
+                         HorizontalContentAlignment="Center"
                          VerticalContentAlignment="Center"
                          ToolTip="Upišite bruto " />
                 <ComboBox x:Name="CmbVrstaBene" HorizontalContentAlignment="Center"

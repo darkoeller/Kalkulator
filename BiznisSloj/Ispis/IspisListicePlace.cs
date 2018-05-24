@@ -179,7 +179,7 @@ namespace BiznisSloj.Ispis
                         };
                     listaIznosa.AddCell(netoPlaca);
                     listaIznosa.AddCell(
-                        new Phrase("Neto iznos + naknada za prijevoz (" + _iznosPrijevoza + " kn" + ") :", times));
+                        new Phrase("Neto iznos + naknada za prijevoz (" + _iznosPrijevoza + "kn" + ") :", times));
                     var prijevoz = new PdfPCell(new Phrase(_lblprijevoz, times)) { HorizontalAlignment = 2 };
                     listaIznosa.AddCell(prijevoz);
                     var labOdbici =

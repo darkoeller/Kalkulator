@@ -31,6 +31,7 @@ namespace ObracunPlace
         {
             InitializeComponent();
             _popis = new ObservableCollection<Beneficirani>();
+            Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
             Wait.Visibility = Visibility.Hidden;
         }
 

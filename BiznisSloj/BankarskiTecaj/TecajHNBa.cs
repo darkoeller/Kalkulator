@@ -9,7 +9,7 @@ namespace BiznisSloj.BankarskiTecaj
     public struct TecajHnBa : ITecaj
     {
         private static bool _prolaz;
-        public  decimal VratiEuro()
+        public decimal VratiEuro()
         {
             try
             {
@@ -33,9 +33,10 @@ namespace BiznisSloj.BankarskiTecaj
             var web = FormirajWebString();
             var content = client.DownloadString(web);
             content = content.Replace(".", ",");
-            if (!string.IsNullOrEmpty(content)) return 0.0m;
+            if (!string.IsNullOrEmpty(content)) return 0;
             decimal.TryParse(content, out var tecaj);
             return tecaj;
+
         }
 
         private static decimal NadjiSaWebaHnBa()
@@ -47,7 +48,7 @@ namespace BiznisSloj.BankarskiTecaj
                 _prolaz = false;
                 return 0.0m;
             }
-            var rss =JArray.Parse(jsonObject);
+            var rss = JArray.Parse(jsonObject);
             foreach (var parsedObject in rss.Children<JObject>())
             {
                 foreach (var parsedProperty in parsedObject.Properties())
@@ -64,8 +65,8 @@ namespace BiznisSloj.BankarskiTecaj
 
         private static string FormirajWebString()
         {
-            var web = DateTime.Today.ToShortDateString().Remove(9,1);
-            var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/"+web+"/srednji/eur");
+            var web = DateTime.Today.ToShortDateString().Remove(9, 1);
+            var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/" + web + "/srednji/eur");
             return bilder.ToString();
         }
     }

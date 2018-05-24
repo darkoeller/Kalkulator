@@ -35,7 +35,7 @@ namespace ObracunPlace
         public decimal Bruto
         {
             private get { return (decimal) GetValue(BrutoProperty); }
-            set { SetValue(BrutoProperty, value); OnPropertyChanged(nameof(Bruto)); }
+            set { SetValue(BrutoProperty, value); OnPropertyChanged(value.ToString(CultureInfo.InvariantCulture).Replace('.',',')); }
         }
 
 
@@ -147,6 +147,7 @@ namespace ObracunPlace
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Mediator.GetInstance().OnNoviBruto(this, propertyName);
         }
     }
 }

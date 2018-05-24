@@ -163,10 +163,13 @@
     <Compile Include="BeneficiraniUc.xaml.cs">
       <DependentUpon>BeneficiraniUc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrutoEventArgs.cs" />
+    <Compile Include="BrutoIznos.cs" />
     <Compile Include="BrutoNetoUserControla.xaml.cs">
       <DependentUpon>BrutoNetoUserControla.xaml</DependentUpon>
     </Compile>
     <Compile Include="Header.cs" />
+    <Compile Include="Mediator.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

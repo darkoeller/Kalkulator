@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -22,8 +21,10 @@ namespace ObracunPlace
         public BrutoNetoUserControla()
         {
             InitializeComponent();
+            Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
             Wait.Visibility = Visibility.Hidden;
         }
+
         private decimal Prirez { get; set; }
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
         private decimal IznosPrijevoza { get; set; }
