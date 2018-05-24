@@ -9,8 +9,9 @@ namespace BiznisSloj.BankarskiTecaj
     public struct TecajHnBa : ITecaj
     {
         private static bool _prolaz;
-        public decimal VratiEuro()
+        public  decimal VratiEuro()
         {
+            
             try
             {
                 var hnbTecaj = NadjiSaWebaHnBa();
@@ -33,22 +34,16 @@ namespace BiznisSloj.BankarskiTecaj
             var web = FormirajWebString();
             var content = client.DownloadString(web);
             content = content.Replace(".", ",");
-            if (!string.IsNullOrEmpty(content)) return 0;
+            if (!string.IsNullOrEmpty(content)) return 0.0m;
             decimal.TryParse(content, out var tecaj);
             return tecaj;
-
         }
 
         private static decimal NadjiSaWebaHnBa()
         {
             var tecaj = 0.0m;
             var jsonObject = new WebClient().DownloadString(@"http://api.hnb.hr/tecajn/v1?valuta=EUR");
-            if (string.IsNullOrEmpty(jsonObject))
-            {
-                _prolaz = false;
-                return 0.0m;
-            }
-            var rss = JArray.Parse(jsonObject);
+            var rss =JArray.Parse(jsonObject);
             foreach (var parsedObject in rss.Children<JObject>())
             {
                 foreach (var parsedProperty in parsedObject.Properties())

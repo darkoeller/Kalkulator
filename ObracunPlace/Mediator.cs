@@ -6,7 +6,9 @@ namespace ObracunPlace
     {
         private static readonly Mediator Instance = new Mediator();
 
-        private Mediator(){}
+        private Mediator()
+        {
+        }
 
         public static Mediator GetInstance()
         {
@@ -18,9 +20,7 @@ namespace ObracunPlace
         public void OnNoviBruto(object sender, string bruto)
         {
             if (NoviBruto is EventHandler<BrutoEventArgs> noviBruto)
-            {
-                noviBruto(sender, new BrutoEventArgs{BrutoIznos=bruto});
-            }
+                noviBruto(sender, new BrutoEventArgs {BrutoIznos = bruto});
         }
     }
 }

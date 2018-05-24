@@ -13,11 +13,12 @@ using BiznisSloj.Procesi;
 namespace ObracunPlace
 {
     /// <summary>
-    /// Interaction logic for BrutoNetoUserControla.xaml
+    ///   Interaction logic for BrutoNetoUserControla.xaml
     /// </summary>
-    public partial class BrutoNetoUserControla 
+    public partial class BrutoNetoUserControla
     {
         private ProcesuirajPlacu _listica;
+
         public BrutoNetoUserControla()
         {
             InitializeComponent();
@@ -146,7 +147,6 @@ namespace ObracunPlace
             foreach (var labela in StPanel2.Children.OfType<Label>()) labela.Content = $"{0.00:C2}";
         }
 
- 
 
         private void UkljuciGumb()
         {
@@ -197,7 +197,6 @@ namespace ObracunPlace
         }
 
 
-
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Prirez = decimal.Parse(CmbPrirez.SelectedItem.ToString());
@@ -213,7 +212,7 @@ namespace ObracunPlace
             }
 
             Wait.Visibility = Visibility.Visible;
-            ((Storyboard)FindResource("WaitStoryboard")).Begin();
+            ((Storyboard) FindResource("WaitStoryboard")).Begin();
             var podaciZaIspis = new PodaciZaIspisPlace
             {
                 Placa = _listica,
@@ -225,7 +224,7 @@ namespace ObracunPlace
                 PrirezTxtB = CmbPrirez.SelectedValue.ToString()
             };
             new IspisListicePlace(podaciZaIspis).Ispis();
-            ((Storyboard)FindResource("WaitStoryboard")).Stop();
+            ((Storyboard) FindResource("WaitStoryboard")).Stop();
             Wait.Visibility = Visibility.Hidden;
         }
 
@@ -236,14 +235,11 @@ namespace ObracunPlace
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
             UkljuciGumb();
             CmbPrirez.ItemsSource = PorezniKoeficijenti2.VratiStopePrireza();
             CmbPrirez.SelectedIndex = 0;
             CmbPrijevoz.ItemsSource = Prijevoz2.ListaRelacija();
             CmbPrijevoz.SelectedIndex = 0;
-
         }
-
     }
 }

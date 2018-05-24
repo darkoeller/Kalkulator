@@ -53,7 +53,7 @@ namespace ObracunPlace
             DoDatuma.SelectedDateFormat = DatePickerFormat.Short;
             OdDatuma.SelectedDate = DateTime.Today.AddMonths(-1);
             DoDatuma.SelectedDate = DateTime.Today.AddMonths(-1);
-           
+
             ImePrezime.Focus();
         }
 
@@ -84,6 +84,7 @@ namespace ObracunPlace
                     LblBene1I2.Content = "Benefeficirani stup 1 i 2";
                     break;
             }
+
             OcistiLabele();
             ImePrezime.Focus();
         }
@@ -166,90 +167,90 @@ namespace ObracunPlace
 
         private void BtnIspis_Click(object sender, RoutedEventArgs e)
         {
-            ((Storyboard)FindResource("WaitStoryboard")).Begin();
+            ((Storyboard) FindResource("WaitStoryboard")).Begin();
             Wait.Visibility = Visibility.Visible;
-                try
+            try
+            {
+                var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
+                var pdwri = PdfWriter.GetInstance(doc
+                    , new FileStream("Ispis.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
+                var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
+                //// var times2 = FontFactory.GetFont(FontFactory.TIMES, 9,new CMYKColor(100, 70, 29,25));
+                var times = new Font(bfTimes, 9);
+                var desetka = new Font(bfTimes, 10);
+                doc.Open();
+                ////kod za cijeli header
+                var logo = Image.GetInstance("logo.png");
+                logo.ScalePercent(50f);
+                doc.Add(logo);
+                doc.Add(new Paragraph("Petrokemija, d.d tvornica gnojiva", times));
+                doc.Add(new Paragraph("Aleja Vukovar 4", times));
+                doc.Add(new Paragraph("44320 Kutina", times));
+                doc.Add(new Paragraph("Hrvatska", times));
+                doc.Add(new Paragraph(" "));
+                doc.Add(new Paragraph("Ured Uprave", times));
+                doc.Add(new Paragraph("Tel.: +385 44 647 270", times));
+                doc.Add(new Paragraph("Fax: +385 44 680 882", times));
+                doc.Add(new Paragraph("E-mail: ", times));
+                //var bojaFonta = new BaseColor(0,0,255);
+                var anchor = new Anchor("www.petrokemija.hr", times) {Reference = "http://www.petrokemija.hr"};
+                doc.Add(anchor);
+                doc.Add(new Paragraph(" "));
+                var headertablica = new PdfPTable(2)
                 {
-                    var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
-                    var pdwri = PdfWriter.GetInstance(doc
-                        , new FileStream("Ispis.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
-                    var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
-                    //// var times2 = FontFactory.GetFont(FontFactory.TIMES, 9,new CMYKColor(100, 70, 29,25));
-                    var times = new Font(bfTimes, 9);
-                    var desetka = new Font(bfTimes, 10);
-                    doc.Open();
-                    ////kod za cijeli header
-                    var logo = Image.GetInstance("logo.png");
-                    logo.ScalePercent(50f);
-                    doc.Add(logo);
-                    doc.Add(new Paragraph("Petrokemija, d.d tvornica gnojiva", times));
-                    doc.Add(new Paragraph("Aleja Vukovar 4", times));
-                    doc.Add(new Paragraph("44320 Kutina", times));
-                    doc.Add(new Paragraph("Hrvatska", times));
-                    doc.Add(new Paragraph(" "));
-                    doc.Add(new Paragraph("Ured Uprave", times));
-                    doc.Add(new Paragraph("Tel.: +385 44 647 270", times));
-                    doc.Add(new Paragraph("Fax: +385 44 680 882", times));
-                    doc.Add(new Paragraph("E-mail: ", times));
-                    //var bojaFonta = new BaseColor(0,0,255);
-                    var anchor = new Anchor("www.petrokemija.hr", times) {Reference = "http://www.petrokemija.hr"};
-                    doc.Add(anchor);
-                    doc.Add(new Paragraph(" "));
-                    var headertablica = new PdfPTable(2)
-                    {
-                        TotalWidth = 100f,
-                        LockedWidth = true,
-                        HorizontalAlignment = 0
-                    };
-                    var kutina = new Paragraph("Kutina, ", times);
-                    var celijakutina = new PdfPCell(kutina)
-                    {
-                        HorizontalAlignment = Element.ALIGN_RIGHT,
-                        Border = Rectangle.NO_BORDER
-                    };
-                    var datum = new Phrase(DateTime.Now.Date.ToString("d"), times);
-                    var celijadatum = new PdfPCell(datum)
-                    {
-                        HorizontalAlignment = Element.ALIGN_LEFT,
-                        Border = Rectangle.NO_BORDER
-                    };
-                    headertablica.AddCell(celijakutina);
-                    headertablica.AddCell(celijadatum);
-                    doc.Add(headertablica);
-                    doc.Add(
-                        new Paragraph("IZNOSI DOPRINOSA ZA BENEFICIRANI STAŽ") {SpacingBefore = 10f, Alignment = 1});
-                    var centar = new PdfPTable(DataGridBene.Columns.Count) {SpacingBefore = 10f};
+                    TotalWidth = 100f,
+                    LockedWidth = true,
+                    HorizontalAlignment = 0
+                };
+                var kutina = new Paragraph("Kutina, ", times);
+                var celijakutina = new PdfPCell(kutina)
+                {
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    Border = Rectangle.NO_BORDER
+                };
+                var datum = new Phrase(DateTime.Now.Date.ToString("d"), times);
+                var celijadatum = new PdfPCell(datum)
+                {
+                    HorizontalAlignment = Element.ALIGN_LEFT,
+                    Border = Rectangle.NO_BORDER
+                };
+                headertablica.AddCell(celijakutina);
+                headertablica.AddCell(celijadatum);
+                doc.Add(headertablica);
+                doc.Add(
+                    new Paragraph("IZNOSI DOPRINOSA ZA BENEFICIRANI STAŽ") {SpacingBefore = 10f, Alignment = 1});
+                var centar = new PdfPTable(DataGridBene.Columns.Count) {SpacingBefore = 10f};
 
-                    foreach (var k in DataGridBene.Columns) centar.AddCell(new Phrase(k.Header.ToString(), desetka));
-                    centar.HeaderRows = 1;
-                    float[] sirina = {20f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f};
-                    centar.SetWidths(sirina);
-                    var izvor = DataGridBene.ItemsSource;
-                    if (izvor != null)
-                        foreach (var item in izvor)
+                foreach (var k in DataGridBene.Columns) centar.AddCell(new Phrase(k.Header.ToString(), desetka));
+                centar.HeaderRows = 1;
+                float[] sirina = {20f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f};
+                centar.SetWidths(sirina);
+                var izvor = DataGridBene.ItemsSource;
+                if (izvor != null)
+                    foreach (var item in izvor)
+                    {
+                        if (!(DataGridBene.ItemContainerGenerator.ContainerFromItem(item) is DataGridRow red))
+                            continue;
+                        var presenter = FindVisualChild<DataGridCellsPresenter>(red);
+                        for (var i = 0; i < DataGridBene.Columns.Count; ++i)
                         {
-                            if (!(DataGridBene.ItemContainerGenerator.ContainerFromItem(item) is DataGridRow red))
-                                continue;
-                            var presenter = FindVisualChild<DataGridCellsPresenter>(red);
-                            for (var i = 0; i < DataGridBene.Columns.Count; ++i)
-                            {
-                                var cell = (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(i);
-                                if (cell.Content is TextBlock txt) centar.AddCell(new Phrase(txt.Text, desetka));
-                            }
+                            var cell = (DataGridCell) presenter.ItemContainerGenerator.ContainerFromIndex(i);
+                            if (cell.Content is TextBlock txt) centar.AddCell(new Phrase(txt.Text, desetka));
                         }
+                    }
 
-                    centar.HorizontalAlignment = 1;
-                    doc.Add(centar);
-                    pdwri.PageEvent = new Footer();
-                    doc.Close();
-                    Process.Start("Ispis.pdf");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
-                }
-            
-            ((Storyboard)FindResource("WaitStoryboard")).Stop();
+                centar.HorizontalAlignment = 1;
+                doc.Add(centar);
+                pdwri.PageEvent = new Footer();
+                doc.Close();
+                Process.Start("Ispis.pdf");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
+            }
+
+            ((Storyboard) FindResource("WaitStoryboard")).Stop();
             Wait.Visibility = Visibility.Hidden;
         }
 

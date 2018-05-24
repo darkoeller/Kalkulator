@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using BiznisSloj;
 using BiznisSloj.KoefSati;
 using ObracunPlace.Annotations;
@@ -23,20 +24,19 @@ namespace ObracunPlace
         public UcObracun()
         {
             InitializeComponent();
-
-            var svesifre = Koeficijenti2.VratiSifre();
-            var sifre = svesifre.Select(s => s.Naziv);
-            ChComboBoxVrsteRada.ItemsSource = sifre;
-            BodoviUpDown.Focus();
-            PozoviLabelu();
-            ChComboBoxVrsteRada.SelectedIndex = 0;
         }
 
-        public decimal Bruto
+        private decimal Bruto
         {
-            private get { return (decimal) GetValue(BrutoProperty); }
-            set { SetValue(BrutoProperty, value); OnPropertyChanged(value.ToString(CultureInfo.InvariantCulture).Replace('.',',')); }
+            get => (decimal) GetValue(BrutoProperty);
+            set
+            {
+                SetValue(BrutoProperty, value);
+                OnPropertyChanged(value.ToString(CultureInfo.InvariantCulture).Replace('.', ','));
+            }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         private decimal GetBodovi()
@@ -141,13 +141,22 @@ namespace ObracunPlace
             return broj;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             Mediator.GetInstance().OnNoviBruto(this, propertyName);
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var svesifre = Koeficijenti2.VratiSifre();
+            var sifre = svesifre.Select(s => s.Naziv);
+            ChComboBoxVrsteRada.ItemsSource = sifre;
+            PozoviLabelu();
+            ChComboBoxVrsteRada.SelectedIndex = 0;
+            BodoviUpDown.Focus();
+            Keyboard.Focus(BodoviUpDown);
         }
     }
 }

@@ -22,45 +22,15 @@
               Width="800">
             <TabControl x:Name="TabKontrola">
                 <TabItem Header=" bruto/neto  ">
-                    <local:BrutoNetoUserControla/>
+                    <local:BrutoNetoUserControla />
                 </TabItem>
                 <TabItem Header=" izračun bruto dohotka ">
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top">
-                        <TextBlock DockPanel.Dock="Top"
-                                   TextAlignment="Center"
-                                   Margin="0,10,0,5"
-                                   FontSize="14"
-                                   FontWeight="Bold"
-                                   TextDecorations="Underline">
-                            <Run
-                                Text="RADITE LI U SMJENAMA, SATE RADA UPISUJTE IZ '*mpsr-a (preporučeno)' ILI IZ ŠIHTERICE "
-                                FontFamily="Comic Sans MS"
-                                FontSize="12" />
-                        </TextBlock>
-                        <Expander DockPanel.Dock="Top"
-                                  Margin="0,10,0,0"
-                                  Width="750"
-                                  HorizontalAlignment="Center"
-                                  Header="Kliknite ovdje, tu su sakrivene šifre u upotrebi za izračun plaće te njihove vrijednosti">
-                            <local:MrezaKoeficijenata />
-                        </Expander>
-                        <TextBlock DockPanel.Dock="Top"
-                                   Text=" Unesite potrebne parametre za izračun iznosa radnih sati kako je navedeno. Kod smjenskog rada odaberite smjenu ili vrstu rada koju trebate. Nakon toga klik na gumb 'IZRAČUNAJ'. Kada završite sa izračunom radnih sati, provjerite da su upisani ukupni mjesečni sati rada pa kliknite na 'DODAJ DODATAK NAPLAĆU ' i 'DODAJ MINULI RAD'."
-                                   Margin="25,10,0,0"
-                                   TextWrapping="Wrap"
-                                   Width="720" />
-                        <TextBlock Margin="25,0,0,0"
-                                   TextWrapping="Wrap"
-                                   DockPanel.Dock="Top"
-                                   Width="720">
-                            Unose iz liste možete micati pojedinačno tako da označite red, pa 'BRIŠI OZNAČENO' ili klik na 'OČISTI LISTU' koji miče sve stavke.
-                        </TextBlock>
+                        <local:MrezaKoeficijenata DockPanel.Dock="Top" />
                         <local:UcObracun x:Name="UcObracun"
                                          Margin="0,10,0,0"
-                                         Bruto="{Binding Text, ConverterCulture=hr-HR,  Mode=OneWayToSource, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:UcObracun}}}"
-                                         Focusable="True"
                                          DockPanel.Dock="Top" />
                     </DockPanel>
                 </TabItem>

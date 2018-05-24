@@ -8,7 +8,7 @@
              d:DesignWidth="550"
              Focusable="True">
     <UserControl.Resources>
-        <Style x:Key="RadMargin" TargetType="RadioButton" >
+        <Style x:Key="RadMargin" TargetType="RadioButton">
             <Setter Property="Margin" Value="5" />
         </Style>
     </UserControl.Resources>
@@ -24,25 +24,34 @@
         </TextBlock>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel>
-                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbClanak" IsChecked="True" Checked="RbClanak_Checked">Ovrha po čl. 173</RadioButton>
-                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanje" Checked="RbUzdrzavanje_Checked">Ovrha radi tražbine po osnovi zakonskog uzdržavanja.</RadioButton>
-                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanjeDjeteta" Checked="RbUzdrzavanjeDjeteta_Checked">Ovrha radi naplate tražbine za uzdržavanje djeteta.</RadioButton>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbClanak" IsChecked="True"
+                             Checked="RbClanak_Checked">
+                    Ovrha po čl. 173
+                </RadioButton>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanje"
+                             Checked="RbUzdrzavanje_Checked">
+                    Ovrha radi tražbine po osnovi zakonskog uzdržavanja.
+                </RadioButton>
+                <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanjeDjeteta"
+                             Checked="RbUzdrzavanjeDjeteta_Checked">
+                    Ovrha radi naplate tražbine za uzdržavanje djeteta.
+                </RadioButton>
             </StackPanel>
             <GroupBox Header="Ovdje upišite neto iznos plaće"
-                          HorizontalAlignment="Center"
-                          Margin="0"
-                          Background="#FFEEF8FB">
+                      HorizontalAlignment="Center"
+                      Margin="0"
+                      Background="#FFEEF8FB">
                 <TextBox Language="hr"
-                             VerticalContentAlignment="Center"
-                             x:Name="TextBoxNeto"
-                             HorizontalAlignment="Center"
-                             Width="100"
-                             Height="26"
-                             HorizontalContentAlignment="Center" />
+                         VerticalContentAlignment="Center"
+                         x:Name="TextBoxNeto"
+                         HorizontalAlignment="Center"
+                         Width="100"
+                         Height="26"
+                         HorizontalContentAlignment="Center" />
             </GroupBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel 
+            <StackPanel
                 Orientation="Vertical"
                 HorizontalAlignment="Center">
                 <TextBlock Margin="0,15,0,0">
@@ -60,8 +69,8 @@
                          Focusable="False" />
             </StackPanel>
             <StackPanel Margin="20,0,0,0"
-                Orientation="Vertical"
-                HorizontalAlignment="Center">
+                        Orientation="Vertical"
+                        HorizontalAlignment="Center">
                 <TextBlock Margin="0,15,0,0">
                     <Run Text="Iznos koji će se ovršiti :" />
                 </TextBlock>
@@ -80,20 +89,20 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Height="40"
-                        x:Name="BtnCisti"
-                        Width="100"
-                        Margin="10,20,20,10"
-                        ToolTip="Očistite kontrole na 0,00"
-                        IsCancel="True"
-                        Click="BtnCisti_Click">
+                    x:Name="BtnCisti"
+                    Width="100"
+                    Margin="10,20,20,10"
+                    ToolTip="Očistite kontrole na 0,00"
+                    IsCancel="True"
+                    Click="BtnCisti_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Resources/cleaning.png"
-                               Stretch="None" />
+                           Stretch="None" />
                     <TextBlock Text="OČISTI"
-                                   VerticalAlignment="Center"
-                                   Margin="3"
-                                   FontWeight="Normal"
-                                   FontFamily="Roboto Light" />
+                               VerticalAlignment="Center"
+                               Margin="3"
+                               FontWeight="Normal"
+                               FontFamily="Roboto Light" />
                 </StackPanel>
             </Button>
             <Button Height="40"
