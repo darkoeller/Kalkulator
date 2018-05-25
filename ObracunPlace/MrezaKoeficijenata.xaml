@@ -40,7 +40,6 @@
                   Header="Ovdje su sakrivene šifre u upotrebi za izračun plaće te njihove vrijednosti">
             <ScrollViewer MaxWidth="400" MaxHeight="250" VerticalScrollBarVisibility="Auto">
                 <DataGrid x:Name="KoeficijentiDataGrid"
-
                           AutoGenerateColumns="False"
                           EnableRowVirtualization="True"
                           ItemsSource="{Binding}"

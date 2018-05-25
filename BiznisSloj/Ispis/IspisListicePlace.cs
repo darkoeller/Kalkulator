@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
 using BiznisSloj.Procesi;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -31,9 +30,8 @@ namespace BiznisSloj.Ispis
 
         public void Ispis()
         {
-                try
-                {
-                    var doc = new Document(PageSize.A4, 20, 15, 25, 30);
+            using (var doc = new Document(PageSize.A4, 20, 15, 25, 30))
+            {
                     var pdwri = PdfWriter.GetInstance(doc
                         , new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
                     var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
@@ -239,12 +237,8 @@ namespace BiznisSloj.Ispis
                     pdwri.PageEvent = new Footer();
                     doc.Close();
                     Process.Start("PlatnaLista.pdf");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
+ 
         }
     }
 }

@@ -40,10 +40,10 @@
                 </TabItem>
                 <TabItem Header=" tečajevi banaka ">
                     <StackPanel Orientation="Vertical">
-                        <local:TecajEura Margin="0,65,0,0"
+                        <local:TecajEura Margin="0,20,0,0"
                                          VerticalAlignment="Top"
-                                         Width="600"
-                                         Height="500" />
+                                         Width="650"
+                                         Height="700" />
                     </StackPanel>
                 </TabItem>
                 <TabItem Header=" ovrha / razlika datuma ">

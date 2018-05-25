@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BankarskiTecaj\ITecaj.cs" />
     <Compile Include="BankarskiTecaj\OdabirBanke.cs" />
+    <Compile Include="BankarskiTecaj\TecajEuraPoDatumu.cs" />
     <Compile Include="BankarskiTecaj\TecajHNBa.cs" />
     <Compile Include="BankarskiTecaj\TecajPBZa.cs" />
     <Compile Include="Benefit\Beneficirani.cs" />

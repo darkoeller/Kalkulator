@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:gif="http://wpfanimatedgif.codeplex.com"
              mc:Ignorable="d"
-             d:DesignHeight="500"
-             d:DesignWidth="600">
-    <StackPanel>
+             d:DesignHeight="630"
+             d:DesignWidth="650">
+    <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
             <Image gif:ImageBehavior.AnimatedSource="Resources/euro0.gif"
                    x:Name="Coin"
@@ -156,5 +156,21 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
+        <StackPanel Margin="0,30,0,0" Orientation="Vertical">
+            <TextBlock DockPanel.Dock="Top"
+                       TextAlignment="Center"
+                       Margin="0,15,0,0"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       TextDecorations="Underline">
+                <Run Text="PRONAĐITE VRIJEDNOST EURA NA ODREĐENI DATUM"
+                     FontFamily="Comic Sans MS" FontSize="12" />
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                    <DatePicker x:Name="OdabraniDatum" Width="120" Height="24" Margin="0,0,10,0" HorizontalContentAlignment="Center"
+                            ToolTip="Odaberite ili upišite datum." SelectedDateChanged="OdabraniDatum_SelectedDateChanged" />
+               <Label x:Name="LblBivsiEuro" Width="360" Foreground="DarkRed" VerticalContentAlignment="Bottom" Margin="0,0,0,0" />
+            </StackPanel>
+        </StackPanel>
     </StackPanel>
 </UserControl>

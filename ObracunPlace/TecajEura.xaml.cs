@@ -60,5 +60,30 @@ namespace ObracunPlace
             rata = Math.Round(_euro * rata, 2);
             LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);
         }
+
+        private void BtnPronadji_Click(object sender, RoutedEventArgs e)
+        {
+       
+        }
+
+        private void OdabraniDatum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var datum = OdabraniDatum.SelectedDate;
+            var stringDatum = OdabraniDatum.SelectedDate.ToString();
+            
+       
+            if (datum > DateTime.Today || datum < DateTime.Today.AddYears(-25) || string.IsNullOrEmpty(stringDatum))
+            {
+                MessageBox.Show("Odabrani datum mora biti manji od današnjeg,\n  ne stariji od 25 godina i ne prazan.", "Pozor!", MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                var zaPoslati = new TecajEuraPoDatumu(datum).OblikujDatum();
+                stringDatum = stringDatum.Replace("0:00:00", "");
+                LblBivsiEuro.Content = "Srednji tečaj eura na dan " + stringDatum + " iznosio je : " + zaPoslati + " kuna.";
+            }
+           
+        }
     }
 }
