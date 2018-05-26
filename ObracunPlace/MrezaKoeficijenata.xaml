@@ -29,7 +29,7 @@
             Margin="10,10,0,0"
             TextWrapping="Wrap"
             Width="700" />
-        <TextBlock Margin="15,0,0,0"
+        <TextBlock Margin="10,0,0,0"
                    TextWrapping="Wrap"
                    Width="700">
             Unose iz liste možete micati pojedinačno tako da označite red, pa 'BRIŠI OZNAČENO' ili klik na 'OČISTI LISTU' koji miče sve stavke.
