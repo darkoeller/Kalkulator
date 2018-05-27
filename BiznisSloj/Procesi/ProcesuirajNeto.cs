@@ -51,7 +51,8 @@ namespace BiznisSloj.Procesi
         {
             if (neto > (odbitak * (36m + 0.36m * Prirez) - 11758.56m * Prirez + 2673744m) / 100m)
                 return Math.Round(PetaMetoda(neto, odbitak), 2);
-            if (neto <= (odbitak * (36m + 0.36m * Prirez)- 11272.99m * Prirez + 2587420.8m) / 100m &&  neto > odbitak + 17500m - 175m *24m -1.75m* 24m * Prirez)
+            if (neto <= (odbitak * (36m + 0.36m * Prirez) - 11272.99m * Prirez + 2587420.8m) / 100m &&
+                neto > odbitak + 17500m - 175m * 24m - 1.75m * 24m * Prirez)
                 return Math.Round(CetvrtaMetoda(neto, odbitak), 2);
             if (neto > odbitak && neto <= odbitak + 17500m - 175m * 24m - 1.75m * 24m * Prirez)
                 return Math.Round(DrugaMetoda(neto, odbitak), 2);
@@ -61,7 +62,8 @@ namespace BiznisSloj.Procesi
 
         private decimal PetaMetoda(decimal neto, decimal odbitak)
         {
-            return (100 * neto - odbitak * (36m + 0.36m * Prirez) - 5564.64m * Prirez + 405936m) / (64m - 0.36m * Prirez);
+            return (100 * neto - odbitak * (36m + 0.36m * Prirez) - 5564.64m * Prirez + 405936m) /
+                   (64m - 0.36m * Prirez);
         }
 
         private decimal CetvrtaMetoda(decimal neto, decimal odbitak)

@@ -6,7 +6,7 @@ namespace ObracunPlace
     /// <summary>
     ///   Interaction logic for App.xaml
     /// </summary>
-    public partial class App 
+    public partial class App
     {
         private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {

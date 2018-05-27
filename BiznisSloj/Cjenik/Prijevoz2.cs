@@ -7,7 +7,7 @@ namespace BiznisSloj.Cjenik
 {
     public struct Prijevoz2
     {
-        private string  Relacija { get; set; }
+        private string Relacija { get; set; }
         private double Iznos { get; set; }
 
         public static bool operator ==(Prijevoz2 left, Prijevoz2 right)

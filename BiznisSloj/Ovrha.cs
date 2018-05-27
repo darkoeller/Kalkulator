@@ -4,9 +4,8 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
-        private readonly byte _rbovrha;
-
         private static readonly decimal ProsjecnoNeto = 5960.00m;
+        private readonly byte _rbovrha;
 
         public Ovrha(decimal neto, byte rbovrha)
         {
@@ -29,6 +28,7 @@ namespace BiznisSloj
                 case 3:
                     return OvrhaZaUzdrzavanjeDjece();
             }
+
             return 0.0m;
         }
 
@@ -49,6 +49,7 @@ namespace BiznisSloj
             ZaOvrsiti = Neto - netoIznos;
             return netoIznos;
         }
+
         private decimal IzracunUzdrzavanje()
         {
             var neto = Neto;
@@ -58,6 +59,7 @@ namespace BiznisSloj
                 ZaOvrsiti = neto;
                 return neto;
             }
+
             if (neto < ProsjecnoNeto) return 0;
             ZaOvrsiti = Neto - 2980.0m;
             return 2980.0m;
@@ -72,6 +74,7 @@ namespace BiznisSloj
                 ZaOvrsiti = Math.Round(neto / 4 * 3, 2);
                 return Math.Round(neto / 4 * 1, 2);
             }
+
             if (neto < ProsjecnoNeto) return 0;
             ZaOvrsiti = neto - 1490.0m;
             return 1490.0m;
@@ -79,7 +82,7 @@ namespace BiznisSloj
 
         private static byte ProcjenaClanak(decimal netoIznos)
         {
-            return netoIznos <= 5297.77m ? (byte)1 : (byte)2;
+            return netoIznos <= 5297.77m ? (byte) 1 : (byte) 2;
         }
     }
 }

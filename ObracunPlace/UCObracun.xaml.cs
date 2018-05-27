@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using BiznisSloj;
 using BiznisSloj.KoefSati;
-using ObracunPlace.Annotations;
+using ObracunPlace.Properties;
 
 namespace ObracunPlace
 {
