@@ -46,11 +46,10 @@
                     <ColumnDefinition Width="340*" />
                     <ColumnDefinition Width="220*" />
                 </Grid.ColumnDefinitions>
-
                 <WrapPanel Orientation="Horizontal"
                            Grid.Row="2"
                            Grid.Column="0"
-                           Margin="0">
+                           Margin="5,0">
                     <TextBlock VerticalAlignment="Center"
                                Text=" Na današni dan:  " />
                     <TextBlock VerticalAlignment="Center"
@@ -135,7 +134,7 @@
                            HorizontalAlignment="Center"
                            Margin="2,10"
                            TextWrapping="Wrap"
-                           Text=" Izračunajte ratu kredita, ako vam je rata u eurima. Dakle, prvo odaberite izvor iz koje banke će aplikacija povući srednji tečaj. Nakon toga unesite iznos rate i kliknite na gumb 'IZRAČUNAJ'" />
+                           Text="Izračunajte ratu kredita, ako vam je rata u eurima. Dakle, prvo odaberite izvor iz koje banke će aplikacija povući srednji tečaj. Nakon toga unesite iznos rate i kliknite na gumb 'IZRAČUNAJ'" />
                 <StackPanel Grid.Column="0"
                             Grid.Row="3"
                             Orientation="Horizontal"
