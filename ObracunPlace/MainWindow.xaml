@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Kalkulator plaće v. 2018 : neto / bruto"
         Height="840"
-        Width="900"
+        Width="1050"
         WindowStartupLocation="CenterScreen"
         Loaded="MainWindow_OnLoaded"
         Icon="Resources/11438.ico"
@@ -17,10 +17,10 @@
         WindowStyle="SingleBorderWindow"
         FontFamily="Roboto Light">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <Grid x:Name="CjelaMreza"
-              Height="790"
-              Width="800">
-            <TabControl x:Name="TabKontrola">
+        <StackPanel x:Name="CjelaMreza"
+              Height="770"
+              Width="1000">
+            <TabControl x:Name="TabKontrola" TabStripPlacement="Right">
                 <TabItem Header=" bruto/neto  ">
                     <local:BrutoNetoUserControla />
                 </TabItem>
@@ -71,6 +71,6 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        </Grid>
+        </StackPanel>
     </ScrollViewer>
 </Window>
