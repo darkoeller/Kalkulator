@@ -155,7 +155,7 @@
                 </StackPanel>
             </Grid>
         </GroupBox>
-        <StackPanel Margin="0,30,0,0" Orientation="Vertical">
+        <StackPanel Margin="0,50,0,0" Orientation="Vertical">
             <TextBlock DockPanel.Dock="Top"
                        TextAlignment="Center"
                        Margin="0,15,0,0"

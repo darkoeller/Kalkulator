@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Kalkulator plaće v. 2018 : neto / bruto"
         Height="840"
-        Width="900"
+        Width="1100"
         WindowStartupLocation="CenterScreen"
         Loaded="MainWindow_OnLoaded"
         Icon="Resources/11438.ico"
@@ -17,42 +17,67 @@
         WindowStyle="SingleBorderWindow"
         FontFamily="Roboto Light">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <Grid x:Name="CjelaMreza"
-              Height="790"
-              Width="800">
-            <TabControl x:Name="TabKontrola">
-                <TabItem Header=" bruto/neto  ">
+        <StackPanel x:Name="CjelaMreza"
+              Height="780"
+              Width="1050">
+            <StackPanel.Resources>
+                <Style x:Key="TxtBoxIzgled" TargetType="TextBlock">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                    <Setter Property="Margin" Value="3" /> 
+                    <Setter Property="Width" Value="150"/>
+                </Style>
+            </StackPanel.Resources>
+            <TabControl  x:Name="TabKontrola" TabStripPlacement="Right">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Platite doprinose, poreze, prireze; dodajte prijevoz." Style="{StaticResource TxtBoxIzgled}" />
+                    </TabItem.Header>
                     <local:BrutoNetoUserControla />
                 </TabItem>
-                <TabItem Header=" izračun bruto dohotka ">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Izračun bruto dohotka ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
+                    </TabItem.Header>
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top">
                         <local:MrezaKoeficijenata DockPanel.Dock="Top" />
                         <local:UcObracun x:Name="UcObracun"
-                                         Margin="0,10,0,0"
+                                         Margin="0"
                                          DockPanel.Dock="Top" />
                     </DockPanel>
                 </TabItem>
-                <TabItem Header=" izračun doprinosa za benef. staž ">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Izračunajte dodatna izdvajanja za doprinose." Style="{StaticResource TxtBoxIzgled}" />
+                    </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
                                           Margin="10,0,10,0" />
                 </TabItem>
-                <TabItem Header=" tečajevi banaka ">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Preračunajte ratu kredita iz eura u kune, dnevni tečaj." Style="{StaticResource TxtBoxIzgled}" />
+                    </TabItem.Header>
                     <StackPanel Orientation="Vertical">
                         <local:TecajEura Margin="0,20,0,0"
                                          VerticalAlignment="Top"
                                          Width="650"
-                                         Height="700" />
+                                         Height="730" />
                     </StackPanel>
                 </TabItem>
-                <TabItem Header=" ovrha / razlika datuma ">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Ako imate problema sa ovrhom, ovo je stranica za vas." Style="{StaticResource TxtBoxIzgled}" />
+                    </TabItem.Header>
                     <local:UcOvrha Margin="0,15,0,0"
                                    Width="550"
-                                   Height="690" />
+                                   Height="740" />
                 </TabItem>
-                <TabItem Header=" pomoć ">
-                    <local:UcPomoc />
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Pomoć za one koji su u ovome novi." Style="{StaticResource TxtBoxIzgled}" />
+                    </TabItem.Header>
+                    <local:UcPomoc Height="755"/>
                 </TabItem>
                 <TabItem x:Name="ZatvoriTabItem">
                     <TabItem.Header>
@@ -61,16 +86,26 @@
                                FontFamily="Segoe UI Black"
                                FontSize="12"
                                MouseUp="LblZatvori_MouseUp">
-                            zatvori
+                            dosta vam je računanja?
                         </Label>
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical"
                                 Margin="0,100,0,0">
-                        <Image Margin="0,120,0,0"
+                        <Image Margin="0,120,0,220"
                                Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350" />
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        </Grid>
+        <StatusBar Background="Gainsboro" Height="20">
+            <TextBlock Text="Aplikaciju izradio: Darko Eller"
+                       Margin="0"
+                       FontSize="10.667"
+                       VerticalAlignment="Bottom"
+                       FontFamily="Roboto-Italic"
+                       FontStyle="Italic"
+                       IsEnabled="False" />
+        </StatusBar>
+        </StackPanel>
+        
     </ScrollViewer>
 </Window>

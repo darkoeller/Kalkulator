@@ -26,7 +26,7 @@
             <Run Text="IZRAČUNAJTE IZNOSE ZA DOPLATU DOPRINOSA BENFICIRANOG STAŽA OBZIROM NA BROJ MJESECI PRODUŽENJA"
                  FontFamily="Comic Sans MS" FontSize="12" />
         </TextBlock>
-        <StackPanel Orientation="Horizontal" Height="68" Width="670" DockPanel.Dock="Top" Margin="25,20,10,0">
+        <StackPanel Orientation="Horizontal" Height="68" Width="670" DockPanel.Dock="Top" Margin="25,10,10,0">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="0,5,5,0" FontFamily="Roboto Light">
@@ -146,7 +146,7 @@
             </Button>
         </StackPanel>
         <StackPanel Margin="0,25,0,5">
-            <DataGrid x:Name="DataGridBene" Height="170" AutoGenerateColumns="False"
+            <DataGrid x:Name="DataGridBene" Height="200" AutoGenerateColumns="False"
                       GridLinesVisibility="All" FontFamily="Roboto Light">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header=" Prezime i ime" Binding="{Binding Ime}" />
@@ -172,7 +172,7 @@
                         Click="OcistiListu_Click" ToolTip="Briše sve iz liste" FontWeight="Normal"
                         FontFamily="Roboto Light" />
             </StackPanel>
-            <TextBlock TextWrapping="Wrap" Margin="0,20,0,0" FontStyle="Italic">
+            <TextBlock TextWrapping="Wrap" Margin="0,10,0,0" FontStyle="Italic">
                 <Run
                     Text="Ovdje možete izračunati iznos doplate doprinosa za radnike koji imaju pravo na produljenje staža za: 2,3 ili 4 mjeseca. Ti iznosi se razlikuju u odnosu na vrstu produljenja staža. Pojedini red iz liste brišite tako da ga označite, a potom tipka 'Delete'." />
             </TextBlock>
