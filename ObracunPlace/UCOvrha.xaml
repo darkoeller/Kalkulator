@@ -4,7 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              x:Class="ObracunPlace.UcOvrha"
              mc:Ignorable="d"
-             d:DesignHeight="720"
+             d:DesignHeight="715"
              d:DesignWidth="550"
              Focusable="True">
     <UserControl.Resources>
@@ -145,7 +145,7 @@
                    FontFamily="Comic Sans MS"
                    FontSize="14"
                    TextDecorations="Underline"
-                   Margin="0,25,0,0" />
+                   Margin="0,20,0,0" />
         <StackPanel Orientation="Horizontal" Background="#FFF2FFF9" Margin="0,20,0,0" Width="250"
                     HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="30,0,0,0">

@@ -30,13 +30,13 @@
             <TabControl  x:Name="TabKontrola" TabStripPlacement="Right">
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Platite doprinose, poreze, prireze; dodajte prijevoz." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Style="{StaticResource TxtBoxIzgled}" Text="Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
                     </TabItem.Header>
                     <local:BrutoNetoUserControla />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Izračun bruto dohotka ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
+                        <TextBlock Text="Izračunajte bruto dohodak ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
                     </TabItem.Header>
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
@@ -49,14 +49,14 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Izračunajte dodatna izdvajanja za doprinose." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text="Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
                                           Margin="10,0,10,0" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Preračunajte ratu kredita iz eura u kune, dnevni tečaj." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text="Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical">
                         <local:TecajEura Margin="0,20,0,0"
@@ -71,13 +71,13 @@
                     </TabItem.Header>
                     <local:UcOvrha Margin="0,15,0,0"
                                    Width="550"
-                                   Height="740" />
+                                   Height="735" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Pomoć za one koji su u ovome novi." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text="Pomoć i razne informacije." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
-                    <local:UcPomoc Height="755"/>
+                    <local:UcPomoc Height="750"/>
                 </TabItem>
                 <TabItem x:Name="ZatvoriTabItem">
                     <TabItem.Header>
@@ -96,7 +96,7 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        <StatusBar Background="Gainsboro" Height="20">
+        <StatusBar Background="Gainsboro" Height="20" Width="878" HorizontalAlignment="Left">
             <TextBlock Text="Aplikaciju izradio: Darko Eller"
                        Margin="0"
                        FontSize="10.667"

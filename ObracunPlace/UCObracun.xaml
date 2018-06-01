@@ -7,7 +7,7 @@
              d:DesignHeight="680"
              d:DesignWidth="790" Loaded="UserControl_Loaded">
     <StackPanel Orientation="Vertical" Margin="0,30,0,0" HorizontalAlignment="Center" 
-                Height="585">
+                Height="587">
         <GroupBox Header="Izračunajte svoj bruto iznos plaće"
                   VerticalAlignment="Top">
             <Grid Width="720"
