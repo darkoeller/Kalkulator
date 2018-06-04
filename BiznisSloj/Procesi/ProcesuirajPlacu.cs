@@ -2,7 +2,6 @@
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
-using PostSharp.Patterns.Contracts;
 
 namespace BiznisSloj.Procesi
 {
@@ -13,7 +12,7 @@ namespace BiznisSloj.Procesi
         private static readonly decimal Maxdoprinos2Stup = 2406.00m;
         private static readonly decimal Maxdoprinos1I2Stup = 9624.00m;
 
-        public ProcesuirajPlacu([Required] decimal bruto, decimal prirez, bool drugistup, decimal odbitak = 1.0m)
+        public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, decimal odbitak = 1.0m)
         {
             Bruto = bruto;
             Odbitak = odbitak;
