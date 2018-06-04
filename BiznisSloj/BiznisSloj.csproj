@@ -41,6 +41,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.11\lib\net40\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="PostSharp, Version=5.0.41.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>PostSharp\lib\net40\PostSharp.dll</HintPath>
@@ -50,6 +53,9 @@
     </Reference>
     <Reference Include="PostSharp.Patterns.Diagnostics">
       <HintPath>PostSharp\lib\net40\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.NLog, Version=5.0.51.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.NLog.5.0.51\lib\net40\PostSharp.Patterns.Diagnostics.Backends.NLog.dll</HintPath>
     </Reference>
     <Reference Include="PostSharp.Patterns.Model">
       <HintPath>PostSharp\lib\net40\PostSharp.Patterns.Model.dll</HintPath>
@@ -120,6 +126,7 @@
       <Link>DependencyValidation1.layerdiagram</Link>
       <Visible>False</Visible>
     </AdditionalFiles>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

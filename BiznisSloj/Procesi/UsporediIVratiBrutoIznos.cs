@@ -1,7 +1,10 @@
 ﻿using System;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Extensibility;
 
 namespace BiznisSloj.Procesi
 {
+    [Log(AttributeTargetElements = MulticastTargets.Method, AttributeTargetMemberAttributes = MulticastAttributes.Public)]
     public class UsporediIVratiBrutoIznos
     {
         private readonly bool _miroStup;
