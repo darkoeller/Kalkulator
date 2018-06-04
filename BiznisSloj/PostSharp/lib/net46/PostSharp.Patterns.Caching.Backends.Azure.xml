@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Caching.Backends.Azure</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator">
+      <summary>
+            An implementation of <see cref="T:PostSharp.Patterns.Caching.Implementation.CacheInvalidator" /> based on Microsoft Azure Service Bus.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions)">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.
+            </summary>
+      <param name="backend">The local (in-memory, typically) cache being invalidated by the new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.</param>
+      <param name="options">Options.</param>
+      <returns>A new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions)">
+      <summary>
+            Asynchronously creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.
+            </summary>
+      <param name="backend">The local (in-memory, typically) cache being invalidated by the new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.</param>
+      <param name="options">Options.</param>
+      <returns>A new <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.DisposeCore(System.Boolean)">
+      <summary>
+            Synchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="disposing">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>disposing</parameter>
+            <parameter>M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.DisposeCore(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.Finalize">
+      <summary>
+            Destructor.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)">
+      <summary>
+            Sends an invalidation message over the message bus of the implementation.
+            </summary>
+      <param name="message">A serialized, opaque serialization message.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidator" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Azure.AzureCacheInvalidatorOptions.ConnectionString">
+      <summary>
+            Gets or sets the connection string for the Azure Service Bus topic. The value must be a valid argument of the <c>TopicClient.CreateFromConnectionString</c> method.
+            </summary>
+    </member>
+  </members>
+</doc>

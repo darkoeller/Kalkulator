@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Caching.Backends.Redis</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector">
+      <summary>
+            Removes dependencies added when a <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> when items are expired or evicted from the cache.
+            At least one instance (ideally a single instance) of the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> must be running whenever a
+            <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> instance that supports dependencies is running, otherwise the cache will use storage to store dependencies
+            that are no longer relevant, and will not be removed otherwise. If no <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> is running while
+            at least one dependency-enabled <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> instance is running, you must initiate full garbage collection
+            by calling the <see cref="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)" /> method.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection">
+      <summary>
+            Gets the Redis <see cref="T:StackExchange.Redis.IConnectionMultiplexer" /> used by the current object.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend)">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> that uses an existing <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" /> object.
+            </summary>
+      <param name="backend">An existing Redis <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />, as returned by <see cref="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" />.</param>
+      <returns>A <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> using <paramref name="backend" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> given a Redis connection and a configuration object.
+            </summary>
+      <param name="connection">A Redis connection.</param>
+      <param name="configuration">A configuration object.</param>
+      <returns>A <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> using <paramref name="connection" /> and <paramref name="configuration" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> that uses an existing <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> object.
+            </summary>
+      <param name="backend">An existing <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />, as returned by <see cref="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" />, that supports dependencies.</param>
+      <param name="cancellationToken"></param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> returning a <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> that uses <paramref name="backend" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> given a Redis connection and a configuration object.
+            </summary>
+      <param name="connection">A Redis connection.</param>
+      <param name="configuration">A configuration object.</param>
+      <param name="cancellationToken"></param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> returning a <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> that uses <paramref name="connection" /> and <paramref name="configuration" />.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database">
+      <summary>
+            Gets the Redis <see cref="T:StackExchange.Redis.IDatabase" /> used by the current object.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose">
+      <summary>
+            Disposes the current object.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync(System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously disposes the current object.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,StackExchange.Redis.IServer,System.Threading.CancellationToken)">
+      <summary>
+            Performs a full garbage collection on a given Redis server. This operation enumerates and validates all keys in the database, and can possibly last several
+            minutes and affect performance in production.
+            </summary>
+      <param name="backend">A <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> that supports dependencies.</param>
+      <param name="server">The Redis server whose keys will be enumerated and validated.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)">
+      <summary>
+            Performs a full garbage collection on all Redis servers. This operation enumerates and validates all keys in the database, and can possibly last several
+            minutes and affect performance in production.
+            </summary>
+      <param name="backend">A <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> that supports dependencies.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator">
+      <summary>
+            An implementation of <see cref="T:PostSharp.Patterns.Caching.Implementation.CacheInvalidator" />  that uses Redis publish/subscribe channels to invalidate several
+            instances of local caches.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection">
+      <summary>
+            Gets the Redis <see cref="T:StackExchange.Redis.IConnectionMultiplexer" /> used by the current <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.
+            </summary>
+      <param name="backend">A local (typically in-memory) caching back-end.</param>
+      <param name="connection">A Redis connection.</param>
+      <param name="options">Options.</param>
+      <returns>A new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.
+            </summary>
+      <param name="backend">A local (typically in-memory) caching back-end.</param>
+      <param name="connection">A Redis connection.</param>
+      <param name="options">Options.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> returning a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(System.Boolean)">
+      <summary>
+            Synchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="disposing">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>disposing</parameter>
+            <parameter>M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)">
+      <summary>
+            Sends an invalidation message over the message bus of the implementation.
+            </summary>
+      <param name="message">A serialized, opaque serialization message.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions.ChannelName">
+      <summary>
+            Name of the Redis channel to use to exchange invalidation messages. The default value is <c>RedisCacheInvalidator</c>.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions.OwnsConnection">
+      <summary>
+            Determines whether disposing the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" /> also disposes the Redis connection. The default value is <c>false</c>.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend">
+      <summary>
+            A <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" /> for Redis, based on the <c>StackExchange.Redis</c> client.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore(System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously clears the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore">
+      <summary>
+            Clears the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. 
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration">
+      <summary>
+            Gets the configuration of the current <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection">
+      <summary>
+            Gets the Redis connection used by the current <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(System.String)">
+      <summary>
+            Determines whether the cache contains a given dependency.  This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The dependency key.</param>
+      <returns>
+        <c>true</c> if the cache contains the dependency <paramref name="key" />, otherwise <c>false</c>.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously determines whether the cache contains an item of a given key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that evaluates to <c>true</c> if the cache contains an item whose key is <paramref name="key" />, otherwise <c>false</c>.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(System.String)">
+      <summary>
+            Determines whether the cache contains an item of a given key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+      <returns>
+        <c>true</c> if the cache contains an item whose key is <paramref name="key" />, otherwise <c>false</c>.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+      <param name="connection">A Redis connection.</param>
+      <param name="configuration">Configuration of the new back-end.</param>
+      <returns>A <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />, <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" />, or a <see cref="T:PostSharp.Patterns.Caching.Backends.TwoLayerCachingBackendEnhancer" />,
+            according to the properties of the <paramref name="configuration" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously creates a new <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+      <param name="connection">A Redis connection.</param>
+      <param name="configuration">Configuration of the new back-end.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A task returning a <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />, <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" />, or a <see cref="T:PostSharp.Patterns.Caching.Backends.TwoLayerCachingBackendEnhancer" />,
+            according to the properties of the <paramref name="configuration" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures">
+      <summary>
+            Creates a <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures" /> object, which describes set of features implemented by the back-end.
+            This method is invoked the first time the <see cref="P:PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures" /> property is evaluated. The result is then cached.
+            </summary>
+      <returns>A new instance of the <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures" /> class.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database">
+      <summary>
+            Gets the Redis database used by the current <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(System.Boolean)">
+      <summary>
+            Synchronously disposes the current <see cref="T:PostSharp.Patterns.Caching.Implementation.CachingBackend" />. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="disposing">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>disposing</parameter>
+            <parameter>M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(System.Boolean)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(System.String)">
+      <summary>
+            Removes from the cache all items that have a specific dependency.  This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The dependency key.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(System.String,System.String,System.Guid)">
+      <summary>
+            Processes an event that was received on the events channel.
+            </summary>
+      <param name="kind">Kind of event.</param>
+      <param name="key">Key of the item (value key or dependency key, typically).</param>
+      <param name="sourceId">
+        <see cref="T:System.Guid" /> of the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> that sent the event.</param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(System.String,System.String,System.Guid)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously removes a cache item from the cache given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(System.String)">
+      <summary>
+            Removes a cache item from the cache given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SendEvent(System.String,System.String)">
+      <summary>
+            Sends of event.
+            </summary>
+      <param name="kind">Kind of event.</param>
+      <param name="key">Key of the item (value key or dependency key, typically).</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SendEventAsync(System.String,System.String)">
+      <summary>
+            Asynchronously sends of event.
+            </summary>
+      <param name="kind">Kind of event.</param>
+      <param name="key">Key of the item (value key or dependency key, typically).</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SendSynchronizationSignalAsyncCore(System.Guid,System.Threading.CancellationToken)">
+      <summary>
+            Sends a synchronization signal of a given <see cref="T:System.Guid" /> to the physical implementation of the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+            </summary>
+      <param name="guid">The <see cref="T:System.Guid" /> of the synchronization signal.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously sets a cache item. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            The default implementation is to call the synchronous <see cref="M:PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)" /> method.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+      <param name="item">The cache item.</param>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)">
+      <summary>
+            Sets a cache item. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+            </summary>
+      <param name="key">The key of the cache item.</param>
+      <param name="item">The cache item.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)">
+      <summary>
+            Returns a <see cref="T:System.Threading.Tasks.Task" /> that completes when all enqueued background tasks complete.
+            </summary>
+      <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" />.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that completes when all enqueued background tasks complete.</returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration">
+      <summary>
+            Configuration for <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen">
+      <summary>
+            Throws an <see cref="T:System.InvalidOperationException" /> if the object has been frozen.
+            </summary>
+      <exception cref="T:System.InvalidOperationException"></exception>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer">
+      <summary>
+            Gets or sets a function that creates the serializer used to serialize objects into byte arrays (and conversely).
+            The default value is <c>null</c>, which means that <see cref="T:PostSharp.Patterns.Caching.Serializers.BinarySerializer" /> will be used.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database">
+      <summary>
+            Gets the index of the database to use. The default value is <c>-1</c> (automatic selection).
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration">
+      <summary>
+            Gets or sets the default expiration time of cached items.
+            All items that don't have an explicit expiration time are automatically expired according to the value
+            of this property, unless they have the <see cref="F:PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable" /> priority.
+            The default value is 1 day.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached">
+      <summary>
+            Determines whether a <see cref="T:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" /> should be added in front of the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix">
+      <summary>
+            Gets the prefix for the key of all Redis items created by the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />. The default value is <c>cache</c>.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection">
+      <summary>
+            Determines whether the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> should dispose the Redis connection when the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />
+            itself is disposed.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies">
+      <summary>
+            Determines whether the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" /> should support dependencies. When this property is used,
+            the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" /> class is used instead of <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" />. When dependencies
+            are enabled, at least one instance of the <see cref="T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" /> MUST run.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries">
+      <summary>
+            Gets or sets the number of times Redis transactions are retried when they fail due to a data conflict, before an exception
+            is raised. The default value is <c>5</c>.
+            </summary>
+    </member>
+  </members>
+</doc>

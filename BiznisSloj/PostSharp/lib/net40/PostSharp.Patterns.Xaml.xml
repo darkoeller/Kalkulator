@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Xaml</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Model.Controls.RedoButton">
+      <summary>
+            A typical implementation of a Redo button, with an optional and expandable list of operations that can be redone.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.RedoButton.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.RedoButton" /> class.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.RedoCommand">
+      <summary>
+            A command that redoes a single operation in a <see cref="T:PostSharp.Patterns.Recording.Recorder" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.RedoCommand.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.RedoCommand" /> class and binds it to the <see cref="P:PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.RedoCommand.#ctor(PostSharp.Patterns.Recording.Recorder)">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.UndoCommand" /> class and specifies to which <see cref="T:PostSharp.Patterns.Recording.Recorder" /> it should be bound.
+            </summary>
+      <param name="recorder">The <see cref="T:PostSharp.Patterns.Recording.Recorder" /> to which the new <see cref="T:PostSharp.Patterns.Model.Controls.RedoCommand" /> should be bound.</param>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.StringEscaper">
+      <summary>
+            Implements an <see cref="T:System.Windows.Data.IValueConverter" /> that escapes strings by changing <c>_</c> into <c>__</c>.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.StringEscaper.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Model.Controls.StringEscaper</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.StringEscaper.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+      <summary>Converts a value. </summary>
+      <param name="value">The value produced by the binding source.</param>
+      <param name="targetType">The type of the binding target property.</param>
+      <param name="parameter">The converter parameter to use.</param>
+      <param name="culture">The culture to use in the converter.</param>
+      <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.StringEscaper.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+      <summary>Converts a value. </summary>
+      <param name="value">The value that is produced by the binding target.</param>
+      <param name="targetType">The type to convert to.</param>
+      <param name="parameter">The converter parameter to use.</param>
+      <param name="culture">The culture to use in the converter.</param>
+      <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.UndoButton">
+      <summary>
+            A typical implementation of an Undo button, with an optional and expandable list of operations that can be undone.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoButton.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.UndoButton" /> class.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.UndoCommand">
+      <summary>
+            A command that undoes a single operation in a <see cref="T:PostSharp.Patterns.Recording.Recorder" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoCommand.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.UndoCommand" /> class and binds it to the <see cref="P:PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoCommand.#ctor(PostSharp.Patterns.Recording.Recorder)">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Model.Controls.UndoCommand" /> class and specifies to which <see cref="T:PostSharp.Patterns.Recording.Recorder" /> it should be bound.
+            </summary>
+      <param name="recorder">The <see cref="T:PostSharp.Patterns.Recording.Recorder" /> to which the new <see cref="T:PostSharp.Patterns.Model.Controls.UndoCommand" /> should be bound.</param>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase">
+      <summary>
+            Base class for <see cref="T:PostSharp.Patterns.Model.Controls.UndoButton" /> and <see cref="T:PostSharp.Patterns.Model.Controls.RedoButton" />.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore">
+      <summary>Gets the value of the <see cref="P:System.Windows.ContentElement.IsEnabled" /> property.</summary>
+      <returns>true if the control is enabled; otherwise, false.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled">
+      <summary>
+            Determines whether the button can be extended and display the list of operations that can be undone or redone.
+            </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabledProperty">
+      <summary>
+            Definition of the <see cref="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled" /> property.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded">
+      <summary>
+            Determines whether the detailed list of operations is currently expanded.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount">
+      <summary>
+            Gets or sets the maximal number of operations displayed by the current button.
+            </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCountProperty">
+      <summary>
+            Definition of the <see cref="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount" /> property.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate">
+      <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.</summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick">
+      <summary>Called when a <see cref="T:System.Windows.Controls.Button" /> is clicked. </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+      <summary>Provides class handling for the <see cref="E:System.Windows.UIElement.KeyDown" /> routed event that occurs when the user presses a key while this control has focus.</summary>
+      <param name="e">The event data.</param>
+      <param name="eventArgs">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>eventArgs</parameter>
+            <parameter>M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(System.String)">
+      <summary>
+            Raises the <see cref="E:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged" /> event.
+            </summary>
+      <param name="propertyName">Name of the changed property.</param>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations">
+      <summary>
+            Gets the list of operations displayed by the current button when in expanded state.
+            </summary>
+    </member>
+    <member name="E:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged">
+      <summary>
+            Event raised when the value of a property of the current object changes.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder">
+      <summary>
+            Gets or sets the <see cref="T:PostSharp.Patterns.Recording.Recorder" /> bound to the current control.
+            </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.RecorderProperty">
+      <summary>
+            Definition of the <see cref="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder" /> dependency property.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand">
+      <summary>
+            Gets or sets the command used execute the Undo action.
+            </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommandProperty">
+      <summary>
+            Definition of the <see cref="P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand" /> dependency property.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase">
+      <summary>
+            Base class for <see cref="T:PostSharp.Patterns.Model.Controls.UndoCommand" /> and <see cref="T:PostSharp.Patterns.Model.Controls.RedoCommand" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(System.Object)">
+      <summary>Defines the method that determines whether the command can execute in its current state.</summary>
+      <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+      <returns>true if this command can be executed; otherwise, false.</returns>
+    </member>
+    <member name="E:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged">
+      <summary>Occurs when changes occur that affect whether or not the command should execute.</summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(System.Object)">
+      <summary>Defines the method to be called when the command is invoked.</summary>
+      <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+    </member>
+    <member name="P:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder">
+      <summary>
+            Gets the <see cref="T:PostSharp.Patterns.Recording.Recorder" /> bound to this command.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.Attached`1">
+      <summary>
+            Type of properties that are turned into XAML attached properties by the <see cref="T:PostSharp.Patterns.Xaml.AttachedPropertyAttribute" /> aspect.
+            </summary>
+      <typeparam name="T">The type of the underlying attached property.</typeparam>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.Attached`1.Item(System.Windows.DependencyObject)">
+      <summary>
+            Gets or sets the value of the current attached property for a given object (see <see cref="M:System.Windows.DependencyObject.GetValue(System.Windows.DependencyProperty)" /> and <see cref="M:System.Windows.DependencyObject.SetValue(System.Windows.DependencyProperty,System.Object)" />).
+            </summary>
+      <param name="obj">The object for which the property is get or set.</param>
+      <returns>The value of the attached property for <paramref name="obj" />.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty">
+      <summary>
+            Gets <see cref="T:System.Windows.DependencyProperty" /> registered in runtime.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.Attached`1.SetCurrentValue(System.Windows.DependencyObject,`0)">
+      <summary>
+            Sets the value of this attached property for a given object without changing its value source (see <see cref="M:System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty,System.Object)" />).
+            </summary>
+      <param name="obj">An object for which to set the property value.</param>
+      <param name="value">Value to be set.</param>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.AttachedPropertyAttribute">
+      <summary>
+            Custom attribute that, when applied on a static automatic property and of type <see cref="T:PostSharp.Patterns.Xaml.Attached`1" /> 
+            turns this property into a XAML dependency property of the same name and whose value type is <c>T</c>.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Xaml.AttachedPropertyAttribute</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertyGet``1(``0@,PostSharp.Aspects.ILocationBinding)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertyGet``1(``0@,PostSharp.Aspects.ILocationBinding)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertyGet``1(``0@,PostSharp.Aspects.ILocationBinding)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="binding">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>binding</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertyGet``1(``0@,PostSharp.Aspects.ILocationBinding)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertyGet``1(``0@,PostSharp.Aspects.ILocationBinding)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertySet``1(``0)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertySet``1(``0)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertySet``1(``0)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.AttachedPropertyAttribute.OnPropertySet``1(``0)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.CommandAttribute">
+      <summary>
+            Custom attribute that, when applied on a property of type <see cref="T:System.Windows.Input.ICommand" /> named say <c>Foo</c>, automatically create a
+            new command class based on a method named <c>ExecuteFoo</c> and an optional property or method named <c>CanExecuteFoo</c>.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.CommandAttribute.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:PostSharp.Patterns.Xaml.CommandAttribute" /> class.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod">
+      <summary>
+            Gets or sets the name of the method that is called to determine whether the command can be executed.
+            This method corresponds to the <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)" /> method.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty">
+      <summary>
+            Gets or sets the name of the property that is evaluated to determine whether the command can be executed.
+            This property corresponds to the <see cref="M:System.Windows.Input.ICommand.CanExecute(System.Object)" /> method.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="targetLocation">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>targetLocation</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="aspectInfo">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>aspectInfo</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod">
+      <summary>
+            Gets or sets the name of the method that implements the command logic. This method corresponds to the
+            to the <see cref="M:System.Windows.Input.ICommand.Execute(System.Object)" /> method. It is called every time the command is invoked.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="instance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instance</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="property">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>property</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertyGet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="instance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instance</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="property">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>property</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.CommandAttribute.OnPropertySet``1(System.Object,PostSharp.Aspects.ILocationBinding,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.DependencyPropertyAttribute">
+      <summary>
+            Custom attribute that, when applied on an automatic property, turns this property into a XAML dependency property of the same name.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Xaml.DependencyPropertyAttribute</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertyGet``1(System.Object,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertyGet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="instance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instance</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertyGet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertyGet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertyGet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertySet``1(System.Object,``0@)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertySet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="instance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instance</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertySet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertySet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.OnPropertySet``1(System.Object,``0@)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute">
+      <summary>
+            The base class for the <see cref="T:PostSharp.Patterns.Xaml.DependencyPropertyAttribute" /> and <see cref="T:PostSharp.Patterns.Xaml.AttachedPropertyAttribute" /> aspects.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.IsReadOnly">
+      <summary>
+            Determines whether the property should be registered as a read-only property.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.PropertyChangedMethod">
+      <summary>
+            Gets or sets the name of the method that reacts to the changes of the property value.
+            </summary>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.RegistrationProperty">
+      <summary>
+            Gets or sets the name of the property that exposes the instance of the registered <see cref="T:System.Windows.DependencyProperty" />.
+            </summary>
+    </member>
+    <member name="F:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.targetProperty">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>F:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.targetProperty</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValue(System.Object)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValue(System.Object)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="value">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>value</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValue(System.Object)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValue(System.Object)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValueMethod">
+      <summary>
+            Gets or sets the name of the method that validates the value of the property.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Xaml.DependencyPropertyServices">
+      <summary>
+            Exposes helper methods that work with the <see cref="T:PostSharp.Patterns.Xaml.DependencyPropertyAttribute" /> and <see cref="T:PostSharp.Patterns.Xaml.AttachedPropertyAttribute" /> aspects.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+      <summary>
+            Gets the <see cref="T:System.Windows.DependencyProperty" /> object associated with a property of a given name for a given type.
+            The property name and the property owner type are extracted from the <paramref name="expression" /> argument.
+            </summary>
+      <param name="expression">The lambda expression in the format <c>() =&gt; new ClassName().PropertyName</c>.</param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <returns>The <see cref="T:System.Windows.DependencyProperty" /> instance.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+      <summary>
+            Gets the <see cref="T:System.Windows.DependencyProperty" /> object associated with a property of a given name for a given type.
+            The property name and the property owner type are extracted from the <paramref name="expression" /> argument.
+            </summary>
+      <param name="expression">The lambda expression in the format <c>(ClassName x) =&gt; x.PropertyName</c>.</param>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <typeparam name="U">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>U</parameter>
+            <parameter>M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})</parameter>
+          </include>
+        </markup>
+      </typeparam>
+      <returns>The <see cref="T:System.Windows.DependencyProperty" /> instance.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type,System.String)">
+      <summary>
+            Gets the <see cref="T:System.Windows.DependencyProperty" /> object associated with a property of a given name for a given type.
+            </summary>
+      <param name="type">The type for which the dependency property was registered.</param>
+      <param name="propertyName">The name of the property.</param>
+      <returns>The <see cref="T:System.Windows.DependencyProperty" /> instance.</returns>
+    </member>
+    <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+      <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+    </member>
+    <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper" /> class.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Diagnostics.Backends.Frigate</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend">
+      <summary>
+            The <see cref="T:PostSharp.Patterns.Diagnostics.LoggingBackend" /> for the Frigate project.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend.#ctor(System.String)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend" />.
+            </summary>
+      <param name="path">Path of the log file.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend.CreateRecordBuilder">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.
+            </summary>
+      <returns>A new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.</returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend.Options">
+      <summary>
+            Gets the back-end options.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackendOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackendOptions.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.FrigateLoggingBackendOptions" />.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.Frigate.IFrigateCustomActivity">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:PostSharp.Patterns.Diagnostics.Backends.Frigate.IFrigateCustomActivity</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.Frigate.IFrigateCustomActivity.AddToIndex(System.String)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Frigate.IFrigateCustomActivity.AddToIndex(System.String)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="indexName">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>indexName</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.Frigate.IFrigateCustomActivity.AddToIndex(System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+  </members>
+</doc>

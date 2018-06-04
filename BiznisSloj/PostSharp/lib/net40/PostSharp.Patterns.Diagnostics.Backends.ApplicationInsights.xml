@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights</name>
+  </assembly>
+  <members>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend">
+      <summary>
+            Logging back-end for Microsoft Application Insights.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor(System.String)">
+      <summary>
+            Creates <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" /> that uses the given instrumentation key.
+            </summary>
+      <param name="instrumentationKey">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instrumentationKey</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor(System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder">
+      <summary>
+            Creates a new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.
+            </summary>
+      <returns>A new <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" />.</returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Creates <see cref="T:PostSharp.Patterns.Diagnostics.LoggingTypeSource" /> for the given role and type.
+            </summary>
+      <param name="parent">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>parent</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="type">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>type</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Finalize">
+      <summary>Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush">
+      <summary>
+            Flushes the in-memory buffer, to make sure buffered data reach the server immediately.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions">
+      <summary>
+            Gets the back-end options.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options">
+      <summary>
+            Gets the back-end options.
+            </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackendOptions">
+      <summary>
+            Options for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackendOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackendOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource" />.
+            </summary>
+      <param name="parent">The parent <see cref="T:PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" />.</param>
+      <param name="type">The source <see cref="T:System.Type" /> emitting the log records.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)">
+      <summary>
+            Checks whether logging is enabled in the back-end for the given level.
+            </summary>
+      <param name="level">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>level</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </param>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder">
+      <summary>
+        <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> for <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" />.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.#ctor(PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend)">
+      <summary>
+            Initializes a new <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder" />.
+            </summary>
+      <param name="backend">The parent <see cref="T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" />.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.BeginRecord(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)">
+      <summary>
+            Initializes the current <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> to emit a standard (i.e. non-custom) record for
+            a given context and method.
+            </summary>
+      <param name="context">The parent <see cref="T:PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" /> of the record.</param>
+      <param name="recordInfo">Information about the record.</param>
+      <param name="memberInfo">Information about the method, property, or field.</param>
+      <param name="logRecordInfo">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>logRecordInfo</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.BeginRecord(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="logMemberInfo">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>logMemberInfo</parameter>
+            <parameter>M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.BeginRecord(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.Reset">
+      <summary>
+            Resets all fields and properties of the current <see cref="T:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" /> to their initial value. Invoked by the
+            <see cref="M:PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.Complete" /> method.
+            </summary>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.SetException(System.Exception)">
+      <summary>
+            Sets the exception for the method or activity.
+            </summary>
+      <param name="exception">An <see cref="T:System.Exception" />.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.SetExecutionTime(System.Double,System.Boolean)">
+      <summary>
+            Sets the method or activity execution time.
+            </summary>
+      <param name="executionTime">The execution time, in milliseconds.</param>
+      <param name="isOvertime">
+        <c>true</c> if <paramref name="executionTime" /> is over the threshold set in <see cref="P:PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold" />,
+            otherwise <c>false</c>.</param>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.SetParameter``1(System.Int32,System.String,PostSharp.Patterns.Diagnostics.RecordBuilders.ParameterDirection,System.String,``0,PostSharp.Patterns.Formatters.IFormatter{``0})">
+      <summary>
+            Sets the value of a given parameter and uses the default formatter.
+            </summary>
+      <param name="index">Index of the parameter in the list of method parameters.</param>
+      <param name="parameterName">Name of the parameter (only included if the <see cref="P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName" /> property is <c>true</c>).</param>
+      <param name="direction">
+        <see cref="F:PostSharp.Patterns.Diagnostics.RecordBuilders.ParameterDirection.In" />, <see cref="F:PostSharp.Patterns.Diagnostics.RecordBuilders.ParameterDirection.Out" /> or <see cref="F:PostSharp.Patterns.Diagnostics.RecordBuilders.ParameterDirection.Ref" />.</param>
+      <param name="typeName">Formatted name of the type <typeparamref name="T" /> (only included if the <see cref="P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType" /> property is <c>true</c>).</param>
+      <param name="value">Value of the parameter  (only included if the <see cref="P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue" /> property is <c>true</c>).</param>
+      <param name="formatter">Formatter to be used to format <paramref name="value" />.</param>
+      <typeparam name="T">Type of the parameter.</typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.SetReturnValue``1(System.Int32,System.String,System.String,``0,PostSharp.Patterns.Formatters.IFormatter{``0})">
+      <summary>
+            Sets a given return value (there can be several return values in C# 7.0) and uses a given formatter.
+            </summary>
+      <param name="index">Index of the return value.</param>
+      <param name="returnValueName">Name of the return value, or <c>null</c> if there is only one return value in the method.</param>
+      <param name="typeName">Formatted name of the type <typeparamref name="T" />.</param>
+      <param name="value">Return value.</param>
+      <param name="formatter">The formatter to be used to format <typeparamref name="T" />.</param>
+      <typeparam name="T">Type of the return value.</typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.SetThis``1(``0,PostSharp.Patterns.Formatters.IFormatter{``0})">
+      <summary>
+            Sets the <c>this</c> (instance) value and uses a given formatter.
+            </summary>
+      <param name="value">The value of the <c>this</c> instance.</param>
+      <param name="formatter">The formatter to be used.</param>
+      <typeparam name="T">Type of the class being logged.</typeparam>
+    </member>
+    <member name="M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder.Write(PostSharp.Patterns.Formatters.UnsafeString)">
+      <summary>
+            Writes the final message to the back-end.
+            </summary>
+      <param name="message">The final message.</param>
+    </member>
+  </members>
+</doc>

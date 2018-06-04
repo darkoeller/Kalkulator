@@ -14,6 +14,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <DontImportPostSharp>True</DontImportPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,19 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=5.0.41.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>PostSharp\lib\net40\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common">
+      <HintPath>PostSharp\lib\net40\PostSharp.Patterns.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics">
+      <HintPath>PostSharp\lib\net40\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Model">
+      <HintPath>PostSharp\lib\net40\PostSharp.Patterns.Model.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -118,6 +132,9 @@
     <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.9.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ImportGroup>
+    <Import Project="PostSharp\Tools\PostSharp.targets" />
+  </ImportGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
