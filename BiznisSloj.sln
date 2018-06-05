@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObracunPlace", "ObracunPlac
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "DependencyValidation", "DependencyValidation\DependencyValidation.modelproj", "{F58DDE39-A97F-43BD-B2C1-BD6D8F8A3171}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4AFCBA86-CF10-45B2-9A24-BA760D2BBEA9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3167AEFB-5BC6-47CE-9EA2-672D6D1E473E}"
 	ProjectSection(SolutionItems) = preProject
 		BiznisSloj.pssln = BiznisSloj.pssln
 	EndProjectSection

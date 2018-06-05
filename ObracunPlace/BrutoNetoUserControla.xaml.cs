@@ -9,6 +9,9 @@ using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
+using NLog;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Diagnostics.Backends.NLog;
 
 namespace ObracunPlace
 {
@@ -53,9 +56,11 @@ namespace ObracunPlace
             decimal.TryParse(TxtBoxOdbici.Text, out var odbici);
             return odbici;
         }
-
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
+            LoggingServices.DefaultBackend = new NLogLoggingBackend();
+            LogManager.EnableLogging();
+
             if (string.IsNullOrEmpty(TxtBruto.Text))
             {
                 MessageBox.Show("Nema iznosa u brutu/netu.",
@@ -199,7 +204,9 @@ namespace ObracunPlace
 
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Prirez = decimal.Parse(CmbPrirez.SelectedItem.ToString());
+            var prirez = CmbPrirez.SelectedItem.ToString();
+            prirez = prirez.Replace('.', ',');
+            Prirez = decimal.Parse(prirez);
         }
 
         private void Ispis_Click(object sender, RoutedEventArgs e)

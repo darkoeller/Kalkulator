@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:nlog ="clr-namespace:NlogViewer;assembly=NlogViewer"
         BorderThickness="2"
         xmlns:local="clr-namespace:ObracunPlace"
         mc:Ignorable="d"
@@ -96,7 +97,8 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-        <StatusBar Background="Gainsboro" Height="20" Width="878" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+        <StatusBar Background="Gainsboro" Height="24" Width="878" HorizontalAlignment="Left" Margin="0">         
             <TextBlock Text="Aplikaciju izradio: Darko Eller"
                        Margin="0"
                        FontSize="10.667"
@@ -104,7 +106,9 @@
                        FontFamily="Roboto-Italic"
                        FontStyle="Italic"
                        IsEnabled="False" />
+             <nlog:NlogViewer Height="24" x:Name="logCtrl" TimeWidth="AUTO" LoggerNameWidth="0" LevelWidth="auto" ExceptionWidth="auto" MessageWidth="auto" /> 
         </StatusBar>
+            </StackPanel>
         </StackPanel>
         
     </ScrollViewer>

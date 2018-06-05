@@ -13,6 +13,7 @@ namespace ObracunPlace
             InitializeComponent();
         }
 
+
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             TabKontrola.SelectedIndex += 1;
