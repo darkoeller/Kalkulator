@@ -11,7 +11,7 @@ using ObracunPlace.Properties;
 namespace ObracunPlace
 {
     /// <summary>
-    ///   Interaction logic for UCObracun.xaml
+    ///     Interaction logic for UCObracun.xaml
     /// </summary>
     public sealed partial class UcObracun : INotifyPropertyChanged
     {

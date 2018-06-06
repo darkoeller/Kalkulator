@@ -18,25 +18,27 @@
         FontFamily="Roboto Light">
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel x:Name="CjelaMreza"
-              Height="780"
-              Width="1050">
+                    Height="780"
+                    Width="1050">
             <StackPanel.Resources>
                 <Style x:Key="TxtBoxIzgled" TargetType="TextBlock">
-                    <Setter Property="TextWrapping" Value="Wrap"/>
-                    <Setter Property="Margin" Value="3" /> 
-                    <Setter Property="Width" Value="140"/>
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="Margin" Value="3" />
+                    <Setter Property="Width" Value="140" />
                 </Style>
             </StackPanel.Resources>
-            <TabControl  x:Name="TabKontrola" TabStripPlacement="Right">
+            <TabControl x:Name="TabKontrola" TabStripPlacement="Right">
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Style="{StaticResource TxtBoxIzgled}" Text=" Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
-                        </TabItem.Header>
+                        <TextBlock Style="{StaticResource TxtBoxIzgled}"
+                                   Text=" Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
+                    </TabItem.Header>
                     <local:BrutoNetoUserControla />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Izračunajte bruto dohodak ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
+                        <TextBlock Text=" Izračunajte bruto dohodak ili provjerite svoj minuli rad. "
+                                   Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
@@ -49,14 +51,17 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text=" Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom."
+                                   Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
                                           Margin="10,0" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock
+                            Text=" Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum."
+                            Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical">
                         <local:TecajEura Margin="0,20,0,0"
@@ -67,7 +72,8 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Ako imate problema sa ovrhom, ovo je stranica za vas." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text=" Ako imate problema sa ovrhom, ovo je stranica za vas."
+                                   Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:UcOvrha Margin="0,15,0,0"
                                    Width="550"
@@ -77,7 +83,7 @@
                     <TabItem.Header>
                         <TextBlock Text="Pomoć i razne informacije." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
-                    <local:UcPomoc Height="750"/>
+                    <local:UcPomoc Height="750" />
                 </TabItem>
                 <TabItem x:Name="ZatvoriTabItem">
                     <TabItem.Header>
@@ -97,15 +103,15 @@
                 </TabItem>
             </TabControl>
             <StackPanel Orientation="Horizontal">
-        <StatusBar Background="Gainsboro" Height="24" Width="885" HorizontalAlignment="Left" Margin="0">         
-            <TextBlock Text="Aplikaciju izradio: Darko Eller"
-                       Margin="0"
-                       FontSize="10.667"
-                       VerticalAlignment="Bottom"
-                       FontFamily="Roboto-Italic"
-                       FontStyle="Italic"
-                       IsEnabled="False" />
-        </StatusBar>
+                <StatusBar Background="Gainsboro" Height="24" Width="885" HorizontalAlignment="Left" Margin="0">
+                    <TextBlock Text="Aplikaciju izradio: Darko Eller"
+                               Margin="0"
+                               FontSize="10.667"
+                               VerticalAlignment="Bottom"
+                               FontFamily="Roboto-Italic"
+                               FontStyle="Italic"
+                               IsEnabled="False" />
+                </StatusBar>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

@@ -13,7 +13,7 @@ using BiznisSloj.Procesi;
 namespace ObracunPlace
 {
     /// <summary>
-    ///   Interaction logic for BrutoNetoUserControla.xaml
+    ///     Interaction logic for BrutoNetoUserControla.xaml
     /// </summary>
     public partial class BrutoNetoUserControla
     {
@@ -32,7 +32,9 @@ namespace ObracunPlace
 
         private decimal GetOlaksica()
         {
-            decimal.TryParse(OlaksicaUpDown.Text, out var olaksica);
+            var textOlaksica = OlaksicaUpDown.Text;
+            if (textOlaksica.Contains('.')) textOlaksica = textOlaksica.Replace('.', ',');
+            decimal.TryParse(textOlaksica, out var olaksica);
             return olaksica;
         }
 
@@ -54,12 +56,14 @@ namespace ObracunPlace
 
         private decimal GetOdbici()
         {
-            decimal.TryParse(TxtBoxOdbici.Text, out var odbici);
+            var textOdbici = TxtBoxOdbici.Text;
+            if (textOdbici.Contains('.')) textOdbici = textOdbici.Replace('.', ',');
+            decimal.TryParse(textOdbici, out var odbici);
             return odbici;
         }
+
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
-
             if (string.IsNullOrEmpty(TxtBruto.Text))
             {
                 MessageBox.Show("Nema iznosa u brutu/netu.",

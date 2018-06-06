@@ -8,7 +8,7 @@ using BiznisSloj.BankarskiTecaj;
 namespace ObracunPlace
 {
     /// <summary>
-    ///   Interaction logic for TecajEura.xaml
+    ///     Interaction logic for TecajEura.xaml
     /// </summary>
     public partial class TecajEura
     {
@@ -56,6 +56,7 @@ namespace ObracunPlace
                 LblEuri.Content = "0,00";
                 return;
             }
+
             if (euro.Contains('.')) euro = euro.Replace('.', ',');
             decimal.TryParse(euro, out var rata);
             rata = Math.Round(_euro * rata, 2);
