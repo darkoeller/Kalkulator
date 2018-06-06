@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj.BankarskiTecaj;
@@ -49,13 +50,14 @@ namespace ObracunPlace
 
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtEuro.Text))
+            var euro = TxtEuro.Text;
+            if (string.IsNullOrEmpty(euro))
             {
                 LblEuri.Content = "0,00";
                 return;
             }
-
-            decimal.TryParse(TxtEuro.Text, out var rata);
+            if (euro.Contains('.')) euro = euro.Replace('.', ',');
+            decimal.TryParse(euro, out var rata);
             rata = Math.Round(_euro * rata, 2);
             LblEuri.Content = rata.ToString(CultureInfo.CurrentCulture);
         }

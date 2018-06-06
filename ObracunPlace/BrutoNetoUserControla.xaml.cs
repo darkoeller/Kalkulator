@@ -9,9 +9,6 @@ using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
-using NLog;
-using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Diagnostics.Backends.NLog;
 
 namespace ObracunPlace
 {
@@ -41,13 +38,17 @@ namespace ObracunPlace
 
         private decimal GetBruto()
         {
-            decimal.TryParse(TxtBruto.Text, out var bruto);
+            var textBruto = TxtBruto.Text;
+            if (textBruto.Contains('.')) textBruto = textBruto.Replace('.', ',');
+            decimal.TryParse(textBruto, out var bruto);
             return bruto;
         }
 
         private decimal GetNeto()
         {
-            decimal.TryParse(TxtNeto.Text, out var neto);
+            var textNeto = TxtNeto.Text;
+            if (textNeto.Contains('.')) textNeto = textNeto.Replace('.', ',');
+            decimal.TryParse(textNeto, out var neto);
             return neto;
         }
 
@@ -58,8 +59,6 @@ namespace ObracunPlace
         }
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
-            LoggingServices.DefaultBackend = new NLogLoggingBackend();
-            LogManager.EnableLogging();
 
             if (string.IsNullOrEmpty(TxtBruto.Text))
             {

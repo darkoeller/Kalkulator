@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:nlog ="clr-namespace:NlogViewer;assembly=NlogViewer"
         BorderThickness="2"
         xmlns:local="clr-namespace:ObracunPlace"
         mc:Ignorable="d"
@@ -25,19 +24,19 @@
                 <Style x:Key="TxtBoxIzgled" TargetType="TextBlock">
                     <Setter Property="TextWrapping" Value="Wrap"/>
                     <Setter Property="Margin" Value="3" /> 
-                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Width" Value="140"/>
                 </Style>
             </StackPanel.Resources>
             <TabControl  x:Name="TabKontrola" TabStripPlacement="Right">
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Style="{StaticResource TxtBoxIzgled}" Text="Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
-                    </TabItem.Header>
+                        <TextBlock Style="{StaticResource TxtBoxIzgled}" Text=" Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
+                        </TabItem.Header>
                     <local:BrutoNetoUserControla />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Izračunajte bruto dohodak ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
+                        <TextBlock Text=" Izračunajte bruto dohodak ili provjerite svoj minuli rad. " Style ="{StaticResource TxtBoxIzgled}"/>
                     </TabItem.Header>
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
@@ -50,14 +49,14 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text=" Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
-                                          Margin="10,0,10,0" />
+                                          Margin="10,0" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text=" Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical">
                         <local:TecajEura Margin="0,20,0,0"
@@ -68,7 +67,7 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text="Ako imate problema sa ovrhom, ovo je stranica za vas." Style="{StaticResource TxtBoxIzgled}" />
+                        <TextBlock Text=" Ako imate problema sa ovrhom, ovo je stranica za vas." Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:UcOvrha Margin="0,15,0,0"
                                    Width="550"
@@ -98,7 +97,7 @@
                 </TabItem>
             </TabControl>
             <StackPanel Orientation="Horizontal">
-        <StatusBar Background="Gainsboro" Height="24" Width="878" HorizontalAlignment="Left" Margin="0">         
+        <StatusBar Background="Gainsboro" Height="24" Width="885" HorizontalAlignment="Left" Margin="0">         
             <TextBlock Text="Aplikaciju izradio: Darko Eller"
                        Margin="0"
                        FontSize="10.667"
@@ -106,10 +105,8 @@
                        FontFamily="Roboto-Italic"
                        FontStyle="Italic"
                        IsEnabled="False" />
-             <nlog:NlogViewer Height="24" x:Name="logCtrl" TimeWidth="AUTO" LoggerNameWidth="0" LevelWidth="auto" ExceptionWidth="auto" MessageWidth="auto" /> 
         </StatusBar>
             </StackPanel>
         </StackPanel>
-        
     </ScrollViewer>
 </Window>

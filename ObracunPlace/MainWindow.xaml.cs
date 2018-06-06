@@ -23,5 +23,10 @@ namespace ObracunPlace
         {
             Close();
         }
+
+        private void Btn1_Click(object sender, RoutedEventArgs e)
+        {
+            TabKontrola.SelectedIndex = 0;
+        }
     }
 }

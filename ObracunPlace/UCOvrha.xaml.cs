@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj;
@@ -25,8 +26,10 @@ namespace ObracunPlace
 
         private void IzracunajNeto_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBoxNeto.Text)) return;
-            decimal.TryParse(TextBoxNeto.Text, out _neto);
+            var ovrhaText = TextBoxNeto.Text;
+            if (string.IsNullOrEmpty(ovrhaText)) return;
+            if (ovrhaText.Contains('.')) ovrhaText = ovrhaText.Replace('.', ',');
+            decimal.TryParse(ovrhaText, out _neto);
             var ovrha = new Ovrha(_neto, RbOvrha);
             TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString(CultureInfo.InvariantCulture);
             TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString(CultureInfo.InvariantCulture);

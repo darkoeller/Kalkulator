@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -39,7 +40,9 @@ namespace ObracunPlace
 
         private decimal GetBruto()
         {
-            decimal.TryParse(TxtBruto.Text, out var olaksica);
+            var textBruto = TxtBruto.Text;
+            if (textBruto.Contains('.')) textBruto = textBruto.Replace('.', ',');
+            decimal.TryParse(textBruto, out var olaksica);
             return olaksica;
         }
 

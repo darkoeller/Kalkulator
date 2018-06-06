@@ -13,7 +13,7 @@
                    x:Name="Coin"
                    Width="100"
                    Height="100"
-                   Margin="100,5,20,10">
+                   Margin="100,35,20,10">
                 <Image.Effect>
                     <DropShadowEffect />
                 </Image.Effect>
