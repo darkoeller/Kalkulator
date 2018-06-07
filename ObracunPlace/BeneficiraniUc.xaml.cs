@@ -8,7 +8,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using BiznisSloj.Benefit;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Ispis;
@@ -33,7 +32,6 @@ namespace ObracunPlace
             InitializeComponent();
             _popis = new ObservableCollection<Beneficirani>();
             Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
-            Wait.Visibility = Visibility.Hidden;
         }
 
         private int Odabrano { get; set; }
@@ -170,10 +168,11 @@ namespace ObracunPlace
 
         private void BtnIspis_Click(object sender, RoutedEventArgs e)
         {
-            ((Storyboard) FindResource("WaitStoryboard")).Begin();
-            Wait.Visibility = Visibility.Visible;
+            
             try
             {
+                var starac = Window.GetWindow(this) as MainWindow;
+                if (starac != null) starac.Bar.Visibility = Visibility.Visible;
                 var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
                 var pdwri = PdfWriter.GetInstance(doc
                     , new FileStream("Ispis.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
@@ -247,14 +246,13 @@ namespace ObracunPlace
                 pdwri.PageEvent = new Footer();
                 doc.Close();
                 Process.Start("Ispis.pdf");
+                if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
             }
             catch (Exception)
             {
                 MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
             }
-
-            ((Storyboard) FindResource("WaitStoryboard")).Stop();
-            Wait.Visibility = Visibility.Hidden;
+            
         }
 
         private static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject

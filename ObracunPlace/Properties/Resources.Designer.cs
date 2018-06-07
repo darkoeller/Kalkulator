@@ -70,6 +70,16 @@ namespace ObracunPlace.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap blago {
+            get {
+                object obj = ResourceManager.GetObject("blago", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ..\Resources\Calculator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.
         /// </summary>
         public static string Calculator {
@@ -93,16 +103,6 @@ namespace ObracunPlace.Properties {
         public static string filequickprint {
             get {
                 return ResourceManager.GetString("filequickprint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] fontawesome_webfont {
-            get {
-                object obj = ResourceManager.GetObject("fontawesome_webfont", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

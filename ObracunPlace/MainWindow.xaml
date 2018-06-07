@@ -33,7 +33,7 @@
                         <TextBlock Style="{StaticResource TxtBoxIzgled}"
                                    Text=" Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
                     </TabItem.Header>
-                    <local:BrutoNetoUserControla />
+                    <local:BrutoNetoUserControla Height="750" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
@@ -42,7 +42,8 @@
                     </TabItem.Header>
                     <DockPanel LastChildFill="False"
                                HorizontalAlignment="Center"
-                               VerticalAlignment="Top">
+                               VerticalAlignment="Top"
+                               Height="750">
                         <local:MrezaKoeficijenata DockPanel.Dock="Top" />
                         <local:UcObracun x:Name="UcObracun"
                                          Margin="0"
@@ -55,7 +56,7 @@
                                    Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
-                                          Margin="10,0" />
+                                          Height="750" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
@@ -96,21 +97,23 @@
                         </Label>
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical"
-                                Margin="0,100,0,0">
-                        <Image Margin="0,120,0,220"
+                                Height="750"
+                                Margin="0">
+                        <Image Margin="0,120,0,210"
                                Source="Resources/3c78181.png" MaxWidth="350" MaxHeight="350" />
                     </StackPanel>
                 </TabItem>
             </TabControl>
             <StackPanel Orientation="Horizontal">
                 <StatusBar Background="Gainsboro" Height="24" Width="885" HorizontalAlignment="Left" Margin="0">
-                    <TextBlock Text="Aplikaciju izradio: Darko Eller"
+                    <TextBlock Text=" izradio: Darko Eller"
                                Margin="0"
                                FontSize="10.667"
                                VerticalAlignment="Bottom"
                                FontFamily="Roboto-Italic"
                                FontStyle="Italic"
                                IsEnabled="False" />
+                    <ProgressBar x:Name="Bar" IsIndeterminate="True" Width="200" Height="18" Margin="50,0,0,2" x:FieldModifier="public"/>
                 </StatusBar>
             </StackPanel>
         </StackPanel>

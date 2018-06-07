@@ -41,25 +41,33 @@ namespace ObracunPlace
 
         private decimal GetBodovi()
         {
-            decimal.TryParse(BodoviUpDown.Text, out var bodovi);
+            var textBodovi = BodoviUpDown.Text;
+            if (textBodovi.Contains('.')) textBodovi = textBodovi.Replace('.', ',');
+            decimal.TryParse(textBodovi, out var bodovi);
             return bodovi;
         }
 
         private decimal GetMinuli()
         {
-            decimal.TryParse(MinuliUpDown.Text, out var minuli);
+            var textMinuli = MinuliUpDown.Text;
+            if (textMinuli.Contains('.')) textMinuli = textMinuli.Replace('.', ',');
+            decimal.TryParse(textMinuli, out var minuli);
             return minuli;
         }
 
         private decimal GetSatiRada()
         {
-            decimal.TryParse(SatiRadaUpDown.Text, out var satirada);
+            var textSatiRada = SatiRadaUpDown.Text;
+            if (textSatiRada.Contains('.')) textSatiRada = textSatiRada.Replace('.', ',');
+            decimal.TryParse(textSatiRada, out var satirada);
             return satirada;
         }
 
         private decimal GetGodineStaza()
         {
-            decimal.TryParse(GodineUpDown.Text, out var godine);
+            var textGodine = GodineUpDown.Text;
+            if (textGodine.Contains('.')) textGodine = textGodine.Replace('.', ',');
+            decimal.TryParse(textGodine, out var godine);
             return godine;
         }
 

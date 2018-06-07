@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
@@ -23,7 +22,6 @@ namespace ObracunPlace
         {
             InitializeComponent();
             Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
-            Wait.Visibility = Visibility.Hidden;
         }
 
         private decimal Prirez { get; set; }
@@ -221,8 +219,8 @@ namespace ObracunPlace
                 return;
             }
 
-            Wait.Visibility = Visibility.Visible;
-            ((Storyboard) FindResource("WaitStoryboard")).Begin();
+            var starac = Window.GetWindow(this) as MainWindow;
+            if (starac != null) starac.Bar.Visibility = Visibility.Visible;
             var podaciZaIspis = new PodaciZaIspisPlace
             {
                 Placa = _listica,
@@ -234,8 +232,7 @@ namespace ObracunPlace
                 PrirezTxtB = CmbPrirez.SelectedValue.ToString()
             };
             new IspisListicePlace(podaciZaIspis).Ispis();
-            ((Storyboard) FindResource("WaitStoryboard")).Stop();
-            Wait.Visibility = Visibility.Hidden;
+            if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
         }
 
         private void Rb1Stup_Checked(object sender, RoutedEventArgs e)

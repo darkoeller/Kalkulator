@@ -73,7 +73,7 @@
                 <StackPanel Grid.Column="2"
                             Grid.Row="0"
                             VerticalAlignment="Bottom">
-                    <Image Source="Resources/skrinja.png"
+                    <Image Source="Resources/blago.png"
                            MaxHeight="130" Margin="5"
                            Stretch="Fill" />
                 </StackPanel>
@@ -101,7 +101,7 @@
                             VerticalAlignment="Bottom"
                             Margin="0,0,0,30">
                     <Button x:Name="BtnIzracun"
-                            Height="26"
+                            Height="28"
                             Margin="5"
                             Content="Izračunaj"
                             Click="BtnIzracun_Click"
@@ -110,27 +110,27 @@
                     <Button x:Name="BtnDodatak"
                             FontFamily="Roboto-Light"
                             Margin="5"
-                            Height="26"
+                            Height="28"
                             Content="Dodaj dodatak na plaću"
                             Click="BtnDodatak_Click"
                             FontWeight="Normal" />
                     <Button x:Name="BtnMinuli"
                             Margin="5"
-                            Height="26"
+                            Height="28"
                             Content="Dodaj minuli rad"
                             Click="BtnMinuli_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal" />
                     <Button x:Name="BtnOcistiOdabrano"
                             Margin="5,0,5,0"
-                            Height="26"
+                            Height="28"
                             Content="Obriši označeno"
                             Click="BtnOcistiOdabrano_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal" />
                     <Button x:Name="BtnOcisti"
                             Margin="5"
-                            Height="26"
+                            Height="28"
                             Content="Očisti listu"
                             Click="BtnOcisti_Click"
                             IsCancel="True"
@@ -206,9 +206,10 @@
                                     Height="30"
                                     FontFamily="Roboto Light" />
                             <Label x:Name="LblMinuli"
+                                   Margin="20,2,10,0"
+                                   Width="150"
                                    VerticalAlignment="Center" />
                         </StackPanel>
-
                     </Grid>
                 </Border>
             </Grid>
