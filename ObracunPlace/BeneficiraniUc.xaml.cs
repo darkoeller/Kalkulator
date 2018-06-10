@@ -31,7 +31,7 @@ namespace ObracunPlace
         {
             InitializeComponent();
             _popis = new ObservableCollection<Beneficirani>();
-            Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
+            Mediator.GetInstance().NoviBruto += (s, e) => TxtBruto.Text = e.BrutoIznos;
         }
 
         private int Odabrano { get; set; }
@@ -168,7 +168,6 @@ namespace ObracunPlace
 
         private void BtnIspis_Click(object sender, RoutedEventArgs e)
         {
-            
             try
             {
                 var starac = Window.GetWindow(this) as MainWindow;
@@ -252,7 +251,6 @@ namespace ObracunPlace
             {
                 MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
             }
-            
         }
 
         private static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject

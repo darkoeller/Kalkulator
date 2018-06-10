@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 
 namespace ObracunPlace
@@ -7,7 +6,7 @@ namespace ObracunPlace
     /// <summary>
     ///     Interaction logic for UcPomoc.xaml
     /// </summary>
-    public partial class UcPomoc : UserControl
+    public partial class UcPomoc
     {
         public UcPomoc()
         {

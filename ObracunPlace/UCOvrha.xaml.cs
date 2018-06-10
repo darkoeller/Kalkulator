@@ -18,7 +18,7 @@ namespace ObracunPlace
         public UcOvrha()
         {
             InitializeComponent();
-            Mediator.GetInstance().NoviBruto += (s, e) => { TextBoxNeto.Text = e.BrutoIznos; };
+            Mediator.GetInstance().NoviBruto += (s, e) => TextBoxNeto.Text = e.BrutoIznos;
             TextBoxNeto.Focus();
         }
 

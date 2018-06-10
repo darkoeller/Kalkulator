@@ -21,7 +21,7 @@ namespace ObracunPlace
         public BrutoNetoUserControla()
         {
             InitializeComponent();
-            Mediator.GetInstance().NoviBruto += (s, e) => { TxtBruto.Text = e.BrutoIznos; };
+            Mediator.GetInstance().NoviBruto += (s, e) => TxtBruto.Text = e.BrutoIznos;
         }
 
         private decimal Prirez { get; set; }
