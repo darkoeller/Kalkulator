@@ -38,7 +38,7 @@
                   Width="710"
                   HorizontalAlignment="Center"
                   Header="Ovdje su sakrivene šifre u upotrebi za izračun plaće te njihove vrijednosti">
-            <ScrollViewer MaxWidth="400" MaxHeight="250" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer MaxWidth="400" MaxHeight="250" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
                 <DataGrid x:Name="KoeficijentiDataGrid"
                           AutoGenerateColumns="False"
                           EnableRowVirtualization="True"
