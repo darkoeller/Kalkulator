@@ -2,10 +2,7 @@
 {
     public class IzracunajPoreze
     {
-        public IzracunajPoreze(decimal bruto)
-        {
-            Bruto = bruto;
-        }
+        public IzracunajPoreze(decimal bruto) => Bruto = bruto;
 
         private decimal Bruto { get; set; }
 
@@ -33,14 +30,8 @@
             if (bruto < 17500.01m) Porez24Posto = Izracunaj(new Porez24());
         }
 
-        public decimal UkupniPorez()
-        {
-            return Porez24Posto + Porez36Posto;
-        }
+        public decimal UkupniPorez() => Porez24Posto + Porez36Posto;
 
-        private decimal Izracunaj(IPorezi porez)
-        {
-            return porez.Izracunaj(Bruto);
-        }
+        private decimal Izracunaj(IPorezi porez)  => porez.Izracunaj(Bruto);
     }
 }

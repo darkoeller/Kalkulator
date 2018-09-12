@@ -80,9 +80,6 @@ namespace BiznisSloj
             return 1490.0m;
         }
 
-        private static byte ProcjenaClanak(decimal netoIznos)
-        {
-            return netoIznos <= 5297.77m ? (byte) 1 : (byte) 2;
-        }
+        private static byte ProcjenaClanak(decimal netoIznos) => netoIznos <= 5297.77m ? (byte) 1 : (byte) 2;
     }
 }
