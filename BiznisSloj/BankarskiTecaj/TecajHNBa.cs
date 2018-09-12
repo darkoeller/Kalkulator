@@ -19,7 +19,7 @@ namespace BiznisSloj.BankarskiTecaj
                 var tecaj = VratiTecajSaNabaveNeta();
                 return tecaj;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show(
                     "Došlo je do pogreške prilikom prezimanja podatka, \n provjerite da li imate pristup internetu"
