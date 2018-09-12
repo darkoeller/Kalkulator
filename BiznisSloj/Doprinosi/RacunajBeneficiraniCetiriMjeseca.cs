@@ -20,8 +20,14 @@ namespace BiznisSloj.Doprinosi
             DvaOsamdesetDevet = Racunaj(new BeneficiraniDvaOsamdesetDevet());
         }
 
-        public decimal VratiBeneCetiriMjeseca() => Math.Round(OsamTridesetDevet + DvaOsamdesetDevet, 2);
+        public decimal VratiBeneCetiriMjeseca()
+        {
+            return Math.Round(OsamTridesetDevet + DvaOsamdesetDevet, 2);
+        }
 
-        private decimal Racunaj(IDoprinosi doprinos) => doprinos.RacunajDoprinos(Bruto);
+        private decimal Racunaj(IDoprinosi doprinos)
+        {
+            return doprinos.RacunajDoprinos(Bruto);
+        }
     }
 }

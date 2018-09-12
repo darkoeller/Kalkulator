@@ -94,7 +94,7 @@ namespace BiznisSloj.Porezi
         public static IEnumerable<string> VratiStopePrireza()
         {
             var item = VratiJArrayKoeficijenata();
-            var stope = from p in item.AsParallel().AsOrdered() select (string)p[nameof(Stopa)];
+            var stope = from p in item.AsParallel().AsOrdered() select (string) p[nameof(Stopa)];
             return stope;
         }
     }

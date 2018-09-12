@@ -20,8 +20,14 @@
             DvadesetPosto = Racunaj(new DvadestPostotniDoprinos());
         }
 
-        public decimal VratiDoprinose() => PetPosto + PetnaestPosto;
+        public decimal VratiDoprinose()
+        {
+            return PetPosto + PetnaestPosto;
+        }
 
-        private decimal Racunaj(IDoprinosi doprinosi) => doprinosi.RacunajDoprinos(Bruto);
+        private decimal Racunaj(IDoprinosi doprinosi)
+        {
+            return doprinosi.RacunajDoprinos(Bruto);
+        }
     }
 }

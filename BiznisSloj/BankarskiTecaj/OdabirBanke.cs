@@ -4,7 +4,10 @@
     {
         private readonly string _odabir;
 
-        public OdabirBanke(string odabir) => _odabir = odabir;
+        public OdabirBanke(string odabir)
+        {
+            _odabir = odabir;
+        }
 
         public decimal VratiIznos()
         {
@@ -19,6 +22,9 @@
             return 0.0m;
         }
 
-        private static decimal Racunaj(ITecaj tecaj) => tecaj.VratiEuro();
+        private static decimal Racunaj(ITecaj tecaj)
+        {
+            return tecaj.VratiEuro();
+        }
     }
 }

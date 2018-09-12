@@ -5,8 +5,11 @@
         private static readonly decimal Koeficijent = 3800.0m;
         private readonly decimal _faktor;
 
-        public IzracunOlaksice(decimal faktor) =>_faktor = faktor;
-  
+        public IzracunOlaksice(decimal faktor)
+        {
+            _faktor = faktor;
+        }
+
         public decimal VratiOlaksicu()
         {
             var olaksica = _faktor;

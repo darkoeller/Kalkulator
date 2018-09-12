@@ -2,7 +2,9 @@
 {
     public class BeneficiraniDvaNulaJedan : IDoprinosi
     {
-        public decimal RacunajDoprinos(decimal bruto) => bruto * 0.021M;
- 
+        public decimal RacunajDoprinos(decimal bruto)
+        {
+            return bruto * 0.021M;
+        }
     }
 }

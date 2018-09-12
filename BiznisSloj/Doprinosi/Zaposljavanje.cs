@@ -2,6 +2,9 @@
 {
     public class Zaposljavanje : IDoprinosi
     {
-        public decimal RacunajDoprinos(decimal bruto) => bruto * 0.017m;
+        public decimal RacunajDoprinos(decimal bruto)
+        {
+            return bruto * 0.017m;
+        }
     }
 }

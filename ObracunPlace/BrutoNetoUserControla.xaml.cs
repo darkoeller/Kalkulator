@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -30,13 +29,25 @@ namespace ObracunPlace
 
         private bool Stup1I2 => bool.Parse(Rb1I2Stup.IsChecked.ToString());
 
-        private decimal GetOlaksica() => VratiIznos(OlaksicaUpDown.Text);
+        private decimal GetOlaksica()
+        {
+            return VratiIznos(OlaksicaUpDown.Text);
+        }
 
-        private decimal GetBruto() => VratiIznos(TxtBruto.Text);
+        private decimal GetBruto()
+        {
+            return VratiIznos(TxtBruto.Text);
+        }
 
-        private decimal GetNeto() => VratiIznos(TxtNeto.Text);
+        private decimal GetNeto()
+        {
+            return VratiIznos(TxtNeto.Text);
+        }
 
-        private decimal GetOdbici() => VratiIznos(TxtBoxOdbici.Text);
+        private decimal GetOdbici()
+        {
+            return VratiIznos(TxtBoxOdbici.Text);
+        }
 
         private static decimal VratiIznos(string text)
         {
@@ -97,7 +108,10 @@ namespace ObracunPlace
             return prijevoz;
         }
 
-        private bool ProvjeriRadioGumb()  =>  RbBruto.IsChecked != false;
+        private bool ProvjeriRadioGumb()
+        {
+            return RbBruto.IsChecked != false;
+        }
 
         private void PopuniVrijednosti(ProcesuirajPlacu placa)
         {
@@ -136,7 +150,10 @@ namespace ObracunPlace
         }
 
 
-        private void UkljuciGumb() => RbBruto.IsChecked = true;
+        private void UkljuciGumb()
+        {
+            RbBruto.IsChecked = true;
+        }
 
         private void RbBruto_Checked(object sender, RoutedEventArgs e)
         {
@@ -148,7 +165,7 @@ namespace ObracunPlace
             TxtNeto.Text = "0,00";
         }
 
-        private static void OmoguciKontrole(IEnumerable<Control> kontrole, bool omoguci) 
+        private static void OmoguciKontrole(IEnumerable<Control> kontrole, bool omoguci)
         {
             foreach (var kontrolu in kontrole) kontrolu.IsEnabled = omoguci;
         }
@@ -214,7 +231,10 @@ namespace ObracunPlace
             if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
         }
 
-        private void Rb1Stup_Checked(object sender, RoutedEventArgs e) =>  LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos, 2).ToString("C");
+        private void Rb1Stup_Checked(object sender, RoutedEventArgs e)
+        {
+            LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos, 2).ToString("C");
+        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {

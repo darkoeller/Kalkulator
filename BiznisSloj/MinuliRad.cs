@@ -14,6 +14,9 @@ namespace BiznisSloj
             _minuli = minuli;
         }
 
-        public decimal Izracun() => Math.Round(_brojSati * _minuli * VrijednostBoda, 2);
+        public decimal Izracun()
+        {
+            return Math.Round(_brojSati * _minuli * VrijednostBoda, 2);
+        }
     }
 }

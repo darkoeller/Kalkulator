@@ -238,7 +238,7 @@ namespace BiznisSloj.Ispis
                 pdwri.PageEvent = new Footer();
                 doc.Close();
                 //Process.Start("PlatnaLista.pdf");
-               Parallel.Invoke(() => Process.Start("PlatnaLista.pdf"));
+                Parallel.Invoke(() => Process.Start("PlatnaLista.pdf"));
             }
         }
     }

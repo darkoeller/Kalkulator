@@ -13,6 +13,9 @@ namespace BiznisSloj
             _koeficijent = koeficijent;
         }
 
-        public decimal Izracun() => Math.Round(_koeficijent * _godine * 0.5m / 100m, 2);
+        public decimal Izracun()
+        {
+            return Math.Round(_koeficijent * _godine * 0.5m / 100m, 2);
+        }
     }
 }

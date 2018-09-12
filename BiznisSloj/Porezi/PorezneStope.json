@@ -1,2 +1,23 @@
-{"StopePoreza":[{"Stopa":0,"KoefPrireza":1,"KoefPorezaPrireza24":1.315789474,"KoefPorezaPrireza36":1.5625},{"Stopa":1,"KoefPrireza":1.01,"KoefPorezaPrireza24":1.319957761,"KoefPorezaPrireza36":1.571338781},{"Stopa":2,"KoefPrireza":1.02,"KoefPorezaPrireza24":1.324152542,"KoefPorezaPrireza36":1.580278129},{"Stopa":3,"KoefPrireza":1.03,"KoefPorezaPrireza24":1.32837407,"KoefPorezaPrireza36":1.589319771},{"Stopa":4,"KoefPrireza":1.04,"KoefPorezaPrireza24":1.332622601,"KoefPorezaPrireza36":1.598465473},{"Stopa":5,"KoefPrireza":1.05,"KoefPorezaPrireza24":1.336898396,"KoefPorezaPrireza36":1.607717042},{"Stopa":6,"KoefPrireza":1.06,"KoefPorezaPrireza24":1.341201717,"KoefPorezaPrireza36":1.617076326},{"Stopa":6.25,"KoefPrireza":1.06,"KoefPorezaPrireza24":1.342281879,"KoefPorezaPrireza36":1.619433198},{"Stopa":6.5,"KoefPrireza":1.07,"KoefPorezaPrireza24":1.343363783,"KoefPorezaPrireza36":1.621796951},{"Stopa":7,"KoefPrireza":1.07,"KoefPorezaPrireza24":1.345532831,"KoefPorezaPrireza36":1.626545218},{"Stopa":7.5,"KoefPrireza":1.08,"KoefPorezaPrireza24":1.347708895,"KoefPorezaPrireza36":1.63132137},{"Stopa":8,"KoefPrireza":1.08,"KoefPorezaPrireza24":1.349892009,"KoefPorezaPrireza36":1.636125654},{"Stopa":9,"KoefPrireza":1.09,"KoefPorezaPrireza24":1.354279523,"KoefPorezaPrireza36":1.645819618},{"Stopa":10,"KoefPrireza":1.1,"KoefPorezaPrireza24":1.358695652,"KoefPorezaPrireza36":1.655629139},{"Stopa":12,"KoefPrireza":1.12,"KoefPorezaPrireza24":1.36761488,"KoefPorezaPrireza36":1.675603217},{"Stopa":13,"KoefPrireza":1.13,"KoefPorezaPrireza24":1.372118551,"KoefPorezaPrireza36":1.685772084},{"Stopa":14,"KoefPrireza":1.14,"KoefPorezaPrireza24":1.376651982,"KoefPorezaPrireza36":1.696065129},{"Stopa":15,"KoefPrireza":1.15,"KoefPorezaPrireza24":1.38121547,"KoefPorezaPrireza36":1.706484642},{"Stopa":18,"KoefPrireza":1.18,"KoefPorezaPrireza24":1.395089286,"KoefPorezaPrireza36":1.73852573}]}
-
+{
+  "StopePoreza": [
+    { "Stopa": 0, "KoefPrireza": 1, "KoefPorezaPrireza24": 1.315789474, "KoefPorezaPrireza36": 1.5625 },
+    { "Stopa": 1, "KoefPrireza": 1.01, "KoefPorezaPrireza24": 1.319957761, "KoefPorezaPrireza36": 1.571338781 },
+    { "Stopa": 2, "KoefPrireza": 1.02, "KoefPorezaPrireza24": 1.324152542, "KoefPorezaPrireza36": 1.580278129 },
+    { "Stopa": 3, "KoefPrireza": 1.03, "KoefPorezaPrireza24": 1.32837407, "KoefPorezaPrireza36": 1.589319771 },
+    { "Stopa": 4, "KoefPrireza": 1.04, "KoefPorezaPrireza24": 1.332622601, "KoefPorezaPrireza36": 1.598465473 },
+    { "Stopa": 5, "KoefPrireza": 1.05, "KoefPorezaPrireza24": 1.336898396, "KoefPorezaPrireza36": 1.607717042 },
+    { "Stopa": 6, "KoefPrireza": 1.06, "KoefPorezaPrireza24": 1.341201717, "KoefPorezaPrireza36": 1.617076326 },
+    { "Stopa": 6.25, "KoefPrireza": 1.06, "KoefPorezaPrireza24": 1.342281879, "KoefPorezaPrireza36": 1.619433198 },
+    { "Stopa": 6.5, "KoefPrireza": 1.07, "KoefPorezaPrireza24": 1.343363783, "KoefPorezaPrireza36": 1.621796951 },
+    { "Stopa": 7, "KoefPrireza": 1.07, "KoefPorezaPrireza24": 1.345532831, "KoefPorezaPrireza36": 1.626545218 },
+    { "Stopa": 7.5, "KoefPrireza": 1.08, "KoefPorezaPrireza24": 1.347708895, "KoefPorezaPrireza36": 1.63132137 },
+    { "Stopa": 8, "KoefPrireza": 1.08, "KoefPorezaPrireza24": 1.349892009, "KoefPorezaPrireza36": 1.636125654 },
+    { "Stopa": 9, "KoefPrireza": 1.09, "KoefPorezaPrireza24": 1.354279523, "KoefPorezaPrireza36": 1.645819618 },
+    { "Stopa": 10, "KoefPrireza": 1.1, "KoefPorezaPrireza24": 1.358695652, "KoefPorezaPrireza36": 1.655629139 },
+    { "Stopa": 12, "KoefPrireza": 1.12, "KoefPorezaPrireza24": 1.36761488, "KoefPorezaPrireza36": 1.675603217 },
+    { "Stopa": 13, "KoefPrireza": 1.13, "KoefPorezaPrireza24": 1.372118551, "KoefPorezaPrireza36": 1.685772084 },
+    { "Stopa": 14, "KoefPrireza": 1.14, "KoefPorezaPrireza24": 1.376651982, "KoefPorezaPrireza36": 1.696065129 },
+    { "Stopa": 15, "KoefPrireza": 1.15, "KoefPorezaPrireza24": 1.38121547, "KoefPorezaPrireza36": 1.706484642 },
+    { "Stopa": 18, "KoefPrireza": 1.18, "KoefPorezaPrireza24": 1.395089286, "KoefPorezaPrireza36": 1.73852573 }
+  ]
+}
