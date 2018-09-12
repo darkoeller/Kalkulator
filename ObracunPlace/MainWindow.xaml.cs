@@ -20,9 +20,6 @@ namespace ObracunPlace
             Bar.Visibility = Visibility.Hidden;
         }
 
-        private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e) => Close();
     }
 }

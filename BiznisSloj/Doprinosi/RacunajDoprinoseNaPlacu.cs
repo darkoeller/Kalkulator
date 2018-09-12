@@ -20,19 +20,10 @@
             DoprinosZastitaNaRadu = Racunaj(new ZastitaNaRadu());
         }
 
-        public decimal VratiDoprinoseNaPlacu()
-        {
-            return DoprinosZaposljavanje + DoprinosZastitaNaRadu + DoprinosZdravstveno;
-        }
+        public decimal VratiDoprinoseNaPlacu() => DoprinosZaposljavanje + DoprinosZastitaNaRadu + DoprinosZdravstveno;
 
-        public decimal UkupanTrosakPlace()
-        {
-            return Bruto + DoprinosZaposljavanje + DoprinosZastitaNaRadu + DoprinosZdravstveno;
-        }
+        public decimal UkupanTrosakPlace() => Bruto + DoprinosZaposljavanje + DoprinosZastitaNaRadu + DoprinosZdravstveno;
 
-        private decimal Racunaj(IDoprinosi doprinosi)
-        {
-            return doprinosi.RacunajDoprinos(Bruto);
-        }
+        private decimal Racunaj(IDoprinosi doprinosi) => doprinosi.RacunajDoprinos(Bruto);
     }
 }

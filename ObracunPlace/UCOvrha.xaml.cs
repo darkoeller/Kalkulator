@@ -74,10 +74,7 @@ namespace ObracunPlace
             IzracunajDatum();
         }
 
-        private void RbClanak_Checked(object sender, RoutedEventArgs e)
-        {
-            RbOvrha = 1;
-        }
+        private void RbClanak_Checked(object sender, RoutedEventArgs e) => RbOvrha = 1;
 
         private void RbUzdrzavanje_Checked(object sender, RoutedEventArgs e)
         {

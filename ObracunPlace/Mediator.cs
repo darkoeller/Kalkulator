@@ -10,10 +10,7 @@ namespace ObracunPlace
         {
         }
 
-        public static Mediator GetInstance()
-        {
-            return Instance;
-        }
+        public static Mediator GetInstance() => Instance;
 
         public event EventHandler<BrutoEventArgs> NoviBruto;
 

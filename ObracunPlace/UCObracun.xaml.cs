@@ -87,10 +87,7 @@ namespace ObracunPlace
             PozoviLabelu();
         }
 
-        private void PozoviLabelu()
-        {
-            LblBruto.Content = "Ukupno : " + Bruto.ToString("c");
-        }
+        private void PozoviLabelu() => LblBruto.Content = "Ukupno : " + Bruto.ToString("c");
 
         private void BtnOcisti_Click(object sender, RoutedEventArgs e)
         {

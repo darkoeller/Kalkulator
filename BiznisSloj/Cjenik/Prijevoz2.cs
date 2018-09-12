@@ -62,9 +62,6 @@ namespace BiznisSloj.Cjenik
             return (decimal) iznos;
         }
 
-        public override string ToString()
-        {
-            return Relacija;
-        }
+        public override string ToString() =>Relacija;
     }
 }

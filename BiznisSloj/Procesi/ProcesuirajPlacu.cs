@@ -124,10 +124,7 @@ namespace BiznisSloj.Procesi
             VratiPrirez();
         }
 
-        private void VratiPrirez()
-        {
-            Prirez = Prirez * UkupniPorez / 100;
-        }
+        private void VratiPrirez() => Prirez = Prirez * UkupniPorez / 100;
 
         public void Izracun()
         {

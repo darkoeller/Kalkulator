@@ -4,12 +4,14 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
+
         private static readonly decimal ProsjecnoNeto = 5960.00m;
         private readonly byte _rbovrha;
 
         public Ovrha(decimal neto, byte rbovrha)
+
         {
-           _rbovrha = rbovrha;
+            _rbovrha = rbovrha;
             Neto = neto;
         }
 
@@ -81,5 +83,6 @@ namespace BiznisSloj
         }
 
         private static byte ProcjenaClanak(decimal netoIznos) => netoIznos <= 5297.77m ? (byte) 1 : (byte) 2;
+
     }
 }
