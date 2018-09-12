@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using BiznisSloj.Procesi;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -236,7 +237,8 @@ namespace BiznisSloj.Ispis
                 });
                 pdwri.PageEvent = new Footer();
                 doc.Close();
-                Process.Start("PlatnaLista.pdf");
+                //Process.Start("PlatnaLista.pdf");
+               Parallel.Invoke(() => Process.Start("PlatnaLista.pdf"));
             }
         }
     }

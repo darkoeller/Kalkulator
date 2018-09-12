@@ -28,7 +28,7 @@
             }
         }
 
-        private void OsnovicaPorez24(decimal bruto)
+        private void OsnovicaPorez24(decimal bruto) 
         {
             if (bruto < 17500.01m) Porez24Posto = Izracunaj(new Porez24());
         }

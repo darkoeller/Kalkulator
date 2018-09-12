@@ -9,10 +9,6 @@ namespace BiznisSloj.KoefSati
         {
         }
 
-        public override decimal RacunajKoefSat()
-        {
-            var izracun = Bodovi * BrojSati * Vrijednostboda * Koeficijent;
-            return Math.Round(izracun, 2);
-        }
+        public override decimal RacunajKoefSat() => Math.Round(Bodovi * BrojSati * Vrijednostboda * Koeficijent, 2);
     }
 }

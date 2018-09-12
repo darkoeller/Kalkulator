@@ -73,12 +73,12 @@ namespace BiznisSloj.Porezi
         private static IEnumerable<PorezniKoeficijenti2> PoreznoPrirezniKoef()
         {
             var item = VratiJArrayKoeficijenata();
-            IList<PorezniKoeficijenti2> listaPrireza = item.Select(p => new PorezniKoeficijenti2
+            IList<PorezniKoeficijenti2> listaPrireza = item.AsParallel().Select(p => new PorezniKoeficijenti2
             {
-                Stopa = (double) p["Stopa"],
-                KoefPrireza = (double) p["KoefPrireza"],
-                KoefPorezaPrireza24 = (double) p["KoefPorezaPrireza24"],
-                KoefPorezaPrireza36 = (double) p["KoefPorezaPrireza36"]
+                Stopa = (double) p[nameof(Stopa)],
+                KoefPrireza = (double) p[nameof(KoefPrireza)],
+                KoefPorezaPrireza24 = (double) p[nameof(KoefPorezaPrireza24)],
+                KoefPorezaPrireza36 = (double) p[nameof(KoefPorezaPrireza36)]
             }).ToList();
             return listaPrireza;
         }
@@ -94,7 +94,7 @@ namespace BiznisSloj.Porezi
         public static IEnumerable<string> VratiStopePrireza()
         {
             var item = VratiJArrayKoeficijenata();
-            var stope = from p in item select (string) p["Stopa"];
+            var stope = from p in item.AsParallel().AsOrdered() select (string)p[nameof(Stopa)];
             return stope;
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace BiznisSloj.Procesi
 {
     public class UsporediIVratiBrutoIznos
