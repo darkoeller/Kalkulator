@@ -4,20 +4,12 @@ namespace BiznisSloj
 {
     public class Ovrha
     {
-<<<<<<< HEAD
         private static readonly decimal ProsjecnoNeto = 5960.00m;
         private readonly byte _rbovrha;
 
         public Ovrha(decimal neto, byte rbovrha)
-=======
-        //private static readonly decimal ProsjecnoNeto = 5960.00m;
-
-        //private static readonly decimal MinimalniNeto = 3439.80m;
-
-        public Ovrha(decimal neto)
->>>>>>> DodajJson
         {
-            _rbovrha = rbovrha;
+           _rbovrha = rbovrha;
             Neto = neto;
         }
 
