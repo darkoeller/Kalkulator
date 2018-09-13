@@ -20,7 +20,7 @@ namespace BiznisSloj.Procesi
             DrugiStup = drugistup;
         }
 
-        public decimal Bruto { get; set; }
+        public decimal Bruto { get; private set; }
         private decimal Odbitak { get; }
         public decimal Prirez { get; private set; }
         private bool DrugiStup { get; }
@@ -124,10 +124,7 @@ namespace BiznisSloj.Procesi
             VratiPrirez();
         }
 
-        private void VratiPrirez()
-        {
-            Prirez = Prirez * UkupniPorez / 100;
-        }
+        private void VratiPrirez() => Prirez = Prirez * UkupniPorez / 100;
 
         public void Izracun()
         {

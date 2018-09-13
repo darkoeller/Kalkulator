@@ -10,10 +10,7 @@ namespace BiznisSloj.BankarskiTecaj
     {
         private readonly DateTime? _datum;
 
-        public TecajEuraPoDatumu(DateTime? datum)
-        {
-            _datum = datum;
-        }
+        public TecajEuraPoDatumu(DateTime? datum)  => _datum = datum;
 
         private string FormatiranjeAdrese(string datum)
         {

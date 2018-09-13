@@ -4,10 +4,7 @@ namespace BiznisSloj.Doprinosi
 {
     public class RacunajBeneficiraniDvaMjeseca
     {
-        public RacunajBeneficiraniDvaMjeseca(decimal bruto)
-        {
-            Bruto = bruto;
-        }
+        public RacunajBeneficiraniDvaMjeseca(decimal bruto) => Bruto = bruto;
 
         private decimal Bruto { get; }
 
@@ -20,14 +17,8 @@ namespace BiznisSloj.Doprinosi
             JedanDvadesetPet = Racunaj(new BeneficiraniJedanDvadesetPet());
         }
 
-        public decimal VratiBeneDvaMjeseca()
-        {
-            return Math.Round(TriSezdesetJedan + JedanDvadesetPet, 2);
-        }
+        public decimal VratiBeneDvaMjeseca() => Math.Round(TriSezdesetJedan + JedanDvadesetPet, 2);
 
-        private decimal Racunaj(IDoprinosi doprinos)
-        {
-            return doprinos.RacunajDoprinos(Bruto);
-        }
+        private decimal Racunaj(IDoprinosi doprinos)=> doprinos.RacunajDoprinos(Bruto);
     }
 }

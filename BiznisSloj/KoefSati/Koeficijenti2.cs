@@ -7,20 +7,15 @@ namespace BiznisSloj.KoefSati
 {
     public class Koeficijenti2
     {
-        static Koeficijenti2()
-        {
-            VratiSifre();
-        }
+        static Koeficijenti2() =>  VratiSifre();
+
 
         public string Sifra { get; set; }
         public string Naziv { get; set; }
         public double Koeficijent { get; set; }
 
-        private bool Equals(Koeficijenti2 other)
-        {
-            return string.Equals(Sifra, other.Sifra) && string.Equals(Naziv, other.Naziv) &&
+        private bool Equals(Koeficijenti2 other) => string.Equals(Sifra, other.Sifra) && string.Equals(Naziv, other.Naziv) &&
                    Koeficijent.Equals(other.Koeficijent);
-        }
 
         public override bool Equals(object obj)
         {

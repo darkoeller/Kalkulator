@@ -22,9 +22,6 @@
                 : Racunaj(new KoefSatSamoPrva(BrojSati, Minuli, Bodovi, Koeficijent));
         }
 
-        private static decimal Racunaj(KoeficSat koeficSat)
-        {
-            return koeficSat.RacunajKoefSat();
-        }
+        private static decimal Racunaj(KoeficSat koeficSat) => koeficSat.RacunajKoefSat();
     }
 }

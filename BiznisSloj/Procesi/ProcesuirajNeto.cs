@@ -60,20 +60,10 @@ namespace BiznisSloj.Procesi
             return 0.0m;
         }
 
-        private decimal PetaMetoda(decimal neto, decimal odbitak)
-        {
-            return (100 * neto - odbitak * (36m + 0.36m * Prirez) - 5564.64m * Prirez + 405936m) /
-                   (64m - 0.36m * Prirez);
-        }
+        private decimal PetaMetoda(decimal neto, decimal odbitak) => (100 * neto - odbitak * (36m + 0.36m * Prirez) - 5564.64m * Prirez + 405936m) / (64m - 0.36m * Prirez);
+ 
+        private decimal CetvrtaMetoda(decimal neto, decimal odbitak) => (neto - odbitak * (0.36m + 0.0036m * Prirez) - 21m * Prirez - 2100m) / (0.512m - 0.00288m * Prirez);
 
-        private decimal CetvrtaMetoda(decimal neto, decimal odbitak)
-        {
-            return (neto - odbitak * (0.36m + 0.0036m * Prirez) - 21m * Prirez - 2100m) / (0.512m - 0.00288m * Prirez);
-        }
-
-        private decimal DrugaMetoda(decimal neto, decimal odbitak)
-        {
-            return (neto - odbitak * (0.24m + 0.0024m * Prirez)) / (0.608m - 0.00192m * Prirez);
-        }
+         private decimal DrugaMetoda(decimal neto, decimal odbitak) => (neto - odbitak * (0.24m + 0.0024m * Prirez)) / (0.608m - 0.00192m * Prirez);
     }
 }

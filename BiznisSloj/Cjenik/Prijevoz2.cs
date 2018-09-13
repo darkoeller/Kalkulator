@@ -10,20 +10,12 @@ namespace BiznisSloj.Cjenik
         private string Relacija { get; set; }
         private double Iznos { get; set; }
 
-        public static bool operator ==(Prijevoz2 left, Prijevoz2 right)
-        {
-            return left.Equals(right);
-        }
+        public static bool operator ==(Prijevoz2 left, Prijevoz2 right)=> left.Equals(right);  
 
-        public static bool operator !=(Prijevoz2 left, Prijevoz2 right)
-        {
-            return !left.Equals(right);
-        }
+        public static bool operator !=(Prijevoz2 left, Prijevoz2 right) => !left.Equals(right);
 
-        private bool Equals(Prijevoz2 other)
-        {
-            return string.Equals(Relacija, other.Relacija) && Iznos.Equals(other.Iznos);
-        }
+        private bool Equals(Prijevoz2 other) => string.Equals(Relacija, other.Relacija) && Iznos.Equals(other.Iznos);
+
 
         public override bool Equals(object obj)
         {
@@ -43,8 +35,8 @@ namespace BiznisSloj.Cjenik
         {
             var jsonObject = File.ReadAllText(@"CjenikPrijevoza.json");
             var rss = JObject.Parse(jsonObject);
-            var item = (JArray) rss["Cjenik"];
-            IEnumerable<Prijevoz2> listaRelacija = item.Select(p => new Prijevoz2
+            var item = (JArray) rss[nameof(Cjenik)];
+            IEnumerable<Prijevoz2> listaRelacija = item.AsParallel().AsOrdered().Select(p => new Prijevoz2
             {
                 Relacija = (string) p["Relacija"],
                 Iznos = (double) p["Iznos"]
@@ -62,9 +54,6 @@ namespace BiznisSloj.Cjenik
             return (decimal) iznos;
         }
 
-        public override string ToString()
-        {
-            return Relacija;
-        }
+        public override string ToString() => Relacija;
     }
 }

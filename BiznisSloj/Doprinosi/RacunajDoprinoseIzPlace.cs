@@ -2,10 +2,7 @@
 {
     public class RacunajDoprinoseIzPlace
     {
-        public RacunajDoprinoseIzPlace(decimal bruto)
-        {
-            Bruto = bruto;
-        }
+        public RacunajDoprinoseIzPlace(decimal bruto) => Bruto = bruto;
 
         private decimal Bruto { get; }
 
@@ -20,14 +17,8 @@
             DvadesetPosto = Racunaj(new DvadestPostotniDoprinos());
         }
 
-        public decimal VratiDoprinose()
-        {
-            return PetPosto + PetnaestPosto;
-        }
+        public decimal VratiDoprinose() => PetPosto + PetnaestPosto;
 
-        private decimal Racunaj(IDoprinosi doprinosi)
-        {
-            return doprinosi.RacunajDoprinos(Bruto);
-        }
+        private decimal Racunaj(IDoprinosi doprinosi) => doprinosi.RacunajDoprinos(Bruto);
     }
 }

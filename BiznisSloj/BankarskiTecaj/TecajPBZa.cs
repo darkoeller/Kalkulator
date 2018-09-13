@@ -12,7 +12,7 @@ namespace BiznisSloj.BankarskiTecaj
             try
             {
                 var xelement = XDocument.Load("http://www.pbz.hr/Downloads/PBZteclist.xml");
-                var tecaj = xelement.Descendants("Currency")
+                var tecaj = xelement.Descendants("Currency").AsParallel()
                     .Where(a => (int) a.Attribute("Code") == 978)
                     .Elements("MeanRate")
                     .First();

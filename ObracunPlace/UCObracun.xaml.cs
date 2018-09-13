@@ -39,37 +39,20 @@ namespace ObracunPlace
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private decimal GetBodovi()
-        {
-            var textBodovi = BodoviUpDown.Text;
-            if (textBodovi.Contains('.')) textBodovi = textBodovi.Replace('.', ',');
-            decimal.TryParse(textBodovi, out var bodovi);
-            return bodovi;
-        }
+        private decimal GetBodovi() => VratiIznos(BodoviUpDown.Text);
 
-        private decimal GetMinuli()
-        {
-            var textMinuli = MinuliUpDown.Text;
-            if (textMinuli.Contains('.')) textMinuli = textMinuli.Replace('.', ',');
-            decimal.TryParse(textMinuli, out var minuli);
-            return minuli;
-        }
+        private decimal GetMinuli() => VratiIznos(MinuliUpDown.Text);
+        
+        private decimal GetSatiRada() => VratiIznos(SatiRadaUpDown.Text);
+ 
+        private decimal GetGodineStaza() => VratiIznos(GodineUpDown.Text);
 
-        private decimal GetSatiRada()
+        private decimal VratiIznos(string text)
         {
-            var textSatiRada = SatiRadaUpDown.Text;
-            if (textSatiRada.Contains('.')) textSatiRada = textSatiRada.Replace('.', ',');
-            decimal.TryParse(textSatiRada, out var satirada);
-            return satirada;
-        }
-
-        private decimal GetGodineStaza()
-        {
-            var textGodine = GodineUpDown.Text;
-            if (textGodine.Contains('.')) textGodine = textGodine.Replace('.', ',');
-            decimal.TryParse(textGodine, out var godine);
-            return godine;
-        }
+            if (text.Contains('.')) text = text.Replace('.', ',');
+            decimal.TryParse(text, out var iznos);
+            return iznos;
+        }    
 
         private void ChComboBoxVrsteRada_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -87,10 +70,7 @@ namespace ObracunPlace
             PozoviLabelu();
         }
 
-        private void PozoviLabelu()
-        {
-            LblBruto.Content = "Ukupno : " + Bruto.ToString("c");
-        }
+        private void PozoviLabelu() => LblBruto.Content = "Ukupno : " + Bruto.ToString("c");
 
         private void BtnOcisti_Click(object sender, RoutedEventArgs e)
         {

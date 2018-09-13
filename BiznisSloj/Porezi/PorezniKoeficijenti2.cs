@@ -13,22 +13,18 @@ namespace BiznisSloj.Porezi
             OdrediKoeficijente(Stopa);
         }
 
-        private PorezniKoeficijenti2()
-        {
-        }
+        private PorezniKoeficijenti2() {}
 
         private double Stopa { get; set; }
         public double KoefPrireza { get; private set; }
         public double KoefPorezaPrireza24 { get; private set; }
         public double KoefPorezaPrireza36 { get; private set; }
 
-        private bool Equals(PorezniKoeficijenti2 other)
-        {
-            return Stopa.Equals(other.Stopa)
-                   && KoefPrireza.Equals(other.KoefPrireza)
-                   && KoefPorezaPrireza24.Equals(other.KoefPorezaPrireza24)
-                   && KoefPorezaPrireza36.Equals(other.KoefPorezaPrireza36);
-        }
+        private bool Equals(PorezniKoeficijenti2 other) => Stopa.Equals(other.Stopa)
+                                                           && KoefPrireza.Equals(other.KoefPrireza)
+                                                           && KoefPorezaPrireza24.Equals(other.KoefPorezaPrireza24)
+                                                           && KoefPorezaPrireza36.Equals(other.KoefPorezaPrireza36);
+
 
         public override bool Equals(object obj)
         {
