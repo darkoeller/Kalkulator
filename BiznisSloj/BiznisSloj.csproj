@@ -112,6 +112,11 @@
     <EmbeddedResource Include="Porezi\PorezneStope.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cjenik\Cjenik.xml" />
+    <Content Include="KoefSati\Koeficijenti.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Porezi\PorezneStope.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

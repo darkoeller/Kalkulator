@@ -19,6 +19,7 @@ namespace ObracunPlace
         {
             InitializeComponent();
             Mediator.GetInstance().NoviBruto += (s, e) => TextBoxNeto.Text = e.BrutoIznos;
+            ZadajDanasnjiDatum();
             TextBoxNeto.Focus();
         }
 
@@ -90,6 +91,19 @@ namespace ObracunPlace
             TxtNetoOstaje.Text = "";
             TxtNetoOvrha.Text = "";
             TextBoxNeto.Focus();
+        }
+
+        private void BtnOcistiDatume_Click(object sender, RoutedEventArgs e)
+        {
+            ZadajDanasnjiDatum();
+            IsprazniLabele();
+
+        }
+
+        private void ZadajDanasnjiDatum()
+        {
+            PocetniDt.SelectedDate = DateTime.Today;
+            ZavrsniDt.SelectedDate = DateTime.Today;
         }
     }
 }

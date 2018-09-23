@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Koeficijenti>
+      <element>
+         <Koeficijent>1</Koeficijent>
+         <Naziv>Redovni rad 1.smjena</Naziv>
+         <Sifra>01</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.15</Koeficijent>
+         <Naziv>Redovni rad 2.smjena</Naziv>
+         <Sifra>02</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Redovni rad noću</Naziv>
+         <Sifra>03</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.35</Koeficijent>
+         <Naziv>Rad nedjeljom 1.smjena</Naziv>
+         <Sifra>04</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Rad nedjeljom 2.smjena</Naziv>
+         <Sifra>04</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.85</Koeficijent>
+         <Naziv>Rad nedjeljom noću</Naziv>
+         <Sifra>04</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Prekovremeni rad 1.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.65</Koeficijent>
+         <Naziv>Prekovremeni rad 2.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Prekovremeni rad noću</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.85</Koeficijent>
+         <Naziv>Prekovremeni rad nedjeljom 1.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Prekovremeni rad nedjeljom 2.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.35</Koeficijent>
+         <Naziv>Prekovremeni rad nedjeljom noću</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan 1.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.15</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan 2.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.5</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan noću</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.35</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan ned. 1.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.5</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan ned. 2.smjena</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.85</Koeficijent>
+         <Naziv>Prekovremeni rad blagdan ned. noću</Naziv>
+         <Sifra>05</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Rad na blagdan 1.smjena</Naziv>
+         <Sifra>06</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.65</Koeficijent>
+         <Naziv>Rad na blagdan 2.smjena</Naziv>
+         <Sifra>06</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Rad na blagdan noću</Naziv>
+         <Sifra>06</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1</Koeficijent>
+         <Naziv>Rad pod uvjetima</Naziv>
+         <Sifra>07</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1</Koeficijent>
+         <Naziv>Naknada za G.O. 1.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.15</Koeficijent>
+         <Naziv>Naknada za G.O. 2.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za G.O. noću</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.35</Koeficijent>
+         <Naziv>Naknada za G.O. nedjeljom 1.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za G.O. nedjeljom 2.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.85</Koeficijent>
+         <Naziv>Naknada za G.O. nedjeljom noću</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan 1.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.65</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan 2.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan noću</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.8</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan ned. 1.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan ned. 2.smjena</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.35</Koeficijent>
+         <Naziv>Naknada za G.O. blagdan ned. noću</Naziv>
+         <Sifra>09</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1</Koeficijent>
+         <Naziv>Naknada za  blagdan </Naziv>
+         <Sifra>10</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1</Koeficijent>
+         <Naziv>Naknada za pl.dopust 1.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.15</Koeficijent>
+         <Naziv>Naknada za pl.dopust 2.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za pl.dopust noću</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.35</Koeficijent>
+         <Naziv>Naknada za pl.dopust nedjeljom 1.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za pl.dopust nedjeljom 2.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.85</Koeficijent>
+         <Naziv>Naknada za pl.dopust nedjeljom noću</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.5</Koeficijent>
+         <Naziv>Naknada za pl.dopust blagdan 1.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.65</Koeficijent>
+         <Naziv>Naknada za pl.dopust blagdan 2.smjena</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Naknada za pl.dopust blagdan noću</Naziv>
+         <Sifra>11</Sifra>
+      </element>
+      <element>
+         <Koeficijent>1.8</Koeficijent>
+         <Naziv>Rad na blagdan nedjeljom 1.smjena</Naziv>
+         <Sifra>32</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2</Koeficijent>
+         <Naziv>Rad na blagdan nedjeljom 2.smjena</Naziv>
+         <Sifra>32</Sifra>
+      </element>
+      <element>
+         <Koeficijent>2.35</Koeficijent>
+         <Naziv>Rad na blagdan nedjeljom noću</Naziv>
+         <Sifra>32</Sifra>
+      </element>
+   </Koeficijenti>

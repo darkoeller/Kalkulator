@@ -13,8 +13,7 @@
             <Grid Width="720"
                   Height="460"
                   HorizontalAlignment="Left"
-                  Margin="0"
-                  Background="#FFF3FAFA">
+                  Margin="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80*" />
                     <ColumnDefinition Width="120*" />
@@ -83,7 +82,6 @@
                     <ListBox x:Name="ListBoxBruto"
                              HorizontalContentAlignment="Right"
                              Padding="5,3"
-                             Background="#FFE7FAFF"
                              BorderThickness="3"
                              ToolTip="Lista izračunatih iznosa."
                              Margin="0,0,0.2,0"
@@ -177,7 +175,6 @@
                 <Border Grid.ColumnSpan="3"
                         Grid.Column="0"
                         Margin="0,235,0,0"
-                        Background="#FFF2FFF9"
                         Grid.Row="1"
                         Grid.RowSpan="2"
                         BorderThickness="0,3,0,0"

@@ -232,8 +232,8 @@ namespace BiznisSloj.Ispis
                 doc.Add(new Paragraph("Obračun izradio/la: ", times)
                 {
                     SpacingBefore = 10f,
-                    Alignment = 0,
-                    IndentationLeft = 80f
+                    Alignment = 2,
+                    IndentationRight = 80f
                 });
                 pdwri.PageEvent = new Footer();
                 doc.Close();

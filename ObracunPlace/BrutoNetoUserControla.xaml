@@ -13,7 +13,7 @@
         </Style>
     </UserControl.Resources>
     <DockPanel x:Name="DckPanel"
-               Margin="3,10,3,0"
+               Margin="3,10,0,0"
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
                MinWidth="785"
@@ -38,9 +38,8 @@
         <Border DockPanel.Dock="Top"
                 BorderThickness="3"
                 Margin="3,3,5,0">
-            <Grid Background="#FFEEF8FB"
-                  Height="85"
-                  Width="780">
+            <Grid Height="85"
+                  Width="790">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -122,18 +121,18 @@
                                  FontFamily="Roboto Light" Checked="Rb1Stup_Checked" />
                 </StackPanel>
                 <StackPanel Grid.Column="4"
-                            VerticalAlignment="Center"
-                            Margin="0"
+                            VerticalAlignment="Center"                            
+                            Margin="0,0,3,0"
                             Width="150">
                     <TextBlock TextWrapping="Wrap"
                                Width="110"
                                Text="Upišite bruto iznos :"
-                               HorizontalAlignment="Center" />
+                               HorizontalAlignment="Right" />
                     <TextBox x:Name="TxtBruto"
                              Width="100"
                              Height="25"
-                             Margin="0,7,0,0"
-                             HorizontalAlignment="Center"
+                             Margin="0,7,5,0"
+                             HorizontalAlignment="Right"
                              VerticalContentAlignment="Center"
                              BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}"
                              Background="#FFFBFAE9"
@@ -287,7 +286,7 @@
                 <TextBlock Style="{StaticResource UvucenText}"
                            Text="3. doprinos za zapošljavanje - 1.7% :"
                            Margin="0,5,0,0" />
-                <TextBlock Text="DOPRINOSI NA PLAĆU UKUPNO :"
+                <TextBlock Text="DOPRINOSI NA PLAĆU UKUPNO (17,2 %) :"
                            Margin="0,8,0,0" />
                 <TextBlock Text="UKUPAN TROŠAK PLAĆE ZA POSLODAVCA (bruto plaća + doprinosi na plaću):"
                            Margin="0,5,0,0"
@@ -299,7 +298,6 @@
             <StackPanel x:Name="StPanel2"
                         MinWidth="205"
                         Margin="1"
-                        Background="#FFF3FAFA"
                         HorizontalAlignment="Right">
                 <StackPanel.Resources>
                     <Style TargetType="Label">

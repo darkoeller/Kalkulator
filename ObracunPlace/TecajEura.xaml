@@ -33,7 +33,7 @@
                 VALUTNI PRETVARAČ
             </TextBlock>
         </StackPanel>
-        <GroupBox Header="Odaberite valutu" Background="#FFF3FAFA">
+        <GroupBox Header="Odaberite valutu">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120*" />
@@ -51,7 +51,7 @@
                            Grid.Column="0"
                            Margin="5,0">
                     <TextBlock VerticalAlignment="Center"
-                               Text=" Na današni dan:  " />
+                               Text=" Danas:  " />
                     <TextBlock VerticalAlignment="Center"
                                Margin="5,0"
                                x:Name="TxtDatum"

@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.Porezi
 {
-    public class PorezniKoeficijenti2
+    public class PorezniKoeficijenti2 : IEquatable<PorezniKoeficijenti2>
     {
         public PorezniKoeficijenti2(decimal prirez)
         {
@@ -20,10 +21,10 @@ namespace BiznisSloj.Porezi
         public double KoefPorezaPrireza24 { get; private set; }
         public double KoefPorezaPrireza36 { get; private set; }
 
-        private bool Equals(PorezniKoeficijenti2 other) => Stopa.Equals(other.Stopa)
-                                                           && KoefPrireza.Equals(other.KoefPrireza)
-                                                           && KoefPorezaPrireza24.Equals(other.KoefPorezaPrireza24)
-                                                           && KoefPorezaPrireza36.Equals(other.KoefPorezaPrireza36);
+        public bool Equals(PorezniKoeficijenti2 other) => Stopa.Equals(other?.Stopa)
+                                                           && KoefPrireza.Equals(other?.KoefPrireza)
+                                                           && KoefPorezaPrireza24.Equals(other?.KoefPorezaPrireza24)
+                                                           && KoefPorezaPrireza36.Equals(other?.KoefPorezaPrireza36);
 
 
         public override bool Equals(object obj)
