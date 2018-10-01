@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
@@ -117,11 +118,18 @@ namespace BiznisSloj.Procesi
 
         private void RacunajDoprinosePorezePrireze()
         {
-            VratiDoprinoseNaPlacu();
-            VratiDoprinoseIzPlace();
-            VratiOlaksicu();
-            VratiUkupniPorez();
-            VratiPrirez();
+            var izracun = new List<Action>
+            {
+                VratiDoprinoseNaPlacu,
+                VratiDoprinoseIzPlace,
+                VratiOlaksicu,
+                VratiUkupniPorez,
+                VratiPrirez
+            };
+            foreach(var r in izracun)
+            {
+                r.Invoke();
+            }
         }
 
         private void VratiPrirez() => Prirez = Prirez * UkupniPorez / 100;
