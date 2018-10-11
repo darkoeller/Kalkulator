@@ -1,38 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.KoefSati
 {
-    public class Koeficijenti2 : IEquatable<Koeficijenti2>
+    public class Koeficijenti2 : ValueObject<Koeficijenti2>
     {
         static Koeficijenti2() =>  VratiSifre();
 
         public string Sifra { get; set; }
         public string Naziv { get; set; }
         public double Koeficijent { get; set; }
-
-        public bool Equals(Koeficijenti2 other) => string.Equals(Sifra, other?.Sifra) && string.Equals(Naziv, other?.Naziv) &&
-                   Koeficijent.Equals(other?.Koeficijent);
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            return obj is Koeficijenti2 koeficijenti2 && Equals(koeficijenti2);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = Sifra.GetHashCode();
-                hashCode = (hashCode * 397) ^ Naziv.GetHashCode();
-                hashCode = (hashCode * 397) ^ Koeficijent.GetHashCode();
-                return hashCode;
-            }
-        }
 
         public static decimal VratiIznos(string naziv)
         {
@@ -56,6 +35,20 @@ namespace BiznisSloj.KoefSati
                 Koeficijent = (double) p["Koeficijent"]
             }).ToList();
             return listaKoeficijenata;
+        }
+
+        protected override bool EqualsCore(Koeficijenti2 other) => string.Equals(Sifra, other?.Sifra) && string.Equals(Naziv, other?.Naziv) &&
+                                                                   Koeficijent.Equals(other?.Koeficijent);
+   
+        protected override int GetHashCodeCore()
+        {
+            unchecked
+            {
+                var hashCode = Sifra.GetHashCode();
+                hashCode = (hashCode * 397) ^ Naziv.GetHashCode();
+                hashCode = (hashCode * 397) ^ Koeficijent.GetHashCode();
+                return hashCode;
+            }
         }
     }
 }
