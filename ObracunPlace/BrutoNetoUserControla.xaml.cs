@@ -213,7 +213,10 @@ namespace ObracunPlace
             if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
         }
 
-        private void Rb1Stup_Checked(object sender, RoutedEventArgs e) => LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos, 2).ToString("C");
+        private void Rb1Stup_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_listica != null) LblDopUkupno.Content = Math.Round(_listica.DvadesetPostoDoprinos, 2).ToString("C");
+        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
