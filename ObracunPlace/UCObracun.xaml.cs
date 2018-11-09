@@ -7,6 +7,8 @@ using System.Windows.Input;
 using BiznisSloj;
 using BiznisSloj.KoefSati;
 using ObracunPlace.Properties;
+using Ninject;
+using Ninject.Parameters;
 
 namespace ObracunPlace
 {
@@ -21,23 +23,25 @@ namespace ObracunPlace
 
         private decimal _koeficijent;
 
+        private readonly StandardKernel  _kernel = new StandardKernel();
+
         public UcObracun()
         {
             InitializeComponent();
         }
 
+        
         private decimal Bruto
         {
             get => (decimal) GetValue(BrutoProperty);
             set
             {
                 SetValue(BrutoProperty, value);
-                OnPropertyChanged(value.ToString(CultureInfo.InvariantCulture).Replace('.', ','));
+                OnPropertyChanged(value.ToString(CultureInfo.CurrentCulture).Replace('.', ','));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         private decimal GetBodovi() => VratiIznos(BodoviUpDown.Text);
 
@@ -64,7 +68,12 @@ namespace ObracunPlace
         {
             if (ChComboBoxVrsteRada == null || ChComboBoxVrsteRada.SelectedIndex == -1) return;
             var text = ChComboBoxVrsteRada.SelectedItem.ToString();
-            var izracun = new IzracunajKoeficijentSate(GetSatiRada(), GetMinuli(), GetBodovi(), _koeficijent).Izracun();
+            
+            var kersati = new ConstructorArgument("brojSati", GetSatiRada());
+            var kerminuli = new ConstructorArgument("minuli", GetMinuli());
+            var kerbodovi = new ConstructorArgument("bodovi", GetBodovi());
+            var kerkoeficijent = new ConstructorArgument("koeficijent", _koeficijent);
+            var izracun = _kernel.Get<IzracunajKoeficijentSate>(kersati, kerminuli, kerbodovi,kerkoeficijent).Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
@@ -91,7 +100,7 @@ namespace ObracunPlace
 
         private void BtnDodatak_Click(object sender, RoutedEventArgs e)
         {
-            var dodatak = new DodatakNaPlacu(GetSatiRada());
+            var dodatak = _kernel.Get<DodatakNaPlacu>(new ConstructorArgument("brojSati",GetSatiRada()));
             var izracun = dodatak.Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add("Dodatak na plaću: " + izracun.ToString(new CultureInfo("hr-HR")));

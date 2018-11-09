@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using BiznisSloj;
 using BiznisSloj.Datumi;
+using Ninject;
 
 namespace ObracunPlace
 {
@@ -31,9 +32,13 @@ namespace ObracunPlace
             if (string.IsNullOrEmpty(ovrhaText)) return;
             if (ovrhaText.Contains('.')) ovrhaText = ovrhaText.Replace('.', ',');
             decimal.TryParse(ovrhaText, out _neto);
-            var ovrha = new Ovrha(_neto, RbOvrha);
-            TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString(CultureInfo.InvariantCulture);
-            TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString(CultureInfo.InvariantCulture);
+            var kernel = new StandardKernel();
+            var kneto = new Ninject.Parameters.ConstructorArgument("neto", _neto);
+            var rbovrha = new Ninject.Parameters.ConstructorArgument("rbovrha", RbOvrha);
+            var ovrha = kernel.Get<Ovrha>(kneto, rbovrha);
+            // var ovrha = new Ovrha(_neto, RbOvrha);
+            TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString("C",CultureInfo.CurrentCulture);
+            TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString("C",CultureInfo.CurrentCulture);
         }
 
         private void BtnCisti_Click(object sender, RoutedEventArgs e)
