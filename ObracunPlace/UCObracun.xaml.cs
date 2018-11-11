@@ -51,7 +51,7 @@ namespace ObracunPlace
  
         private decimal GetGodineStaza() => VratiIznos(GodineUpDown.Text);
 
-        private decimal VratiIznos(string text)
+        private static decimal VratiIznos(string text)
         {
             if (text.Contains('.')) text = text.Replace('.', ',');
             decimal.TryParse(text, out var iznos);
@@ -125,7 +125,10 @@ namespace ObracunPlace
 
         private void BtnRacunaMinuli_Click(object sender, RoutedEventArgs e)
         {
-            var minuli = new IzracunGodinaStaza(GetGodineStaza(), GetBodovi());
+            //var minuli = new IzracunGodinaStaza(GetGodineStaza(), GetBodovi());
+            var kernelGodine = new ConstructorArgument("godine", GetGodineStaza());
+            var kernelBodovi = new ConstructorArgument("koeficijent", GetBodovi());
+            var minuli = _kernel.Get<IzracunGodinaStaza>(kernelGodine, kernelBodovi);
             var rezultat = minuli.Izracun();
             LblMinuli.Content = "Vaš minuli iznosi : " + rezultat.ToString(new CultureInfo("hr-HR"));
             Bruto += rezultat;
