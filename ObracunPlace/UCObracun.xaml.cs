@@ -68,12 +68,11 @@ namespace ObracunPlace
         {
             if (ChComboBoxVrsteRada == null || ChComboBoxVrsteRada.SelectedIndex == -1) return;
             var text = ChComboBoxVrsteRada.SelectedItem.ToString();
-            
-            var kersati = new ConstructorArgument("brojSati", GetSatiRada());
-            var kerminuli = new ConstructorArgument("minuli", GetMinuli());
-            var kerbodovi = new ConstructorArgument("bodovi", GetBodovi());
-            var kerkoeficijent = new ConstructorArgument("koeficijent", _koeficijent);
-            var izracun = _kernel.Get<IzracunajKoeficijentSate>(kersati, kerminuli, kerbodovi,kerkoeficijent).Izracun();
+            var sati = new ConstructorArgument("brojSati", GetSatiRada());
+            var minuli = new ConstructorArgument("minuli", GetMinuli());
+            var bodovi = new ConstructorArgument("bodovi", GetBodovi());
+            var koeficijent = new ConstructorArgument("koeficijent", _koeficijent);
+            var izracun = _kernel.Get<IzracunajKoeficijentSate>(sati, minuli, bodovi,koeficijent).Izracun();
             Bruto += izracun;
             ListBoxBruto.Items.Add($"{text}: {izracun}");
             PozoviLabelu();
@@ -100,10 +99,9 @@ namespace ObracunPlace
 
         private void BtnDodatak_Click(object sender, RoutedEventArgs e)
         {
-            var dodatak = _kernel.Get<DodatakNaPlacu>(new ConstructorArgument("brojSati",GetSatiRada()));
-            var izracun = dodatak.Izracun();
-            Bruto += izracun;
-            ListBoxBruto.Items.Add("Dodatak na plaću: " + izracun.ToString(new CultureInfo("hr-HR")));
+            var dodatak = _kernel.Get<DodatakNaPlacu>(new ConstructorArgument("brojSati",GetSatiRada())).Izracun();
+            Bruto += dodatak;
+            ListBoxBruto.Items.Add("Dodatak na plaću: " + dodatak.ToString(new CultureInfo("hr-HR")));
             PozoviLabelu();
         }
 
@@ -125,13 +123,11 @@ namespace ObracunPlace
 
         private void BtnRacunaMinuli_Click(object sender, RoutedEventArgs e)
         {
-            //var minuli = new IzracunGodinaStaza(GetGodineStaza(), GetBodovi());
-            var kernelGodine = new ConstructorArgument("godine", GetGodineStaza());
-            var kernelBodovi = new ConstructorArgument("koeficijent", GetBodovi());
-            var minuli = _kernel.Get<IzracunGodinaStaza>(kernelGodine, kernelBodovi);
-            var rezultat = minuli.Izracun();
-            LblMinuli.Content = "Vaš minuli iznosi : " + rezultat.ToString(new CultureInfo("hr-HR"));
-            Bruto += rezultat;
+            var godine = new ConstructorArgument("godine", GetGodineStaza());
+            var bodovi = new ConstructorArgument("koeficijent", GetBodovi());
+            var minuli = _kernel.Get<IzracunGodinaStaza>(godine, bodovi).Izracun();
+            LblMinuli.Content = "Vaš minuli iznosi : " + minuli.ToString(new CultureInfo("hr-HR"));
+            Bruto += minuli;
         }
 
         private static decimal PronadjiDecimalniBroj(string razlika)

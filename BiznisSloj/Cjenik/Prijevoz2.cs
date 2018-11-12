@@ -5,25 +5,18 @@ using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.Cjenik
 {
-    public struct Prijevoz2
+    public class Prijevoz2 : ValueObject<Prijevoz2>
     {
         private string Relacija { get; set; }
         private double Iznos { get; set; }
 
-        public static bool operator ==(Prijevoz2 left, Prijevoz2 right)=> left.Equals(right);  
+        public override string ToString() => Relacija;
 
-        public static bool operator !=(Prijevoz2 left, Prijevoz2 right) => !left.Equals(right);
+        protected override bool EqualsCore(Prijevoz2 other) =>
+            string.Equals(Relacija, other.Relacija) && Iznos.Equals(other.Iznos);
+  
 
-        private bool Equals(Prijevoz2 other) => string.Equals(Relacija, other.Relacija) && Iznos.Equals(other.Iznos);
-
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            return obj is Prijevoz2 prijevoz2 && Equals(prijevoz2);
-        }
-
-        public override int GetHashCode()
+        protected override int GetHashCodeCore()
         {
             unchecked
             {
@@ -53,7 +46,5 @@ namespace BiznisSloj.Cjenik
                 .FirstOrDefault();
             return (decimal) iznos;
         }
-
-        public override string ToString() => Relacija;
     }
 }

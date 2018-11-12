@@ -8,6 +8,7 @@ using BiznisSloj.Cjenik;
 using BiznisSloj.Ispis;
 using BiznisSloj.Porezi;
 using BiznisSloj.Procesi;
+using Ninject;
 
 namespace ObracunPlace
 {
@@ -17,6 +18,7 @@ namespace ObracunPlace
     public partial class BrutoNetoUserControla
     {
         private ProcesuirajPlacu _listica;
+        private readonly StandardKernel _kernel = new StandardKernel();
 
         public BrutoNetoUserControla()
         {

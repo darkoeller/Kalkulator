@@ -13,6 +13,8 @@ using BiznisSloj.Doprinosi;
 using BiznisSloj.Ispis;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Ninject;
+using Ninject.Parameters;
 using Image = iTextSharp.text.Image;
 
 namespace ObracunPlace
@@ -26,6 +28,7 @@ namespace ObracunPlace
         private Beneficirani _bene;
         private decimal _beneficirani;
         private decimal _dvadeset;
+        private readonly StandardKernel _kernel = new StandardKernel();
 
         public BeneficiraniUc()
         {
@@ -85,7 +88,6 @@ namespace ObracunPlace
                     LblBene1I2.Content = "Benefeficirani stup 1 i 2";
                     break;
             }
-
             OcistiLabele();
             ImePrezime.Focus();
         }
@@ -93,7 +95,7 @@ namespace ObracunPlace
         private void BtnIzracun_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TxtBruto.Text)) return;
-            _bene = new Beneficirani();
+            _bene = _kernel.Get<Beneficirani>();
             IzracunajPetPetnaest();
             IzracunajBeneficirani();
             TxtUkupno.Text = Math.Round(_beneficirani + _dvadeset, 2).ToString(new CultureInfo("hr-HR"));
@@ -120,7 +122,9 @@ namespace ObracunPlace
 
         private void IzracunajBeneficirani()
         {
-            var odabir = new OdabireVrstuBeneficirano(GetBruto(), Odabrano);
+            var bruto = new ConstructorArgument("bruto", GetBruto());
+            var odabrano = new ConstructorArgument("vrsta", Odabrano);
+            var odabir = _kernel.Get<OdabireVrstuBeneficirano>(bruto, odabrano);
             odabir.VratiBeneficirani();
             var bene1 = odabir.Beneficirani1;
             _bene.Beneficirani1 = bene1;
@@ -134,11 +138,9 @@ namespace ObracunPlace
 
         private void IzracunajPetPetnaest()
         {
-            var petnaest = new DoprinosPetnaestPosto();
-            var doprinospetnaest = petnaest.RacunajDoprinos(GetBruto());
+            var doprinospetnaest = _kernel.Get<DoprinosPetnaestPosto>().RacunajDoprinos(GetBruto());
             _bene.Doprinos15 = doprinospetnaest;
-            var pet = new DoprinosPetPosto();
-            var doprinospet = pet.RacunajDoprinos(GetBruto());
+            var doprinospet =_kernel.Get<DoprinosPetPosto>().RacunajDoprinos(GetBruto());
             _bene.Doprinos5 = doprinospet;
             _dvadeset = doprinospet + doprinospetnaest;
             TxtDop15.Text = Math.Round(doprinospetnaest, 2).ToString(new CultureInfo("hr-HR"));

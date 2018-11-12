@@ -15,6 +15,7 @@ namespace ObracunPlace
     public partial class TecajEura
     {
         private decimal _euro;
+        private readonly StandardKernel _kernel = new StandardKernel();
 
         public TecajEura()
         {
@@ -26,8 +27,7 @@ namespace ObracunPlace
         private void CmbBanke_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var index = CmbBanke.SelectedIndex;
-            var kernel = new StandardKernel();
-            var item = CmbBanke.SelectedItem.ToString();
+            
             switch (index)
             {
                 case 0:
@@ -35,12 +35,12 @@ namespace ObracunPlace
                     LblTecaj.Content = "0,00 ";
                     break;
                 case 1:
-                    _euro = kernel.Get<OdabirBanke>(new ConstructorArgument("odabir", "HNB")).VratiIznos();
+                    _euro = _kernel.Get<OdabirBanke>(new ConstructorArgument("odabir", "HNB")).VratiIznos();
                     LblTecaj.Content = _euro;
                     TxtNazivBanke.Text = " Hrvatskoj narodnoj banci, (HNB-u) je : ";
                     break;
                 case 2:
-                    _euro = kernel.Get<OdabirBanke>(new ConstructorArgument("odabir", "PBZ")).VratiIznos();
+                    _euro = _kernel.Get<OdabirBanke>(new ConstructorArgument("odabir", "PBZ")).VratiIznos();
                     LblTecaj.Content = _euro;
                     TxtNazivBanke.Text = " Privrednoj banci Zagreb, (PBZ-u) je : ";
                     break;
@@ -48,7 +48,6 @@ namespace ObracunPlace
                     TxtNazivBanke.Text = "'Odaberite banku!'";
                     break;
             }
-
             TxtEuro.Focus();
         }
 
@@ -72,7 +71,6 @@ namespace ObracunPlace
             var datum = OdabraniDatum.SelectedDate;
             var stringDatum = OdabraniDatum.SelectedDate.ToString();
 
-
             if (datum > DateTime.Today || datum < DateTime.Today.AddYears(-25) || string.IsNullOrEmpty(stringDatum))
             {
                 MessageBox.Show("Odabrani datum mora biti manji od današnjeg,\n  ne stariji od 25 godina i ne prazan.",
@@ -81,9 +79,7 @@ namespace ObracunPlace
             }
             else
             {
-                var kernel = new StandardKernel();
-                var kdatum = new Ninject.Parameters.ConstructorArgument("datum", datum);
-                var zaPoslati = kernel.Get<TecajEuraPoDatumu>(kdatum).OblikujDatum();
+                var zaPoslati = _kernel.Get<TecajEuraPoDatumu>(new ConstructorArgument("datum", datum)).OblikujDatum();
                 stringDatum = stringDatum.Replace("0:00:00", "");
                 LblBivsiEuro.Content =
                     "Srednji tečaj eura na dan " + stringDatum + " iznosio je : " + zaPoslati + " kuna.";

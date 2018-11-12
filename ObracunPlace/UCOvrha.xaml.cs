@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using BiznisSloj;
 using BiznisSloj.Datumi;
 using Ninject;
+using Ninject.Parameters;
 
 namespace ObracunPlace
 {
@@ -15,6 +16,7 @@ namespace ObracunPlace
     public partial class UcOvrha
     {
         private decimal _neto;
+        private readonly StandardKernel _kernel = new StandardKernel();
 
         public UcOvrha()
         {
@@ -32,11 +34,10 @@ namespace ObracunPlace
             if (string.IsNullOrEmpty(ovrhaText)) return;
             if (ovrhaText.Contains('.')) ovrhaText = ovrhaText.Replace('.', ',');
             decimal.TryParse(ovrhaText, out _neto);
-            var kernel = new StandardKernel();
-            var kneto = new Ninject.Parameters.ConstructorArgument("neto", _neto);
-            var rbovrha = new Ninject.Parameters.ConstructorArgument("rbovrha", RbOvrha);
-            var ovrha = kernel.Get<Ovrha>(kneto, rbovrha);
-            // var ovrha = new Ovrha(_neto, RbOvrha);
+            
+            var neto = new ConstructorArgument("neto", _neto);
+            var rbovrha = new ConstructorArgument("rbovrha", RbOvrha);
+            var ovrha = _kernel.Get<Ovrha>(neto, rbovrha);
             TxtNetoOstaje.Text = ovrha.IzracunajOvrhu().ToString("C",CultureInfo.CurrentCulture);
             TxtNetoOvrha.Text = ovrha.ZaOvrsiti.ToString("C",CultureInfo.CurrentCulture);
         }
@@ -51,9 +52,9 @@ namespace ObracunPlace
         private void IzracunajDatum()
         {
             if (PocetniDt.SelectedDate == null || ZavrsniDt.SelectedDate == null) return;
-            var pocetno = (DateTime) PocetniDt.SelectedDate;
-            var zavrsno = (DateTime) ZavrsniDt.SelectedDate;
-            var razlika = new RazlikaDatuma(pocetno, zavrsno).VratiIzracun();
+            var pocetno = new ConstructorArgument("stariDatum", (DateTime) PocetniDt.SelectedDate);
+            var zavrsno = new ConstructorArgument("noviDatum", (DateTime) ZavrsniDt.SelectedDate);
+            var razlika = _kernel.Get<RazlikaDatuma>(pocetno, zavrsno).VratiIzracun();
             LblUkupnoDana.Content = razlika.UkupnoDana;
             LblGodine.Content = razlika.Godine;
             LblMjeseci.Content = razlika.Mjeseci;
