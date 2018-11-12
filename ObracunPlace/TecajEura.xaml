@@ -107,7 +107,7 @@
                         Width="100"
                         Height="40"
                         Click="BtnIzracun_Click"
-                        Margin="60,0,60,0"
+                        Margin="60,0,50,0"
                         VerticalAlignment="Center"
                         IsDefault="True"
                         KeyboardNavigation.TabIndex="2">
