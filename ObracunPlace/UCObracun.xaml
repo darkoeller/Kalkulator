@@ -71,9 +71,10 @@
                 </StackPanel>
                 <StackPanel Grid.Column="2"
                             Grid.Row="0"
-                            VerticalAlignment="Bottom">
+                            VerticalAlignment="Top">
                     <Image Source="Resources/blago.png"
-                           MaxHeight="130" Margin="5"
+                           VerticalAlignment="Top"
+                           MaxHeight="120" Margin="5"
                            Stretch="Fill" />
                 </StackPanel>
                 <Border Grid.Column="1"
@@ -97,7 +98,7 @@
                 <StackPanel Grid.Column="2"
                             Grid.Row="1"
                             VerticalAlignment="Bottom"
-                            Margin="0,0,0,30">
+                            Margin="0,0,0,5 ">
                     <Button x:Name="BtnIzracun"
                             Height="28"
                             Margin="5"
@@ -119,8 +120,16 @@
                             Click="BtnMinuli_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal" />
+                    <ComboBox x:Name="CmbStimulacija" Width="175" Height="28" IsEditable="False" VerticalContentAlignment="Center"
+                              HorizontalContentAlignment="Center" SelectionChanged="CmbStimulacija_SelectionChanged">
+                        <ComboBoxItem Content="Stimulacija nije odabrana"/>
+                        <ComboBoxItem Content="Stimulacija 1" />
+                        <ComboBoxItem Content="Stimulacija 1,50" />
+                        <ComboBoxItem Content="Stimulacija 2" />
+                    </ComboBox>
+
                     <Button x:Name="BtnOcistiOdabrano"
-                            Margin="5,0,5,0"
+                            Margin="5"
                             Height="28"
                             Content="Obriši označeno"
                             Click="BtnOcistiOdabrano_Click"
@@ -138,10 +147,7 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1"
                             Grid.Column="0">
                     <Expander IsExpanded="True">
-                        <Expander.Header>
-                            <TextBlock Text=" KRATKO POJAŠNJENJE"
-                                       Foreground="Black" />
-                        </Expander.Header>
+                        
                         <Expander.Content>
                             <ScrollViewer VerticalScrollBarVisibility="Auto" Height="180">
                                 <WrapPanel>
