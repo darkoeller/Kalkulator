@@ -148,7 +148,7 @@ namespace ObracunPlace
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            StPanelStimulacija.Visibility=Visibility.Collapsed;
+            GridStimulacija.Visibility=Visibility.Collapsed;
             var svesifre = Koeficijenti2.VratiSifre();
             var sifre = svesifre.Select(s => s.Naziv);
                    
@@ -162,17 +162,12 @@ namespace ObracunPlace
 
         private void BtnStimulacija_Click(object sender, RoutedEventArgs e)
         {
-            if (StPanelStimulacija.Visibility == Visibility.Collapsed)
-            {
-                StPanelStimulacija.Visibility= Visibility.Visible;
-            }
-            else{StPanelStimulacija.Visibility= Visibility.Collapsed;}
-            
+            GridStimulacija.Visibility = GridStimulacija.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void BtnZatvori_Click(object sender, RoutedEventArgs e)
         {
-            this.StPanelStimulacija.Visibility = Visibility.Collapsed;
+            GridStimulacija.Visibility = Visibility.Collapsed;
         }
     }
 
