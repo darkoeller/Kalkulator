@@ -148,6 +148,7 @@ namespace ObracunPlace
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            StPanelStimulacija.Visibility=Visibility.Collapsed;
             var svesifre = Koeficijenti2.VratiSifre();
             var sifre = svesifre.Select(s => s.Naziv);
                    
@@ -159,12 +160,19 @@ namespace ObracunPlace
             Keyboard.Focus(BodoviUpDown);
         }
 
-        private void CmbStimulacija_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BtnStimulacija_Click(object sender, RoutedEventArgs e)
         {
-            var iznos = CmbStimulacija.SelectedIndex;
-            Bruto =+ new Stimulacija(GetSatiRada(), GetBodovi(), iznos).Izracun();
-            ListBoxBruto.Items.Add("Stimulacija: " + Bruto.ToString(new CultureInfo("hr-HR")));
-            PozoviLabelu();
+            if (StPanelStimulacija.Visibility == Visibility.Collapsed)
+            {
+                StPanelStimulacija.Visibility= Visibility.Visible;
+            }
+            else{StPanelStimulacija.Visibility= Visibility.Collapsed;}
+            
+        }
+
+        private void BtnZatvori_Click(object sender, RoutedEventArgs e)
+        {
+            this.StPanelStimulacija.Visibility = Visibility.Collapsed;
         }
     }
 

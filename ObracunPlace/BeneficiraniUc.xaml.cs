@@ -273,5 +273,6 @@ namespace ObracunPlace
             _popis.Clear();
             DataGridBene.UpdateLayout();
         }
+
     }
 }
