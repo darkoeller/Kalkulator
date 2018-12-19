@@ -165,7 +165,7 @@ namespace ObracunPlace
             GridStimulacija.Visibility = GridStimulacija.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private void BtnZatvori_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             GridStimulacija.Visibility = Visibility.Collapsed;
         }

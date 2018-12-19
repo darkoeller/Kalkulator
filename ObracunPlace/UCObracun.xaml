@@ -9,20 +9,38 @@
     <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center"
                 Height="587">
         
-            <Grid x:Name="GridStimulacija" MaxWidth="300" MaxHeight="200">
+            <Grid x:Name="GridStimulacija" MaxWidth="300" MaxHeight="200" Margin="5" Background="AntiqueWhite">
+                <Grid.Resources>
+                    <Style x:Key="UvucenText" TargetType="TextBlock">
+                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                </Style>
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
-                   <ColumnDefinition />
+                   <ColumnDefinition Width="Auto" />
                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
-                     <RowDefinition />
-                     <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-            <TextBlock HorizontalAlignment="Center" FontSize="16" Grid.ColumnSpan="2">OVDJE IZRAČUNAJTE STIMULACIJU</TextBlock>
-                <Label Grid.Row="1" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-                <Button Grid.Row="2"  Grid.Column="0" x:Name="BtnZatvori" Content="Zatvori" Click="BtnZatvori_Click"></Button>
-                <Button Grid.Row="2" Grid.Column="1" x:Name="BtnIzStimul" Content="Izračun Stimulacije"></Button>
+                <Button x:Name="BtnClose" Grid.Column="1" Width="16" Height="16"  HorizontalAlignment="Right" VerticalAlignment="Top" Click="BtnClose_Click" Margin="-2">
+                    <StackPanel>
+                        <Image Source="Resources/Close.png" Stretch="UniformToFill"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="1" FontSize="16" Grid.ColumnSpan="2">IZRAČUNAJTE STIMULACIJU</TextBlock>
+                <TextBlock  Grid.Row="2" Text="Provjerite zadane parametre " HorizontalAlignment="Left" Grid.RowSpan="1" />
+                <TextBlock Style="{StaticResource UvucenText}" Grid.Row="3">Vaši bodovi :</TextBlock>
+                <Label x:Name="LblBodovi" Grid.Row="3" Grid.Column="1" Content="{Binding}" />
+                <TextBlock Style="{StaticResource UvucenText}" Grid.Row="4">Sati rada : </TextBlock>
+                <Label x:Name="LblSati" Grid.Row="4" Grid.Column="1"/>
+                <Button Grid.Row="5"  Grid.Column="0" Content="ne znam" Width="120"></Button>
+                <Button Grid.Row="5" Grid.Column="1" x:Name="BtnIzStimul" Content="Izračun Stimulacije" Width="120"></Button>
 
             </Grid>
                        
