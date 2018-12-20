@@ -9,7 +9,6 @@ using BiznisSloj.KoefSati;
 using ObracunPlace.Properties;
 using Ninject;
 using Ninject.Parameters;
-using System.Windows.Interop;
 using BiznisSloj.Stimul;
 
 namespace ObracunPlace
@@ -150,12 +149,11 @@ namespace ObracunPlace
         {
             GridStimulacija.Visibility=Visibility.Collapsed;
             var svesifre = Koeficijenti2.VratiSifre();
-            var sifre = svesifre.Select(s => s.Naziv);
-                   
+            var sifre = svesifre.Select(s => s.Naziv);                   
             ChComboBoxVrsteRada.ItemsSource = sifre;
             PozoviLabelu();
             ChComboBoxVrsteRada.SelectedIndex = 0;
-            //CmbStimulacija.SelectedIndex = 0;
+            CmbStimulacija.SelectedIndex = 0;
             BodoviUpDown.Focus();
             Keyboard.Focus(BodoviUpDown);
         }
@@ -168,6 +166,14 @@ namespace ObracunPlace
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             GridStimulacija.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnIzStimulIzracun_Click(object sender, RoutedEventArgs e)
+        {
+            var stimulacija = new Stimulacija(GetSatiRada(), GetBodovi(), CmbStimulacija.SelectedIndex).Izracun();
+            Bruto += stimulacija;
+            ListBoxBruto.Items.Add("Stimulacija: " + stimulacija.ToString(new CultureInfo("hr-HR")));
+            PozoviLabelu();
         }
     }
 

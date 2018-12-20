@@ -9,10 +9,10 @@
     <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center"
                 Height="587">
         
-            <Grid x:Name="GridStimulacija" MaxWidth="300" MaxHeight="200" Margin="5" Background="AntiqueWhite" >
+            <Grid x:Name="GridStimulacija" MaxWidth="320" MaxHeight="200" Margin="5" Background="FloralWhite" >
                 <Grid.Resources>
                     <Style x:Key="UvucenText" TargetType="TextBlock">
-                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Margin" Value="5"/>
                         <Setter Property="HorizontalAlignment" Value="Right"/>
                 </Style>
                 </Grid.Resources>
@@ -22,28 +22,33 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
+                    <RowDefinition Height="30" />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="BtnClose" Grid.Column="1" Width="16" Height="16"  HorizontalAlignment="Right" VerticalAlignment="Top" Click="BtnClose_Click" Margin="-2">
                     <StackPanel>
                         <Image Source="Resources/Close.png" Stretch="UniformToFill"/>
                     </StackPanel>
                 </Button>
-                <TextBlock HorizontalAlignment="Center" Grid.Row="1" FontSize="16" Grid.ColumnSpan="2">IZRAČUNAJTE STIMULACIJU</TextBlock>
-                <TextBlock  Grid.Row="2" Text="Provjerite zadane parametre " HorizontalAlignment="Left" />
+                <TextBlock HorizontalAlignment="Center" Grid.Row="1" FontSize="14" Grid.ColumnSpan="2" TextDecorations="Underline">IZRAČUNAJTE STIMULACIJU</TextBlock>
+                <TextBlock  Grid.Row="2" Text="- Provjerite zadane parametre -" HorizontalAlignment="Left" />
                 <TextBlock Style="{StaticResource UvucenText}" Grid.Row="3">Vaši bodovi :</TextBlock>
                 <Label x:Name="LblBodovi" Grid.Row="3" Grid.Column="1" Content="{Binding Text, ElementName=BodoviUpDown, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Style="{StaticResource UvucenText}" Grid.Row="4">Sati rada : </TextBlock>
-            <Label x:Name="LblSati" Grid.Row="4" Grid.Column="1" Content="{Binding Text, ElementName=SatiRadaUpDown, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Grid.Row="5"  Grid.Column="0" Content="ne znam" Width="120"></Button>
-                <Button Grid.Row="5" Grid.Column="1" x:Name="BtnIzStimul" Content="Izračun Stimulacije" Width="120"></Button>
-
-            </Grid>
-                       
+                <Label x:Name="LblSati" Grid.Row="4" Grid.Column="1" Content="{Binding Text, ElementName=SatiRadaUpDown, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Row="5" Text="Odaberite koeficijent stimulacije :" Style="{StaticResource UvucenText}"/>
+                <ComboBox x:Name="CmbStimulacija" Grid.Row="5" Grid.Column="1" Width="60" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5">
+                   <ComboBoxItem Content="0,5" />
+                    <ComboBoxItem Content="1" /> 
+                    <ComboBoxItem Content="1,5" />
+                    <ComboBoxItem Content="2" />
+            </ComboBox>
+                <Button Grid.Row="6" Grid.Column="1" x:Name="BtnIzStimulIzracun" Content="Izračun stimulacije" Margin="5" Width="120" HorizontalAlignment="Left" Click="BtnIzStimulIzracun_Click"/>
+        </Grid>                     
 
         <GroupBox Header="Izračunajte svoj bruto iznos plaće"
                   VerticalAlignment="Top">
@@ -160,14 +165,12 @@
                    <Button x:Name="BtnStimulacija"
                             Margin="5"
                             Height="28"
-                           Content="Dodaj stimulaciju" Click="BtnStimulacija_Click">
-                       
+                           Content="Dodaj stimulaciju" Click="BtnStimulacija_Click">                       
                    </Button>
-
                     <Button x:Name="BtnOcistiOdabrano"
                             Margin="5"
                             Height="28"
-                            Content="Obriši označeno"
+                            Content="Obriši označeno u listi"
                             Click="BtnOcistiOdabrano_Click"
                             FontFamily="Roboto-Light"
                             FontWeight="Normal" />
@@ -182,8 +185,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Row="1"
                             Grid.Column="0">
-                    <Expander IsExpanded="True">
-                        
+                    <Expander IsExpanded="False" Header="Otvori za pomoć">                        
                         <Expander.Content>
                             <ScrollViewer VerticalScrollBarVisibility="Auto" Height="180">
                                 <WrapPanel>
@@ -209,6 +211,12 @@
                                                Padding="5"
                                                FontStyle="Italic"
                                                Text="Kod unosa decimalnog broja obavezno koristite zarez, a ne točku!" />
+                                    <TextBlock Text="--------------------------------------------" />
+                                    <TextBlock Foreground="LightSlateGray"
+                                               TextWrapping="Wrap"
+                                               Padding="5"
+                                               FontStyle="Italic"
+                                               Text="Za izračun stimulacije u zboj ukupnih sati ne ulaze: prekovremeni rad, rad pod uvjetima, bolovanja. " />
                                 </WrapPanel>
                             </ScrollViewer>
                         </Expander.Content>

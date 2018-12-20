@@ -18,19 +18,29 @@ namespace BiznisSloj.Stimul
 
         public decimal Izracun()
         {
+            decimal bod = 0;
             decimal izracun = 0;
             switch (_vrsta)
             {
-                    case 0:
-                        break;
+                case 0:
+                    izracun = (_bodovi * _koeficijent * _satiRada / 10)/2;
+                    break;
+
                     case 1:
-                        _bodovi = _bodovi * 1;
                         izracun = _bodovi * _koeficijent * _satiRada / 10;
                         break;
                     case 2:
+                        bod = _bodovi * 1.15m;
+                        _bodovi = bod - _bodovi;
+                         izracun = _bodovi * _koeficijent * _satiRada;
                         break;
                     case 3:
+                          bod = _bodovi * 1.2m;
+                        _bodovi = bod - _bodovi;
+                         izracun = _bodovi * _koeficijent * _satiRada;
                         break;
+                   default:
+                    return izracun;
             }
 
             return Math.Round(izracun, 2);
