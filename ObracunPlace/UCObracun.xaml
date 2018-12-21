@@ -8,55 +8,55 @@
              d:DesignWidth="790" Loaded="UserControl_Loaded">
     <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center"
                 Height="587">
-
-        <Grid x:Name="GridStimulacija" MaxWidth="320" MaxHeight="200" Margin="5" Background="FloralWhite">
-            <Grid.Resources>
-                <Style x:Key="UvucenText" TargetType="TextBlock">
-                    <Setter Property="Margin" Value="5" />
-                    <Setter Property="HorizontalAlignment" Value="Right" />
-                </Style>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition Height="30" />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Button x:Name="BtnClose" Grid.Column="1" Width="16" Height="16" HorizontalAlignment="Right"
+        <Viewbox MaxWidth="320" MaxHeight="200" Margin="5" Stretch="Fill">
+            <Grid x:Name="GridStimulacija" Background="FloralWhite">
+                <Grid.Resources>
+                    <Style x:Key="UvucenText" TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="30" />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button x:Name="BtnClose" Grid.Column="1" Width="16" Height="16" HorizontalAlignment="Right"
                     VerticalAlignment="Top" Click="BtnClose_Click" Margin="-2">
-                <StackPanel>
-                    <Image Source="Resources/Close.png" Stretch="UniformToFill" />
-                </StackPanel>
-            </Button>
-            <TextBlock HorizontalAlignment="Center" Grid.Row="1" FontSize="14" Grid.ColumnSpan="2"
-                       TextDecorations="Underline">
-                IZRAČUNAJTE STIMULACIJU
-            </TextBlock>
-            <TextBlock Grid.Row="2" Text="- Provjerite zadane parametre -" HorizontalAlignment="Left" />
-            <TextBlock Style="{StaticResource UvucenText}" Grid.Row="3">Vaši bodovi :</TextBlock>
-            <Label x:Name="LblBodovi" Grid.Row="3" Grid.Column="1"
-                   Content="{Binding Text, ElementName=BodoviUpDown, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Style="{StaticResource UvucenText}" Grid.Row="4">Sati rada : </TextBlock>
-            <Label x:Name="LblSati" Grid.Row="4" Grid.Column="1"
-                   Content="{Binding Text, ElementName=SatiRadaUpDown, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Row="5" Text="Odaberite koeficijent stimulacije :" Style="{StaticResource UvucenText}" />
-            <ComboBox x:Name="CmbStimulacija" Grid.Row="5" Grid.Column="1" Width="60" HorizontalAlignment="Left"
-                      VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5">
-                <ComboBoxItem Content="0,5" />
-                <ComboBoxItem Content="1" />
-                <ComboBoxItem Content="1,5" />
-                <ComboBoxItem Content="2" />
-            </ComboBox>
-            <Button Grid.Row="6" Grid.Column="1" x:Name="BtnIzStimulIzracun" Content="Izračun stimulacije" Margin="5"
+                    <StackPanel>
+                        <Image Source="Resources/Close.png" Stretch="UniformToFill" ToolTip="zatvori panel" />
+                    </StackPanel>
+                </Button>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="1" FontSize="12" Grid.ColumnSpan="2"
+                    TextDecorations="Underline"> IZRAČUNAJTE STIMULACIJU </TextBlock>
+                <TextBlock Grid.Row="2" Text="- Provjerite zadane parametre -" HorizontalAlignment="Left" />
+                <TextBlock Style="{StaticResource UvucenText}" Grid.Row="3"><Run Text="Vaši bodovi :"/></TextBlock>
+                <Label x:Name="LblBodovi" Grid.Row="3" Grid.Column="1"
+                    Content="{Binding Text, ElementName=BodoviUpDown, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Style="{StaticResource UvucenText}" Grid.Row="4"><Run Text="Sati rada :"/></TextBlock>
+                <Label x:Name="LblSati" Grid.Row="4" Grid.Column="1"
+                    Content="{Binding Text, ElementName=SatiRadaUpDown, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Grid.Row="5" Text="Odaberite koeficijent stimulacije :" Style="{StaticResource UvucenText}" />
+                <ComboBox x:Name="CmbStimulacija" Grid.Row="5" Grid.Column="1" Width="60" HorizontalAlignment="Left"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5">
+                    <ComboBoxItem Content="0,5" />
+                    <ComboBoxItem Content="1" />
+                    <ComboBoxItem Content="1,5" />
+                    <ComboBoxItem Content="2" />
+                </ComboBox>
+                <Button Grid.Row="6" Grid.Column="1" x:Name="BtnIzStimulIzracun" Content="Izračun stimulacije" Margin="5"
                     Width="120" HorizontalAlignment="Left" Click="BtnIzStimulIzracun_Click" />
-        </Grid>
+            </Grid>
+
+        </Viewbox>
 
         <GroupBox Header="Izračunajte svoj bruto iznos plaće"
                   VerticalAlignment="Top">
@@ -74,7 +74,7 @@
                     <RowDefinition MinHeight="230" />
                     <RowDefinition MinHeight="70" />
                 </Grid.RowDefinitions>
-                <StackPanel Name="TextPanel"
+                <StackPanel x:Name="TextPanel"
                             Margin="0,5,5,0">
                     <TextBlock Text="Osnovni koeficijent (bodovi) :"
                                HorizontalAlignment="Right"
@@ -110,7 +110,7 @@
                              VerticalContentAlignment="Center"
                              ToolTip="Upišite sate rada za pojedinu vrstu rada ili ukupne mjesečne sate."
                              Focusable="True" />
-                    <ComboBox Name="ChComboBoxVrsteRada"
+                    <ComboBox x:Name="ChComboBoxVrsteRada"
                               Height="26"
                               Margin="5"
                               SelectionChanged="ChComboBoxVrsteRada_SelectionChanged"
@@ -193,40 +193,34 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1"
                             Grid.Column="0">
                     <Expander IsExpanded="False" Header="Otvori za pomoć">
-                        <Expander.Content>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="180">
-                                <WrapPanel>
-                                    <TextBlock Foreground="LightSlateGray"
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="180">
+                            <WrapPanel>
+                                <TextBlock Foreground="LightSlateGray"
                                                TextWrapping="Wrap"
                                                Padding="0,2,15,0"
                                                FontStyle="Italic"
-                                               Width="200">
-                                        <Run
-                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora." />
-                                    </TextBlock>
-                                    <TextBlock Text="--------------------------------------------" />
-                                    <TextBlock Foreground="LightSlateGray"
+                                               Width="200"><Run
+                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora." /></TextBlock>
+                                <TextBlock Text="--------------------------------------------" />
+                                <TextBlock Foreground="LightSlateGray"
                                                TextWrapping="Wrap"
                                                Padding="5"
-                                               FontStyle="Italic">
-                                        <Run
-                                            Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." />
-                                    </TextBlock>
-                                    <TextBlock Text="--------------------------------------------" />
-                                    <TextBlock Foreground="LightSlateGray"
+                                               FontStyle="Italic"><Run
+                                            Text="Za izračun minulog rada (staža u tvornici), obavezno provjerite da li ste upisali svoj koeficijent (bodove), u tekstni okvir za to predviđen." /></TextBlock>
+                                <TextBlock Text="--------------------------------------------" />
+                                <TextBlock Foreground="LightSlateGray"
                                                TextWrapping="Wrap"
                                                Padding="5"
                                                FontStyle="Italic"
                                                Text="Kod unosa decimalnog broja obavezno koristite zarez, a ne točku!" />
-                                    <TextBlock Text="--------------------------------------------" />
-                                    <TextBlock Foreground="LightSlateGray"
+                                <TextBlock Text="--------------------------------------------" />
+                                <TextBlock Foreground="LightSlateGray"
                                                TextWrapping="Wrap"
                                                Padding="5"
                                                FontStyle="Italic"
                                                Text="Za izračun stimulacije u zboj ukupnih sati ne ulaze: prekovremeni rad, rad pod uvjetima, bolovanja. " />
-                                </WrapPanel>
-                            </ScrollViewer>
-                        </Expander.Content>
+                            </WrapPanel>
+                        </ScrollViewer>
                     </Expander>
                 </StackPanel>
                 <Border Grid.ColumnSpan="3"
@@ -268,7 +262,7 @@
                 </Border>
             </Grid>
         </GroupBox>
-        <TextBlock Margin="30,10,0,10"> * MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju.</TextBlock>
-        <TextBlock Margin="30,0,0,0"> Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'.</TextBlock>
+        <TextBlock Margin="30,10,0,10"><Run Text="* MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju."/></TextBlock>
+        <TextBlock Margin="30,0,0,0"><Run Text="Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'."/></TextBlock>
     </StackPanel>
 </UserControl>

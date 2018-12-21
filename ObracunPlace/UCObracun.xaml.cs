@@ -160,12 +160,22 @@ namespace ObracunPlace
 
         private void BtnStimulacija_Click(object sender, RoutedEventArgs e)
         {
-            GridStimulacija.Visibility = GridStimulacija.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+            if (GridStimulacija.Visibility == Visibility.Collapsed)
+            {
+                GridStimulacija.Visibility = Visibility.Visible;
+                BtnStimulacija.Content="Zatvori panel stimulacije";
+            }
+            else if (GridStimulacija.Visibility == Visibility.Visible)
+            {
+                GridStimulacija.Visibility = Visibility.Collapsed;
+                BtnStimulacija.Content="Otvori panel stimulacija";
+            }
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             GridStimulacija.Visibility = Visibility.Collapsed;
+            BtnStimulacija.Content="Otvori panel stimulacija";
         }
 
         private void BtnIzStimulIzracun_Click(object sender, RoutedEventArgs e)
