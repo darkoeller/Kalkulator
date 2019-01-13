@@ -8,7 +8,10 @@
              d:DesignWidth="790" Loaded="UserControl_Loaded">
     <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center"
                 Height="587">
-        <Viewbox MaxWidth="320" MaxHeight="200" Margin="5" Stretch="Fill">
+        <Viewbox MaxWidth="320" MaxHeight="190" Margin="5" Stretch="Fill">
+            <Viewbox.Effect>
+                <DropShadowEffect/>
+            </Viewbox.Effect>
             <Grid x:Name="GridStimulacija" Background="FloralWhite">
                 <Grid.Resources>
                     <Style x:Key="UvucenText" TargetType="{x:Type TextBlock}">
