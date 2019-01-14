@@ -114,8 +114,8 @@ namespace ObracunPlace
             LblPorez40.Content = Math.Round(placa.PorezTridesetSestPosto, 2).ToString("C");
             LblPrirez.Content = Math.Round(placa.Prirez, 2).ToString("C");
             LblZdravstveno.Content = Math.Round(placa.DoprinosZaZdravstveno, 2).ToString("C");
-            LblZnr.Content = Math.Round(placa.DoprinosZaZnr, 2).ToString("C");
-            LblZaposljavanje.Content = Math.Round(placa.DoprinosZaZaposljavanje, 2).ToString("C");
+            //LblZnr.Content = Math.Round(placa.DoprinosZaZnr, 2).ToString("C");
+            //LblZaposljavanje.Content = Math.Round(placa.DoprinosZaZaposljavanje, 2).ToString("C");
             LblDoprinosiUkupno.Content = Math.Round(placa.DoprinosNaPlacUkupno, 2).ToString("C");
             LblTrosakPlace.Content = Math.Round(placa.UkupniTrosakPlace, 2).ToString("C");
             _listica = placa;

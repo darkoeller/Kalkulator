@@ -201,20 +201,20 @@ namespace BiznisSloj.Ispis
                         HorizontalAlignment = 2
                     };
                 listaIznosa.AddCell(zdravstveno);
-                listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));
-                var znr = new PdfPCell(new Phrase(Math.Round(_listica.DoprinosZaZnr, 2).ToString("c"), times))
-                {
-                    HorizontalAlignment = 2
-                };
-                listaIznosa.AddCell(znr);
-                listaIznosa.AddCell(new Phrase("Doprinos za zapošljavanje 1,7% : ", times));
-                var zaposljavanje =
-                    new PdfPCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times))
-                    {
-                        HorizontalAlignment = 2
-                    };
-                listaIznosa.AddCell(zaposljavanje);
-                listaIznosa.AddCell(new Phrase("Doprinosi na plaću ukupno (15% + 0,5% + 1,7%) : ", times));
+                //listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));
+                //var znr = new PdfPCell(new Phrase(Math.Round(_listica.DoprinosZaZnr, 2).ToString("c"), times))
+                //{
+                //    HorizontalAlignment = 2
+                //};
+                //listaIznosa.AddCell(znr);
+                //listaIznosa.AddCell(new Phrase("Doprinos za zapošljavanje 1,7% : ", times));
+                //var zaposljavanje =
+                //    new PdfPCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times))
+                //    {
+                //        HorizontalAlignment = 2
+                //    };
+                //listaIznosa.AddCell(zaposljavanje);
+                listaIznosa.AddCell(new Phrase("Doprinosi na plaću ukupno (16,5%) : ", times));
                 var dopriNpUkupno =
                     new PdfPCell(new Phrase(Math.Round(_listica.DoprinosNaPlacUkupno, 2).ToString("c"), times))
                     {

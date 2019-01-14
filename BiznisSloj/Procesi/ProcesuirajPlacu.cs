@@ -26,13 +26,13 @@ namespace BiznisSloj.Procesi
         public decimal Prirez { get; private set; }
         private bool DrugiStup { get; }
         public decimal DoprinosNaPlacUkupno { get; private set; }
-        public decimal DoprinosZaZaposljavanje { get; private set; }
+        //public decimal DoprinosZaZaposljavanje { get; private set; }
         public decimal DoprinosZaZdravstveno { get; private set; }
         public decimal DoprinosiIzPlaceUkupno { get; private set; }
         public decimal PetPostoDoprinos { get; private set; }
         public decimal PetnaestPostoDoprinos { get; private set; }
         public decimal DvadesetPostoDoprinos { get; private set; }
-        public decimal DoprinosZaZnr { get; private set; }
+        //public decimal DoprinosZaZnr { get; private set; }
         public decimal Olaksica { get; private set; }
         public decimal UkupniPorez { get; private set; }
         public decimal PorezDvadesetCetiriPosto { get; private set; }
@@ -56,9 +56,9 @@ namespace BiznisSloj.Procesi
         {
             var doprinosinaplacu = new RacunajDoprinoseNaPlacu(Bruto);
             doprinosinaplacu.Izracun();
-            DoprinosZaZaposljavanje = doprinosinaplacu.DoprinosZaposljavanje;
+            //DoprinosZaZaposljavanje = doprinosinaplacu.DoprinosZaposljavanje;
             DoprinosZaZdravstveno = doprinosinaplacu.DoprinosZdravstveno;
-            DoprinosZaZnr = doprinosinaplacu.DoprinosZastitaNaRadu;
+            //DoprinosZaZnr = doprinosinaplacu.DoprinosZastitaNaRadu;
             DoprinosNaPlacUkupno = doprinosinaplacu.VratiDoprinoseNaPlacu();
         }
 
