@@ -13,21 +13,21 @@
         //ako je bruto veći od 17500 
         public void RacunajPoreze()
         {
-            if (Bruto <= 17500.0m)
+            if (Bruto <= 30000.0m)
             {
                 OsnovicaPorez24(Bruto);
             }
             else
             {
-                Bruto -= 17500;
+                Bruto -= 30000;
                 Porez36Posto = Izracunaj(new Porez36());
-                Porez24Posto = 4200.0m;
+                Porez24Posto = 7200.0m;
             }
         }
 
         private void OsnovicaPorez24(decimal bruto)
         {
-            if (bruto < 17500.01m) Porez24Posto = Izracunaj(new Porez24());
+            if (bruto < 30000.01m) Porez24Posto = Izracunaj(new Porez24());
         }
 
         public decimal UkupniPorez()=> Porez24Posto + Porez36Posto;

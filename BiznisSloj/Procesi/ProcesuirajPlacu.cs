@@ -8,10 +8,10 @@ namespace BiznisSloj.Procesi
 {
     public class ProcesuirajPlacu
     {
-        private static readonly decimal Minimaldop = 3047.60m;
-        private static readonly decimal Maxdoprinos1Stup = 7218.00m;
-        private static readonly decimal Maxdoprinos2Stup = 2406.00m;
-        private static readonly decimal Maxdoprinos1I2Stup = 9624.00m;
+        private static readonly decimal Minimaldop = 3210.24m;
+        private static readonly decimal Maxdoprinos1Stup = 7603.20m;
+        private static readonly decimal Maxdoprinos2Stup = 2534.40m;
+        private static readonly decimal Maxdoprinos1I2Stup = 10137.60m;
 
         public ProcesuirajPlacu(decimal bruto, decimal prirez, bool drugistup, decimal odbitak = 1.0m)
         {
@@ -68,7 +68,7 @@ namespace BiznisSloj.Procesi
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
             doprinosizplace.Izracun();
 
-            if (doprinosizplace.VratiDoprinose() <= 9624.00m)
+            if (doprinosizplace.VratiDoprinose() <= Maxdoprinos1I2Stup)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
@@ -76,7 +76,7 @@ namespace BiznisSloj.Procesi
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
-            else if (doprinosizplace.VratiDoprinose() > 9624.00m)
+            else if (doprinosizplace.VratiDoprinose() > Maxdoprinos1I2Stup)
             {
                 PetnaestPostoDoprinos = Maxdoprinos1Stup;
                 PetPostoDoprinos = Maxdoprinos2Stup;
@@ -84,7 +84,7 @@ namespace BiznisSloj.Procesi
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
-            else if (doprinosizplace.VratiDoprinose() > 9624.00m)
+            else if (doprinosizplace.VratiDoprinose() > Maxdoprinos1I2Stup)
             {
                 PetPostoDoprinos = doprinosizplace.PetPosto;
                 PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;

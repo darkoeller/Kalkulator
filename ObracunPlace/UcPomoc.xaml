@@ -50,27 +50,32 @@
                         Text="Prijevoz na posao se plaća bez obzira na broj sati rada u mjesecu, osnovica je 22 dana. Znači ukoliko ste bili na bolovanju ili godišnjem, iznos relacije podijelite sa 22, da bi dobili iznos po danu. Nakon toga pomnožite iznos po danu sa brojem dana G.O. ili B.O. i oduzmite od ukupnog iznosa za prijevoz. Npr. za radnike iz Kutine naknada za prijevoz je 369,6kn odnosno 16,8kn po danu. Pet dana G.O. je 16,8*5=84kn. Vaš prijevoz je 369,9-84 = 285,6kn." />
                 </Paragraph>
                 <Paragraph>
-                    <Run Text="Promjene u 2017. godini : " />
+                    <Run Text="Promjene u 2019. godini : " />
                 </Paragraph>
                 <List>
-                    <ListItem>
+                      <ListItem>
                         <Paragraph>
-                            porez na iznos do 30.000,00kn je 24%, a preko tog iznosa je 36%,
+                            minimalna plaća 3.750,00kn,
                         </Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            minimalna osnovica za doprinose je -.---,00kn,
+                            porez na iznose do 30.000,00kn obračunava se 24%, a preko tog iznosa je 36%,
                         </Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            maximalna mjesečna osnovica za doprinose je --.---,00kn,
+                            minimalna osnovica za doprinose je 3.210,24kn,
                         </Paragraph>
                     </ListItem>
                     <ListItem>
                         <Paragraph>
-                            maximalna godišnja osnovica za doprinose je ---.---,00kn,
+                            maximalna mjesečna osnovica za doprinose je 50.688,00kn,
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            maximalna godišnja osnovica za doprinose je 608.256,00kn,
                         </Paragraph>
                     </ListItem>
                     <ListItem>

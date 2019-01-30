@@ -1,6 +1,6 @@
 {
   "StopePoreza": [
-    { "Stopa": 0, "KoefPrireza": 1, "KoefPorezaPrireza24": 1.315789474, "KoefPorezaPrireza36": 1.5625 },
+    { "Stopa": 0, "KoefPrireza": 1, "KoefPorezaPrireza24": 1.315789474, "KoefPorezaPrireza36": 1.571289 },
     { "Stopa": 1, "KoefPrireza": 1.01, "KoefPorezaPrireza24": 1.319957761, "KoefPorezaPrireza36": 1.571338781 },
     { "Stopa": 2, "KoefPrireza": 1.02, "KoefPorezaPrireza24": 1.324152542, "KoefPorezaPrireza36": 1.580278129 },
     { "Stopa": 3, "KoefPrireza": 1.03, "KoefPorezaPrireza24": 1.32837407, "KoefPorezaPrireza36": 1.589319771 },
