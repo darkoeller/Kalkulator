@@ -82,7 +82,7 @@ namespace ObracunPlace
                 var zaPoslati = _kernel.Get<TecajEuraPoDatumu>(new ConstructorArgument("datum", datum)).OblikujDatum();
                 stringDatum = stringDatum.Replace("0:00:00", "");
                 LblBivsiEuro.Content =
-                    "Srednji tečaj eura na dan " + stringDatum + " iznosio je : " + zaPoslati + " kuna.";
+                    "Srednji tečaj eura HNB-a na dan " + stringDatum + " iznosio je : " + zaPoslati + " kuna.";
             }
         }
     }

@@ -34,7 +34,9 @@
                  DockPanel.Dock="Top"
                  Height="24"
                  Margin="5,2,5,5"
-                 FontFamily="Roboto Light" />
+                 FontFamily="Roboto Light"
+                  ToolTip="Ovdje upišite tekst koji će vam se pojaviti u naslovu ispisa."
+                 />
         <Border DockPanel.Dock="Top"
                 BorderThickness="3"
                 Margin="3,3,5,0">
@@ -204,7 +206,7 @@
             </Button>
         </StackPanel>
         <GroupBox Header="Opisi stavki"
-                  Height="510">
+                  Height="490" VerticalAlignment="Top">
             <StackPanel MinWidth="520"
                         Margin="0,9,1,0">
                 <TextBlock TextWrapping="Wrap"
@@ -294,7 +296,7 @@
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Iznosi u kunama"
-                  Height="510">
+                  Height="490" VerticalAlignment="Top">
             <StackPanel x:Name="StPanel2"
                         MinWidth="205"
                         Margin="1"

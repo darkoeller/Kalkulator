@@ -156,7 +156,7 @@ namespace BiznisSloj.Ispis
                     };
                 listaIznosa.AddCell(trisest);
                 listaIznosa.AddCell(
-                    new Phrase("Prirez (u vašem gradu ili općini) " + "=(" + _prirezTextBox + "%)" + ": ", times));
+                    new Phrase("Prirez (u vašem gradu ili općini) " + "= (" + _prirezTextBox + "%)" + ": ", times));
                 var prirez =
                     new PdfPCell(new Phrase(Math.Round(_listica.Prirez, 2).ToString("c"), times))
                     {
@@ -194,26 +194,13 @@ namespace BiznisSloj.Ispis
                     HorizontalAlignment = 2
                 };
                 listaIznosa.AddCell(totalOdbici);
-                listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 15% : ", times));
+                listaIznosa.AddCell(new Phrase("Doprinos za zdravstveno 16.5% : ", times));
                 var zdravstveno =
                     new PdfPCell(new Phrase(Math.Round(_listica.DoprinosZaZdravstveno, 2).ToString("c"), times))
                     {
                         HorizontalAlignment = 2
                     };
                 listaIznosa.AddCell(zdravstveno);
-                //listaIznosa.AddCell(new Phrase("Doprinos za zaštitu na radu 0,5% : ", times));
-                //var znr = new PdfPCell(new Phrase(Math.Round(_listica.DoprinosZaZnr, 2).ToString("c"), times))
-                //{
-                //    HorizontalAlignment = 2
-                //};
-                //listaIznosa.AddCell(znr);
-                //listaIznosa.AddCell(new Phrase("Doprinos za zapošljavanje 1,7% : ", times));
-                //var zaposljavanje =
-                //    new PdfPCell(new Phrase(_listica.DoprinosZaZaposljavanje.ToString("c"), times))
-                //    {
-                //        HorizontalAlignment = 2
-                //    };
-                //listaIznosa.AddCell(zaposljavanje);
                 listaIznosa.AddCell(new Phrase("Doprinosi na plaću ukupno (16,5%) : ", times));
                 var dopriNpUkupno =
                     new PdfPCell(new Phrase(Math.Round(_listica.DoprinosNaPlacUkupno, 2).ToString("c"), times))
@@ -237,7 +224,6 @@ namespace BiznisSloj.Ispis
                 });
                 pdwri.PageEvent = new Footer();
                 doc.Close();
-                //Process.Start("PlatnaLista.pdf");
                 Parallel.Invoke(() => Process.Start("PlatnaLista.pdf"));
             }
         }

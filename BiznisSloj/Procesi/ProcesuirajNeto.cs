@@ -50,24 +50,20 @@ namespace BiznisSloj.Procesi
         private decimal NadjiMetoduZaIzracun(decimal neto, decimal odbitak)
         {
             if (neto <= odbitak) return neto * 1.25m;
-
             if (neto < (30000.0m - (7200.0m * (decimal)KoefPrireza) + odbitak))
             return Math.Round(DrugaMetoda(neto, odbitak), 2);
-
             //sa ograničenjem doprinosa
             if (neto > (30000.0m - (7200.0m * (decimal)KoefPrireza)+ odbitak ) || neto < 40550.0m - (7200.0m * (decimal)KoefPrireza + (10500.0m - odbitak) * (decimal)KoefPrireza))
             return Math.Round(PetaMetoda(neto, odbitak), 2);
             //bez ograničenja
             //if (neto >(30000.0m -(7200.0m * (decimal)KoefPrireza) + odbitak))
-            //    return Math.Round(CetvrtaMetoda(neto, odbitak), 2);
-            
+            //return Math.Round(CetvrtaMetoda(neto, odbitak), 2);
             return 0.0m;
         }
 
         private decimal PetaMetoda(decimal neto, decimal odbitak) => 30000.0m + odbitak + (neto - (30000.0m - (7200.0m * (decimal)KoefPrireza)+ odbitak)) * (decimal)KoefPorezaPrireza36 + 10137.6m;
         //bez ograničenja
         //private decimal CetvrtaMetoda(decimal neto, decimal odbitak) => ((30000.0m + odbitak + (neto - (30000.0m - (7200.0m * (decimal)KoefPrireza) + odbitak)) * (decimal)KoefPorezaPrireza36)/ 0.8m);
-
         private decimal DrugaMetoda(decimal neto, decimal odbitak) => ((((neto - odbitak) * (decimal)KoefPorezaPrireza24)) + odbitak) / 0.8m;
     }
 }

@@ -203,7 +203,7 @@
                                                Padding="0,2,15,0"
                                                FontStyle="Italic"
                                                Width="200"><Run
-                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd. Po kontrolama se možete kretati pomoću tabulatora." /></TextBlock>
+                                            Text="Za izračun dodatka na plaću i minulog rada, program uzima upisane sate rada. Za puni mjesec sati rada mogu biti: 168, 176, 184, 192 itd." /></TextBlock>
                                 <TextBlock Text="--------------------------------------------" />
                                 <TextBlock Foreground="LightSlateGray"
                                                TextWrapping="Wrap"
@@ -221,7 +221,7 @@
                                                TextWrapping="Wrap"
                                                Padding="5"
                                                FontStyle="Italic"
-                                               Text="Za izračun stimulacije u zboj ukupnih sati ne ulaze: prekovremeni rad, rad pod uvjetima, bolovanja. " />
+                                               Text="Za izračun stimulacije u zbroj ukupnih sati ne ulaze: prekovremeni rad, rad pod uvjetima, bolovanja. " />
                             </WrapPanel>
                         </ScrollViewer>
                     </Expander>

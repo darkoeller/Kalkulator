@@ -176,7 +176,7 @@
                             HorizontalContentAlignment="Center"
                             ToolTip="Odaberite ili upišite datum."
                             SelectedDateChanged="OdabraniDatum_SelectedDateChanged" />
-                <Label x:Name="LblBivsiEuro" Width="360" Foreground="DarkRed" VerticalContentAlignment="Bottom"
+                <Label x:Name="LblBivsiEuro" Width="390" Foreground="DarkRed" VerticalContentAlignment="Bottom"
                        Margin="0,0,0,0" />
             </StackPanel>
         </StackPanel>
