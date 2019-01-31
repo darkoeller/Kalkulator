@@ -26,7 +26,7 @@
             <StackPanel>
                 <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbClanak" IsChecked="True"
                              Checked="RbClanak_Checked">
-                    Ovrha po čl. 173
+                    Ovrha po čl. 173. st.1. i 2. O.z.; čl.155. OPZ
                 </RadioButton>
                 <RadioButton Style="{StaticResource RadMargin}" GroupName="Ovrha" x:Name="RbUzdrzavanje"
                              Checked="RbUzdrzavanje_Checked">

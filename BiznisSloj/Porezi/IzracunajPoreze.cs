@@ -10,7 +10,7 @@
 
         public decimal Porez36Posto { get; private set; }
 
-        //ako je bruto veći od 17500 
+        //ako je bruto veći od 30000 
         public void RacunajPoreze()
         {
             if (Bruto <= 30000.0m)

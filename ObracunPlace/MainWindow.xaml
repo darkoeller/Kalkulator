@@ -6,7 +6,7 @@
         BorderThickness="2"
         xmlns:local="clr-namespace:ObracunPlace"
         mc:Ignorable="d"
-        Title="Kalkulator plaće v. 2018 : neto / bruto"
+        Title="Kalkulator plaće v. 2019 : neto / bruto"
         Height="840"
         Width="1100"
         WindowStartupLocation="CenterScreen"
@@ -31,13 +31,13 @@
                 <TabItem>
                     <TabItem.Header>
                         <TextBlock Style="{StaticResource TxtBoxIzgled}"
-                                   Text=" Platite: doprinose, poreze, prireze; dodajte prijevoz i oduzmite odbitke." />
+                                   Text=" Izračunajte svoj bruto ili neto dohodak." />
                     </TabItem.Header>
                     <local:BrutoNetoUserControla Height="750" />
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Izračunajte bruto dohodak ili provjerite svoj minuli rad. "
+                        <TextBlock Text=" Izračunajte bruto dohodak ili provjerite svoje bodove za minuli rad. "
                                    Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <DockPanel LastChildFill="False"
@@ -52,7 +52,7 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Dodatna izdvajanja za doprinose za radnike sa beneficiranim stažom."
+                        <TextBlock Text=" Plaćanje doprinosa za radnike sa beneficiranim stažom."
                                    Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:BeneficiraniUc VerticalAlignment="Top"
@@ -61,7 +61,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <TextBlock
-                            Text=" Preračunajte ratu kredita iz eura u kune, dnevni tečaj ili euro na određeni datum."
+                            Text=" Preračunajte ratu kredita, dnevni tečaj ili euro na određeni datum."
                             Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <StackPanel Orientation="Vertical">
@@ -73,7 +73,7 @@
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
-                        <TextBlock Text=" Ako imate problema sa ovrhom, ovo je stranica za vas."
+                        <TextBlock Text=" Ovrha, razlika datuma."
                                    Style="{StaticResource TxtBoxIzgled}" />
                     </TabItem.Header>
                     <local:UcOvrha Margin="0,15,0,0"
