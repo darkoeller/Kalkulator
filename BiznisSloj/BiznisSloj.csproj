@@ -81,8 +81,6 @@
     <Compile Include="KoefSati\KoeficSat.cs" />
     <Compile Include="Doprinosi\RacunajDoprinoseIzPlace.cs" />
     <Compile Include="Doprinosi\RacunajDoprinoseNaPlacu.cs" />
-    <Compile Include="Doprinosi\Zaposljavanje.cs" />
-    <Compile Include="Doprinosi\ZastitaNaRadu.cs" />
     <Compile Include="Doprinosi\Zdravstveno.cs" />
     <Compile Include="KoefSati\KoeficijentSatSmjene.cs" />
     <Compile Include="KoefSati\KoefSatSamoPrva.cs" />

@@ -18,7 +18,7 @@ namespace BiznisSloj.Stimul
 
         public decimal Izracun()
         {
-            decimal bod = 0;
+            decimal bod;
             decimal izracun = 0;
             switch (_vrsta)
             {

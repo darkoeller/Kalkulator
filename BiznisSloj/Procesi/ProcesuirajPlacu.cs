@@ -21,7 +21,7 @@ namespace BiznisSloj.Procesi
             DrugiStup = drugistup;
         }
 
-        public decimal Bruto { get; private set; }
+        public decimal Bruto { get; }
         private decimal Odbitak { get; }
         public decimal Prirez { get; private set; }
         private bool DrugiStup { get; }
