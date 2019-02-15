@@ -93,7 +93,6 @@
     <Compile Include="Porezi\Porez24.cs" />
     <Compile Include="Porezi\Porez36.cs" />
     <Compile Include="Porezi\IPorezi.cs" />
-    <Compile Include="Porezi\PorezniKoeficijenti2.cs" />
     <Compile Include="Procesi\ProcesuirajBruto.cs" />
     <Compile Include="Procesi\ProcesuirajNeto.cs" />
     <Compile Include="Procesi\ProcesuirajPlacu.cs" />
@@ -110,7 +109,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Cjenik\CjenikPrijevoza.json" />
     <EmbeddedResource Include="KoefSati\Koeficijenti.json" />
-    <EmbeddedResource Include="Porezi\PorezneStope.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
