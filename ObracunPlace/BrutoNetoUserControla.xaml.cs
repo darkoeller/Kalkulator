@@ -184,8 +184,8 @@ namespace ObracunPlace
 
         private void CmbPrirez_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var prirez = CmbPrirez.SelectedItem.ToString();
-            prirez = prirez.Replace('.', ',');
+            var prirez = (CmbPrirez.SelectedItem as ComboBoxItem).Content.ToString();
+            //prirez = prirez.Replace('.', ',');
             Prirez = decimal.Parse(prirez);
         }
 
@@ -222,7 +222,7 @@ namespace ObracunPlace
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             UkljuciGumb();
-            CmbPrirez.ItemsSource = PorezniKoeficijenti2.VratiStopePrireza();
+            //CmbPrirez.ItemsSource = PorezniKoeficijenti2.VratiStopePrireza();
             CmbPrirez.SelectedIndex = 0;
             CmbPrijevoz.ItemsSource = Prijevoz2.ListaRelacija();
             CmbPrijevoz.SelectedIndex = 0;

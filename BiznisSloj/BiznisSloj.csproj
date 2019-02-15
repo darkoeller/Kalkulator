@@ -89,6 +89,7 @@
     <Compile Include="Ovrha.cs" />
     <Compile Include="Ispis\PodaciZaIspisPlace.cs" />
     <Compile Include="Porezi\IzracunajPoreze.cs" />
+    <Compile Include="Porezi\IzracunPoreznihKoeficijenata.cs" />
     <Compile Include="Porezi\Porez24.cs" />
     <Compile Include="Porezi\Porez36.cs" />
     <Compile Include="Porezi\IPorezi.cs" />
