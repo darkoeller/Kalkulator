@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using System.Net;
+using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json.Linq;
 
@@ -23,7 +23,7 @@ namespace BiznisSloj.BankarskiTecaj
         private string VratiDatum(string novo)
         {
             var tecaj = 0.0m;
-            var jsonObject = new WebClient().DownloadString(novo);
+            var jsonObject = new HttpClient().GetStringAsync(novo).Result;
             var rss = JArray.Parse(jsonObject);
             foreach (var parsedObject in rss.Children<JObject>())
             foreach (var parsedProperty in parsedObject.Properties())

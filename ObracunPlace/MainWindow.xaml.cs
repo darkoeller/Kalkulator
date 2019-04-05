@@ -17,7 +17,6 @@ namespace ObracunPlace
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             TabKontrola.SelectedIndex += 1;
-            Bar.Visibility = Visibility.Hidden;
         }
 
         private void LblZatvori_MouseUp(object sender, MouseButtonEventArgs e)

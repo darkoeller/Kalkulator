@@ -265,7 +265,8 @@
                 </Border>
             </Grid>
         </GroupBox>
+        <TextBlock Margin="30,0,0,0"><Run Text="Prilikom unosa decimalnih brojeva obavezno koristite  zarez, a ne točku."/></TextBlock>
         <TextBlock Margin="30,10,0,10"><Run Text="* MPSR je skraćenica za mjesečni pregled sati radnika kojeg poenteri svakog mjeseca ispunjavaju."/></TextBlock>
-        <TextBlock Margin="30,0,0,0"><Run Text="Nakon što izračunate sve stavke ukupni bruto biti će vam prenešen na obradu u tab 'izračun bruto/neto'."/></TextBlock>
+        <TextBlock Margin="30,0,0,0"><Run Text="Nakon što izračunate sve stavke ukupni bruto biti će vam prenesen na obradu u tab 'izračun bruto/neto'."/></TextBlock>
     </StackPanel>
 </UserControl>

@@ -172,9 +172,7 @@ namespace ObracunPlace
         {
             try
             {
-                var starac = Window.GetWindow(this) as MainWindow;
-                if (starac != null) starac.Bar.Visibility = Visibility.Visible;
-                var doc = new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
+                var doc =  new Document(PageSize.A4.Rotate(), 20, 15, 25, 30);
                 var pdwri = PdfWriter.GetInstance(doc
                     , new FileStream("Ispis.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
                 var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
@@ -223,7 +221,6 @@ namespace ObracunPlace
                 doc.Add(
                     new Paragraph("IZNOSI DOPRINOSA ZA BENEFICIRANI STAŽ") {SpacingBefore = 10f, Alignment = 1});
                 var centar = new PdfPTable(DataGridBene.Columns.Count) {SpacingBefore = 10f};
-
                 foreach (var k in DataGridBene.Columns) centar.AddCell(new Phrase(k.Header.ToString(), desetka));
                 centar.HeaderRows = 1;
                 float[] sirina = {20f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f, 10f};
@@ -246,13 +243,12 @@ namespace ObracunPlace
                 doc.Add(centar);
                 pdwri.PageEvent = new Footer();
                 doc.Close();
-                Process.Start("Ispis.pdf");
-                if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
+                Process.Start("Ispis.pdf");                
             }
             catch (Exception)
             {
                 MessageBox.Show("Došlo je do pogreške, zatvorite otvoren .pdf dokument!", "Pozor");
-            }
+            } ;
         }
 
         private static T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject

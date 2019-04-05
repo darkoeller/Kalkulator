@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Windows;
 using Newtonsoft.Json.Linq;
@@ -15,9 +15,9 @@ namespace BiznisSloj.BankarskiTecaj
             try
             {
                 var hnbTecaj = NadjiSaWebaHnBa();
-                if (_prolaz) return hnbTecaj;
-                var tecaj = VratiTecajSaNabaveNeta();
-                return tecaj;
+                //if (_prolaz) return hnbTecaj;
+                //var tecaj = VratiTecajSaNabaveNeta();
+                return hnbTecaj;
             }
             catch (Exception)
             {
@@ -28,21 +28,21 @@ namespace BiznisSloj.BankarskiTecaj
             }
         }
 
-        private static decimal VratiTecajSaNabaveNeta()
-        {
-            var client = new WebClient();
-            var web = FormirajWebString();
-            var content = client.DownloadString(web);
-            content = content.Replace(".", ",");
-            if (!string.IsNullOrEmpty(content)) return 0.0m;
-            decimal.TryParse(content, out var tecaj);
-            return tecaj;
-        }
+        //private static decimal VratiTecajSaNabaveNeta()
+        //{
+        //    var client = new HttpClient();
+        //    var web = FormirajWebString();
+        //    var content = client.GetStringAsync(web).Result;
+        //    content = content.Replace(".", ",");
+        //    if (string.IsNullOrEmpty(content)) return 0.0m;
+        //    decimal.TryParse(content, out var tecaj);
+        //    return tecaj;
+        //}
 
         private static decimal NadjiSaWebaHnBa()
         {
             var tecaj = 0.0m;
-            var jsonObject = new WebClient().DownloadString(@"http://api.hnb.hr/tecajn/v1?valuta=EUR");
+            var jsonObject = new HttpClient().GetStringAsync(@"http://api.hnb.hr/tecajn/v1?valuta=EUR").Result;
             var rss = JArray.Parse(jsonObject);
             foreach (var parsedObject in rss.Children<JObject>())
             foreach (var parsedProperty in parsedObject.Properties())
@@ -52,16 +52,15 @@ namespace BiznisSloj.BankarskiTecaj
                 var propertyValue = (string) parsedProperty.Value;
                 decimal.TryParse(propertyValue, out tecaj);
             }
-
-            _prolaz = true;
+           // _prolaz = true;
             return tecaj;
         }
 
-        private static string FormirajWebString()
-        {
-            var web = DateTime.Today.ToShortDateString().Remove(9, 1);
-            var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/" + web + "/srednji/eur");
-            return bilder.ToString();
-        }
+        //private static string FormirajWebString()
+        //{
+        //    var web = DateTime.Today.ToShortDateString().Remove(8,1);
+        //    var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/" + web + "/srednji/eur");
+        //    return bilder.ToString();
+        //}
     }
 }

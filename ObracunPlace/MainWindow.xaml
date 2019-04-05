@@ -113,8 +113,6 @@
                                FontFamily="Roboto-Italic"
                                FontStyle="Italic"
                                IsEnabled="False" />
-                    <ProgressBar x:Name="Bar" IsIndeterminate="True" Width="200" Height="18" Margin="50,0,0,2"
-                                 x:FieldModifier="public" />
                 </StatusBar>
             </StackPanel>
         </StackPanel>

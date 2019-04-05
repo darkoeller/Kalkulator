@@ -196,10 +196,7 @@ namespace ObracunPlace
                 MessageBox.Show("Provjerite da li ste izračunali iznose", "Pozor", MessageBoxButton.OK
                     , MessageBoxImage.Information);
                 return;
-            }
-
-            var starac = Window.GetWindow(this) as MainWindow;
-            if (starac != null) starac.Bar.Visibility = Visibility.Visible;
+            }           
             var podaciZaIspis = new PodaciZaIspisPlace
             {
                 Placa = _listica,
@@ -208,10 +205,9 @@ namespace ObracunPlace
                 LblOdbici = LblOdbici.Content.ToString(),
                 LblPrijevoz = LblPrijevoz.Content.ToString(),
                 NaslovniText = NaslovniText.Text,
-                PrirezTxtB = CmbPrirez.SelectedValue.ToString()
+                PrirezTxtB = CmbPrirez.SelectionBoxItem.ToString()
             };
             new IspisListicePlace(podaciZaIspis).Ispis();
-            if (starac != null) starac.Bar.Visibility = Visibility.Hidden;
         }
 
         private void Rb1Stup_Checked(object sender, RoutedEventArgs e)
