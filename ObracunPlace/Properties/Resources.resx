@@ -138,8 +138,19 @@
   <data name="blago" xml:space="preserve">
     <value>..\Resources\blago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Close.png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Close.png" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHISURBVDhPhdPNS5RRFMfx8xcIijtBGEzCRf+BiEbIEOZCEERMInTUnbiMtrV16yLahKCgCAYJ
+        YkUvrnSjiA2IGINGlqIP6jyVOMfvb3weuoyCFz5w77n3nOfl3msVrRq1t9Caa62p0Wyjz6w0bOZjeI6X
+        eIFnGMUgellzh7XKuUql1Zt9zTMZ4xTHOMA+dvEdW/iGdbyHcpJ0sydmx38JqsAZTqAih/iFn9hDAZv4
+        jEfkJOlmObNIT/6Tqqr636+I6SEf0UFOkm42wOCIIBGPh4a8VCx6MZstj0V9xTSn8RIehgWeMtCr/sZB
+        JuPnhYKX4tgjFVEyfcU0pzULyIYF+AeRvjH1o6HB/yVFRH3F0vl5tIcF+hnoT+8E9nM5T5v64dwsHoQF
+        2P9I26StlF1e+4InxzxZ1FcsnZ/C/bAAhyPS9miPt9vayglFEtd4bVFfMc1pzRu0hgV6GKwRXMHWyIhH
+        +byvkKhxGX3FNKfxa7SEBbo5FKsEl/EFH5J+SDHNyQSaw4N0l2PJufRP0DFdxDu8xRxmMI1JvMI46sKj
+        TGu6xwXhspR0YTgXztb6Y/B/nE903tK70MmaTOVlCloNbrrCIa1JmtklFWV/PPHY9ugAAAAASUVORK5C
+        YII=
+</value>
   </data>
 </root>
