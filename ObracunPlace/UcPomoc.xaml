@@ -20,7 +20,7 @@
                 </Paragraph>
                 <Paragraph>
                     <Run
-                        Text="Program možete koristit u svrhu provjere isplatnog listića. Način obračuna je ponešto specifičan za naše poduzeće. Ovdje nije obuhvaćen izračun bolovanja koji se oslanja na prosjeke plaća u proteklim mjesecima." />
+                        Text="Program možete koristit u svrhu provjere isplatnog listića ili izračuna razlike iznosa kada se bodovi tijekom mjeseca  razlikuju. Način obračuna je ponešto specifičan za naše poduzeće. Ovdje nije obuhvaćen izračun bolovanja koji se oslanja na prosjeke plaća u proteklim mjesecima." />
                 </Paragraph>
                 <Paragraph>
                     <Run
@@ -43,7 +43,7 @@
                 </Paragraph>
                 <Paragraph>
                     <Run
-                        Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani 6%, Popovača i Novska 10%)." />
+                        Text="Nakon dobivenog ukupnog iznosa otvorite tab izbornik 'Izračun bruto/neto' gdje možete dobiti konačne izračune u odnosu na olakšice i gradu ili općini u kojoj živite (prirez u Kutini je 12%, Lipovljani i Popovača 6%, Novska 10%)." />
                 </Paragraph>
                 <Paragraph>
                     <Run

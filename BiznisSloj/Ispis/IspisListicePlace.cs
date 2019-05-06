@@ -30,11 +30,13 @@ namespace BiznisSloj.Ispis
         }
 
         public void Ispis()
-        {
-            using (var doc = new Document(PageSize.A4, 20, 15, 25, 30))
+        { 
+            var doc = new Document(PageSize.A4, 20, 15, 25, 30);
+            try
             {
-                var pdwri = PdfWriter.GetInstance(doc
-                    , new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None));
+                using (var pdwri = PdfWriter.GetInstance(doc
+                    , new FileStream("PlatnaLista.pdf", FileMode.Create, FileAccess.Write, FileShare.None)))
+                { 
                 var bfTimes = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, false);
                 var times = new Font(bfTimes, 9);
                 var desetka = new Font(bfTimes, 10);
@@ -225,6 +227,13 @@ namespace BiznisSloj.Ispis
                 pdwri.PageEvent = new Footer();
                 doc.Close();
                 Parallel.Invoke(() => Process.Start("PlatnaLista.pdf"));
+                doc = null;
+                }
+            }
+            finally 
+            {
+                if (doc != null)
+                doc.Dispose();
             }
         }
     }

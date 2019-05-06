@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.Porezi
 {
+    [JsonObject("Koeficijenti")]
     public class PorezniKoeficijenti2 : ValueObject<PorezniKoeficijenti2>
     {
         public PorezniKoeficijenti2(decimal prirez)
@@ -41,7 +43,7 @@ namespace BiznisSloj.Porezi
         {
             var rezultat = PoreznoPrirezniKoef();
 
-            var porezniKoeficijentis = rezultat as IList<PorezniKoeficijenti2> ?? rezultat.ToList();
+            var porezniKoeficijentis = rezultat as IList<PorezniKoeficijenti2> ?? rezultat.ToList().AsReadOnly();
             KoefPrireza = porezniKoeficijentis
                 .AsParallel()
                 .Where(r => r.Stopa.Equals(stopa))
@@ -84,7 +86,7 @@ namespace BiznisSloj.Porezi
         {
             var item = VratiJArrayKoeficijenata();
             var stope = from p in item.AsParallel().AsOrdered() select (string) p[nameof(Stopa)];
-            return stope;
+            return stope.AsReadOnly();
         }
     }
 }

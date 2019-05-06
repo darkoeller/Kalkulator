@@ -149,8 +149,7 @@ namespace ObracunPlace
         {
             GridStimulacija.Visibility=Visibility.Collapsed;
             var svesifre = Koeficijenti2.VratiSifre();
-            var sifre = svesifre.Select(s => s.Naziv);                   
-            ChComboBoxVrsteRada.ItemsSource = sifre;
+            ChComboBoxVrsteRada.ItemsSource = svesifre.Select(s => s.Naziv);
             PozoviLabelu();
             ChComboBoxVrsteRada.SelectedIndex = 0;
             CmbStimulacija.SelectedIndex = 0;

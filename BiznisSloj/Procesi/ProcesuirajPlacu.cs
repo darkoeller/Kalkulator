@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BiznisSloj.Doprinosi;
 using BiznisSloj.Olaksice;
 using BiznisSloj.Porezi;
@@ -54,9 +55,7 @@ namespace BiznisSloj.Procesi
         {
             var doprinosinaplacu = new RacunajDoprinoseNaPlacu(Bruto);
             doprinosinaplacu.Izracun();
-            //DoprinosZaZaposljavanje = doprinosinaplacu.DoprinosZaposljavanje;
             DoprinosZaZdravstveno = doprinosinaplacu.DoprinosZdravstveno;
-            //DoprinosZaZnr = doprinosinaplacu.DoprinosZastitaNaRadu;
             DoprinosNaPlacUkupno = doprinosinaplacu.VratiDoprinoseNaPlacu();
         }
 
@@ -65,16 +64,13 @@ namespace BiznisSloj.Procesi
             if (Bruto < Minimaldop) return;
             var doprinosizplace = new RacunajDoprinoseIzPlace(Bruto);
             doprinosizplace.Izracun();
+            var doprinosi = doprinosizplace.VratiDoprinose();
 
-            if (doprinosizplace.VratiDoprinose() <= Maxdoprinos1I2Stup)
+            if (doprinosi <= Maxdoprinos1I2Stup)
             {
-                PetPostoDoprinos = doprinosizplace.PetPosto;
-                PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
-                DvadesetPostoDoprinos = doprinosizplace.DvadesetPosto;
-                DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
-                Dohodak = Bruto - DoprinosiIzPlaceUkupno;
+                PopuniDoprinose(doprinosizplace);
             }
-            else if (doprinosizplace.VratiDoprinose() > Maxdoprinos1I2Stup)
+            else if (doprinosi > Maxdoprinos1I2Stup)
             {
                 PetnaestPostoDoprinos = Maxdoprinos1Stup;
                 PetPostoDoprinos = Maxdoprinos2Stup;
@@ -82,15 +78,20 @@ namespace BiznisSloj.Procesi
                 DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
                 Dohodak = Bruto - DoprinosiIzPlaceUkupno;
             }
-            else if (doprinosizplace.VratiDoprinose() > Maxdoprinos1I2Stup)
+            else if (doprinosi > Maxdoprinos1I2Stup)
             {
-                PetPostoDoprinos = doprinosizplace.PetPosto;
-                PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
-                DvadesetPostoDoprinos = doprinosizplace.DvadesetPosto;
-                DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
-                Dohodak = Bruto - DoprinosiIzPlaceUkupno;
+                PopuniDoprinose(doprinosizplace);
             }
             ProvjeriDrugiStup();
+        }
+
+        private void PopuniDoprinose(RacunajDoprinoseIzPlace doprinosizplace)
+        {
+            PetPostoDoprinos = doprinosizplace.PetPosto;
+            PetnaestPostoDoprinos = doprinosizplace.PetnaestPosto;
+            DvadesetPostoDoprinos = doprinosizplace.DvadesetPosto;
+            DoprinosiIzPlaceUkupno = PetPostoDoprinos + PetnaestPostoDoprinos;
+            Dohodak = Bruto - DoprinosiIzPlaceUkupno;
         }
 
         private void ProvjeriDrugiStup()
@@ -114,18 +115,13 @@ namespace BiznisSloj.Procesi
 
         private void RacunajDoprinosePorezePrireze()
         {
-            var izracun = new List<Action>
-            {
-                VratiDoprinoseNaPlacu,
-                VratiDoprinoseIzPlace,
-                VratiOlaksicu,
-                VratiUkupniPorez,
-                VratiPrirez
-            };
-            foreach(var r in izracun)
-            {
-                r.Invoke();
-            }
+            var t = Task.Factory.StartNew(() => VratiDoprinoseNaPlacu());
+            var t2 = Task.Factory.StartNew(() => VratiDoprinoseIzPlace())
+            .ContinueWith((a) => VratiOlaksicu())
+            .ContinueWith((a) => VratiUkupniPorez())
+            .ContinueWith((a) => VratiPrirez());
+            Task[] zadaci = { t, t2 };
+            Task.WaitAll(zadaci);
         }
 
         private void VratiPrirez() => Prirez = Prirez * UkupniPorez / 100;

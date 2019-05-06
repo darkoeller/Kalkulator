@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.Cjenik
 {
+    [JsonObject("Cjenik")]
     public class Prijevoz2 : ValueObject<Prijevoz2>
     {
+        [JsonProperty("Relacija")]
         private string Relacija { get; set; }
+        [JsonProperty("Iznos")]
         private double Iznos { get; set; }
 
         public override string ToString() => Relacija;
@@ -26,15 +31,28 @@ namespace BiznisSloj.Cjenik
 
         public static IEnumerable<Prijevoz2> ListaRelacija()
         {
-            var jsonObject = File.ReadAllText(@"CjenikPrijevoza.json");
-            var rss = JObject.Parse(jsonObject);
-            var item = (JArray) rss[nameof(Cjenik)];
-            IEnumerable<Prijevoz2> listaRelacija = item.AsParallel().AsOrdered().Select(p => new Prijevoz2
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            try
             {
-                Relacija = (string) p["Relacija"],
-                Iznos = (double) p["Iznos"]
-            }).ToList();
-            return listaRelacija;
+                using (var stream = assembly.GetManifestResourceStream(@"BiznisSloj.Cjenik.CjenikPrijevoza.json"))
+                using (var reader = new StreamReader(stream))
+                using (var jsonTextRider = new JsonTextReader(reader))
+                {
+                 var rss = (JObject) JToken.ReadFrom(jsonTextRider);
+                 var item = (JArray) rss[nameof(Cjenik)];
+                 IEnumerable<Prijevoz2> listaRelacija = item.AsParallel().AsOrdered().Select(p => new Prijevoz2
+                 {
+                     Relacija = (string) p[nameof(Relacija)],
+                     Iznos = (double) p[nameof(Iznos)]
+                 }).ToList().AsReadOnly();
+                 return listaRelacija;
+                }
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
 
         public static decimal VratiIznosPrijevoza(string mjesto)

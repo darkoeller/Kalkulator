@@ -8,15 +8,11 @@ namespace BiznisSloj.BankarskiTecaj
 {
     public struct TecajHnBa : ITecaj
     {
-        private static bool _prolaz;
-
         public decimal VratiEuro()
         {
             try
             {
                 var hnbTecaj = NadjiSaWebaHnBa();
-                //if (_prolaz) return hnbTecaj;
-                //var tecaj = VratiTecajSaNabaveNeta();
                 return hnbTecaj;
             }
             catch (Exception)
@@ -27,17 +23,6 @@ namespace BiznisSloj.BankarskiTecaj
                 return 0.0m;
             }
         }
-
-        //private static decimal VratiTecajSaNabaveNeta()
-        //{
-        //    var client = new HttpClient();
-        //    var web = FormirajWebString();
-        //    var content = client.GetStringAsync(web).Result;
-        //    content = content.Replace(".", ",");
-        //    if (string.IsNullOrEmpty(content)) return 0.0m;
-        //    decimal.TryParse(content, out var tecaj);
-        //    return tecaj;
-        //}
 
         private static decimal NadjiSaWebaHnBa()
         {
@@ -52,15 +37,8 @@ namespace BiznisSloj.BankarskiTecaj
                 var propertyValue = (string) parsedProperty.Value;
                 decimal.TryParse(propertyValue, out tecaj);
             }
-           // _prolaz = true;
             return tecaj;
         }
 
-        //private static string FormirajWebString()
-        //{
-        //    var web = DateTime.Today.ToShortDateString().Remove(8,1);
-        //    var bilder = new StringBuilder("https://www.nabava.net/labs/hnb-tecaj/p/" + web + "/srednji/eur");
-        //    return bilder.ToString();
-        //}
     }
 }

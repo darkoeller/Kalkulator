@@ -1,16 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BiznisSloj.KoefSati
 {
+    [JsonObject("Koeficijenti")]
     public class Koeficijenti2 : ValueObject<Koeficijenti2>
     {
         static Koeficijenti2() =>  VratiSifre();
-
+        [JsonProperty("Sifra")]
         public string Sifra { get; set; }
+        [JsonProperty("Naziv")]
         public string Naziv { get; set; }
+        [JsonProperty("Iznos")]
         public double Koeficijent { get; set; }
 
         public static decimal VratiIznos(string naziv)
@@ -25,16 +30,30 @@ namespace BiznisSloj.KoefSati
 
         public static IEnumerable<Koeficijenti2> VratiSifre()
         {
-            var jsonObject = File.ReadAllText(@"Koeficijenti.json");
-            var rss = JObject.Parse(jsonObject);
-            var item = (JArray) rss["Koeficijenti"];
-            IList<Koeficijenti2> listaKoeficijenata = item.Select(p => new Koeficijenti2
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            //var imena = assembly.GetManifestResourceNames();
+            try
             {
-                Sifra = (string) p["Sifra"],
-                Naziv = (string) p["Naziv"],
-                Koeficijent = (double) p["Koeficijent"]
-            }).ToList();
-            return listaKoeficijenata;
+                using (var stream = assembly.GetManifestResourceStream(@"BiznisSloj.KoefSati.Koeficijenti.json"))
+                using (var reader = new StreamReader(stream))
+                using (var jsnonTextRider = new JsonTextReader(reader))
+                {
+                     var rss = (JObject) JToken.ReadFrom(jsnonTextRider);
+                     var item = (JArray) rss["Koeficijenti"];
+                     IList<Koeficijenti2> listaKoeficijenata = item
+                   .Select(p => new Koeficijenti2
+                   {
+                        Sifra = (string) p[nameof(Sifra)],
+                        Naziv = (string) p[nameof(Naziv)],
+                        Koeficijent = (double) p[nameof(Koeficijent)]
+                   }).ToList().AsReadOnly();
+                return listaKoeficijenata;
+                }                
+            }
+            catch (System.Exception)
+            {
+                throw;
+            } 
         }
 
         protected override bool EqualsCore(Koeficijenti2 other) => string.Equals(Sifra, other?.Sifra) && string.Equals(Naziv, other?.Naziv) &&

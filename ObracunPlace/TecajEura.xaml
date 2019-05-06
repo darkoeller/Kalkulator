@@ -33,7 +33,7 @@
                 VALUTNI PRETVARAČ
             </TextBlock>
         </StackPanel>
-        <GroupBox Header="Odaberite valutu">
+        <GroupBox Header="Odaberite banku">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120*" />

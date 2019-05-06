@@ -32,7 +32,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Kalkulator plaće</ProductName>
     <PublisherName>Kalkulator plaće</PublisherName>
-    <ApplicationRevision>100</ApplicationRevision>
+    <ApplicationRevision>101</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -86,11 +86,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>KljucObracuna.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
@@ -125,6 +124,7 @@
     <Compile Include="BrutoNetoUserControla.xaml.cs">
       <DependentUpon>BrutoNetoUserControla.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extenzije.cs" />
     <Compile Include="Header.cs" />
     <Compile Include="Mediator.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -213,15 +213,16 @@
     <Resource Include="Resources\Close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Resources\logo.png">
+    <Resource Include="Resources\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Design\projectGuides.guides" />
+    <None Include="KljucObracuna.snk" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

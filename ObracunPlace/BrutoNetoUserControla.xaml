@@ -35,7 +35,7 @@
                  Height="24"
                  Margin="5,2,5,5"
                  FontFamily="Roboto Light"
-                  ToolTip="Ovdje upišite tekst koji će vam se pojaviti u naslovu ispisa."
+                  ToolTip="Ovdje upišite tekst koji će vam se pojaviti u naslovu ispisa, npr. 'Velika Darkova plaća za mm/gggg'"
                  />
         <Border DockPanel.Dock="Top"
                 BorderThickness="3"
